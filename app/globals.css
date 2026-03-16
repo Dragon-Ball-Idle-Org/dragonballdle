@@ -8,13 +8,20 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--color-orange-400);
 
   --font-base: var(--font-roboto), system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   --font-display: var(--font-bangers);
   --font-ui: var(--font-inter), system-ui, , -apple-system, Segoe UI, Arial, sans-serif;
+
+  --default-transition-duration: 200ms;
 }
 
 body {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
   background:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("/assets/background-img.jpg") center bottom / cover no-repeat fixed;

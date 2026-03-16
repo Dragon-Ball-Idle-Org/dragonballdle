@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Bangers, Inter } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/Footer";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -19,7 +20,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DragonBallDle - Jogo de Adivinhação",
+  title: "DragonBallDle — Jogo de Adivinhação",
   description: "O desafio diário para verdadeiros fãs de Dragon Ball",
 };
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );
