@@ -1,7 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.dragonballdle.site",
+      },
+      {
+        protocol: "https",
+        hostname: "pub-7a42112fb83543e09f959229a0efd07f.r2.dev",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

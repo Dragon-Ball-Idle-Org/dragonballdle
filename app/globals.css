@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@plugin './hero.ts';
+/* Note: You may need to change the path to fit your project structure */
+@source '../node_modules/@heroui/theme/dist/*.js';
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --background: var(--color-orange-400);
@@ -15,6 +19,9 @@
   --font-ui: var(--font-inter), system-ui, , -apple-system, Segoe UI, Arial, sans-serif;
 
   --default-transition-duration: 200ms;
+
+  --shadow-game: 0 4px 14px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 body {

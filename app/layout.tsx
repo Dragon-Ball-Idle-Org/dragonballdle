@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto, Bangers, Inter } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Providers } from "./providers";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -34,8 +36,11 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
       >
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
