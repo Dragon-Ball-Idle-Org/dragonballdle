@@ -23,7 +23,7 @@ export function LanguageDropdown() {
     <div ref={ref} className="relative">
       <button
         id="lang-fixed"
-        className="w-9 h-9 rounded-full shadow-game"
+        className="w-9 h-9 rounded-full shadow-game flex items-center justify-center cursor-pointer bg-black"
         title="Change language"
         aria-haspopup="true"
         aria-expanded={open}
@@ -34,7 +34,7 @@ export function LanguageDropdown() {
           src="/assets/flags/en-us.svg"
           width={24}
           height={16}
-          className="object-cover rounded-xs shadow-game"
+          className="h-4 object-cover rounded-xs"
           alt="Selected Lang"
         />
       </button>
@@ -44,7 +44,7 @@ export function LanguageDropdown() {
           id="lang-menu"
           role="menu"
           aria-label="Select language"
-          className="absolute right-0 mt-2 w-32 max-h-64 overflow-y-auto rounded-md shadow-game bg-white z-50"
+          className="absolute grid gap-1 p-2 right-0 mt-2 w-38 max-h-50 overflow-y-auto rounded-xl shadow-game bg-black z-50"
         >
           {LANGUAGES.map((lang) => (
             <Link
@@ -53,14 +53,14 @@ export function LanguageDropdown() {
               href={`/${lang}/`}
               data-lang={lang}
               onClick={() => setOpen(false)}
-              className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-orange-100 transition-colors"
+              className="flex items-center gap-2 h-9 px-2 py-1 rounded-md text-xs font-semibold text-white hover:bg-white/20"
             >
               <Image
                 src={`/assets/flags/${lang}.svg`}
                 width={24}
                 height={16}
                 alt={lang.toUpperCase()}
-                className="object-cover rounded-xs"
+                className="h-4 object-cover rounded-xs"
                 aria-hidden="true"
               />
               {lang.toUpperCase()}

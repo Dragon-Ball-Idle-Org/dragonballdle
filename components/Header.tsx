@@ -6,16 +6,18 @@ const cdnURL = process.env.NEXT_PUBLIC_CDN_BASE_URL;
 export function Header() {
   return (
     <header className="grid place-items-center mt-16">
-      <Image
-        id="logo"
-        className="logo"
-        width={640}
-        height={100}
-        src={`${cdnURL}/logo.png`}
-        alt="DragonBallDle logo"
-      />
+      <div className="flex items-center gap-4">
+        <Image
+          id="logo"
+          className="logo"
+          width={640}
+          height={100}
+          src={`${cdnURL}/logo.png`}
+          alt="DragonBallDle logo"
+        />
 
-      <LanguageDropdown />
+        <LanguageDropdown />
+      </div>
     </header>
   );
 }
