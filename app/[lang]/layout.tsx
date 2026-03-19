@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto, Bangers, Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 

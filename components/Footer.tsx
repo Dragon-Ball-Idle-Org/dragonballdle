@@ -1,13 +1,12 @@
 import { SOCIAL_LINKS_MAINTAINERS } from "@/shared/constants";
 import Image from "next/image";
 import { IconLink, TextLink } from "./_UI/Link";
-import Link from "next/link";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="flex flex-col items-center gap-1 w-full text-center p-1 rounded-xl bg-black/60 backdrop-blur-sm">
+    <footer className="flex flex-col items-center gap-1 w-full text-center p-2 mb-2 rounded-xl bg-black/60 backdrop-blur-sm">
       <div className="text-xl font-bold">DragonBallDle</div>
       <div className="text-sm">
         The daily challenge for true Dragon Ball fans
