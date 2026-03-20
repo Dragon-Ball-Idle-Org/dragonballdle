@@ -1,4 +1,4 @@
-import { SOCIAL_LINKS_MAINTAINERS } from "@/shared/constants";
+import { SOCIAL_LINKS_MAINTAINERS } from "@/src/shared/constants";
 import Image from "next/image";
 import { IconLink, TextLink } from "./_UI/Link";
 

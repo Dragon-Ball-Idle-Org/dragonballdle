@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+import { cn } from "@/src/utils/cn";
 import Link, { type LinkProps } from "next/link";
 import type { AnchorHTMLAttributes } from "react";
 

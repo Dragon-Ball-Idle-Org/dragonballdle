@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { Roboto, Bangers, Inter } from "next/font/google";
+import { Footer } from "@/src/components/Footer";
+import { Header } from "@/src/components/Header";
+import { hasLocale } from "next-intl";
+import { routing } from "@/src/i18n/routing";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
+
 import "../globals.css";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -25,11 +30,22 @@ export const metadata: Metadata = {
   description: "O desafio diário para verdadeiros fãs de Dragon Ball",
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return routing.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params,
+}: LayoutProps<"/[lang]">) {
+  const { lang } = await params;
+
+  if (!hasLocale(routing.locales, lang)) {
+    notFound();
+  }
+
+  setRequestLocale(lang);
+
   return (
     <html lang="en">
       <body
