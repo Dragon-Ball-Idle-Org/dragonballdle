@@ -26,17 +26,10 @@ export function Footer() {
       </div>
 
       <div className="flex items-center gap-3">
-        <IconLink
-          href="https://buymeacoffee.com/dragonballdle"
-          target="_blank"
-          rel="noopener"
-        >
-          <Image
-            src="/assets/buy-me-a-coffe.webp"
-            width={64}
-            height={64}
-            alt="Buy me a coffe"
-          />
+        <IconLink href="/legal">
+          <div className="flex items-center justify-center w-14 h-14 font-display text-2xl text-zinc-900 bg-white rounded-full border border-zinc-900">
+            i
+          </div>
         </IconLink>
         <IconLink
           href="https://buymeacoffee.com/dragonballdle"
@@ -58,10 +51,6 @@ export function Footer() {
         </div>
         <div className="flex items-center gap-3">
           <span>{t("copyright")}</span>
-          <span>&middot;</span>
-          <TextLink href="/legal" className="hover:text-primary transition-colors">
-            Legal & DMCA
-          </TextLink>
         </div>
       </div>
     </footer>
