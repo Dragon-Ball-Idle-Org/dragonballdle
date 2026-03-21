@@ -39,6 +39,18 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    alternates: {
+      canonical: `https://dragonballdle.site/${lang}/`,
+      languages: {
+        "x-default": `https://dragonballdle.site/${routing.defaultLocale}/`,
+        ...Object.fromEntries(
+          routing.locales.map((locale) => [
+            locale,
+            `https://dragonballdle.site/${locale}/`,
+          ]),
+        ),
+      },
+    },
   };
 }
 
