@@ -33,5 +33,12 @@
     "cookiesIntro": "Chúng tôi dùng Cookie của Google Analytics và Ads.",
     "cookiesAds": "Những công nghệ này xác định khu vực hiện tại nhằm cung cấp quảng cáo tương ứng.",
     "cookiesConsent": "Nếu tiếp tục theo dõi trang web, bạn đồng ý sử dụng các Cookie phi cơ bản này."
+  },
+  "manifest": {
+    "description": "Đoán nhân vật Dragon Ball hôm nay. Thử thách nhanh chóng, miễn phí mỗi ngày."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Trò chơi đoán xem",
+    "description": "Thử thách mỗi ngày dành cho fan ruột của Dragon Ball"
   }
 }

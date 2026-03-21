@@ -33,5 +33,12 @@
     "cookiesIntro": "Pazarlama ve istatistik için üçüncü taraf Çerezler (Google Ads, GA4) kullanılır.",
     "cookiesAds": "Kişiselleştirilmiş ya da kişiselleştirilmemiş reklamlar göstermek için cihaz belirteçleri işlenebilir.",
     "cookiesConsent": "DragonBallDle'ı kullanarak üçüncü taraf çerezlerine onay vermiş sayılırsınız."
+  },
+  "manifest": {
+    "description": "Bugünkü Dragon Ball karakterini tahmin et. Hızlı, ücretsiz günlük meydan okuma."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Tahmin Oyunu",
+    "description": "Gerçek Dragon Ball hayranları için günlük meydan okuma"
   }
 }

@@ -33,5 +33,12 @@
     "cookiesIntro": "Sumasailalim kami sa pag-record gamit External Analytical cookies pambasag rekords ng ad.",
     "cookiesAds": "Maaaring subaybyan ang browser history mo ng mga advertisement platforms maghatid nang nararapat sa inyo.",
     "cookiesConsent": "Ang pananatili sa DragonBallDle ay pagtanggap sa mga Cookies na to, na malaya mong tanggalin kailanman."
+  },
+  "manifest": {
+    "description": "Hulaan ang karakter ng Dragon Ball ngayon. Mabilis, libreng hamon araw-araw."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Pahulaan Game",
+    "description": "Ang araw-araw na hamon para sa mga tunay na tagahanga ng Dragon Ball"
   }
 }

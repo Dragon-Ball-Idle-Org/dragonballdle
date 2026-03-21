@@ -33,5 +33,12 @@
     "cookiesIntro": "Noi tracciamo lo stretto indispensabile tramite Cookie Google Analytics & Ads.",
     "cookiesAds": "Sistemi che sfruttano tag di riconoscimento per personalizzare promozioni secondo esplicito consenso.",
     "cookiesConsent": "Proseguire navigando equivale a dichiarare adesione al ricorso dei cookie limitatamente statistici."
+  },
+  "manifest": {
+    "description": "Indovina il personaggio di Dragon Ball di oggi. Sfida quotidiana rapida e gratuita."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Gioco a Quiz",
+    "description": "La sfida quotidiana per i veri fan di Dragon Ball"
   }
 }

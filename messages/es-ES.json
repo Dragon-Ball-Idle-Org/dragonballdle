@@ -33,5 +33,12 @@
     "cookiesIntro": "Utilizamos cookies para análisis (Google Analytics) y publicidad (Google Ads).",
     "cookiesAds": "Estas tecnologías procesan identificadores de dispositivo para mostrar anuncios personalizados o no basados en tu región y consentimiento.",
     "cookiesConsent": "Al usar DragonBallDle, consientes el uso de estas cookies. Puedes bloquearlas usando los controles de tu navegador en cualquier momento."
+  },
+  "manifest": {
+    "description": "Adivina el personaje de Dragon Ball de hoy. Desafío diario rápido y gratuito."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Juego de Adivinanzas",
+    "description": "El desafío diario para verdaderos fans de Dragon Ball"
   }
 }

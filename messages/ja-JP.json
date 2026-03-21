@@ -33,5 +33,12 @@
     "cookiesIntro": "私たちは分析（Google Analytics）および広告（Google Ads）のためにCookieを使用しています。",
     "cookiesAds": "これらの技術は、地域や同意に基づいて最適化された広告を表示するためにデバイス識別子を処理する場合があります。",
     "cookiesConsent": "DragonBallDleを利用することで、これらのCookieの使用に同意したことになります。ブラウザの設定でいつでも拒否できます。"
+  },
+  "manifest": {
+    "description": "今日のドラゴンボールのキャラクターを当てよう。早くて無料のデイリーチャレンジ。"
+  },
+  "metadata": {
+    "title": "DragonBallDle — 当てゲーム",
+    "description": "真のドラゴンボールファンのためのデイリーチャレンジ"
   }
 }

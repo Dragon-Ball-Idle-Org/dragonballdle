@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Bangers, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { routing } from "@/i18n/routing";
@@ -28,10 +28,19 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "DragonBallDle — Jogo de Adivinhação",
-  description: "O desafio diário para verdadeiros fãs de Dragon Ball",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const t = await getTranslations({ locale: lang, namespace: "metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ lang: locale }));

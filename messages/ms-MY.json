@@ -33,5 +33,12 @@
     "cookiesIntro": "Penggunaan kuki diletakkan oleh Google sebagai pemacu asas kewangan dan sistem rekod perisian kami.",
     "cookiesAds": "Teknologi pengawasan iklan dipasang untuk melihat interaksi kawasan anda agar lebih fokus.",
     "cookiesConsent": "Apabila pelawat menjelajah platform siber ini, ini dilihat sebagai kelulusan persetujuan pemasangan kuki laman luar."
+  },
+  "manifest": {
+    "description": "Teka karakter Dragon Ball hari ini. Cabaran harian pantas dan percuma."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Permainan Meneka",
+    "description": "Cabaran harian untuk peminat tegar Dragon Ball"
   }
 }

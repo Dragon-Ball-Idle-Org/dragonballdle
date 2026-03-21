@@ -33,5 +33,12 @@
     "cookiesIntro": "僅僅用於Google Analytics分析，以及未來的推播廣告支持。",
     "cookiesAds": "處理您的非敏感設備紀錄以便放送適合您在地語言及國家區化的無害廣告資訊。",
     "cookiesConsent": "當您瀏覽該專案網址時，即被視為預設同意該附加Cookie存在，隨時能清空本地緩存去刪去。"
+  },
+  "manifest": {
+    "description": "猜猜今天的七龍珠角色。快速、免費的每日挑戰。"
+  },
+  "metadata": {
+    "title": "DragonBallDle — 猜謎遊戲",
+    "description": "專為七龍珠鐵粉打造的每日挑戰"
   }
 }

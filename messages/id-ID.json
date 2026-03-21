@@ -33,5 +33,12 @@
     "cookiesIntro": "Platform kita memasang pelacak ringan buatan Google untuk monetisasi dasar.",
     "cookiesAds": "Identifikasi alat dan preferensi umum diawasi untuk kampanye penyiaran.",
     "cookiesConsent": "Dengan berada dalam batas wilayah kami maka cookie dan jejak yang disinggung diterima, kecuali anda hapus secara konstan."
+  },
+  "manifest": {
+    "description": "Tebak karakter Dragon Ball hari ini. Tantangan harian cepat dan gratis."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Game Tebak-Tebakan",
+    "description": "Tantangan harian buat fans sejati Dragon Ball"
   }
 }

@@ -33,5 +33,12 @@
     "cookiesIntro": "당사는 분석 및 광고를 위해 쿠키를 사용합니다.",
     "cookiesAds": "기술은 동의 여부 및 지역에 따라 맞춤형 광고를 제공하기 위해 기기 식별자를 처리합니다.",
     "cookiesConsent": "서비스를 사용함으로써 쿠키 사용에 동의하는 것으로 간주됩니다."
+  },
+  "manifest": {
+    "description": "오늘의 드래곤볼 캐릭터를 맞춰보세요. 빠르고 무료인 일일 도전."
+  },
+  "metadata": {
+    "title": "DragonBallDle — 추리 게임",
+    "description": "진정한 드래곤볼 팬을 위한 일일 도전"
   }
 }

@@ -33,5 +33,12 @@
     "cookiesIntro": "分析机制和赞助商广告基于本地Cookie机制处理。",
     "cookiesAds": "用于鉴别终端设备是否进行作弊，或投送合法精准内容。",
     "cookiesConsent": "继续驻留与使用表明您批准我们调取合法非必需的Cookie内容。"
+  },
+  "manifest": {
+    "description": "猜猜今天的七龙珠角色。快速、免费的每日挑战。"
+  },
+  "metadata": {
+    "title": "DragonBallDle — 猜谜游戏",
+    "description": "专为七龙珠真爱粉打造的每日挑战"
   }
 }

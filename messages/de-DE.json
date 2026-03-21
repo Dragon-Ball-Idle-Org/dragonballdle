@@ -33,5 +33,12 @@
     "cookiesIntro": "Wir verwenden Cookies für Analyse- und Werbezwecke (Google Ads/Analytics).",
     "cookiesAds": "Technologien können Gerätekennungen verarbeiten, um basierend auf Ihrer Region/Zustimmung personalisierte Werbung zu zeigen.",
     "cookiesConsent": "Durch die Nutzung stimmen Sie der Verwendung dieser nicht essenziellen Cookies zu. Sie können diese in Ihrem Browser blockieren."
+  },
+  "manifest": {
+    "description": "Errate den heutigen Dragon Ball Charakter. Schnelle, kostenlose tägliche Herausforderung."
+  },
+  "metadata": {
+    "title": "DragonBallDle — Ratespiel",
+    "description": "Die tägliche Herausforderung für wahre Dragon Ball Fans"
   }
 }
