@@ -39,6 +39,13 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    robots: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
     alternates: {
       canonical: `https://dragonballdle.site/${lang}/`,
       languages: {
