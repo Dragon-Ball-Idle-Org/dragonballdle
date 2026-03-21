@@ -4,11 +4,15 @@ import { BackButton } from "./_UI/BackButton";
 
 const cdnURL = process.env.NEXT_PUBLIC_CDN_BASE_URL;
 
-export function Header() {
+export function Header({
+  showBackButton = false,
+}: {
+  showBackButton?: boolean;
+}) {
   return (
     <header className="grid place-items-center mt-16">
       <div className="flex items-center gap-4">
-        <BackButton />
+        {showBackButton && <BackButton />}
 
         <Image
           id="logo"
