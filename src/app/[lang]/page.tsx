@@ -11,7 +11,7 @@ export default function Home() {
         icon={<h1 className="font-display text-9xl">?</h1>}
         title={t("classic.title")}
         subtitle={t("classic.subtitle")}
-        href={`https://dragonballdle.site/${currentLocale}`}
+        href={`https://classic.dragonballdle.site/${currentLocale}`}
       />
 
       <GameButtonDisabled
