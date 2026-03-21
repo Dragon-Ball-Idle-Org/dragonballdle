@@ -21,9 +21,7 @@ export function SplashScreen() {
   return (
     <div
       id="app-loading"
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-primary transition-opacity duration-400 ease-out ${
-        loaded ? "pointer-events-none opacity-0" : "opacity-100"
-      }`}
+      className={`fixed inset-0 z-9999 flex items-center justify-center bg-primary transition-opacity duration-400 ease-out ${loaded ? "pointer-events-none opacity-0" : "opacity-100"}`}
     >
       <Image
         src="/assets/baba-icon.svg"
