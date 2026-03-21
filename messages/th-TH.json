@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "คลาสสิก",
+      "subtitle": "ทายตัวละครประจำวัน"
+    },
+    "inProgress": {
+      "title": "กำลังดำเนินการ...",
+      "subtitle": "เกมใหม่กำลังจะมา..."
+    }
+  },
+  "footer": {
+    "subtitle": "ความท้าทายรายวันสำหรับแฟน Dragon Ball ตัวจริง",
+    "copyright": "Dragon Ball เป็นเครื่องหมายการค้าจดทะเบียนและทรัพย์สินของ Akira Toriyama/Shueisha, Toei Animation ซึ่งไม่ได้รับรองหรือสนับสนุนเกมนี้"
+  }
+}

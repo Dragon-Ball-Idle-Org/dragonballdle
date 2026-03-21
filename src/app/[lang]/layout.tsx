@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { Roboto, Bangers, Inter } from "next/font/google";
-import { Footer } from "@/src/components/Footer";
-import { Header } from "@/src/components/Header";
-import { hasLocale } from "next-intl";
-import { routing } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { routing } from "@/i18n/routing";
 
 import "../globals.css";
+import { Providers } from "../providers";
+import { SplashScreen } from "@/components/_UI/SplashScreen";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -54,9 +56,12 @@ export default async function RootLayout({
           background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("${process.env.NEXT_PUBLIC_CDN_BASE_URL}/background-img.jpg") center bottom / cover no-repeat fixed`,
         }}
       >
-        <Header />
-        {children}
-        <Footer />
+        <SplashScreen />
+        <Providers locale={lang}>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

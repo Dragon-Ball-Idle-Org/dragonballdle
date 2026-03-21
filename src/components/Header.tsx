@@ -10,9 +10,10 @@ export function Header() {
         <Image
           id="logo"
           className="logo"
+          src={`${cdnURL}/logo.png`}
+          priority
           width={640}
           height={100}
-          src={`${cdnURL}/logo.png`}
           alt="DragonBallDle logo"
         />
 

@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "كلاسيك",
+      "subtitle": "خمن الشخصية اليومية"
+    },
+    "inProgress": {
+      "title": "قيد التقدم...",
+      "subtitle": "لعبة جديدة قادمة..."
+    }
+  },
+  "footer": {
+    "subtitle": "التحدي اليومي لمحبي دراغون بول الحقيقيين",
+    "copyright": "دراغون بول هي علامة تجارية مسجلة وملكية لـ Akira Toriyama/Shueisha، و Toei Animation، وهم لا يؤيدون أو يتبنون هذه اللعبة."
+  }
+}

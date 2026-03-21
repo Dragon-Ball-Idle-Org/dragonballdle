@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "Klasiko",
+      "subtitle": "Hulaan ang pang-araw-araw na karakter"
+    },
+    "inProgress": {
+      "title": "Kasunod...",
+      "subtitle": "May bagong laro na paparating..."
+    }
+  },
+  "footer": {
+    "subtitle": "Ang hamon araw-araw para sa tunay na tagahanga ng Dragon Ball",
+    "copyright": "Ang Dragon Ball ay isang rehistradong trademark at pag-aari ng Akira Toriyama/Shueisha, Toei Animation, na hindi sumusuporta o nag-iisponsor sa larong ito."
+  }
+}

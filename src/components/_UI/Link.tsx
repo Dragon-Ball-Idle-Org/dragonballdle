@@ -1,8 +1,8 @@
-import { cn } from "@/src/utils/cn";
-import Link, { type LinkProps } from "next/link";
-import type { AnchorHTMLAttributes } from "react";
+import { Link } from "@/i18n/navigation";
+import { cn } from "@/utils/cn";
+import type { ComponentProps } from "react";
 
-type CustomLinkProps = LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type CustomLinkProps = ComponentProps<typeof Link>;
 
 export function TextLink(props: CustomLinkProps) {
   return (

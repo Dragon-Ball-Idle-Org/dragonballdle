@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "Klasik",
+      "subtitle": "Teka watak harian"
+    },
+    "inProgress": {
+      "title": "Sedang dijalankan...",
+      "subtitle": "Permainan baru akan tiba..."
+    }
+  },
+  "footer": {
+    "subtitle": "Cabaran harian untuk peminat tegar Dragon Ball",
+    "copyright": "Dragon Ball ialah tanda dagangan berdaftar dan hak milik Akira Toriyama/Shueisha, Toei Animation, yang tidak menyokong atau menaja permainan ini."
+  }
+}

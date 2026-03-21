@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "Klasik",
+      "subtitle": "Günün karakterini tahmin et"
+    },
+    "inProgress": {
+      "title": "Devam ediyor...",
+      "subtitle": "Yeni bir oyun yolda..."
+    }
+  },
+  "footer": {
+    "subtitle": "Gerçek Dragon Ball hayranları için günlük zorluk",
+    "copyright": "Dragon Ball, tescilli bir ticari markadır ve bu oyunu desteklemeyen veya sponsor olmayan Akira Toriyama/Shueisha, Toei Animation'a aittir."
+  }
+}

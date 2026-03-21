@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "經典",
+      "subtitle": "猜猜今天的角色"
+    },
+    "inProgress": {
+      "title": "進行中...",
+      "subtitle": "新遊戲正在開發中..."
+    }
+  },
+  "footer": {
+    "subtitle": "龍珠真愛粉的每日挑戰",
+    "copyright": "龍珠是鳥山明/集英社、東映動畫的註冊商標及財產，他們不贊助也不認可本遊戲。"
+  }
+}

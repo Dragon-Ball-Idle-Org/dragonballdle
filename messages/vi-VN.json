@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "Cổ điển",
+      "subtitle": "Đoán nhân vật hôm nay"
+    },
+    "inProgress": {
+      "title": "Đang tiến hành...",
+      "subtitle": "Một trò chơi mới sắp ra mắt..."
+    }
+  },
+  "footer": {
+    "subtitle": "Thử thách hàng ngày cho những người hâm mộ Dragon Ball đích thực",
+    "copyright": "Dragon Ball là nhãn hiệu đã đăng ký và là tài sản của Akira Toriyama/Shueisha, Toei Animation, những bên không xác nhận hay tài trợ cho trò chơi này."
+  }
+}

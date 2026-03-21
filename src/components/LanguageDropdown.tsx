@@ -1,13 +1,15 @@
 "use client";
 
-import { LANGUAGES } from "@/src/shared/constants";
+import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { useLocale } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export function LanguageDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const currentLanguage = useLocale();
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -31,7 +33,7 @@ export function LanguageDropdown() {
         onClick={() => setOpen((prev) => !prev)}
       >
         <Image
-          src="/assets/flags/en-us.svg"
+          src={`/assets/flags/${currentLanguage.toLowerCase()}.svg`}
           width={24}
           height={16}
           className="h-4 object-cover rounded-xs"
@@ -46,11 +48,12 @@ export function LanguageDropdown() {
           aria-label="Select language"
           className="absolute grid gap-1 p-2 right-0 mt-2 w-38 max-h-50 overflow-y-auto rounded-xl shadow-game bg-black z-50"
         >
-          {LANGUAGES.map((lang) => (
+          {routing.locales.map((lang) => (
             <Link
               key={lang}
               role="menuitem"
-              href={`/${lang}/`}
+              href="/"
+              locale={lang}
               data-lang={lang}
               onClick={() => setOpen(false)}
               className="flex items-center gap-2 h-9 px-2 py-1 rounded-md text-xs font-semibold text-white hover:bg-white/20"

@@ -1,0 +1,16 @@
+{
+  "home": {
+    "classic": {
+      "title": "Clássico",
+      "subtitle": "Adivinhe o personagem diário"
+    },
+    "inProgress": {
+      "title": "Em andamento...",
+      "subtitle": "Um novo jogo está chegando..."
+    }
+  },
+  "footer": {
+    "subtitle": "O desafio diário para os verdadeiros fãs de Dragon Ball",
+    "copyright": "Dragon Ball é uma marca registrada e propriedade de Akira Toriyama/Shueisha, Toei Animation, que não endossam nem patrocinam este jogo."
+  }
+}

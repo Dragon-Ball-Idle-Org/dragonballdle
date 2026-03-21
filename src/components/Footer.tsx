@@ -1,16 +1,16 @@
-import { SOCIAL_LINKS_MAINTAINERS } from "@/src/shared/constants";
+import { SOCIAL_LINKS_MAINTAINERS } from "@/shared/constants";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { IconLink, TextLink } from "./_UI/Link";
 
 export function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="flex flex-col items-center gap-1 w-full text-center p-2 mb-2 rounded-xl bg-black/60 backdrop-blur-sm">
       <div className="text-xl font-bold">DragonBallDle</div>
-      <div className="text-sm">
-        The daily challenge for true Dragon Ball fans
-      </div>
+      <div className="text-sm">{t("subtitle")}</div>
 
       <div className="flex item-center justify-center gap-6">
         {SOCIAL_LINKS_MAINTAINERS.map((maintainer) => (
@@ -56,11 +56,7 @@ export function Footer() {
         <div>
           <span>{currentYear} DragonBallDle.</span>
         </div>
-        <span>
-          Dragon Ball is a registered trademark and property of Akira
-          Toriyama/Shueisha, Toei Animation, who do not endorse or sponsor this
-          game.
-        </span>
+        <span>{t("copyright")}</span>
       </div>
     </footer>
   );

@@ -12,26 +12,3 @@ export const SOCIAL_LINKS_MAINTAINERS = [
     social_url: "https://www.linkedin.com/in/gildofj/",
   },
 ];
-
-export const LANGUAGES = [
-  "pt-br",
-  "en-us",
-  "es-es",
-  "fr-fr",
-  "it-it",
-  "de-de",
-  "ru-ru",
-  "tr-tr",
-  "uk-ua",
-  "ar-sa",
-  "ja-jp",
-  "ko-kr",
-  "hi-in",
-  "th-th",
-  "vi-vn",
-  "id-id",
-  "zh-cn",
-  "zh-tw",
-  "fil-ph",
-  "ms-my",
-];
