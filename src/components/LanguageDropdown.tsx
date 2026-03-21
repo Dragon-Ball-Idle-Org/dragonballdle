@@ -32,7 +32,7 @@ export function LanguageDropdown() {
     <div ref={ref} className="relative">
       <button
         id="lang-fixed"
-        className="w-9 h-9 rounded-full shadow-game flex items-center justify-center cursor-pointer bg-black"
+        className="w-10 h-10 rounded-full shadow-game flex items-center justify-center cursor-pointer bg-black transition-transform hover:scale-110"
         title="Change language"
         aria-haspopup="true"
         aria-expanded={open}
