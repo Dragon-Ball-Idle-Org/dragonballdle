@@ -15,7 +15,7 @@ export default function LegalPage() {
         <h2 className="font-display tracking-widest text-4xl text-white border-b-2 border-zinc-800/80 pb-2">
           {t("termsTitle")}
         </h2>
-        <span className="text-sm text-zinc-400 font-ui italic break-words">
+        <span className="text-sm text-zinc-400 font-ui italic wrap-break-words">
           {t("termsUpdated")}
         </span>
         <p className="font-base text-lg leading-relaxed text-zinc-300">
@@ -53,7 +53,7 @@ export default function LegalPage() {
         <h2 className="font-display tracking-widest text-4xl text-white border-b-2 border-zinc-800/80 pb-2">
           {t("privacyTitle")}
         </h2>
-        <span className="text-sm text-zinc-400 font-ui italic break-words">
+        <span className="text-sm text-zinc-400 font-ui italic wrap-break-words">
           {t("privacyUpdated")}
         </span>
         <p className="font-base text-lg leading-relaxed text-zinc-300">
@@ -85,7 +85,7 @@ export default function LegalPage() {
         <h2 className="font-display tracking-widest text-4xl text-white border-b-2 border-zinc-800/80 pb-2">
           {t("cookiesTitle")}
         </h2>
-        <span className="text-sm text-zinc-400 font-ui italic break-words">
+        <span className="text-sm text-zinc-400 font-ui italic wrap-break-words">
           {t("cookiesUpdated")}
         </span>
         <p className="font-base text-lg leading-relaxed text-zinc-300">

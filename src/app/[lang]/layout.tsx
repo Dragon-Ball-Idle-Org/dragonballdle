@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
 import "../globals.css";
 import { Providers } from "../providers";
 import { SplashScreen } from "@/components/_UI/SplashScreen";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -50,6 +51,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
       <body
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
         style={{
