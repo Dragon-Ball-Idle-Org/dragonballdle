@@ -12,5 +12,26 @@
   "footer": {
     "subtitle": "Gerçek Dragon Ball hayranları için günlük zorluk",
     "copyright": "Dragon Ball, tescilli bir ticari markadır ve bu oyunu desteklemeyen veya sponsor olmayan Akira Toriyama/Shueisha, Toei Animation'a aittir."
+  },
+  "legal": {
+    "title": "Legal & DMCA",
+    "termsTitle": "Terms of Use",
+    "termsUpdated": "Last updated: March 21, 2026",
+    "termsIntro": "These Terms of Use govern access to and use of DragonBallDle. By using the Service, you agree to these Terms.",
+    "termsNature": "DragonBallDle is an independent fan-made daily mini-game project and is not officially affiliated with any rights holders. All Dragon Ball assets, characters, and marks belong to their respective original owners. This project is for informational and entertainment purposes only under Fair Use.",
+    "termsAcceptableUse": "No unauthorized scraping, abusive automation, or attempts to bypass safeguards are allowed.",
+    "termsThirdParty": "The Service relies on third-party providers such as Cloudflare, Vercel, and Google (Analytics, Tag Manager, Ads). Their respective terms and privacy policies apply.",
+    "termsDisclaimer": "Service is provided 'as is'. We offer no absolute warranty of uninterrupted access or absolute data accuracy. To the extent permitted by law, liability is limited.",
+    "privacyTitle": "Privacy Policy",
+    "privacyUpdated": "Last updated: March 21, 2026",
+    "privacyIntro": "We respect your privacy. DragonBallDle does not require user accounts, passwords, or emails. We only collect data necessary for analytics and advertising.",
+    "privacyDataCollected": "Technical data (IP, browser type, region) and Analytics/Advertising data (identifiers, page events) via Google Analytics and Google Tag Manager.",
+    "privacyLegalBasis": "We process this data under Legitimate interest for security and Consent for analytics/ads (GDPR/CCPA compliant).",
+    "privacyYourRights": "Depending on your region, you may request access, restriction, or deletion of your analytics data via your browser settings or Google's opt-out tools.",
+    "cookiesTitle": "Cookie Policy",
+    "cookiesUpdated": "Last updated: March 21, 2026",
+    "cookiesIntro": "We use cookies for Analytics (Google Analytics) and Advertising (Google Ads).",
+    "cookiesAds": "Technologies may process device/browser identifiers to show personalized or non-personalized ads based on your region and consent.",
+    "cookiesConsent": "By using DragonBallDle, you consent to our use of these non-essential cookies. You can use your browser controls to block or clear them at any time."
   }
 }

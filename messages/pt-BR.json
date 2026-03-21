@@ -12,5 +12,26 @@
   "footer": {
     "subtitle": "O desafio diário para os verdadeiros fãs de Dragon Ball",
     "copyright": "Dragon Ball é uma marca registrada e propriedade de Akira Toriyama/Shueisha, Toei Animation, que não endossam nem patrocinam este jogo."
+  },
+  "legal": {
+    "title": "Aviso Legal e DMCA",
+    "termsTitle": "Termos de Uso",
+    "termsUpdated": "Última atualização: 21 de Março de 2026",
+    "termsIntro": "Estes Termos de Uso regem o acesso e uso do DragonBallDle. Ao utilizar o Serviço, você concorda com estes Termos.",
+    "termsNature": "DragonBallDle é um projeto de mini-jogos diários feito por fãs e totalmente independente, não sendo oficialmente afiliado a nenhum detentor de direitos. Todos os ativos, personagens e marcas de Dragon Ball pertencem aos seus respectivos proprietários originais. O projeto tem fins de entretenimento e informação com base no Uso Razoável (Fair Use/DMCA Safe Harbor).",
+    "termsAcceptableUse": "Não é permitido scrapings automatizados, ataques ou tentativas de burlar as proteções da plataforma.",
+    "termsThirdParty": "O Serviço depende de provedores de terceiros como Cloudflare, Vercel e Serviços Google (Analytics, Tag Manager, Ads). Os respectivos termos deles aplicam-se quando integrados em nossa interface.",
+    "termsDisclaimer": "O Serviço é fornecido 'no estado em que se encontra'. Não oferecemos garantias absolutas de acesso ininterrupto. Reivindicações de DMCA devem nos ser relatadas diretamente para averiguação.",
+    "privacyTitle": "Política de Privacidade",
+    "privacyUpdated": "Última atualização: 21 de Março de 2026",
+    "privacyIntro": "O DragonBallDle prioriza a sua privacidade. Não coletamos contas, senhas ou e-mails de jogadores. Armazenamos exclusivamente os dados necessários para tráfego e relatórios.",
+    "privacyDataCollected": "Dados técnicos de rede (IP parcial, Região) e métricas via Google Analytics e Google Tag Manager.",
+    "privacyLegalBasis": "Esses dados são processados sob Interesse Legítimo de segurança (firewalls do Cloudflare/Vercel) e Consentimento opcional para rastreamento (LGPD / GDPR).",
+    "privacyYourRights": "Conforme leis de proteção, você pode requisitar que dados estatísticos de terceiros sejam limpos utilizando ferramentas do seu próprio navegador ou os guias de opt-out do Google.",
+    "cookiesTitle": "Política de Cookies",
+    "cookiesUpdated": "Última atualização: 21 de Março de 2026",
+    "cookiesIntro": "Utilizamos cookies de terceiros para o Google Analytics e plataforma de publicidade.",
+    "cookiesAds": "As parcerias confiam em identificadores de aparelho para publicidade orientada e detecção de tráfego inválido ou bots, baseando-se em sua região.",
+    "cookiesConsent": "Ao prosseguir utilizando a nossa interface, você concorda passivamente com nossos cookies não essenciais de terceiros descritos acima. Fique livre para deletá-los em seu navegador."
   }
 }

@@ -56,7 +56,13 @@ export function Footer() {
         <div>
           <span>{currentYear} DragonBallDle.</span>
         </div>
-        <span>{t("copyright")}</span>
+        <div className="flex items-center gap-3">
+          <span>{t("copyright")}</span>
+          <span>&middot;</span>
+          <TextLink href="/legal" className="hover:text-primary transition-colors">
+            Legal & DMCA
+          </TextLink>
+        </div>
       </div>
     </footer>
   );
