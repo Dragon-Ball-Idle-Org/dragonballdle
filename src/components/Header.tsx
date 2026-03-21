@@ -5,14 +5,14 @@ import { BackButton } from "./_UI/BackButton";
 const cdnURL = process.env.NEXT_PUBLIC_CDN_BASE_URL;
 
 export function Header({
-  showBackButton = false,
+  hideBackButton = false,
 }: {
-  showBackButton?: boolean;
+  hideBackButton?: boolean;
 }) {
   return (
     <header className="grid place-items-center mt-16">
       <div className="flex items-center gap-4">
-        {showBackButton && <BackButton />}
+        {!hideBackButton && <BackButton />}
 
         <Image
           id="logo"

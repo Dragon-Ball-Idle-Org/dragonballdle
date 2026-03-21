@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { routing } from "@/i18n/routing";
 import { Providers } from "../providers";
 import { SplashScreen } from "@/components/_UI/SplashScreen";
@@ -89,7 +88,6 @@ export default async function RootLayout({
       >
         <SplashScreen />
         <Providers locale={lang}>
-          <Header />
           {children}
           <Footer />
         </Providers>
