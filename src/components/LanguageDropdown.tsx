@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import Image from "next/image";
@@ -10,6 +10,8 @@ export function LanguageDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const currentLanguage = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -20,6 +22,11 @@ export function LanguageDropdown() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const onChangeLanguage = (lang: string) => {
+    router.push(pathname, { locale: lang });
+    setOpen(false);
+  };
 
   return (
     <div ref={ref} className="relative">
@@ -49,13 +56,11 @@ export function LanguageDropdown() {
           className="absolute grid gap-1 p-2 right-0 mt-2 w-38 max-h-50 overflow-y-auto rounded-xl shadow-game bg-black z-50"
         >
           {routing.locales.map((lang) => (
-            <Link
+            <button
               key={lang}
               role="menuitem"
-              href="/"
-              locale={lang}
               data-lang={lang}
-              onClick={() => setOpen(false)}
+              onClick={() => onChangeLanguage(lang)}
               className="flex items-center gap-2 h-9 px-2 py-1 rounded-md text-xs font-semibold text-white hover:bg-white/20"
             >
               <Image
@@ -67,7 +72,7 @@ export function LanguageDropdown() {
                 aria-hidden="true"
               />
               {lang.toUpperCase()}
-            </Link>
+            </button>
           ))}
         </div>
       )}
