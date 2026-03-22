@@ -38,8 +38,9 @@ Os botões do jogo utilizam padrões recorrentes:
 
 ## 4. Regras de Código e Padrões de Desenvolvimento
 
-1. **Sempre use Tailwind classes:**
-   Evite ao máximo criar arquivos `.css` paralelos. Se precisar de animações específicas, utilize classes arbitrárias do Tailwind v4 (ex: `animate-[pulse_1.2s_ease-out]`).
+1. **Estilização e Animações:**
+   - **Sempre use Tailwind classes:** Evite ao máximo criar arquivos `.css` paralelos.
+   - **Framer Motion:** Para animações complexas, surgimento de elementos em tela e transições (como modais, menus laterais e drawers), utilize a biblioteca `framer-motion` em vez de tentar forçar a sintaxe do Tailwind. Animações simples como de `hover:scale` continuam no Tailwind.
 
 2. **Internacionalização Obrigatória:**
    **Nenhum texto deve ser hardcoded na UI.** Textos devem sempre utilizar o hook `useTranslations` (do `next-intl`).
