@@ -105,7 +105,7 @@ export function BottomNavBar() {
                     }`}
                   >
                     <Image
-                      src={`/assets/flags/${lang}.svg`}
+                      src={`/assets/flags/${lang.toLowerCase()}.svg`}
                       width={32}
                       height={24}
                       alt={lang.toUpperCase()}
