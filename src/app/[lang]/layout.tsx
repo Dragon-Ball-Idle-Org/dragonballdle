@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { Providers } from "../providers";
 import { SplashScreen } from "@/components/_UI/SplashScreen";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { BottomNavBar } from "@/components/BottomNavBar";
 
 import "../globals.css";
 
@@ -90,6 +91,7 @@ export default async function RootLayout({
         <Providers locale={lang}>
           {children}
           <Footer />
+          <BottomNavBar />
         </Providers>
       </body>
     </html>

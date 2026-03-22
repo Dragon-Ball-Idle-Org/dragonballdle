@@ -6,7 +6,11 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-export function LanguageDropdown() {
+interface LanguageDropdownProps {
+  placement?: "top" | "bottom";
+}
+
+export function LanguageDropdown({ placement = "bottom" }: LanguageDropdownProps = {}) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const currentLanguage = useLocale();
@@ -53,7 +57,9 @@ export function LanguageDropdown() {
           id="lang-menu"
           role="menu"
           aria-label="Select language"
-          className="absolute grid gap-1 p-2 right-0 mt-2 w-38 max-h-50 overflow-y-auto rounded-xl shadow-game bg-black z-50"
+          className={`absolute grid gap-1 p-2 right-0 w-38 max-h-50 overflow-y-auto rounded-xl shadow-game bg-black z-50 ${
+            placement === "bottom" ? "mt-2" : "bottom-full mb-2"
+          }`}
         >
           {routing.locales.map((lang) => (
             <button

@@ -8,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="flex flex-col items-center gap-1 w-full text-center p-2 mb-2 rounded-xl bg-black/60 backdrop-blur-sm">
+    <footer className="flex flex-col items-center gap-1 w-full text-center p-2 mb-20 md:mb-2 rounded-xl bg-black/60 backdrop-blur-sm">
       <div className="text-xl font-bold">DragonBallDle</div>
       <div className="text-sm">{t("subtitle")}</div>
 
@@ -25,7 +25,7 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="hidden md:flex items-center gap-3">
         <IconLink href="/legal">
           <div className="flex items-center justify-center w-14 h-14 font-display text-2xl text-zinc-900 bg-white rounded-full border border-zinc-900">
             i

@@ -12,7 +12,9 @@ export function Header({
   return (
     <header className="grid place-items-center mt-16">
       <div className="flex items-center gap-4">
-        {!hideBackButton && <BackButton />}
+        <div className="hidden md:block">
+          {!hideBackButton && <BackButton />}
+        </div>
 
         <Image
           id="logo"
@@ -24,7 +26,9 @@ export function Header({
           alt="DragonBallDle logo"
         />
 
-        <LanguageDropdown />
+        <div className="hidden md:block">
+          <LanguageDropdown />
+        </div>
       </div>
     </header>
   );
