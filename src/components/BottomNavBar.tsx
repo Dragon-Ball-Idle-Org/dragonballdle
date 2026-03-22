@@ -109,7 +109,7 @@ export function BottomNavBar() {
                       width={32}
                       height={24}
                       alt={lang.toUpperCase()}
-                      className="h-5 w-auto object-cover rounded-sm shadow-sm"
+                      className="h-5 w-8 object-cover rounded-sm shadow-sm"
                     />
                     <span>{lang.toUpperCase()}</span>
                   </button>
