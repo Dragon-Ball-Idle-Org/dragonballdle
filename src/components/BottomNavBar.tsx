@@ -54,6 +54,7 @@ export function BottomNavBar() {
             <button
               onClick={() => setIsLangOpen(true)}
               title="Change language"
+              className="cursor-pointer"
             >
               <Image
                 src={`/assets/flags/${currentLanguage.toLowerCase()}.svg`}
@@ -91,13 +92,13 @@ export function BottomNavBar() {
                 </span>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-2">
+              <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-2 scrollbar-hide">
                 {routing.locales.map((lang) => (
                   <button
                     key={lang}
                     data-lang={lang}
                     onClick={() => onChangeLanguage(lang)}
-                    className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm transition-colors ${
+                    className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm cursor-pointer transition-colors ${
                       lang === currentLanguage
                         ? "bg-orange-600/20 text-orange-500 border border-orange-600/50"
                         : "text-white hover:bg-white/10 border border-transparent"
