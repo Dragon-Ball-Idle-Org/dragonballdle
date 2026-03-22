@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Header hideBackButton />
-      <main className="flex-1 flex h-full flex-col items-center justify-center gap-3">
+      <main className="flex-1 flex h-full flex-col items-center justify-center gap-3 my-3">
         <GameButton
           icon={<h1 className="font-display text-9xl">?</h1>}
           title={t("classic.title")}
