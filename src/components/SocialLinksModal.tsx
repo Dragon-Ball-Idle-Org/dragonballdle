@@ -78,7 +78,7 @@ export function SocialLinksModal({
                   {maintainer.role}
                 </p>
 
-                <div className="flex items-center gap-4">
+                <div className="grid grid-cols-5 md:grid-cols-3 content-center gap-4">
                   {maintainer.links.map((link) => (
                     <a
                       key={link.type}

@@ -1,9 +1,12 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { LinkIcon } from "@phosphor-icons/react/ssr";
 import { IconLink } from "./_UI/Link";
+import { SocialLinksModal } from "./SocialLinksModal";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const tSocial = useTranslations("socialLinksModal");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -12,8 +15,16 @@ export function Footer() {
       <div className="text-sm">{t("subtitle")}</div>
 
       <div className="hidden md:flex items-center gap-3">
+        <SocialLinksModal
+          title={tSocial("title")}
+          className="cursor-pointer transition-transform hover:scale-110"
+        >
+          <div className="flex items-center justify-center w-14 h-14 font-display text-2xl text-primary bg-black rounded-full border-2 border-primary">
+            <LinkIcon />
+          </div>
+        </SocialLinksModal>
         <IconLink href="/legal">
-          <div className="flex items-center justify-center w-14 h-14 font-display text-2xl text-zinc-900 bg-white rounded-full border border-zinc-900">
+          <div className="flex items-center justify-center w-14 h-14 font-display text-2xl text-zinc-900 bg-white rounded-full border-2 border-zinc-900">
             i
           </div>
         </IconLink>
