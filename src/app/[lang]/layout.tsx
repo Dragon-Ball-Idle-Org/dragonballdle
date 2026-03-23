@@ -65,10 +65,15 @@ export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ lang: locale }));
 }
 
+interface LayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
+}
+
 export default async function RootLayout({
   children,
   params,
-}: LayoutProps<"/[lang]">) {
+}: LayoutProps) {
   const { lang } = await params;
 
   if (!hasLocale(routing.locales, lang)) {
@@ -76,6 +81,8 @@ export default async function RootLayout({
   }
 
   setRequestLocale(lang);
+
+  const tSocial = await getTranslations("socialLinksModal");
 
   return (
     <html lang={lang}>
@@ -91,7 +98,7 @@ export default async function RootLayout({
         <Providers locale={lang}>
           {children}
           <Footer />
-          <BottomNavBar />
+          <BottomNavBar socialLinksTitle={tSocial("title")} />
         </Providers>
       </body>
     </html>
