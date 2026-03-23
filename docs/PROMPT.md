@@ -41,6 +41,7 @@ Os botões do jogo utilizam padrões recorrentes:
 1. **Estilização e Animações:**
    - **Sempre use Tailwind classes:** Evite ao máximo criar arquivos `.css` paralelos.
    - **Framer Motion:** Para animações complexas, surgimento de elementos em tela e transições (como modais, menus laterais e drawers), utilize a biblioteca `framer-motion` em vez de tentar forçar a sintaxe do Tailwind. Animações simples como de `hover:scale` continuam no Tailwind.
+   - **Phosphor Icons:** Para ícones, utilize a biblioteca `@phosphor-icons/react`. Sempre utilize a propriedade `weight` para definir o estilo do ícone (ex: `weight="fill"`, `weight="light"`, `weight="regular"`, `weight="bold"`, `weight="thin"`). Sempre importe os ícone com o sufixo `Icon` (ex: `import { Gamepad as GamepadIcon } from "@phosphor-icons/react";`).
 
 2. **Internacionalização Obrigatória:**
    **Nenhum texto deve ser hardcoded na UI.** Textos devem sempre utilizar o hook `useTranslations` (do `next-intl`).
