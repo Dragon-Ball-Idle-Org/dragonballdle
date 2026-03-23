@@ -70,11 +70,11 @@ export function SocialLinksModal({
                   </div>
                 )}
 
-                <h3 className="text-xl font-display text-white tracking-widest uppercase mb-1">
+                <h3 className="text-xl font-display text-white mb-1">
                   {maintainer.name}
                 </h3>
 
-                <p className="text-sm font-medium text-zinc-400 mb-6 font-ui">
+                <p className="text-sm font-medium text-zinc-400 mb-6 font-ui text-nowrap">
                   {maintainer.role}
                 </p>
 
@@ -88,7 +88,7 @@ export function SocialLinksModal({
                       title={
                         link.type.charAt(0).toUpperCase() + link.type.slice(1)
                       }
-                      className="text-2xl text-zinc-400 transition-colors hover:text-orange-500 active:scale-90"
+                      className="text-3xl text-zinc-400 transition-colors hover:text-orange-500 active:scale-90"
                     >
                       {IconMap[link.type as keyof typeof IconMap]}
                     </a>

@@ -32,7 +32,7 @@ export function Modal({
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
-    () => false
+    () => false,
   );
 
   useEffect(() => {
@@ -72,9 +72,7 @@ export function Modal({
             {(title || showCloseButton) && (
               <div className="flex items-center justify-between p-4 border-b border-zinc-800">
                 {title ? (
-                  <h2 className="text-2xl font-display text-white tracking-widest uppercase">
-                    {title}
-                  </h2>
+                  <h2 className="text-2xl font-display text-white">{title}</h2>
                 ) : (
                   <div />
                 )}
@@ -82,7 +80,7 @@ export function Modal({
                 {showCloseButton && (
                   <button
                     onClick={onClose}
-                    className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+                    className="p-1.5 rounded-lg text-zinc-400 hover:text-primary transition-colors cursor-pointer"
                   >
                     <XIcon size={24} weight="bold" />
                   </button>
