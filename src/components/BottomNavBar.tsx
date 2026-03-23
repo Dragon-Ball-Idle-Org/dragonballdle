@@ -1,15 +1,16 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { HouseIcon, InfoIcon, CoffeeIcon } from "@phosphor-icons/react";
+import { InfoIcon, CoffeeIcon, LinkIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SocialLinksModal } from "./SocialLinksModal";
 
-export function BottomNavBar() {
+export function BottomNavBar({ socialLinksTitle }: { socialLinksTitle: string }) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const currentLanguage = useLocale();
   const router = useRouter();
@@ -23,23 +24,44 @@ export function BottomNavBar() {
   return (
     <>
       <nav className="md:hidden fixed bottom-0 left-0 w-full bg-black/90 backdrop-blur-md border-t-2 border-orange-600 shadow-[0_-4px_20px_rgba(234,88,12,0.2)] z-40 pb-safe">
-        <ul className="flex justify-around items-center h-16 px-2">
+        <ul className="flex justify-around items-center h-16 px-2 relative">
           <li>
-            <Link
-              href="/"
-              className="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors"
+            <SocialLinksModal
+              title={socialLinksTitle}
+              className="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors cursor-pointer"
             >
-              <HouseIcon weight="fill" className="w-7 h-7" />
-            </Link>
+              <LinkIcon weight="fill" className="w-7 h-7" />
+            </SocialLinksModal>
           </li>
+
           <li>
             <Link
               href="/legal"
               className="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors"
             >
-              <InfoIcon weight="fill" className="w-7 h-7" />
+              <div className="w-7 h-7 flex items-center justify-center">
+                <InfoIcon weight="fill" size={28} />
+              </div>
             </Link>
           </li>
+
+          <li className="relative -top-6">
+            <Link
+              href="/"
+              className="flex flex-col items-center justify-center transition-transform hover:scale-110 active:scale-95 active:duration-75"
+            >
+              <div className="rounded-full p-1.5 border-2 border-orange-600 shadow-[0_0_20px_rgba(234,88,12,0.4)] bg-black/80 backdrop-blur-md">
+                <Image
+                  src="/assets/dragon-radar.svg"
+                  alt="Home"
+                  width={60}
+                  height={60}
+                  className="w-14 h-14"
+                />
+              </div>
+            </Link>
+          </li>
+
           <li>
             <a
               href="https://buymeacoffee.com/dragonballdle"
@@ -47,22 +69,27 @@ export function BottomNavBar() {
               rel="noopener"
               className="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors"
             >
-              <CoffeeIcon weight="fill" className="w-7 h-7" />
+              <div className="w-7 h-7 flex items-center justify-center">
+                <CoffeeIcon weight="fill" size={28} />
+              </div>
             </a>
           </li>
+
           <li>
             <button
               onClick={() => setIsLangOpen(true)}
               title="Change language"
-              className="cursor-pointer"
+              className="flex flex-col items-center justify-center cursor-pointer text-zinc-400 hover:text-orange-400 transition-colors"
             >
-              <Image
-                src={`/assets/flags/${currentLanguage.toLowerCase()}.svg`}
-                width={24}
-                height={16}
-                className="h-4 object-cover rounded-xs"
-                alt="Selected Lang"
-              />
+              <div className="w-7 h-7 flex items-center justify-center">
+                <Image
+                  src={`/assets/flags/${currentLanguage.toLowerCase()}.svg`}
+                  width={24}
+                  height={16}
+                  className="h-4 w-auto object-cover rounded-xs border border-zinc-700"
+                  alt="Selected Lang"
+                />
+              </div>
             </button>
           </li>
         </ul>
@@ -80,7 +107,7 @@ export function BottomNavBar() {
               transition={{ duration: 0.2 }}
             />
             <motion.div
-              className="relative w-64 h-full bg-zinc-950 border-l-2 border-orange-600 shadow-[-10px_0_30px_rgba(0,0,0,0.8)] flex flex-col pointer-events-auto"
+              className="relative w-64 h-full bg-zinc-950 border-l-2 border-orange-600 shadow-[-10px_0_30_rgba(0,0,0,0.8)] flex flex-col pointer-events-auto"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
