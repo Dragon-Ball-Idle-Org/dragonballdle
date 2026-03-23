@@ -23,7 +23,7 @@ export const SOCIAL_LINKS_MAINTAINERS: Maintainer[] = [
   },
   {
     name: "Júlio Villa",
-    role: "Analista de WebAnalytics ",
+    role: "WebAnalytics Analyst",
     links: [
       {
         type: "linkedin",
