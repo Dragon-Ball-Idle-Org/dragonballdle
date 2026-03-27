@@ -4,7 +4,7 @@ import { MetadataRoute } from "next";
 const pages = ["", "legal"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const lastModified = new Date("2026-03-21");
+    const lastModified = "2026-03-21";
 
     return routing.locales.flatMap(locale =>
         pages.map(page => {
