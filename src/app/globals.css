@@ -15,6 +15,8 @@
   --palette-green-dark: #228b22;
   --palette-green-light: #32cd32;
 
+  --pallete-red-light: #d51919;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--palette-orange-base);
@@ -39,4 +41,22 @@ body {
   padding-inline: 0.75rem;
   font-family: var(--font-base);
   color: var(--foreground);
+}
+
+.background-dragon-texture {
+  background-color: var(--color-primary);
+  background-image: url('/assets/dragon-background-texture.svg');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
+  background-size: cover;
+}
+
+.background-dragon-texture-gray {
+  background-color: var(--color-zinc-300);
+  background-image: url('/assets/dragon-background-texture-gray.svg');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
+  background-size: cover;
 }
