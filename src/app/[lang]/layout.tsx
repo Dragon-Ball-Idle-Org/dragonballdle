@@ -34,7 +34,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const t = await getTranslations({ locale: lang, namespace: "metadata" });
+  const t = await getTranslations({ locale: lang, namespace: "home.metadata" });
 
   return {
     title: t("title"),
@@ -70,10 +70,7 @@ interface LayoutProps {
   params: Promise<{ lang: string }>;
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: LayoutProps) {
+export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
 
   if (!hasLocale(routing.locales, lang)) {

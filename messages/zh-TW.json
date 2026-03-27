@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "進行中...",
       "subtitle": "新遊戲正在開發中..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — 猜謎遊戲",
+      "description": "猜猜今天神秘的七龍珠角色！在這個免費的每日遊戲中測試您的動漫知識並挑戰您的朋友。"
     }
   },
   "footer": {
@@ -32,7 +36,11 @@
     "cookiesUpdated": "最新更新：2026年3月21日",
     "cookiesIntro": "僅僅用於Google Analytics分析，以及未來的推播廣告支持。",
     "cookiesAds": "處理您的非敏感設備紀錄以便放送適合您在地語言及國家區化的無害廣告資訊。",
-    "cookiesConsent": "當您瀏覽該專案網址時，即被視為預設同意該附加Cookie存在，隨時能清空本地緩存去刪去。"
+    "cookiesConsent": "當您瀏覽該專案網址時，即被視為預設同意該附加Cookie存在，隨時能清空本地緩存去刪去。",
+    "metadata": {
+      "title": "DragonBallDle — 使用條款",
+      "description": "猜猜今天神秘的七龍珠角色！在這個免費的每日遊戲中測試您的動漫知識並挑戰您的朋友。"
+    }
   },
   "manifest": {
     "description": "猜猜今天的七龍珠角色。快速、免費的每日挑戰。"

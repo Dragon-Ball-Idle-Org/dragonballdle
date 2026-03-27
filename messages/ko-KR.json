@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "진행 중...",
       "subtitle": "새로운 게임이 곧 출시됩니다..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — 추리 게임",
+      "description": "오늘의 미스터리 드래곤볼 캐릭터를 맞춰보세요! 이 무료 접속 게임에서 애니메이션 지식을 테스트하고 친구에게 도전하세요."
     }
   },
   "footer": {
@@ -32,7 +36,11 @@
     "cookiesUpdated": "최근 업데이트: 2026년 3월 21일",
     "cookiesIntro": "당사는 분석 및 광고를 위해 쿠키를 사용합니다.",
     "cookiesAds": "기술은 동의 여부 및 지역에 따라 맞춤형 광고를 제공하기 위해 기기 식별자를 처리합니다.",
-    "cookiesConsent": "서비스를 사용함으로써 쿠키 사용에 동의하는 것으로 간주됩니다."
+    "cookiesConsent": "서비스를 사용함으로써 쿠키 사용에 동의하는 것으로 간주됩니다.",
+    "metadata": {
+      "title": "DragonBallDle — 이용약관",
+      "description": "오늘의 미스터리 드래곤볼 캐릭터를 맞춰보세요! 이 무료 접속 게임에서 애니메이션 지식을 테스트하고 친구에게 도전하세요."
+    }
   },
   "manifest": {
     "description": "오늘의 드래곤볼 캐릭터를 맞춰보세요. 빠르고 무료인 일일 도전."

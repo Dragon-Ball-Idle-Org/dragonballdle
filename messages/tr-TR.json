@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "Devam ediyor...",
       "subtitle": "Yeni bir oyun yolda..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — Tahmin Oyunu",
+      "description": "Bugünün gizemli Dragon Ball karakterini tahmin et! Bu ücretsiz günlük oyunda Dragon Ball bilgini test et ve arkadaşlarına meydan oku."
     }
   },
   "footer": {
@@ -32,7 +36,11 @@
     "cookiesUpdated": "Son güncelleme: 21 Mart 2026",
     "cookiesIntro": "Pazarlama ve istatistik için üçüncü taraf Çerezler (Google Ads, GA4) kullanılır.",
     "cookiesAds": "Kişiselleştirilmiş ya da kişiselleştirilmemiş reklamlar göstermek için cihaz belirteçleri işlenebilir.",
-    "cookiesConsent": "DragonBallDle'ı kullanarak üçüncü taraf çerezlerine onay vermiş sayılırsınız."
+    "cookiesConsent": "DragonBallDle'ı kullanarak üçüncü taraf çerezlerine onay vermiş sayılırsınız.",
+    "metadata": {
+      "title": "DragonBallDle — Kullanım Koşulları",
+      "description": "Bugünün gizemli Dragon Ball karakterini tahmin et! Bu ücretsiz günlük oyunda Dragon Ball bilgini test et ve arkadaşlarına meydan oku."
+    }
   },
   "manifest": {
     "description": "Bugünkü Dragon Ball karakterini tahmin et. Hızlı, ücretsiz günlük meydan okuma."

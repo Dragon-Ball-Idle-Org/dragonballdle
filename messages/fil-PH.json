@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "Kasunod...",
       "subtitle": "May bagong laro na paparating..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — Pahulaan Game",
+      "description": "Hulaan ang misteryosong karakter ng Dragon Ball ngayon! Subukan ang iyong kaalaman sa Dragon Ball sa libreng araw-araw na larong ito."
     }
   },
   "footer": {
@@ -31,8 +35,12 @@
     "cookiesTitle": "Patakaran sa Cookies",
     "cookiesUpdated": "Huling na-update: Marso 21, 2026",
     "cookiesIntro": "Sumasailalim kami sa pag-record gamit External Analytical cookies pambasag rekords ng ad.",
-    "cookiesAds": "Maaaring subaybyan ang browser history mo ng mga advertisement platforms maghatid nang nararapat sa inyo.",
-    "cookiesConsent": "Ang pananatili sa DragonBallDle ay pagtanggap sa mga Cookies na to, na malaya mong tanggalin kailanman."
+    "cookiesAds": "Maaaring subaybayan ang browser history mo ng mga advertisement platforms maghatid nang nararapat sa inyo.",
+    "cookiesConsent": "Ang pananatili sa DragonBallDle ay pagtanggap sa mga Cookies na to, na malaya mong tanggalin kailanman.",
+    "metadata": {
+      "title": "DragonBallDle — Mga Tuntunin sa Paggamit",
+      "description": "Hulaan ang misteryosong karakter ng Dragon Ball ngayon! Subukan ang iyong kaalaman sa Dragon Ball sa libreng araw-araw na larong ito."
+    }
   },
   "manifest": {
     "description": "Hulaan ang karakter ng Dragon Ball ngayon. Mabilis, libreng hamon araw-araw."

@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 url.pathname = `${url.pathname}${page}/`
             }
 
-
             return {
                 url: url.toString(),
                 lastModified
