@@ -32,7 +32,7 @@ export function MartialArtsAutocompleteField({
         />
       </div>
 
-      <Autocomplete.Portal>
+      <Autocomplete.Portal className="z-10">
         <Autocomplete.Positioner sideOffset={5}>
           <Autocomplete.Popup
             className={cn(

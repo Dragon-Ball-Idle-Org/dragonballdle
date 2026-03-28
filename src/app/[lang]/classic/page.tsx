@@ -1,8 +1,9 @@
 import { MainContainer } from "@/components/ui/MainContainer";
-import { MartialArtsAutocompleteField } from "@/components/themed/MartialArtsAutocompleteField";
 import { MartialArtsHero } from "@/components/themed/MartialArtsHero";
 import { MartialArtsYesterdayCharacter } from "@/components/themed/MartialArtsYesterdayCharacter";
 import { MartialArtsWinBanner } from "@/components/themed/MartialArtsWinBanner";
+import { MartialArtsGuessForm } from "@/components/themed/MartialArtsGuessForm";
+import { cn } from "@/utils/cn";
 
 export default function ClassicPage() {
   return (
@@ -10,22 +11,15 @@ export default function ClassicPage() {
       <MartialArtsHero />
       <MartialArtsYesterdayCharacter />
       <MartialArtsWinBanner />
-      <MartialArtsAutocompleteField
-        className="w-full"
-        suggestions={[
-          {
-            id: "goku",
-            name: "Goku",
-            image: "https://cdn.dragonballdle.site/characters/thumbs/goku.png",
-          },
-          {
-            id: "vegeta",
-            name: "Vegeta",
-            image:
-              "https://cdn.dragonballdle.site/characters/thumbs/vegeta.png",
-          },
-        ]}
-      />
+      <div
+        className={cn(
+          "flex flex-col items-center w-full max-w-200 p-4 rounded-xl",
+          "bg-black/17 backdrop-blur-xs shadow-[0_6px_24px_#00000026]",
+          "relative z-1 overflow-x-auto [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] snap-x snap-proximity",
+        )}
+      >
+        <MartialArtsGuessForm />
+      </div>
     </MainContainer>
   );
 }
