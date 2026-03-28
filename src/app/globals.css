@@ -24,23 +24,25 @@
   --color-primary-light: var(--palette-orange-light);
   --color-red-light: var(--pallete-red-light);
 
-  --font-base: var(--font-roboto), system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  --font-base:
+    var(--font-roboto), system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   --font-display: var(--font-bangers);
-  --font-ui: var(--font-inter), system-ui, , -apple-system, Segoe UI, Arial, sans-serif;
+  --font-ui:
+    var(--font-inter), system-ui, , -apple-system, Segoe UI, Arial, sans-serif;
 
   --default-transition-duration: 200ms;
 
-  --shadow-game: 0 4px 14px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-game:
+    0 4px 14px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 @layer components {
   .guess-input-wrapper::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0px;
     border: 20px solid transparent;
-    border-image: url('/assets/dragon-border.svg') 500 stretch;
+    border-image: url("/assets/dragon-border.svg") 500 stretch;
     pointer-events: none;
     z-index: 1;
   }
@@ -70,6 +72,55 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
     }
   }
+
+  /* Hero Styles*/
+  .shadow-hero {
+    box-shadow: 5px 5px 4px #0003;
+  }
+
+  /* Text Hero Styles */
+  .text-hero-title {
+    font-size: clamp(1.875rem, 2.4vw, 2.25rem);
+  }
+
+  .text-hero-subtitle {
+    font-size: clamp(0.75rem, 1.6vw, 1rem);
+  }
+
+  .text-shadow-hero-title {
+    text-shadow: 3px 3px 4px #000000;
+  }
+
+  .text-shadow-hero-subtitle {
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+  /* Wins Badge Styles */
+  .shadow-wins-badge {
+    box-shadow: 0 6px 18px #ffd30059;
+  }
+
+  .text-shadow-wins-badge {
+    text-shadow: 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .background-dragon-texture {
+    background-color: var(--color-primary);
+    background-image: url("/assets/dragon-background-texture.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: cover;
+  }
+
+  .background-dragon-texture-gray {
+    background-color: var(--color-zinc-300);
+    background-image: url("/assets/dragon-background-texture-gray.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: cover;
+  }
 }
 
 body {
@@ -82,22 +133,4 @@ body {
   padding-inline: 0.75rem;
   font-family: var(--font-base);
   color: var(--foreground);
-}
-
-.background-dragon-texture {
-  background-color: var(--color-primary);
-  background-image: url('/assets/dragon-background-texture.svg');
-  background-repeat: no-repeat;
-  background-position-x: right;
-  background-position-y: bottom;
-  background-size: cover;
-}
-
-.background-dragon-texture-gray {
-  background-color: var(--color-zinc-300);
-  background-image: url('/assets/dragon-background-texture-gray.svg');
-  background-repeat: no-repeat;
-  background-position-x: right;
-  background-position-y: bottom;
-  background-size: cover;
 }
