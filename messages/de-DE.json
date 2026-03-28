@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "In Bearbeitung...",
       "subtitle": "Ein neues Spiel kommt..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — Ratespiel",
+      "description": "Errate den heutigen geheimen Dragon Ball Charakter! Teste dein Dragon Ball-Wissen und fordere Freunde in diesem Gratis-Spiel heraus."
     }
   },
   "footer": {
@@ -32,7 +36,11 @@
     "cookiesUpdated": "Zuletzt aktualisiert: 21. März 2026",
     "cookiesIntro": "Wir verwenden Cookies für Analyse- und Werbezwecke (Google Ads/Analytics).",
     "cookiesAds": "Technologien können Gerätekennungen verarbeiten, um basierend auf Ihrer Region/Zustimmung personalisierte Werbung zu zeigen.",
-    "cookiesConsent": "Durch die Nutzung stimmen Sie der Verwendung dieser nicht essenziellen Cookies zu. Sie können diese in Ihrem Browser blockieren."
+    "cookiesConsent": "Durch die Nutzung stimmen Sie der Verwendung dieser nicht essenziellen Cookies zu. Sie können diese in Ihrem Browser blockieren.",
+    "metadata": {
+      "title": "DragonBallDle — Nutzungsbedingungen",
+      "description": "Errate den heutigen geheimen Dragon Ball Charakter! Teste dein Dragon Ball-Wissen und fordere Freunde in diesem Gratis-Spiel heraus."
+    }
   },
   "manifest": {
     "description": "Errate den heutigen Dragon Ball Charakter. Schnelle, kostenlose tägliche Herausforderung."

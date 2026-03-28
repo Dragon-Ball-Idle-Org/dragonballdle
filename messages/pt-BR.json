@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "Em andamento...",
       "subtitle": "Um novo jogo está chegando..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — Jogo de Adivinhação",
+      "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
     }
   },
   "footer": {
@@ -32,14 +36,14 @@
     "cookiesUpdated": "Última atualização: 21 de Março de 2026",
     "cookiesIntro": "Utilizamos cookies de terceiros para o Google Analytics e plataforma de publicidade.",
     "cookiesAds": "As parcerias confiam em identificadores de aparelho para publicidade orientada e detecção de tráfego inválido ou bots, baseando-se em sua região.",
-    "cookiesConsent": "Ao prosseguir utilizando a nossa interface, você concorda passivamente com nossos cookies não essenciais de terceiros descritos acima. Fique livre para deletá-los em seu navegador."
+    "cookiesConsent": "Ao prosseguir utilizando a nossa interface, você concorda passivamente com nossos cookies não essenciais de terceiros descritos acima. Fique livre para deletá-los em seu navegador.",
+    "metadata": {
+      "title": "DragonBallDle — Termos de Uso",
+      "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
+    }
   },
   "manifest": {
     "description": "Adivinhe o personagem de Dragon Ball de hoje. Desafio diário rápido e gratuito."
-  },
-  "metadata": {
-    "title": "DragonBallDle — Jogo de Adivinhação",
-    "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
   },
   "socialLinksModal": {
     "title": "Mantenedores"

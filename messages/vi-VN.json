@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "Đang tiến hành...",
       "subtitle": "Một trò chơi mới sắp ra mắt..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — Trò chơi đoán xem",
+      "description": "Đoán nhân vật Dragon Ball bí ẩn của ngày hôm nay! Thử tài kiến thức Dragon Ball của bạn và thách đấu bạn bè trong trò chơi mỗi ngày."
     }
   },
   "footer": {
@@ -32,7 +36,11 @@
     "cookiesUpdated": "Cập nhật lần cuối: 21 tháng 3 năm 2026",
     "cookiesIntro": "Chúng tôi dùng Cookie của Google Analytics và Ads.",
     "cookiesAds": "Những công nghệ này xác định khu vực hiện tại nhằm cung cấp quảng cáo tương ứng.",
-    "cookiesConsent": "Nếu tiếp tục theo dõi trang web, bạn đồng ý sử dụng các Cookie phi cơ bản này."
+    "cookiesConsent": "Nếu tiếp tục theo dõi trang web, bạn đồng ý sử dụng các Cookie phi cơ bản này.",
+    "metadata": {
+      "title": "DragonBallDle — Điều khoản sử dụng",
+      "description": "Đoán nhân vật Dragon Ball bí ẩn của ngày hôm nay! Thử tài kiến thức Dragon Ball của bạn và thách đấu bạn bè trong trò chơi mỗi ngày."
+    }
   },
   "manifest": {
     "description": "Đoán nhân vật Dragon Ball hôm nay. Thử thách nhanh chóng, miễn phí mỗi ngày."

@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "In progress...",
       "subtitle": "A new game is coming..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — Guessing Game",
+      "description": "Guess today's mystery Dragon Ball character! Test your Dragon Ball knowledge and challenge your friends in this free daily game."
     }
   },
   "footer": {
@@ -32,7 +36,11 @@
     "cookiesUpdated": "Last updated: March 21, 2026",
     "cookiesIntro": "We use cookies for Analytics (Google Analytics) and Advertising (Google Ads).",
     "cookiesAds": "Technologies may process device/browser identifiers to show personalized or non-personalized ads based on your region and consent.",
-    "cookiesConsent": "By using DragonBallDle, you consent to our use of these non-essential cookies. You can use your browser controls to block or clear them at any time."
+    "cookiesConsent": "By using DragonBallDle, you consent to our use of these non-essential cookies. You can use your browser controls to block or clear them at any time.",
+    "metadata": {
+      "title": "DragonBallDle — Terms of Use",
+      "description": "Guess today's mystery Dragon Ball character! Test your Dragon Ball knowledge and challenge your friends in this free daily game."
+    }
   },
   "manifest": {
     "description": "Guess today's Dragon Ball character. Fast, free daily challenge."

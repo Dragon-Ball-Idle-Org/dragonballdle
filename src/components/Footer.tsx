@@ -10,9 +10,15 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="flex flex-col items-center gap-1 w-full text-center p-2 mb-24 md:mb-2 rounded-xl bg-black/60 backdrop-blur-sm">
-      <div className="text-xl font-bold">DragonBallDle</div>
-      <div className="text-sm">{t("subtitle")}</div>
+    <footer className="flex flex-col items-center gap-1 w-full text-center p-2 mb-24 md:mb-2">
+      <div className="flex flex-col items-center justify-center gap-2 text-sm text-shadow-[1px_1px_black]">
+        <div>
+          <span>{currentYear} DragonBallDle.</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <span>{t("copyright")}</span>
+        </div>
+      </div>
 
       <div className="hidden md:flex items-center gap-3">
         <SocialLinksModal
@@ -40,15 +46,6 @@ export function Footer() {
             alt="Buy me a coffe"
           />
         </IconLink>
-      </div>
-
-      <div className="flex flex-col items-center justify-center gap-2 text-sm text-zinc-400">
-        <div>
-          <span>{currentYear} DragonBallDle.</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <span>{t("copyright")}</span>
-        </div>
       </div>
     </footer>
   );

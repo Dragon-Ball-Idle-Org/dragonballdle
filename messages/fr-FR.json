@@ -7,6 +7,10 @@
     "inProgress": {
       "title": "En cours...",
       "subtitle": "Un nouveau jeu arrive..."
+    },
+    "metadata": {
+      "title": "DragonBallDle — Jeu de Devinettes",
+      "description": "Devinez le personnage mystère de Dragon Ball du jour ! Testez vos connaissances en Dragon Ball dans ce jeu quotidien gratuit."
     }
   },
   "footer": {
@@ -32,7 +36,11 @@
     "cookiesUpdated": "Dernière mise à jour : 21 Mars 2026",
     "cookiesIntro": "Nous utilisons des cookies pour l'analyse (Analytics) et la publicité (Ads).",
     "cookiesAds": "Ces technologies peuvent traiter des identifiants d'appareils pour diffuser des annonces personnalisées ou non selon votre région et votre consentement.",
-    "cookiesConsent": "En utilisant DragonBallDle, vous consentez à l'utilisation de ces cookies non essentiels."
+    "cookiesConsent": "En utilisant DragonBallDle, vous consentez à l'utilisation de ces cookies non essentiels.",
+    "metadata": {
+      "title": "DragonBallDle — Conditions d'Utilisation",
+      "description": "Devinez le personnage mystère de Dragon Ball du jour ! Testez vos connaissances en Dragon Ball dans ce jeu quotidien gratuit."
+    }
   },
   "manifest": {
     "description": "Devinez le personnage de Dragon Ball du jour. Défi quotidien rapide et gratuit."
