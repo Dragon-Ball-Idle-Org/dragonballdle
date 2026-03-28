@@ -1,9 +1,13 @@
+import { MainContainer } from "@/components/_UI/MainContainer";
 import { MartialArtsAutocompleteField } from "@/components/MartialArtsAutocompleteField";
+import { MartialArtsHero } from "@/components/MartialArtsHero";
 
 export default function ClassicPage() {
   return (
-    <main className="flex-1 flex flex-col items-center justify-center gap-3 my-3">
+    <MainContainer>
+      <MartialArtsHero />
       <MartialArtsAutocompleteField
+        className="w-full"
         suggestions={[
           {
             id: "goku",
@@ -13,10 +17,11 @@ export default function ClassicPage() {
           {
             id: "vegeta",
             name: "Vegeta",
-            image: "https://cdn.dragonballdle.site/characters/thumbs/vegeta.png",
+            image:
+              "https://cdn.dragonballdle.site/characters/thumbs/vegeta.png",
           },
         ]}
       />
-    </main>
+    </MainContainer>
   );
 }
