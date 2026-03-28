@@ -12,10 +12,12 @@ type Suggestion = {
 
 type MartialArtsAutocompleteFieldProps = {
   suggestions: Suggestion[];
+  className?: string;
 };
 
 export function MartialArtsAutocompleteField({
   suggestions,
+  className,
 }: MartialArtsAutocompleteFieldProps) {
   return (
     <Autocomplete.Root items={suggestions}>
@@ -26,7 +28,11 @@ export function MartialArtsAutocompleteField({
         )}
       >
         <Autocomplete.Input
-          className="guess-input h-14 w-full px-6 font-ui text-md font-semibold text-on-primary caret-on-primary bg-primary focus-visible:outline-2 focus-visible:outline-primary-light focus-visible:outline-offset-2"
+          className={cn(
+            "guess-input h-14 w-full px-6 font-ui text-md font-semibold text-on-primary caret-on-primary bg-primary",
+            "focus-visible:outline-2 focus-visible:outline-primary-light focus-visible:outline-offset-2",
+            className,
+          )}
           placeholder="Type character name..."
         />
       </div>
