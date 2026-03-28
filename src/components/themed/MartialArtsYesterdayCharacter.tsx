@@ -25,7 +25,7 @@ export function MartialArtsYesterdayCharacter() {
           <span
             className={cn(
               "font-ui font-bold text-[clamp(var(--text-sm),2.6vw,var(--text-md))] text-shadow-[0_1px_2px_rgba(0,0,0,.35)]",
-              "py-0.5 px-2 rounded-full [box-shadow:inset 0 2px 10px #0000002e,0 1px 10px #0000001f]",
+              "py-1 px-2 rounded-full [box-shadow:inset 0 2px 10px #0000002e,0 1px 10px #0000001f]",
               "bg-linear-135 from-green-500 to-green-700",
             )}
           >
