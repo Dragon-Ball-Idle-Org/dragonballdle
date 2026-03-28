@@ -1,7 +1,7 @@
 "use client";
 
 import { PropsWithChildren, useState } from "react";
-import { Modal } from "@/components/_UI/Modal";
+import { Modal } from "@/components/ui/Modal";
 import {
   LinkedinLogoIcon,
   GithubLogoIcon,

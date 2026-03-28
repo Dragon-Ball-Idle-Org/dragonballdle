@@ -21,12 +21,7 @@ export function MartialArtsAutocompleteField({
 }: MartialArtsAutocompleteFieldProps) {
   return (
     <Autocomplete.Root items={suggestions}>
-      <div
-        className={cn(
-          "w-full",
-          "relative before:absolute before:content-[''] before:inset-0 before:border-24 before:border-transparent before:pointer-events-none before:[border-image:url('/assets/dragon-border.svg')_500_stretch] before:z-1",
-        )}
-      >
+      <div className="w-full border-martial-arts">
         <Autocomplete.Input
           className={cn(
             "guess-input h-14 w-full px-6 font-ui text-md font-semibold text-on-primary caret-on-primary bg-primary",

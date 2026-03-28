@@ -1,5 +1,5 @@
 import { cn } from "@/utils/cn";
-import { WinsBadge } from "./_UI/WinsBadge";
+import { WinsBadge } from "../shared/WinsBadge";
 
 export function MartialArtsHero() {
   return (
@@ -8,7 +8,7 @@ export function MartialArtsHero() {
         "flex flex-col items-center justify-center gap-1 p-4 text-center",
         "w-full max-w-180 my-0 mx-auto p-4",
         "bg-primary bg-[url('/assets/dragon-background-texture.svg')] bg-no-repeat bg-bottom-right bg-cover xl:bg-contain shadow-hero",
-        "relative before:absolute before:content-[''] before:inset-0 before:border-24 before:border-transparent before:[border-image:url('/assets/dragon-border.svg')_500_stretch] before:pointer-events-none before:z-1",
+        "border-martial-arts",
       )}
     >
       <h1 className="font-display text-hero-title text-shadow-hero-title">

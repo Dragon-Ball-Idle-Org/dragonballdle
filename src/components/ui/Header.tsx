@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { LanguageDropdown } from "./LanguageDropdown";
-import { BackButton } from "./_UI/BackButton";
+import { LanguageDropdown } from "../desktop/LanguageDropdown";
+import { BackButton } from "./BackButton";
 
 const cdnURL = process.env.NEXT_PUBLIC_CDN_BASE_URL;
 

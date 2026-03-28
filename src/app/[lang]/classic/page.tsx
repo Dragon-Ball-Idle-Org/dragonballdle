@@ -1,11 +1,13 @@
-import { MainContainer } from "@/components/_UI/MainContainer";
-import { MartialArtsAutocompleteField } from "@/components/MartialArtsAutocompleteField";
-import { MartialArtsHero } from "@/components/MartialArtsHero";
+import { MainContainer } from "@/components/ui/MainContainer";
+import { MartialArtsAutocompleteField } from "@/components/themed/MartialArtsAutocompleteField";
+import { MartialArtsHero } from "@/components/themed/MartialArtsHero";
+import { MartialArtsYesterdayCharacter } from "@/components/themed/MartialArtsYesterdayCharacter";
 
 export default function ClassicPage() {
   return (
     <MainContainer>
       <MartialArtsHero />
+      <MartialArtsYesterdayCharacter />
       <MartialArtsAutocompleteField
         className="w-full"
         suggestions={[

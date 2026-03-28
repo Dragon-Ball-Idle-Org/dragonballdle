@@ -3,12 +3,12 @@ import { Roboto, Bangers, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/ui/Footer";
 import { routing } from "@/i18n/routing";
 import { Providers } from "../providers";
-import { SplashScreen } from "@/components/_UI/SplashScreen";
+import { SplashScreen } from "@/components/ui/SplashScreen";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { BottomNavBar } from "@/components/BottomNavBar";
+import { BottomNavBar } from "@/components/mobile/BottomNavBar";
 
 import "../globals.css";
 

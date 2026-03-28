@@ -8,9 +8,13 @@ import { routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SocialLinksModal } from "./SocialLinksModal";
+import { SocialLinksModal } from "../shared/SocialLinksModal";
 
-export function BottomNavBar({ socialLinksTitle }: { socialLinksTitle: string }) {
+export function BottomNavBar({
+  socialLinksTitle,
+}: {
+  socialLinksTitle: string;
+}) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const currentLanguage = useLocale();
   const router = useRouter();

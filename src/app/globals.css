@@ -121,6 +121,20 @@
     background-position-y: bottom;
     background-size: cover;
   }
+
+  .border-martial-arts {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      border: 24px solid transparent;
+      border-image: url("/assets/dragon-border.svg") 500 stretch;
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
 }
 
 body {

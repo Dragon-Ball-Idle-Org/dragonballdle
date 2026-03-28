@@ -1,5 +1,5 @@
-import { GameButton, GameButtonDisabled } from "@/components/_UI/GameButton";
-import { Header } from "@/components/Header";
+import { GameButton, GameButtonDisabled } from "@/components/ui/GameButton";
+import { Header } from "@/components/ui/Header";
 import { useTranslations } from "next-intl";
 
 export default function Home() {

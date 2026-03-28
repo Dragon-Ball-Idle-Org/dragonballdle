@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { LinkIcon } from "@phosphor-icons/react/ssr";
-import { IconLink } from "./_UI/Link";
-import { SocialLinksModal } from "./SocialLinksModal";
+import { IconLink } from "../ui/Link";
+import { SocialLinksModal } from "../shared/SocialLinksModal";
 
 export function Footer() {
   const t = useTranslations("footer");
