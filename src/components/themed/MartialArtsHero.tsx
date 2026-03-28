@@ -5,9 +5,9 @@ export function MartialArtsHero() {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-1 p-4 text-center",
+        "flex flex-col items-center justify-center gap-5 p-4 text-center",
         "w-full max-w-180 my-0 mx-auto p-4",
-        "bg-primary bg-[url('/assets/dragon-background-texture.svg')] bg-no-repeat bg-bottom-right bg-cover xl:bg-contain shadow-hero",
+        "bg-primary bg-[url('/assets/dragon-background-texture.svg')] bg-no-repeat bg-bottom-right bg-cover shadow-hero",
         "border-martial-arts",
       )}
     >

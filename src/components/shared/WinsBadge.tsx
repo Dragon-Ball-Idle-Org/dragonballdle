@@ -13,9 +13,9 @@ export function WinsBadge({ count, className }: WinsBadgeProps) {
   return (
     <motion.span
       className={cn(
-        "inline-block px-2 rounded-full",
+        "inline-block py-1 px-2 rounded-full",
         "bg-linear-135 from-green-500 to-green-700",
-        "shadow-wins-badge text-shadow-wins-badge",
+        "font-ui shadow-wins-badge text-shadow-wins-badge",
         className,
       )}
     >
