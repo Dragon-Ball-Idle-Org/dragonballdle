@@ -6,6 +6,7 @@ import { MartialArtsGuessForm } from "@/components/themed/MartialArtsGuessForm";
 import { cn } from "@/utils/cn";
 import { GuessesTable } from "@/components/shared/GuessesTable";
 import { GuessStatus } from "@/domain/guess-status";
+import GlassAccordion from "@/components/ui/GlassAccordion";
 
 export default function ClassicPage() {
   return (
@@ -49,6 +50,49 @@ export default function ClassicPage() {
           ]}
         />
       </div>
+
+      <GlassAccordion
+        className="w-full max-w-3xl"
+        items={[
+          {
+            header: "Need a quick guide?",
+            content: (
+              <div className="p-3">
+                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-green-600"></div>
+                  <span>Correct - This attribute is exactly right.</span>
+                </div>
+
+                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-amber-600"></div>
+                  <span>Partial — At least one value matches.</span>
+                </div>
+
+                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
+                  <span>Incorrect — This attribute is completely wrong.</span>
+                </div>
+
+                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
+                  <span>
+                    After — The daily character’s debut saga is after your
+                    guess.
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
+                  <span>
+                    Before — The daily character’s debut saga is before your
+                    guess.
+                  </span>
+                </div>
+              </div>
+            ),
+          },
+        ]}
+      />
     </MainContainer>
   );
 }
