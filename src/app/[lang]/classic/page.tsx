@@ -7,6 +7,10 @@ import { cn } from "@/utils/cn";
 import { GuessesTable } from "@/components/shared/GuessesTable";
 import { GuessStatus } from "@/domain/guess-status";
 import GlassAccordion from "@/components/ui/GlassAccordion";
+import {
+  ArrowFatDownIcon,
+  ArrowFatUpIcon,
+} from "@phosphor-icons/react/dist/ssr";
 
 export default function ClassicPage() {
   return (
@@ -53,8 +57,10 @@ export default function ClassicPage() {
 
       <GlassAccordion
         className="w-full max-w-3xl"
+        defaultOpenedValues={["tutorial"]}
         items={[
           {
+            value: "tutorial",
             header: "Need a quick guide?",
             content: (
               <div className="p-3">
@@ -74,7 +80,12 @@ export default function ClassicPage() {
                 </div>
 
                 <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
-                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
+                  <div className="relative w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600">
+                    <span className="absolute inset-0 flex items-center justify-center text-black pointer-events-none select-none">
+                      <ArrowFatUpIcon weight="fill" className="w-full h-full" />
+                    </span>
+                  </div>
+
                   <span>
                     After — The daily character’s debut saga is after your
                     guess.
@@ -82,7 +93,14 @@ export default function ClassicPage() {
                 </div>
 
                 <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
-                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
+                  <div className="relative w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600">
+                    <span className="absolute inset-0 flex items-center justify-center text-black pointer-events-none select-none">
+                      <ArrowFatDownIcon
+                        weight="fill"
+                        className="w-full h-full"
+                      />
+                    </span>
+                  </div>
                   <span>
                     Before — The daily character’s debut saga is before your
                     guess.
