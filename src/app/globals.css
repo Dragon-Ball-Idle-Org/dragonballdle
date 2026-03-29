@@ -21,9 +21,11 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-primary: var(--palette-orange-base);
   --color-primary-dark: var(--palette-orange-dark);
   --color-primary-light: var(--palette-orange-light);
+
   --color-red-light: var(--pallete-red-light);
   --color-buy-me-a-coffe: var(--pallete-blue-light);
 
