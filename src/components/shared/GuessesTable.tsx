@@ -19,7 +19,7 @@ type GuessCell = {
 
 type GuessesTableProps<T extends string> = {
   headers: { value: T; label: string }[];
-  guesses: Record<T, GuessImageCell | GuessCell>[];
+  guesses: (Record<T, GuessImageCell | GuessCell> & { id: string })[];
 };
 
 function isImageCell(cell: GuessImageCell | GuessCell): cell is GuessImageCell {
@@ -66,14 +66,15 @@ export function GuessesTable<T extends string>({
           {header.label}
         </span>
       ))}
-      {guesses.map((guess, i) => (
-        <AnimatePresence key={i} mode="popLayout">
-          {headers.map((header, i) => {
+      <AnimatePresence mode="popLayout">
+        {guesses.map((guess) =>
+          headers.map((header, i) => {
             const cell = guess[header.value];
+            const uniqueKey = `${guess.id}_${header.value}`;
 
             return (
               <motion.div
-                key={`${cell}_${header.value}`}
+                key={uniqueKey}
                 initial={{ opacity: 0, translateY: 12, scale: 0.98 }}
                 animate={{ opacity: 1, translateY: 0, scale: 1 }}
                 transition={{ delay: i * 0.3, duration: 0.3 }}
@@ -116,9 +117,9 @@ export function GuessesTable<T extends string>({
                 )}
               </motion.div>
             );
-          })}
-        </AnimatePresence>
-      ))}
+          }),
+        )}
+      </AnimatePresence>
     </div>
   );
 }

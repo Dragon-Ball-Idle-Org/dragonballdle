@@ -5,18 +5,14 @@ import { MartialArtsAutocompleteField } from "./MartialArtsAutocompleteField";
 import { useState } from "react";
 import { useCharacterSearch } from "@/hooks/useCharacterSearch";
 import { useLocale } from "next-intl";
-import { useGuesses } from "@/hooks/useGuesses";
 import { getCharacterBySlug } from "@/service/characters";
+import { useGuessesContext } from "@/contexts/GuessesContext";
 
-type MartialArtsGuessFormProps = {
-  dayIndex: number;
-};
-
-export function MartialArtsGuessForm({ dayIndex }: MartialArtsGuessFormProps) {
+export function MartialArtsGuessForm() {
   const [query, setQuery] = useState("");
   const locale = useLocale();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const { guesses, addGuess } = useGuesses(dayIndex, locale);
+  const { guesses, addGuess } = useGuessesContext();
   const results = useCharacterSearch(
     query,
     locale,
@@ -53,10 +49,8 @@ export function MartialArtsGuessForm({ dayIndex }: MartialArtsGuessFormProps) {
             : undefined,
         }))}
         onChange={(value) => setQuery(value)}
-        onSelect={(slug) => {
-          setSelectedSlug(slug);
-          submitGuess(slug);
-        }}
+        onSelect={(slug) => setSelectedSlug(slug)}
+        submitOnSelect
       />
       <button
         type="submit"

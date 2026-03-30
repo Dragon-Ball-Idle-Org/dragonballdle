@@ -47,8 +47,8 @@ export default function ClassicLayout({
 }: LayoutProps<"/[lang]/classic">) {
   return (
     <>
-      <Header />
-      {children}
+        <Header />
+        {children}
     </>
   );
 }

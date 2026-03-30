@@ -1,18 +1,16 @@
 "use client";
 
 import { GuessesTable } from "@/components/shared/GuessesTable";
-import { useGuesses } from "@/hooks/useGuesses";
+import { useGuessesContext } from "@/contexts/GuessesContext";
 import {
   compareSaga,
   compareTransformation,
   compareValue,
 } from "@/types/guess";
-import { useLocale } from "next-intl";
 import dynamic from "next/dynamic";
 
-export function ClassicGuessTable({ dayIndex }: { dayIndex: number }) {
-  const locale = useLocale();
-  const { guesses, hydrated } = useGuesses(dayIndex, locale);
+export function ClassicGuessTable() {
+  const { guesses, hydrated } = useGuessesContext();
 
   if (!hydrated || !guesses.length) {
     return null;
@@ -38,7 +36,7 @@ export function ClassicGuessTable({ dayIndex }: { dayIndex: number }) {
     debut_saga: {
       name: "Saiyan Saga",
       slug: "saiyan-saga",
-      sort_order: 100,
+      sort_order: 800,
     },
     affiliations: [
       {
@@ -72,6 +70,7 @@ export function ClassicGuessTable({ dayIndex }: { dayIndex: number }) {
         { value: "debut_saga", label: "Saga" },
       ]}
       guesses={guesses.map((g) => ({
+        id: g.slug,
         character: {
           imgSrc: `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${g.thumb_path}`,
           alt: g.name,
@@ -147,6 +146,6 @@ const ClassicGuessTableLoaded = dynamic(
   { ssr: false },
 );
 
-export function ClassicGuessTableLoader({ dayIndex }: { dayIndex: number }) {
-  return <ClassicGuessTableLoaded dayIndex={dayIndex} />;
+export function ClassicGuessTableLoader() {
+  return <ClassicGuessTableLoaded />;
 }

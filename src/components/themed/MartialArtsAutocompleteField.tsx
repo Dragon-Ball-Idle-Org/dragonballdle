@@ -3,6 +3,7 @@
 import { cn } from "@/utils/cn";
 import { Autocomplete } from "@base-ui/react";
 import Image from "next/image";
+import { useState } from "react";
 
 type Suggestion = {
   id: string;
@@ -25,6 +26,20 @@ export function MartialArtsAutocompleteField({
   onChange,
   onSelect,
 }: MartialArtsAutocompleteFieldProps) {
+  const [value, setValue] = useState("");
+
+  const handleChange = (value: string) => {
+    setValue(value);
+    onChange(value);
+  };
+
+  const handleSelect = (id: string) => {
+    onSelect(id);
+    if (submitOnSelect) {
+      setValue("");
+    }
+  };
+
   return (
     <Autocomplete.Root items={suggestions} submitOnItemClick={submitOnSelect}>
       <div className="w-full border-martial-arts">
@@ -35,7 +50,8 @@ export function MartialArtsAutocompleteField({
             className,
           )}
           placeholder="Type character name..."
-          onChange={(e) => onChange(e.target.value)}
+          value={value}
+          onChange={(e) => handleChange(e.target.value)}
         />
       </div>
 
@@ -61,7 +77,7 @@ export function MartialArtsAutocompleteField({
                     "odd:bg-black/3 even:bg-black/8 hover:bg-white/16",
                     "data-highlighted:bg-white/22 data-highlighted:outline-2 data-highlighted:outline-primary-dark data-highlighted:-outline-offset-2",
                   )}
-                  onClick={() => onSelect(suggestion.id)}
+                  onClick={() => handleSelect(suggestion.id)}
                 >
                   {suggestion.image ? (
                     <Image
