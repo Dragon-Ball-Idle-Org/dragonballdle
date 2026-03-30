@@ -10,7 +10,7 @@ import {
   ArrowFatUpIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { getDayIndex } from "@/lib/day";
-import { ClassicGuessTable } from "./ClassicGuessTable";
+import { ClassicGuessTableLoader } from "./ClassicGuessTable";
 
 export default function ClassicPage() {
   const dayIndex = getDayIndex();
@@ -22,13 +22,13 @@ export default function ClassicPage() {
       <MartialArtsWinBanner />
       <div
         className={cn(
-          "flex flex-col items-center w-full max-w-200 p-4 rounded-xl",
-          "bg-black/17 backdrop-blur-xs shadow-[0_6px_24px_#00000026]",
-          "relative z-1 overflow-x-auto [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] snap-x snap-proximity",
+          "flex flex-col items-center w-full max-w-200 p-4 relative z-1",
+          "bg-black/17 backdrop-blur-xs rounded-xl shadow-[0_6px_24px_#00000026]",
+          "[-webkit-overflow-scrolling:touch] [scrollbar-width:thin] snap-x snap-proximity overflow-x-auto",
         )}
       >
         <MartialArtsGuessForm dayIndex={dayIndex} />
-        <ClassicGuessTable dayIndex={dayIndex} />
+        <ClassicGuessTableLoader dayIndex={dayIndex} />
       </div>
 
       <GlassAccordion

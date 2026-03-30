@@ -21,8 +21,11 @@ export async function getCharacterBySlug(
   const supabase = createClientWithTag("characters");
 
   const { data } = await supabase
-    .rpc("get_character_with_translations", { p_slug: slug, p_locale: locale })
+    .rpc("get_character_with_translations", {
+      p_slug: slug,
+      p_locale: locale.toLowerCase(),
+    })
     .single();
 
-  return data ?? null;
+  return (data as unknown as CharacterGuess) ?? null;
 }

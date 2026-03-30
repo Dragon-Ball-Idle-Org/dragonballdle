@@ -5,6 +5,7 @@ import { cn } from "@/utils/cn";
 import { ArrowFatDownIcon, ArrowFatUpIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { Tooltip } from "../ui/Tooltip";
 
 type GuessImageCell = {
   imgSrc: string;
@@ -17,7 +18,7 @@ type GuessCell = {
 };
 
 type GuessesTableProps<T extends string> = {
-  headers: T[];
+  headers: { value: T; label: string }[];
   guesses: Record<T, GuessImageCell | GuessCell>[];
 };
 
@@ -49,80 +50,75 @@ export function GuessesTable<T extends string>({
   };
 
   return (
-    <>
-      <div className="relative grid grid-cols-8 justify-start gap-8 w-full mt-0 mb-0.5 z-10">
-        {headers.map((header) => (
-          <span
-            key={header}
-            className={cn(
-              "w-22 h-5 flex items-end justify-center",
-              "text-center pb-1 text-xs font-semibold text-shadow-[2px_2px_3px_#000000]",
-              "border-b-3 border-white rounded-lg",
-            )}
-          >
-            {header}
-          </span>
-        ))}
-      </div>
-      <div className="block w-full relative z-10 overflow-visible">
-        {guesses.map((guess, i) => (
-          <div
-            key={i}
-            className="grid grid-cols-8 gap-3 items-stretch w-max my-3"
-          >
-            <AnimatePresence mode="popLayout">
-              {headers.map((header, i) => {
-                const cell = guess[header];
+    <div
+      className={`relative grid justify-start gap-2 w-full mt-0 mb-0.5 overflow-x-visible`}
+      style={{ gridTemplateColumns: `repeat(${headers.length}, 5.5rem)` }}
+    >
+      {headers.map((header) => (
+        <span
+          key={header.value}
+          className={cn(
+            "w-22 h-5 flex items-end justify-center",
+            "text-center pb-1 text-xs font-semibold text-shadow-[2px_2px_3px_#000000]",
+            "border-b-3 border-white rounded-lg",
+          )}
+        >
+          {header.label}
+        </span>
+      ))}
+      {guesses.map((guess, i) => (
+        <AnimatePresence key={i} mode="popLayout">
+          {headers.map((header, i) => {
+            const cell = guess[header.value];
 
-                return (
-                  <motion.div
-                    key={`${i}_${header}`}
-                    initial={{ opacity: 0, translateY: -12, scale: 0.98 }}
-                    animate={{ opacity: 1, translateY: 0, scale: 1 }}
-                    transition={{ delay: i * 0.06 }}
-                    className={cn(
-                      "w-22 h-22 flex flex-wrap items-center justify-center overflow-hidden",
-                      "relative border border-white rounded-xl",
-                      getCellClassName(cell),
+            return (
+              <motion.div
+                key={`${cell}_${header.value}`}
+                initial={{ opacity: 0, translateY: 12, scale: 0.98 }}
+                animate={{ opacity: 1, translateY: 0, scale: 1 }}
+                transition={{ delay: i * 0.3, duration: 0.3 }}
+                className={cn(
+                  "w-22 h-22 flex flex-wrap items-center justify-center overflow-hidden",
+                  "relative border border-white rounded-xl",
+                  getCellClassName(cell),
+                )}
+              >
+                {isImageCell(cell) && (
+                  <Tooltip content={cell.alt}>
+                    <Image
+                      src={cell.imgSrc}
+                      alt={cell.alt}
+                      width={85}
+                      height={85}
+                    />
+                  </Tooltip>
+                )}
+                {isGuessCell(cell) && (
+                  <>
+                    {cell.status === GuessStatus.OLDEST && (
+                      <span className="absolute inset-0 flex items-center justify-center text-black/80 pointer-events-none select-none">
+                        <ArrowFatDownIcon
+                          weight="fill"
+                          className="w-full h-full"
+                        />
+                      </span>
                     )}
-                  >
-                    {isImageCell(cell) && (
-                      <Image
-                        src={cell.imgSrc}
-                        alt={cell.alt}
-                        width={85}
-                        height={85}
-                        className=""
-                      />
+                    {cell.status === GuessStatus.NEWEST && (
+                      <span className="absolute inset-0 flex items-center justify-center text-black/80 pointer-events-none select-none">
+                        <ArrowFatUpIcon
+                          weight="fill"
+                          className="w-full h-full"
+                        />
+                      </span>
                     )}
-                    {isGuessCell(cell) && (
-                      <>
-                        {cell.status === GuessStatus.OLDEST && (
-                          <span className="absolute inset-0 flex items-center justify-center text-black/80 pointer-events-none select-none">
-                            <ArrowFatDownIcon
-                              weight="fill"
-                              className="w-full h-full"
-                            />
-                          </span>
-                        )}
-                        {cell.status === GuessStatus.NEWEST && (
-                          <span className="absolute inset-0 flex items-center justify-center text-black/80 pointer-events-none select-none">
-                            <ArrowFatUpIcon
-                              weight="fill"
-                              className="w-full h-full"
-                            />
-                          </span>
-                        )}
-                        <span className="z-10">{cell.value}</span>
-                      </>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </div>
-        ))}
-      </div>
-    </>
+                    <span className="z-10">{cell.value}</span>
+                  </>
+                )}
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      ))}
+    </div>
   );
 }

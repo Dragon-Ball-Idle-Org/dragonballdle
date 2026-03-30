@@ -13,18 +13,20 @@ type Suggestion = {
 type MartialArtsAutocompleteFieldProps = {
   suggestions: Suggestion[];
   className?: string;
+  submitOnSelect?: boolean;
   onChange: (value: string) => void;
-  onSelect: (slug: string) => void;
+  onSelect: (id: string) => void;
 };
 
 export function MartialArtsAutocompleteField({
   suggestions,
   className,
+  submitOnSelect,
   onChange,
   onSelect,
 }: MartialArtsAutocompleteFieldProps) {
   return (
-    <Autocomplete.Root items={suggestions}>
+    <Autocomplete.Root items={suggestions} submitOnItemClick={submitOnSelect}>
       <div className="w-full border-martial-arts">
         <Autocomplete.Input
           className={cn(
@@ -59,7 +61,7 @@ export function MartialArtsAutocompleteField({
                     "odd:bg-black/3 even:bg-black/8 hover:bg-white/16",
                     "data-highlighted:bg-white/22 data-highlighted:outline-2 data-highlighted:outline-primary-dark data-highlighted:-outline-offset-2",
                   )}
-                  onSelect={() => onSelect(suggestion.id)}
+                  onClick={() => onSelect(suggestion.id)}
                 >
                   {suggestion.image ? (
                     <Image
