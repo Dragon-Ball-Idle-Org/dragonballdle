@@ -6,6 +6,20 @@ export enum GuessStatus {
   NEWEST,
 }
 
+export type ClassicCharacter = {
+  slug: string;
+  name: string;
+  thumb_path: string | null;
+  image_path: string | null;
+  gender: { slug: string | null; name: string | null };
+  races: { slug: string | null; name: string | null }[];
+  series: { slug: string | null; name: string | null };
+  debut_saga: { slug: string; name: string; sort_order: number };
+  affiliations: { slug: string | null; name: string | null }[];
+  attributes: { slug: string | null; name: string | null }[];
+  has_transformations: boolean;
+};
+
 export type CharacterGuess = {
   slug: string;
   name: string;
@@ -32,6 +46,9 @@ export function compareSaga(
   return GuessStatus.OLDEST;
 }
 
-export function compareTransformation(guessed: boolean, daily: boolean): GuessStatus {
+export function compareTransformation(
+  guessed: boolean,
+  daily: boolean,
+): GuessStatus {
   return guessed === daily ? GuessStatus.CORRECT : GuessStatus.WRONG;
 }

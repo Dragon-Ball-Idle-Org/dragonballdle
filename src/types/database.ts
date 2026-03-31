@@ -309,6 +309,32 @@ export type Database = {
           },
         ]
       }
+      daily_characters: {
+        Row: {
+          character_id: string | null
+          date: string | null
+          day_index: number
+        }
+        Insert: {
+          character_id?: string | null
+          date?: string | null
+          day_index: number
+        }
+        Update: {
+          character_id?: string | null
+          date?: string | null
+          day_index?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "daily_characters_character_id_fkey"
+            columns: ["character_id"]
+            isOneToOne: false
+            referencedRelation: "characters"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       gender_translations: {
         Row: {
           created_at: string
@@ -474,7 +500,28 @@ export type Database = {
         }
         Relationships: []
       }
-      serie_translations: {
+      series: {
+        Row: {
+          created_at: string
+          id: string
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      series_translations: {
         Row: {
           created_at: string
           locale: string
@@ -505,27 +552,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
-      }
-      series: {
-        Row: {
-          created_at: string
-          id: string
-          slug: string
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          slug: string
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          slug?: string
-          updated_at?: string
-        }
-        Relationships: []
       }
       wins: {
         Row: {
