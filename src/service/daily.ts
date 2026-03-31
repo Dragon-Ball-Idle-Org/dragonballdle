@@ -51,6 +51,8 @@ export async function getDailyCharacter(
   const supabase = createClient();
   const dayIndex = getDayIndex();
 
+  const threatedLocale = locale.toLowerCase();
+
   const { data, error } = await supabase
     .from("daily_characters")
     .select(
@@ -97,22 +99,29 @@ export async function getDailyCharacter(
     `,
     )
     .eq("day_index", dayIndex)
-    .eq("characters.character_translations.locale", locale)
-    .eq("characters.genders.gender_translations.locale", locale)
-    .eq("characters.series.series_translations.locale", locale)
-    .eq("characters.sagas.saga_translations.locale", locale)
-    .eq("characters.character_races.races.race_translations.locale", locale)
+    .eq("characters.character_translations.locale", threatedLocale)
+    .eq("characters.genders.gender_translations.locale", threatedLocale)
+    .eq("characters.series.series_translations.locale", threatedLocale)
+    .eq("characters.sagas.saga_translations.locale", threatedLocale)
+    .eq(
+      "characters.character_races.races.race_translations.locale",
+      threatedLocale,
+    )
     .eq(
       "characters.character_affiliations.affiliations.affiliation_translations.locale",
-      locale,
+      threatedLocale,
     )
     .eq(
       "characters.character_attributes.attributes.attribute_translations.locale",
-      locale,
+      threatedLocale,
     )
     .single();
 
-  if (error || !data?.characters) return null;
+  if (error || !data?.characters) {
+    console.log("data", data);
+    console.error("error", error);
+    return null;
+  }
 
   return mapToClassicCharacter(data.characters);
 }

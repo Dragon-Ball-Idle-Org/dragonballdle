@@ -8,6 +8,7 @@ type GuessesContextValue = {
   guesses: CharacterGuess[];
   addGuess: (character: CharacterGuess) => void;
   hydrated: boolean;
+  tries: number;
 };
 
 const GuessesContext = createContext<GuessesContextValue | null>(null);
@@ -24,7 +25,9 @@ export function GuessesProvider({
   const { guesses, addGuess, hydrated } = useGuesses(dayIndex, locale);
 
   return (
-    <GuessesContext.Provider value={{ guesses, addGuess, hydrated }}>
+    <GuessesContext.Provider
+      value={{ guesses, addGuess, hydrated, tries: guesses.length }}
+    >
       {children}
     </GuessesContext.Provider>
   );

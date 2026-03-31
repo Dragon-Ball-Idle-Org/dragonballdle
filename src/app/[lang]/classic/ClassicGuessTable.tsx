@@ -3,59 +3,19 @@
 import { GuessesTable } from "@/components/shared/GuessesTable";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import {
+  ClassicCharacter,
   compareSaga,
   compareTransformation,
   compareValue,
 } from "@/types/guess";
 import dynamic from "next/dynamic";
 
-export function ClassicGuessTable() {
+export function ClassicGuessTable({ daily }: { daily: ClassicCharacter }) {
   const { guesses, hydrated } = useGuessesContext();
 
   if (!hydrated || !guesses.length) {
     return null;
   }
-
-  const daily = {
-    slug: "goku",
-    name: "Goku",
-    gender: {
-      name: "Male",
-      slug: "male",
-    },
-    races: [
-      {
-        name: "Saiyan",
-        slug: "saiyan",
-      },
-    ],
-    series: {
-      name: "Dragon Ball Z",
-      slug: "dragon-ball-z",
-    },
-    debut_saga: {
-      name: "Saiyan Saga",
-      slug: "saiyan-saga",
-      sort_order: 800,
-    },
-    affiliations: [
-      {
-        name: "Z Fighters",
-        slug: "z-fighters",
-      },
-    ],
-    attributes: [
-      {
-        name: "Power",
-        slug: "power",
-      },
-      {
-        name: "Martial Arts",
-        slug: "martial-arts",
-      },
-    ],
-    has_transformations: true,
-  }; //await getDailyCharacter(dayIndex, locale);
 
   return (
     <GuessesTable
@@ -77,7 +37,7 @@ export function ClassicGuessTable() {
         },
         gender: {
           value: g.gender.name,
-          status: compareValue(g.gender.slug, daily.gender.slug),
+          status: compareValue(g.gender.slug, daily.gender.slug ?? ""),
         },
         race: {
           value: g.races.map((r) => r.name).join(", "),
@@ -87,7 +47,7 @@ export function ClassicGuessTable() {
               .map((a) => a.slug)
               .join(", "),
             daily.races
-              .sort((a, b) => a.slug.localeCompare(b.slug))
+              .sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
               .map((a) => a.slug)
               .join(", "),
           ),
@@ -100,7 +60,7 @@ export function ClassicGuessTable() {
               .map((a) => a.slug)
               .join(", ") ?? "None",
             daily.affiliations
-              ?.sort((a, b) => a.slug.localeCompare(b.slug))
+              ?.sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
               .map((a) => a.slug)
               .join(", ") ?? "None",
           ),
@@ -120,14 +80,14 @@ export function ClassicGuessTable() {
               ?.map((a) => a.slug)
               ?.join(", ") ?? "None",
             daily.attributes
-              ?.sort((a, b) => a.slug.localeCompare(b.slug))
+              ?.sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
               ?.map((a) => a.slug)
               ?.join(", ") ?? "None",
           ),
         },
         series: {
           value: g.series.name,
-          status: compareValue(g.series.slug, daily.series.slug),
+          status: compareValue(g.series.slug, daily.series.slug ?? ""),
         },
         debut_saga: {
           value: g.debut_saga.name,
@@ -146,6 +106,10 @@ const ClassicGuessTableLoaded = dynamic(
   { ssr: false },
 );
 
-export function ClassicGuessTableLoader() {
-  return <ClassicGuessTableLoaded />;
+export function ClassicGuessTableLoader({
+  daily,
+}: {
+  daily: ClassicCharacter;
+}) {
+  return <ClassicGuessTableLoaded daily={daily} />;
 }

@@ -1,9 +1,16 @@
+"use client";
+
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/utils/cn";
 import { XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import { CountdownToMidnight } from "../shared/CountdownToMidnight";
+import { useGuessesContext } from "@/contexts/GuessesContext";
+import { ReactNode } from "react";
 
 export function MartialArtsWinBanner() {
+  const { tries } = useGuessesContext();
+
   return (
     <div className="flex flex-wrap items-center justify-center">
       <div
@@ -17,8 +24,11 @@ export function MartialArtsWinBanner() {
           Today&apos;s result
         </h3>
 
-        <Row title="Tries" value="1" />
-        <Row title="Next character" value="01:00:00" />
+        <Row title="Tries" value={String(tries)} />
+        <Row
+          title="Next character"
+          value={<CountdownToMidnight className="font-ui font-black" />}
+        />
 
         <div className="w-full flex flex-col items-center justify-center gap-3 border-t border-black/12 pt-3 pb-2">
           <div className="flex flex-col items-center gap-2 text-center">
@@ -76,7 +86,7 @@ export function MartialArtsWinBanner() {
   );
 }
 
-function Row({ title, value }: { title: string; value: string }) {
+function Row({ title, value }: { title: string; value: string | ReactNode }) {
   return (
     <div className="flex items-center justify-between w-full p-2 border-t border-black/12">
       <span className="font-bold">{title}</span>

@@ -12,11 +12,21 @@ import {
 import { getDayIndex } from "@/lib/day";
 import { ClassicGuessTableLoader } from "./ClassicGuessTable";
 import { GuessesProvider } from "@/contexts/GuessesContext";
-import { useLocale } from "next-intl";
+import { getDailyCharacter } from "@/service/daily";
+import { getLocale } from "next-intl/server";
 
-export default function ClassicPage() {
+export default async function ClassicPage() {
   const dayIndex = getDayIndex();
-  const locale = useLocale();
+  const locale = await getLocale();
+  const daily = await getDailyCharacter(locale);
+
+  if (!daily) {
+    return (
+      <div className="flex-1 flex items-center justify-center">
+        <h1>Daily character not found</h1>
+      </div>
+    );
+  }
 
   return (
     <MainContainer>
@@ -32,7 +42,7 @@ export default function ClassicPage() {
           )}
         >
           <MartialArtsGuessForm />
-          <ClassicGuessTableLoader />
+          <ClassicGuessTableLoader daily={daily} />
         </div>
 
         <GlassAccordion
