@@ -9,10 +9,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const t = await getTranslations({
-    locale: lang,
-    namespace: "legal.metadata",
-  });
+  const t = await getTranslations({ locale: lang, namespace: "home.metadata" });
 
   return {
     title: t("title"),
@@ -47,8 +44,8 @@ export default function ClassicLayout({
 }: LayoutProps<"/[lang]/classic">) {
   return (
     <>
-        <Header />
-        {children}
+      <Header />
+      {children}
     </>
   );
 }

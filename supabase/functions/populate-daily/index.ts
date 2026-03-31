@@ -25,7 +25,6 @@ Deno.serve(async () => {
   const todayK = getDayIndex();
   const targetK = todayK + DAYS_AHEAD;
 
-  // verifica dias já populados
   const { data: existing } = await supabase
     .from("daily_characters")
     .select("day_index")
@@ -44,7 +43,6 @@ Deno.serve(async () => {
     });
   }
 
-  // pré-carrega histórico recente para janela de exclusão
   const startK = Math.min(...missingDays);
   const { data: historical } = await supabase
     .from("daily_characters")
@@ -59,7 +57,6 @@ Deno.serve(async () => {
     if (charIdx >= 0) cache[row.day_index] = charIdx;
   }
 
-  // calcula e insere
   const rows: { day_index: number; character_id: string }[] = [];
   let currentCache = [...cache];
 

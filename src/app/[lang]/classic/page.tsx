@@ -9,18 +9,19 @@ import {
   ArrowFatDownIcon,
   ArrowFatUpIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import { getDayIndex } from "@/lib/day";
 import { ClassicGuessTableLoader } from "./ClassicGuessTable";
 import { GuessesProvider } from "@/contexts/GuessesContext";
-import { getDailyCharacter } from "@/service/daily";
+import { getDailyCharacter, getYesterdayCharacter } from "@/service/daily";
 import { getLocale } from "next-intl/server";
+import { getDayIndex } from "@/lib/daily";
 
 export default async function ClassicPage() {
-  const dayIndex = getDayIndex();
   const locale = await getLocale();
-  const daily = await getDailyCharacter(locale);
+  const dayIndex = getDayIndex();
+  const dailyChar = await getDailyCharacter(locale);
+  const yesterdayChar = await getYesterdayCharacter(locale);
 
-  if (!daily) {
+  if (!dailyChar) {
     return (
       <div className="flex-1 flex items-center justify-center">
         <h1>Daily character not found</h1>
@@ -32,8 +33,16 @@ export default async function ClassicPage() {
     <MainContainer>
       <GuessesProvider dayIndex={dayIndex} locale={locale}>
         <MartialArtsHero />
-        <MartialArtsYesterdayCharacter />
-        <MartialArtsWinBanner />
+        {yesterdayChar && (
+          <MartialArtsYesterdayCharacter
+            characterName={yesterdayChar.name}
+            characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.thumb_path}`}
+          />
+        )}
+        <MartialArtsWinBanner
+          todayCharacterName={dailyChar.name}
+          todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
+        />
         <div
           className={cn(
             "flex flex-col items-center w-full max-w-200 p-4 relative z-1",
@@ -42,7 +51,7 @@ export default async function ClassicPage() {
           )}
         >
           <MartialArtsGuessForm />
-          <ClassicGuessTableLoader daily={daily} />
+          <ClassicGuessTableLoader dailyCharacter={dailyChar} />
         </div>
 
         <GlassAccordion

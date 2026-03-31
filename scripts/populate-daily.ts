@@ -13,12 +13,11 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!,
 );
 
-const DAYS_AHEAD = 90; // quantos dias à frente popular
+const DAYS_AHEAD = 90;
 
 async function main() {
   console.log("Fetching canonical character list...");
 
-  // busca todos os personagens em ordem canônica (slug sort — equivalente ao getCanonicalList)
   const { data: characters, error } = await supabase
     .from("characters")
     .select("id, slug")
@@ -35,7 +34,6 @@ async function main() {
   const todayK = getDayIndex();
   const targetK = todayK + DAYS_AHEAD;
 
-  // verifica quais dias já estão populados
   const { data: existing } = await supabase
     .from("daily_characters")
     .select("day_index")
@@ -57,11 +55,9 @@ async function main() {
     `Populating ${missingDays.length} missing days (${ymdFromDayIndex(missingDays[0])} → ${ymdFromDayIndex(missingDays[missingDays.length - 1])})...`,
   );
 
-  // precisa calcular sequencialmente desde o início para o algoritmo de janela funcionar
   const startK = Math.min(...missingDays);
   const cache: (number | undefined)[] = [];
 
-  // pré-carrega cache com dias já existentes no banco (para a janela WINDOW_DAYS funcionar)
   const { data: historical } = await supabase
     .from("daily_characters")
     .select("day_index, characters(slug)")
@@ -76,7 +72,6 @@ async function main() {
     }
   }
 
-  // calcula os índices para os dias que faltam
   const rows: { day_index: number; character_id: string }[] = [];
   let currentCache = [...cache];
 
@@ -94,7 +89,6 @@ async function main() {
     console.log(`  Day ${k} (${ymdFromDayIndex(k)}): ${character.slug}`);
   }
 
-  // insere em batch
   const { error: insertError } = await supabase
     .from("daily_characters")
     .upsert(rows, { onConflict: "day_index" });

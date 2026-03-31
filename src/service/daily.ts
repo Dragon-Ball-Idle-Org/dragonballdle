@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { getDayIndex } from "@/lib/daily";
-import { ClassicCharacter } from "@/types/guess";
+import { ClassicCharacter, YesterdayCharacter } from "@/types/guess";
 import {
   AffiliationJoin,
   AttributeJoin,
@@ -124,4 +124,42 @@ export async function getDailyCharacter(
   }
 
   return mapToClassicCharacter(data.characters);
+}
+
+export async function getYesterdayCharacter(
+  locale: string,
+): Promise<YesterdayCharacter | null> {
+  const supabase = createClient();
+  const dayIndex = getDayIndex() - 1;
+
+  const threatedLocale = locale.toLowerCase();
+
+  const { data, error } = await supabase
+    .from("daily_characters")
+    .select(
+      `
+      day_index,
+      characters (
+        slug,
+        thumb_path,
+        character_translations!inner (name)
+      )
+    `,
+    )
+    .eq("day_index", dayIndex)
+    .eq("characters.character_translations.locale", threatedLocale)
+    .single();
+
+  if (error || !data?.characters) {
+    console.log("data", data);
+    console.error("error", error);
+    return null;
+  }
+
+  return {
+    slug: data.characters.slug,
+    name:
+      data.characters.character_translations[0]?.name ?? data.characters.slug,
+    thumb_path: data.characters.thumb_path,
+  };
 }

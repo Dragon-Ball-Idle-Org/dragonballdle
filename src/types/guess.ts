@@ -6,6 +6,12 @@ export enum GuessStatus {
   NEWEST,
 }
 
+export type YesterdayCharacter= {
+  slug: string;
+  name: string;
+  thumb_path: string | null;
+}
+
 export type ClassicCharacter = {
   slug: string;
   name: string;

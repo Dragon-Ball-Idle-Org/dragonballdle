@@ -26,7 +26,6 @@ export function Countdown({ initialSeconds, className }: CountdownProps) {
   const clientStartTimeRef = useRef<number>(0);
   const serverInitialSecondsRef = useRef<number>(initialSeconds);
 
-  // Core logic (no ref animation loop)
   const calculateTimeLeft = useCallback((): TimeLeft => {
     const elapsed = Math.floor(
       (Date.now() - clientStartTimeRef.current) / 1000,
@@ -42,7 +41,6 @@ export function Countdown({ initialSeconds, className }: CountdownProps) {
     };
   }, []);
 
-  // Thin “tick” wrapper that the animation loop calls
   const tick = useCallback(() => {
     const now = Date.now();
     if (now - lastUpdateRef.current >= 1000) {
@@ -51,7 +49,6 @@ export function Countdown({ initialSeconds, className }: CountdownProps) {
     }
   }, [calculateTimeLeft]);
 
-  // start / stop animation loop (no useCallback dependency on `updateCountdown`)
   useEffect(() => {
     clientStartTimeRef.current = Date.now();
     lastUpdateRef.current = clientStartTimeRef.current;

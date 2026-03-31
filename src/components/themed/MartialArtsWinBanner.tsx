@@ -8,7 +8,15 @@ import { CountdownToMidnight } from "../shared/CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { ReactNode } from "react";
 
-export function MartialArtsWinBanner() {
+type MartialArtsWinBannerProps = {
+  todayCharacterName: string;
+  todayCharacterImage: string;
+};
+
+export function MartialArtsWinBanner({
+  todayCharacterName,
+  todayCharacterImage,
+}: MartialArtsWinBannerProps) {
   const { tries } = useGuessesContext();
 
   return (
@@ -40,12 +48,12 @@ export function MartialArtsWinBanner() {
                 "font-ui font-black text-xl text-shadow-[1px_1px_2px_rgba(0,0,0,.6)] whitespace-nowrap",
               )}
             >
-              Android 15
+              {todayCharacterName}
             </strong>
           </div>
           <Image
-            src="https://cdn.dragonballdle.site/characters/thumbs/android_15.png"
-            alt="Android 15 thumbnail"
+            src={todayCharacterImage}
+            alt={`${todayCharacterName} thumbnail`}
             width={80}
             height={80}
             className="w-20 h-20 rounded-xl object-cover shadow-[0_0_0_1px_#ffffffa6,0_4px_14px_#00000047]"

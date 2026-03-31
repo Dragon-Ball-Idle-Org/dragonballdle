@@ -107,9 +107,9 @@ const ClassicGuessTableLoaded = dynamic(
 );
 
 export function ClassicGuessTableLoader({
-  daily,
+  dailyCharacter: daily,
 }: {
-  daily: ClassicCharacter;
+  dailyCharacter: ClassicCharacter;
 }) {
   return <ClassicGuessTableLoaded daily={daily} />;
 }

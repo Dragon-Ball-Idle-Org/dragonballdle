@@ -1,7 +1,15 @@
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 
-export function MartialArtsYesterdayCharacter() {
+type MartialArtsYesterdayCharacterProps = {
+  characterName: string;
+  characterImage: string;
+};
+
+export function MartialArtsYesterdayCharacter({
+  characterName,
+  characterImage
+}: MartialArtsYesterdayCharacterProps) {
   return (
     <div
       className={cn(
@@ -14,8 +22,8 @@ export function MartialArtsYesterdayCharacter() {
       <h4 className="text-sm font-bold">Yesterday&apos;s character</h4>
       <div className="flex flex-nowrap items-center justify-center gap-2">
         <Image
-          src="https://cdn.dragonballdle.site/characters/thumbs/zarbon.png"
-          alt="Zarbon"
+          src={characterImage}
+          alt={characterName}
           width={48}
           height={48}
           className="w-12 h-12 rounded-xl border object-cover bg-white shadow-[0_0_0_2px_#fff9,0_4px_12px_#0000004d]"
@@ -29,7 +37,7 @@ export function MartialArtsYesterdayCharacter() {
               "bg-linear-135 from-green-500 to-green-700",
             )}
           >
-            Zarbon
+            {characterName}
           </span>
         </div>
       </div>

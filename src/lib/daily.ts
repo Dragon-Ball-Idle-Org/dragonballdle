@@ -24,10 +24,14 @@ export function getDayIndex(ymd: string = todayUTCKey()): number {
   return daysBetween(EPOCH_YMD, ymd);
 }
 
-/**
- * Mesmo algoritmo do vanilla JS — determinístico, sem persistência.
- * Retorna o índice canônico do personagem para o dia k.
- */
+export function getCanonicalList<T extends { slug?: string }>(list: T[]): T[] {
+  return list.slice().sort((a, b) => {
+    const aKey = String(a.slug || "").toLowerCase();
+    const bKey = String(b.slug || "").toLowerCase();
+    return aKey.localeCompare(bKey);
+  });
+}
+
 export function getCharacterIndexForDay(
   k: number,
   N: number,
@@ -35,7 +39,14 @@ export function getCharacterIndexForDay(
 ): { index: number; cache: (number | undefined)[] } {
   const cache = [...seqCache];
 
-  for (let day = cache.filter(Boolean).length; day <= k; day++) {
+  let lastCalculated = -1;
+  for (let i = 0; i < cache.length; i++) {
+    if (cache[i] !== undefined) {
+      lastCalculated = i;
+    }
+  }
+
+  for (let day = lastCalculated + 1; day <= k; day++) {
     const dayYMD = ymdFromDayIndex(day);
     const start = Math.max(0, day - WINDOW_DAYS);
     const recent = new Set<number>();
@@ -54,7 +65,6 @@ export function getCharacterIndexForDay(
       }
     }
 
-    // fallback: menor gap
     if (chosen == null) {
       let bestIdx = 0;
       let bestGap = -Infinity;
