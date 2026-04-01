@@ -14,15 +14,13 @@ type GuessesContextValue = {
 const GuessesContext = createContext<GuessesContextValue | null>(null);
 
 export function GuessesProvider({
-  dayIndex,
   locale,
   children,
 }: {
-  dayIndex: number;
   locale: string;
   children: ReactNode;
 }) {
-  const { guesses, addGuess, hydrated } = useGuesses(dayIndex, locale);
+  const { guesses, addGuess, hydrated } = useGuesses(locale);
 
   return (
     <GuessesContext.Provider

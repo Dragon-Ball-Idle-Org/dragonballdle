@@ -1,7 +1,10 @@
 import { Header } from "@/components/ui/Header";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ClassicProviders } from "./providers";
+import { hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -39,13 +42,16 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ lang: locale }));
 }
-export default function ClassicLayout({
+export default async function ClassicLayout({
   children,
+  params,
 }: LayoutProps<"/[lang]/classic">) {
+  const { lang } = await params;
+
   return (
-    <>
+    <ClassicProviders locale={lang}>
       <Header />
       {children}
-    </>
+    </ClassicProviders>
   );
 }

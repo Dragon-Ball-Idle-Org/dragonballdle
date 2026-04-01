@@ -7,12 +7,21 @@ import { useCharacterSearch } from "@/hooks/useCharacterSearch";
 import { useLocale } from "next-intl";
 import { getCharacterBySlug } from "@/service/characters";
 import { useGuessesContext } from "@/contexts/GuessesContext";
+import { useGameContext } from "@/contexts/GameContext";
+import { ClassicCharacter } from "@/types/guess";
 
-export function MartialArtsGuessForm() {
+export function MartialArtsGuessForm({
+  dailyCharacter,
+}: {
+  dailyCharacter: ClassicCharacter;
+}) {
   const [query, setQuery] = useState("");
   const locale = useLocale();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const { guesses, addGuess } = useGuessesContext();
+  const { isGameWon, wonGame } = useGameContext();
+  const [inputEnabled, setInputEnabled] = useState(!isGameWon);
+
   const results = useCharacterSearch(
     query,
     locale,
@@ -29,6 +38,10 @@ export function MartialArtsGuessForm() {
     addGuess(character);
     setQuery("");
     setSelectedSlug(null);
+
+    if (character.slug === dailyCharacter.slug) {
+      wonGame();
+    }
   };
 
   return (
@@ -51,6 +64,7 @@ export function MartialArtsGuessForm() {
         onChange={(value) => setQuery(value)}
         onSelect={(slug) => setSelectedSlug(slug)}
         submitOnSelect
+        disabled={!inputEnabled}
       />
       <button
         type="submit"

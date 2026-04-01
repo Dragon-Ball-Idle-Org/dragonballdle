@@ -17,6 +17,7 @@ type MartialArtsAutocompleteFieldProps = {
   submitOnSelect?: boolean;
   onChange: (value: string) => void;
   onSelect: (id: string) => void;
+  disabled?: boolean;
 };
 
 export function MartialArtsAutocompleteField({
@@ -25,6 +26,7 @@ export function MartialArtsAutocompleteField({
   submitOnSelect,
   onChange,
   onSelect,
+  disabled,
 }: MartialArtsAutocompleteFieldProps) {
   const [value, setValue] = useState("");
 
@@ -52,6 +54,7 @@ export function MartialArtsAutocompleteField({
           placeholder="Type character name..."
           value={value}
           onChange={(e) => handleChange(e.target.value)}
+          disabled={disabled}
         />
       </div>
 
