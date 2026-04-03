@@ -44,6 +44,7 @@ export default async function ClassicPage() {
           />
         )}
         <MartialArtsWinBanner
+          todayCharacterSlug={dailyChar.slug}
           todayCharacterName={dailyChar.name}
           todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
         />

@@ -10,7 +10,11 @@ export async function ClassicProviders({
   children: React.ReactNode;
   locale: string;
 }) {
-  const translations = await getTranslationsBundle(["classic", "winModal"]);
+  const translations = await getTranslationsBundle([
+    "classic",
+    "winModal",
+    "winBanner",
+  ]);
 
   return (
     <TranslationProvider translations={translations}>

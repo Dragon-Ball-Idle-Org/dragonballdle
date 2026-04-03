@@ -10,6 +10,7 @@ import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
 import { ClassicCharacter } from "@/types/guess";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { incrementWins } from "@/service/wins";
 
 export function MartialArtsGuessForm({
   dailyCharacter,
@@ -19,7 +20,7 @@ export function MartialArtsGuessForm({
   const [query, setQuery] = useState("");
   const locale = useLocale();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const { guesses, addGuess } = useGuessesContext();
+  const { guesses, addGuess, hydrated } = useGuessesContext();
   const { isGameWon, wonGame } = useGameContext();
 
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
@@ -38,6 +39,7 @@ export function MartialArtsGuessForm({
 
     if (character.slug === dailyCharacter.slug) {
       wonGame();
+      incrementWins();
     }
   };
 
@@ -63,7 +65,7 @@ export function MartialArtsGuessForm({
         onChange={(value) => setQuery(value)}
         onSelect={(slug) => setSelectedSlug(slug)}
         submitOnSelect
-        disabled={isGameWon}
+        disabled={hydrated && isGameWon}
       />
       <button
         type="submit"

@@ -6,30 +6,64 @@ import { XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { CountdownToMidnight } from "../shared/CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import { useGameContext } from "@/contexts/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { buildShareText } from "@/utils/build-share-text";
+import { compareGuess } from "@/utils/guess";
 
 type MartialArtsWinBannerProps = {
+  todayCharacterSlug: string;
   todayCharacterName: string;
   todayCharacterImage: string;
 };
 
 export function MartialArtsWinBanner({
+  todayCharacterSlug,
   todayCharacterName,
   todayCharacterImage,
 }: MartialArtsWinBannerProps) {
-  const { tries } = useGuessesContext();
+  const { guesses, tries, hydrated } = useGuessesContext();
   const { isGameWon } = useGameContext();
   const translations = useTranslations("winBanner");
+  const shareTextTranslations = useTranslations("share");
+
+  const shareText = useMemo(() => {
+    const dailyChar = guesses.find((g) => g.slug === todayCharacterSlug)!;
+    const comparedGuesses = guesses.map((g) => compareGuess(g, dailyChar));
+
+    return buildShareText({
+      tries,
+      headers: [
+        { value: "character" },
+        { value: "gender" },
+        { value: "race" },
+        { value: "affiliation" },
+        { value: "transformation" },
+        { value: "attribute" },
+        { value: "series" },
+        { value: "debut_saga" },
+      ],
+      guesses: comparedGuesses,
+      translations: shareTextTranslations,
+    });
+  }, [tries, guesses, todayCharacterName, shareTextTranslations]);
+
+  const xShareUrl = useMemo(() => {
+    return (
+      "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText)
+    );
+  }, [shareText]);
+
+  if (!hydrated) return null;
 
   return (
     <AnimatePresence>
       {isGameWon && (
         <motion.div
           className="flex flex-wrap items-center justify-center"
-          initial={{ opacity: 0, height: 0 }}
+          initial={false}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
         >
@@ -52,7 +86,7 @@ export function MartialArtsWinBanner({
 
             <div className="w-full flex flex-col items-center justify-center gap-3 border-t border-black/12 pt-3 pb-2">
               <div className="flex flex-col items-center gap-2 text-center">
-                <span className="font-bold">{translations("todayCharacter")}</span>
+                <span className="font-bold">{translations.todayCharacter}</span>
                 <strong
                   className={cn(
                     "inline-block rounded-xl py-2 px-3 shadow-[inset_0_1px_8px_#00000038,0_2px_8px_#0000001f]",
@@ -73,7 +107,9 @@ export function MartialArtsWinBanner({
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
               <Link
-                href=""
+                href={xShareUrl}
+                target="_blank"
+                rel="noopener"
                 className={cn(
                   "inline-flex items-center justify-center gap-2 w-full sm:w-auto! max-h-11 rounded-xl p-4",
                   "bg-black shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_#00000040]",
@@ -81,10 +117,12 @@ export function MartialArtsWinBanner({
                 )}
               >
                 <XLogoIcon size={18} />
-                <span className="leading-none">{translations("shareX")}</span>
+                <span className="leading-none">{translations.shareX}</span>
               </Link>
               <Link
-                href=""
+                href="https://buymeacoffee.com/dragonballdle"
+                target="_blank"
+                rel="noopener"
                 className={cn(
                   "inline-flex items-center justify-center gap-2 w-full sm:w-auto! max-h-11 rounded-xl p-3",
                   "bg-buy-me-a-coffe shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_#00000040]",
@@ -98,7 +136,7 @@ export function MartialArtsWinBanner({
                   height={28}
                   className="w-7 h-7"
                 />
-                <span className="leading-none">{translations("supportUs")}</span>
+                <span className="leading-none">{translations.supportUs}</span>
               </Link>
             </div>
           </div>
