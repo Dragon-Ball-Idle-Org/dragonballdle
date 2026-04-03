@@ -45,7 +45,7 @@ export function GuessesTable<T extends string>({
       cell.status === GuessStatus.WRONG && "bg-red-600",
       cell.status === GuessStatus.OLDEST && "bg-red-600",
       cell.status === GuessStatus.NEWEST && "bg-red-600",
-      "text-center text-sm font-bold text-shadow-[1px_1px_3px_#000000] p-1 whitespace-normal",
+      "text-center text-sm font-bold text-shadow-[1px_1px_3px_#000000] p-1 whitespace-normal leading-none",
     );
   };
 
