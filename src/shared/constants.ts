@@ -16,6 +16,7 @@ export const SOCIAL_LINKS_MAINTAINERS: Maintainer[] = [
   {
     name: "Arthur Coelho",
     role: "frontend",
+    image: "https://cdn.dragonballdle.site/creators/arthur.jpg",
     links: [
       {
         type: "linkedin",
@@ -26,6 +27,7 @@ export const SOCIAL_LINKS_MAINTAINERS: Maintainer[] = [
   {
     name: "Júlio Villa",
     role: "analytics",
+    image: "https://cdn.dragonballdle.site/creators/julio.jpg",
     links: [
       {
         type: "linkedin",
