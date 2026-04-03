@@ -9,8 +9,8 @@ import {
 import { useTranslations } from "@/contexts/TranslationContext";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useGuessesContext } from "@/contexts/GuessesContext";
-import { compareGuess } from "@/utils/guess";
 import { buildShareText } from "@/utils/build-share-text";
+import { mapGuessToRow } from "@/utils/map-guess-to-row";
 
 type ShareDropdownProps = {
   todayCharacterSlug: string;
@@ -25,7 +25,7 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
 
   const shareText = useMemo(() => {
     const dailyChar = guesses.find((g) => g.slug === todayCharacterSlug)!;
-    const comparedGuesses = guesses.map((g) => compareGuess(g, dailyChar));
+    const comparedGuesses = guesses.map((g) => mapGuessToRow(g, dailyChar));
 
     return buildShareText({
       tries,

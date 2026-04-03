@@ -1,6 +1,6 @@
 import { CharacterGuess, GuessStatus } from "@/types/guess";
 
-export function compareGuess(guess: CharacterGuess, answer: CharacterGuess) {
+export function mapGuessToRow(guess: CharacterGuess, answer: CharacterGuess) {
   return {
     id: guess.slug,
 
