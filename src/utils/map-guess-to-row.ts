@@ -1,7 +1,4 @@
-import { CharacterGuess, GuessStatus } from "@/types/guess";
-
-import { CharacterGuess, compareSaga } from "@/types/guess";
-import { GuessStatus } from "@/types/guess";
+import { CharacterGuess, compareSaga, GuessStatus } from "@/types/guess";
 
 function compareArrayField(
   guessArr?: { slug: string }[] | null,
