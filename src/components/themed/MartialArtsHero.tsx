@@ -1,7 +1,13 @@
 import { cn } from "@/utils/cn";
 import { WinsBadge } from "../shared/WinsBadge";
+import { getWinsCount } from "@/service/wins";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export function MartialArtsHero() {
+export async function MartialArtsHero() {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: "hero" });
+  const count = await getWinsCount();
+
   return (
     <div
       className={cn(
@@ -12,11 +18,11 @@ export function MartialArtsHero() {
       )}
     >
       <h1 className="font-display text-hero-title text-shadow-hero-title">
-        Guess Today&apos;s Dragon Ball Character!
+        {t("title")}
       </h1>
       <span className="inline-flex items-baseline gap-2 font-bold text-hero-subtitle m-0 text-shadow-hero-subtitle">
-        <WinsBadge count={20} className="self-center" />
-        people have already guessed today&apos;s character!
+        <WinsBadge count={count} className="self-center" />
+        {t("subtitle")}
       </span>
     </div>
   );

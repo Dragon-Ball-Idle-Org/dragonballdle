@@ -59,5 +59,9 @@
       "after": "tentatives :"
     },
     "countdown": "Prochain personnage dans :"
+  },
+  "hero": {
+    "title": "Devinez le personnage Dragon Ball d'aujourd'hui !",
+    "subtitle": "personnes ont déjà deviné le personnage d'aujourd'hui !"
   }
 }

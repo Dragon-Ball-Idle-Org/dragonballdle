@@ -59,5 +59,9 @@
       "after": "tries:"
     },
     "countdown": "Next character in:"
+  },
+  "hero": {
+    "title": "Guess Today's Dragon Ball Character!",
+    "subtitle": "people have already guessed today's character!"
   }
 }

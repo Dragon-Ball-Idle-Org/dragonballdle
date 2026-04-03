@@ -59,5 +59,9 @@
       "after": "Versuchen:"
     },
     "countdown": "Nächster Charakter in:"
+  },
+  "hero": {
+    "title": "Rate den heutigen Dragon Ball Charakter!",
+    "subtitle": "Personen haben den heutigen Charakter bereits erraten!"
   }
 }

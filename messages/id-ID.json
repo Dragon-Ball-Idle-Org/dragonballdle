@@ -59,5 +59,9 @@
       "after": "percobaan:"
     },
     "countdown": "Karakter berikutnya dalam:"
+  },
+  "hero": {
+    "title": "Tebak Karakter Dragon Ball Hari Ini!",
+    "subtitle": "orang sudah menebak hari ini!"
   }
 }

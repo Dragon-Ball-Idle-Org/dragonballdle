@@ -59,5 +59,9 @@
       "after": "denemede tahmin ettin:"
     },
     "countdown": "Sıradaki karakter:"
+  },
+  "hero": {
+    "title": "Bugünün Dragon Ball Karakterini Tahmin Et!",
+    "subtitle": "kişi bugün tahmin etti!"
   }
 }

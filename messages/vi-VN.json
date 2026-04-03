@@ -59,5 +59,9 @@
       "after": "lần thử:"
     },
     "countdown": "Nhân vật tiếp theo sau:"
+  },
+  "hero": {
+    "title": "Đoán Nhân vật Dragon Ball của hôm nay!",
+    "subtitle": "người đã đoán trúng hôm nay!"
   }
 }
