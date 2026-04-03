@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "四星球 (スーシンチュウ)"
+  },
+  "share": {
+    "tweet": {
+      "one": "今日のDragonBallDleキャラクターを1回で当てました:\n{guesses}\n{url}でも試してみてください",
+      "other": "今日のDragonBallDleキャラクターを{tries}回で当てました:\n{guesses}\n{url}でも試してみてください"
+    }
   }
 }

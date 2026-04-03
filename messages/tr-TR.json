@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "4 Yıldızlı Ejderha Topu"
+  },
+  "share": {
+    "tweet": {
+      "one": "Bugünün DragonBallDle karakterini 1 denemede tahmin ettim:\n{guesses}\n{url}'de de dene",
+      "other": "Bugünün DragonBallDle karakterini {tries} denemede tahmin ettim:\n{guesses}\n{url}'de de dene"
+    }
   }
 }

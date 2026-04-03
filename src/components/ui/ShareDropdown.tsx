@@ -40,7 +40,10 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
         { value: "debut_saga" },
       ],
       guesses: comparedGuesses,
-      translations: shareTextTranslations,
+      translations: {
+        "share.tweet.one": shareTextTranslations.tweet.one,
+        "share.tweet.other": shareTextTranslations.tweet.other,
+      },
     });
   }, [tries, guesses, todayCharacterSlug, shareTextTranslations]);
 

@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"
+  },
+  "share": {
+    "tweet": {
+      "one": "I guessed today's DragonBallDle character in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I guessed today's DragonBallDle character in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
   }
 }

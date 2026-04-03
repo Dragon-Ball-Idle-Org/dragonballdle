@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "Esfera de 4 Estrelas"
+  },
+  "share": {
+    "tweet": {
+      "one": "Adivinhei o personagem de DragonBallDle de hoje em 1 tentativa:\n{guesses}\nTente também em {url}",
+      "other": "Adivinhei o personagem de DragonBallDle de hoje em {tries} tentativas:\n{guesses}\nTente também em {url}"
+    }
   }
 }

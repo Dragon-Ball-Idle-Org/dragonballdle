@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "4-звездочный Драконий жемчуг"
+  },
+  "share": {
+    "tweet": {
+      "one": "Я угадал сегодняшнего персонажа DragonBallDle с 1 попытки:\n{guesses}\nПопробуйте тоже на {url}",
+      "other": "Я угадал сегодняшнего персонажа DragonBallDle за {tries} попыток:\n{guesses}\nПопробуйте тоже на {url}"
+    }
   }
 }

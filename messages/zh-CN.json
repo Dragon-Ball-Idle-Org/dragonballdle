@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "四星龙珠"
+  },
+  "share": {
+    "tweet": {
+      "one": "我在1次尝试中猜中了今天的龙珠Dle角色:\n{guesses}\n在{url}也试试吧",
+      "other": "我在{tries}次尝试中猜中了今天的龙珠Dle角色:\n{guesses}\n在{url}也试试吧"
+    }
   }
 }

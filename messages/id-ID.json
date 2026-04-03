@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "Bola naga bintang 4"
+  },
+  "share": {
+    "tweet": {
+      "one": "Saya menebak karakter DragonBallDle hari ini dalam 1 percobaan:\n{guesses}\nCoba juga di {url}",
+      "other": "Saya menebak karakter DragonBallDle hari ini dalam {tries} percobaan:\n{guesses}\nCoba juga di {url}"
+    }
   }
 }

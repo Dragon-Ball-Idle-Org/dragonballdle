@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "ดราก้อนบอล 4 ดาว"
+  },
+  "share": {
+    "tweet": {
+      "one": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน 1 ครั้ง:\n{guesses}\nลองดูที่ {url}",
+      "other": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน {tries} ครั้ง:\n{guesses}\nลองดูที่ {url}"
+    }
   }
 }

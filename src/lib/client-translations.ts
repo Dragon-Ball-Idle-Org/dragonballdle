@@ -5,6 +5,7 @@ export type TranslateType =
   | "classic"
   | "winModal"
   | "winBanner"
+  | "share"
   | "hero";
 
 export async function getTranslationsBundle(
@@ -103,6 +104,22 @@ export async function getTranslationsBundle(
         shareOnX: t("winBanner.shareOnX"),
         copyToClipboard: t("winBanner.copyToClipboard"),
         supportUs: t("winBanner.supportUs"),
+      },
+    },
+    share: {
+      share: {
+        tweet: {
+          one: t("share.tweet.one", {
+            tries: "1",
+            guesses: "[guesses]",
+            url: "[url]",
+          }),
+          other: t("share.tweet.other", {
+            tries: "[tries]",
+            guesses: "[guesses]",
+            url: "[url]",
+          }),
+        },
       },
     },
   };

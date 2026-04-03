@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "Boule à 4 étoiles"
+  },
+  "share": {
+    "tweet": {
+      "one": "J'ai deviné le personnage DragonBallDle d'aujourd'hui en 1 essai :\n{guesses}\nEssayez aussi sur {url}",
+      "other": "J'ai deviné le personnage DragonBallDle d'aujourd'hui en {tries} essais :\n{guesses}\nEssayez aussi sur {url}"
+    }
   }
 }

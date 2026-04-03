@@ -17,15 +17,13 @@ export function buildShareText<T extends string>({
   guesses,
   translations,
 }: BuildShareTextParams<T>) {
-  const dict = translations || {};
-
   const one =
-    dict["share.tweet.one"] ||
-    "I guessed today's DragonBallDle character in 1 try:\n{guesses}\nTry it too at {url}";
+    translations?.["share.tweet.one"] ||
+    "I guessed today's DragonBallDle character in 1 try:\n[guesses]\nTry it too at [url]";
 
   const other =
-    dict["share.tweet.other"] ||
-    "I guessed today's DragonBallDle character in {tries} tries:\n{guesses}\nTry it too at {url}";
+    translations?.["share.tweet.other"] ||
+    "I guessed today's DragonBallDle character in [tries] tries:\n[guesses]\nTry it too at [url]";
 
   let emojis = "";
 
@@ -89,7 +87,7 @@ export function buildShareText<T extends string>({
   const template = tries === 1 ? one : other;
 
   return template
-    .replace("{tries}", String(tries))
-    .replace("{guesses}", emojis)
-    .replace("{url}", "https://dragonballdle.site");
+    .replace("[tries]", String(tries))
+    .replace("[guesses]", emojis)
+    .replace("[url]", "https://dragonballdle.site");
 }

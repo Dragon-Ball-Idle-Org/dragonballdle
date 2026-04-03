@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"
+  },
+  "share": {
+    "tweet": {
+      "one": "Nahulaan ko ang character ng DragonBallDle ngayong araw sa 1 pagsubok:\n{guesses}\nSubukan din sa {url}",
+      "other": "Nahulaan ko ang character ng DragonBallDle ngayong araw sa {tries} pagsubok:\n{guesses}\nSubukan din sa {url}"
+    }
   }
 }

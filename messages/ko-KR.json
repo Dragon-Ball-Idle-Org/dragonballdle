@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "4성구"
+  },
+  "share": {
+    "tweet": {
+      "one": "오늘의 DragonBallDle 캐릭터를 1번 만에 맞혔습니다:\n{guesses}\n{url}에서도 시도해보세요",
+      "other": "오늘의 DragonBallDle 캐릭터를 {tries}번 만에 맞혔습니다:\n{guesses}\n{url}에서도 시도해보세요"
+    }
   }
 }

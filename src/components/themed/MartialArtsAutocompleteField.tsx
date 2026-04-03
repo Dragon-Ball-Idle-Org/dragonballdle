@@ -97,7 +97,7 @@ export function MartialArtsAutocompleteField({
                       alt={suggestion.name}
                       width={56}
                       height={56}
-                      quality={200}
+                      quality={100}
                       className="size-14 object-cover rounded-sm bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18)]"
                     />
                   ) : (

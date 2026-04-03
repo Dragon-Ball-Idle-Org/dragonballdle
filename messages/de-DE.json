@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "4-Sterne-Dragonball"
+  },
+  "share": {
+    "tweet": {
+      "one": "Ich habe das heutige DragonBallDle-Charakter in 1 Versuch erraten:\n{guesses}\nProbier es auch auf {url}",
+      "other": "Ich habe das heutige DragonBallDle-Charakter in {tries} Versuchen erraten:\n{guesses}\nProbier es auch auf {url}"
+    }
   }
 }

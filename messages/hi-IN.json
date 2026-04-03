@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "4 सितारा ड्रैगन बॉल"
+  },
+  "share": {
+    "tweet": {
+      "one": "मैंने आज के DragonBallDle चरित्र को 1 प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें",
+      "other": "मैंने आज के DragonBallDle चरित्र को {tries} प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें"
+    }
   }
 }

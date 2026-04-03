@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "Ngọc rồng 4 sao"
+  },
+  "share": {
+    "tweet": {
+      "one": "Tôi đoán được nhân vật DragonBallDle hôm nay trong 1 lần thử:\n{guesses}\nHãy thử tại {url}",
+      "other": "Tôi đoán được nhân vật DragonBallDle hôm nay trong {tries} lần thử:\n{guesses}\nHãy thử tại {url}"
+    }
   }
 }

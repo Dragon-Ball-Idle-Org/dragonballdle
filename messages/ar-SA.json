@@ -116,5 +116,11 @@
   },
   "guessForm": {
     "submitAlt": "كرة التنين ذات الأربع نجوم"
+  },
+  "share": {
+    "tweet": {
+      "one": "لقد خمنت شخصية DragonBallDle لهذا اليوم في محاولة واحدة:\n{guesses}\nجرّب الآن في {url}",
+      "other": "لقد خمنت شخصية DragonBallDle لهذا اليوم في {tries} محاولة:\n{guesses}\nجرّب الآن في {url}"
+    }
   }
 }
