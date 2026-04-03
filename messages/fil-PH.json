@@ -51,5 +51,70 @@
   },
   "socialLinksModal": {
     "title": "Mga Tagapangalaga"
+  },
+  "winModal": {
+    "congrats": "Maligayang pagbati!",
+    "line": {
+      "before": "Nahulaan mo ang character ng Dragon Ball ngayon sa",
+      "after": "(na) subok:"
+    },
+    "countdown": "Susunod na character sa:"
+  },
+  "hero": {
+    "title": "Hulaan ang Dragon Ball Character Ngayon!",
+    "subtitle": "na tao na ang nakahula ngayon!"
+  },
+  "common": {
+    "none": "Wala",
+    "yes": "Oo",
+    "no": "Hindi",
+    "loading": "Naglo-load...",
+    "searchPlaceholder": "I-type ang pangalan ng karakter...",
+    "noResults": "Walang nahanap na mga karakter...",
+    "changeLanguage": "Baguhin ang wika",
+    "language": "Wika",
+    "roles": {
+      "frontend": "Front-end Developer",
+      "analytics": "Web Analytics Analyst",
+      "fullstack": "Full Stack Developer"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Hindi nahanap ang karakter ngayong araw",
+    "table": {
+      "character": "Tauhan",
+      "gender": "Kasarian",
+      "race": "Lahi",
+      "affiliation": "Pangkat",
+      "transformation": "Transformasyon",
+      "attribute": "Katangian",
+      "series": "Serye",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Kailangan mo ba ng gabay?",
+      "correct": "Tama - Eksakto ang katangiang ito.",
+      "partial": "Bahagya — Kahit isa sa mga value ay tumutugma.",
+      "incorrect": "Mali - Maling-mali ang katangiang ito.",
+      "after": "Pagkatapos — Ang debut saga ng karakter ngayong araw ay pagkatapos ng iyong hula.",
+      "before": "Bago — Ang debut saga ng karakter ngayong araw ay bago ang iyong hula."
+    }
+  },
+  "yesterday": {
+    "title": "Karakter kahapon",
+    "characterLabel": "Tauhan"
+  },
+  "winBanner": {
+    "title": "Resulta ngayong araw",
+    "tries": "Mga pagsubok",
+    "nextCharacter": "Susunod na karakter",
+    "todayCharacter": "Karakter ngayong araw",
+    "share": "Ibahagi",
+    "shareOnX": "I-share sa X",
+    "copyToClipboard": "Kopyahin sa clipboard",
+    "supportUs": "Suportahan kami"
+  },
+  "guessForm": {
+    "submitAlt": "4 Stars Dragon Ball"
   }
 }

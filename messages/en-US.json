@@ -51,5 +51,70 @@
   },
   "socialLinksModal": {
     "title": "Maintainers"
+  },
+  "winModal": {
+    "congrats": "Congratulations!",
+    "line": {
+      "before": "You guessed today’s Dragon Ball character in",
+      "after": "tries:"
+    },
+    "countdown": "Next character in:"
+  },
+  "hero": {
+    "title": "Guess Today's Dragon Ball Character!",
+    "subtitle": "people have already guessed today's character!"
+  },
+  "common": {
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Loading...",
+    "searchPlaceholder": "Type character name...",
+    "noResults": "No characters found...",
+    "changeLanguage": "Change language",
+    "language": "Language",
+    "roles": {
+      "frontend": "Front-end Developer",
+      "analytics": "WebAnalytics Analyst",
+      "fullstack": "Full Stack Developer"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Daily character not found",
+    "table": {
+      "character": "Character",
+      "gender": "Gender",
+      "race": "Race",
+      "affiliation": "Affiliation",
+      "transformation": "Transformation",
+      "attribute": "Attribute",
+      "series": "Series",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Need a quick guide?",
+      "correct": "Correct - This attribute is exactly right.",
+      "partial": "Partial — At least one value matches.",
+      "incorrect": "Incorrect — This attribute is completely wrong.",
+      "after": "After — The daily character’s debut saga is after your guess.",
+      "before": "Before — The daily character’s debut saga is before your guess."
+    }
+  },
+  "yesterday": {
+    "title": "Yesterday's character",
+    "characterLabel": "Character"
+  },
+  "winBanner": {
+    "title": "Today's result",
+    "tries": "Tries",
+    "nextCharacter": "Next character",
+    "todayCharacter": "Today's character",
+    "share": "Share",
+    "shareOnX": "Share on X",
+    "copyToClipboard": "Copy to Clipboard",
+    "supportUs": "Support us"
+  },
+  "guessForm": {
+    "submitAlt": "4 Stars Dragon Ball"
   }
 }

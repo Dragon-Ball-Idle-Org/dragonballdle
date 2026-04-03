@@ -3,18 +3,20 @@ import { Roboto, Bangers, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/ui/Footer";
 import { routing } from "@/i18n/routing";
 import { Providers } from "../providers";
-import { SplashScreen } from "@/components/_UI/SplashScreen";
+import { SplashScreen } from "@/components/ui/SplashScreen";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { BottomNavBar } from "@/components/BottomNavBar";
+import { BottomNavBar } from "@/components/mobile/BottomNavBar";
 
 import "../globals.css";
 
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
+  adjustFontFallback: false,
 });
 
 const bangers = Bangers({
@@ -26,6 +28,7 @@ const bangers = Bangers({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
 });
 
 export async function generateMetadata({
@@ -80,6 +83,13 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   setRequestLocale(lang);
 
   const tSocial = await getTranslations("socialLinksModal");
+  const tCommon = await getTranslations("common");
+
+  const roles = {
+    frontend: tCommon("roles.frontend"),
+    analytics: tCommon("roles.analytics"),
+    fullstack: tCommon("roles.fullstack"),
+  };
 
   return (
     <html lang={lang}>
@@ -95,7 +105,12 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         <Providers locale={lang}>
           {children}
           <Footer />
-          <BottomNavBar socialLinksTitle={tSocial("title")} />
+          <BottomNavBar
+            socialLinksTitle={tSocial("title")}
+            roles={roles}
+            languagesDrawerTitle={tCommon("language")}
+            changeLanguageButtonTitle={tCommon("changeLanguage")}
+          />
         </Providers>
       </body>
     </html>

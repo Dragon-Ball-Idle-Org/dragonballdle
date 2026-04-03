@@ -45,7 +45,76 @@
   "manifest": {
     "description": "Adivinhe o personagem de Dragon Ball de hoje. Desafio diário rápido e gratuito."
   },
+  "metadata": {
+    "title": "DragonBallDle — Jogo de Adivinhação",
+    "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
+  },
   "socialLinksModal": {
     "title": "Mantenedores"
+  },
+  "winModal": {
+    "congrats": "Parabéns!",
+    "line": {
+      "before": "Você adivinhou o personagem Dragon Ball de hoje em",
+      "after": "tentativas:"
+    },
+    "countdown": "Próximo personagem em:"
+  },
+  "hero": {
+    "title": "Adivinhe o Personagem de Dragon Ball de Hoje!",
+    "subtitle": "pessoas já adivinharam o personagem de hoje!"
+  },
+  "common": {
+    "none": "Nenhum",
+    "yes": "Sim",
+    "no": "Não",
+    "loading": "Carregando...",
+    "searchPlaceholder": "Digite o nome do personagem...",
+    "noResults": "Nenhum personagem encontrado...",
+    "changeLanguage": "Alterar idioma",
+    "language": "Idioma",
+    "roles": {
+      "frontend": "Desenvolvedor front-end",
+      "analytics": "Analista de web analytics",
+      "fullstack": "Desenvolvedor full-stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Personagem diário não encontrado",
+    "table": {
+      "character": "Personagem",
+      "gender": "Gênero",
+      "race": "Raça",
+      "affiliation": "Afiliação",
+      "transformation": "Transformação",
+      "attribute": "Atributo",
+      "series": "Série",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Precisa de um guia rápido?",
+      "correct": "Correto - Este atributo está exatamente certo.",
+      "partial": "Parcial — Pelo menos um valor corresponde.",
+      "incorrect": "Incorreto - Este atributo está completamente errado.",
+      "after": "Depois — A saga de estreia do personagem diário é depois do seu palpite.",
+      "before": "Antes — A saga de estreia do personagem diário é antes do seu palpite."
+    }
+  },
+  "yesterday": {
+    "title": "Personagem de ontem",
+    "characterLabel": "Personagem"
+  },
+  "winBanner": {
+    "title": "Resultado de hoje",
+    "tries": "Tentativas",
+    "nextCharacter": "Próximo personagem",
+    "todayCharacter": "Personagem de hoje",
+    "share": "Compartilhar",
+    "shareOnX": "Compartilhar no X",
+    "copyToClipboard": "Copiar para Área de Transferência",
+    "supportUs": "Apoie-nos"
+  },
+  "guessForm": {
+    "submitAlt": "Esfera de 4 Estrelas"
   }
 }

@@ -51,5 +51,70 @@
   },
   "socialLinksModal": {
     "title": "Mantenedores"
+  },
+  "winModal": {
+    "congrats": "¡Felicidades!",
+    "line": {
+      "before": "Adivinaste el personaje de Dragon Ball de hoje en",
+      "after": "intentos:"
+    },
+    "countdown": "Próximo personaje en:"
+  },
+  "hero": {
+    "title": "¡Adivina el personaje de Dragon Ball de hoy!",
+    "subtitle": "personas ya adivinaron el personaje de hoy!"
+  },
+  "common": {
+    "none": "Ninguno",
+    "yes": "Sí",
+    "no": "No",
+    "loading": "Cargando...",
+    "searchPlaceholder": "Escribe el nombre del personaje...",
+    "noResults": "No se encontraron personajes...",
+    "changeLanguage": "Cambiar idioma",
+    "language": "Idioma",
+    "roles": {
+      "frontend": "Desarrollador front-end",
+      "analytics": "Analista de analítica web",
+      "fullstack": "Desarrollador full-stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Personaje diario no encontrado",
+    "table": {
+      "character": "Personaje",
+      "gender": "Género",
+      "race": "Raza",
+      "affiliation": "Afiliación",
+      "transformation": "Transformación",
+      "attribute": "Atributo",
+      "series": "Serie",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "¿Necesitas una guía rápida?",
+      "correct": "Correcto: este atributo es exactamente correcto.",
+      "partial": "Parcial: al menos un valor coincide.",
+      "incorrect": "Incorrecto: este atributo está completamente mal.",
+      "after": "Después: la saga de debut del personaje diario es posterior a tu suposición.",
+      "before": "Antes: la saga de debut del personaje diario es anterior a tu suposición."
+    }
+  },
+  "yesterday": {
+    "title": "Personaje de ayer",
+    "characterLabel": "Personaje"
+  },
+  "winBanner": {
+    "title": "Resultado de hoy",
+    "tries": "Intentos",
+    "nextCharacter": "Próximo personaje",
+    "todayCharacter": "Personaje de hoy",
+    "share": "Compartir",
+    "shareOnX": "Compartir en X",
+    "copyToClipboard": "Copiar al portapapeles",
+    "supportUs": "Apóyanos"
+  },
+  "guessForm": {
+    "submitAlt": "Esfera de 4 Estrelas"
   }
 }

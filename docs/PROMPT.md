@@ -44,8 +44,9 @@ Os botões do jogo utilizam padrões recorrentes:
    - **Phosphor Icons:** Para ícones, utilize a biblioteca `@phosphor-icons/react`. Sempre utilize a propriedade `weight` para definir o estilo do ícone (ex: `weight="fill"`, `weight="light"`, `weight="regular"`, `weight="bold"`, `weight="thin"`). Sempre importe os ícone com o sufixo `Icon` (ex: `import { Gamepad as GamepadIcon } from "@phosphor-icons/react";`).
 
 2. **Internacionalização Obrigatória:**
-   **Nenhum texto deve ser hardcoded na UI.** Textos devem sempre utilizar o hook `useTranslations` (do `next-intl`).
+   **Nenhum texto deve ser hardcoded na UI.** Textos devem sempre utilizar o hook `useTranslations` (do `next-intl`) ou `getTranslations` (do `next-intl/server`) para componentes async.
    Exemplo correto: `<h3>{t("classic.title")}</h3>` e não `<h3>Clássico</h3>`.
+   **Todos os textos devem estar no arquivo de idioma correspondente em `src/i18n/messages/`** (ex: `src/i18n/messages/en-US.json`, `src/i18n/messages/pt-BR.json`, etc.) Inclusive textos de idiomas com outros caracteres, seguindo o padrão de todo o restante do arquivo de tradução, sempre traduzindo corretamente.
 
 3. **Navegação (Links e Routers):**
    **NUNCA utilize o `next/link` nativo ou o `next/navigation` diretamente.** Como o projeto é baseado em rotas com `[lang]`, você DEVE usar os wrappers exportados de `src/i18n/navigation.ts`.

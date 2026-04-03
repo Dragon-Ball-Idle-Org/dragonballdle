@@ -51,5 +51,70 @@
   },
   "socialLinksModal": {
     "title": "Pemelihara"
+  },
+  "winModal": {
+    "congrats": "Selamat!",
+    "line": {
+      "before": "Anda menebak karakter Dragon Ball hari ini dalam",
+      "after": "percobaan:"
+    },
+    "countdown": "Karakter berikutnya dalam:"
+  },
+  "hero": {
+    "title": "Tebak Karakter Dragon Ball Hari Ini!",
+    "subtitle": "orang sudah menebak hari ini!"
+  },
+  "common": {
+    "none": "Tidak ada",
+    "yes": "Ya",
+    "no": "Tidak",
+    "loading": "Memuat...",
+    "searchPlaceholder": "Ketik nama karakter...",
+    "noResults": "Karakter tidak ditemukan...",
+    "changeLanguage": "Ubah bahasa",
+    "language": "Bahasa",
+    "roles": {
+      "frontend": "Pengembang front-end",
+      "analytics": "Analis analitik web",
+      "fullstack": "Pengembang full stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Tidak tìm thấy nhân vật trong ngày",
+    "table": {
+      "character": "Karakter",
+      "gender": "Gender",
+      "race": "Ras",
+      "affiliation": "Afiliasi",
+      "transformation": "Transformasi",
+      "attribute": "Atribut",
+      "series": "Seri",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Butuh panduan cepat?",
+      "correct": "Benar - Atribut ini benar sekali.",
+      "partial": "Sebagian — Setidaknya satu nilai cocok.",
+      "incorrect": "Salah - Atribut ini salah total.",
+      "after": "Sesudah — Saga debut karakter harian muncul setelah tebakan Anda.",
+      "before": "Sebelum — Saga debut karakter harian muncul sebelum tebakan Anda."
+    }
+  },
+  "yesterday": {
+    "title": "Karakter kemarin",
+    "characterLabel": "Karakter"
+  },
+  "winBanner": {
+    "title": "Hasil hari ini",
+    "tries": "Percobaan",
+    "nextCharacter": "Karakter berikutnya",
+    "todayCharacter": "Karakter hari ini",
+    "share": "Bagikan",
+    "shareOnX": "Bagikan di X",
+    "copyToClipboard": "Salin ke papan klip",
+    "supportUs": "Dukung kami"
+  },
+  "guessForm": {
+    "submitAlt": "Bola naga bintang 4"
   }
 }

@@ -8,9 +8,22 @@ import { routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SocialLinksModal } from "./SocialLinksModal";
+import { SocialLinksModal } from "../shared/SocialLinksModal";
+import { CreatorRole } from "@/shared/constants";
 
-export function BottomNavBar({ socialLinksTitle }: { socialLinksTitle: string }) {
+type BottomNavBarProps = {
+  socialLinksTitle: string;
+  roles: Record<CreatorRole, string>;
+  languagesDrawerTitle: string;
+  changeLanguageButtonTitle: string;
+};
+
+export function BottomNavBar({
+  socialLinksTitle,
+  roles,
+  languagesDrawerTitle,
+  changeLanguageButtonTitle,
+}: BottomNavBarProps) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const currentLanguage = useLocale();
   const router = useRouter();
@@ -28,6 +41,7 @@ export function BottomNavBar({ socialLinksTitle }: { socialLinksTitle: string })
           <li>
             <SocialLinksModal
               title={socialLinksTitle}
+              roles={roles}
               className="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors cursor-pointer"
             >
               <LinkIcon weight="fill" className="w-7 h-7" />
@@ -78,7 +92,7 @@ export function BottomNavBar({ socialLinksTitle }: { socialLinksTitle: string })
           <li>
             <button
               onClick={() => setIsLangOpen(true)}
-              title="Change language"
+              title={changeLanguageButtonTitle}
               className="flex flex-col items-center justify-center cursor-pointer text-zinc-400 hover:text-orange-400 transition-colors"
             >
               <div className="w-7 h-7 flex items-center justify-center">
@@ -115,7 +129,7 @@ export function BottomNavBar({ socialLinksTitle }: { socialLinksTitle: string })
             >
               <div className="flex items-center justify-between p-4 border-b border-zinc-800">
                 <span className="font-display text-xl text-white tracking-widest uppercase">
-                  Language
+                  {languagesDrawerTitle}
                 </span>
               </div>
 

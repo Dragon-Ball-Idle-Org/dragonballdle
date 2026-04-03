@@ -51,5 +51,70 @@
   },
   "socialLinksModal": {
     "title": "Mainteneurs"
+  },
+  "winModal": {
+    "congrats": "Félicitations !",
+    "line": {
+      "before": "Vous avez deviné le personnage Dragon Ball d'aujourd'hui en",
+      "after": "tentatives :"
+    },
+    "countdown": "Prochain personnage dans :"
+  },
+  "hero": {
+    "title": "Devinez le personnage Dragon Ball d'aujourd'hui !",
+    "subtitle": "personnes ont déjà deviné le personnage d'aujourd'hui !"
+  },
+  "common": {
+    "none": "Aucun",
+    "yes": "Oui",
+    "no": "Non",
+    "loading": "Chargement en cours...",
+    "searchPlaceholder": "Saisissez le nom du personnage...",
+    "noResults": "Aucun personnage trouvé...",
+    "changeLanguage": "Changer de langue",
+    "language": "Langue",
+    "roles": {
+      "frontend": "Développeur front-end",
+      "analytics": "Analyste web analytics",
+      "fullstack": "Développeur full-stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Personnage du jour introuvable",
+    "table": {
+      "character": "Personnage",
+      "gender": "Genre",
+      "race": "Race",
+      "affiliation": "Affiliation",
+      "transformation": "Transformation",
+      "attribute": "Attribut",
+      "series": "Série",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Besoin d'un guide rapide ?",
+      "correct": "Correct - Cet attribut est exactement le bon.",
+      "partial": "Partiel — Au moins une valeur correspond.",
+      "incorrect": "Incorrect - Cet attribut est totalement faux.",
+      "after": "Après — La saga de début du personnage du jour est après votre devinette.",
+      "before": "Avant — La saga de début du personnage du jour est avant votre devinette."
+    }
+  },
+  "yesterday": {
+    "title": "Personnage d'hier",
+    "characterLabel": "Personnage"
+  },
+  "winBanner": {
+    "title": "Résultat d'aujourd'hui",
+    "tries": "Essais",
+    "nextCharacter": "Personnage suivant",
+    "todayCharacter": "Personnage d'aujourd'hui",
+    "share": "Partager",
+    "shareOnX": "Partager sur X",
+    "copyToClipboard": "Copier dans le presse-papiers",
+    "supportUs": "Soutenez-nous"
+  },
+  "guessForm": {
+    "submitAlt": "Boule à 4 étoiles"
   }
 }

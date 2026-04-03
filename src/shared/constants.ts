@@ -1,3 +1,5 @@
+export type CreatorRole = "frontend" | "analytics" | "fullstack";
+
 export interface SocialLink {
   type: "linkedin" | "github" | "x" | "instagram" | "portfolio";
   url: string;
@@ -5,7 +7,7 @@ export interface SocialLink {
 
 export interface Maintainer {
   name: string;
-  role: string;
+  role: CreatorRole;
   image?: string;
   links: SocialLink[];
 }
@@ -13,7 +15,7 @@ export interface Maintainer {
 export const SOCIAL_LINKS_MAINTAINERS: Maintainer[] = [
   {
     name: "Arthur Coelho",
-    role: "Front-end Developer",
+    role: "frontend",
     image: "https://cdn.dragonballdle.site/creators/arthur.jpg",
     links: [
       {
@@ -24,7 +26,7 @@ export const SOCIAL_LINKS_MAINTAINERS: Maintainer[] = [
   },
   {
     name: "Júlio Villa",
-    role: "WebAnalytics Analyst",
+    role: "analytics",
     image: "https://cdn.dragonballdle.site/creators/julio.jpg",
     links: [
       {
@@ -35,7 +37,7 @@ export const SOCIAL_LINKS_MAINTAINERS: Maintainer[] = [
   },
   {
     name: "Gildo Junior",
-    role: "Full Stack Developer",
+    role: "fullstack",
     image: "https://cdn.dragonballdle.site/creators/gildo-junior.jpg",
     links: [
       {
