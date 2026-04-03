@@ -1,5 +1,31 @@
 import { CharacterGuess, GuessStatus } from "@/types/guess";
 
+import { CharacterGuess, compareSaga } from "@/types/guess";
+import { GuessStatus } from "@/types/guess";
+
+function compareArrayField(
+  guessArr?: { slug: string }[] | null,
+  answerArr?: { slug: string }[] | null,
+): GuessStatus {
+  const guessSafe = guessArr ?? [];
+  const answerSafe = answerArr ?? [];
+
+  const isBothEmpty = guessSafe.length === 0 && answerSafe.length === 0;
+
+  const hasExactMatch =
+    guessSafe.length === answerSafe.length &&
+    guessSafe.every((g) => answerSafe.some((a) => a.slug === g.slug));
+
+  const hasPartialMatch = guessSafe.some((g) =>
+    answerSafe.some((a) => a.slug === g.slug),
+  );
+
+  if (isBothEmpty) return GuessStatus.CORRECT;
+  if (hasExactMatch) return GuessStatus.CORRECT;
+  if (hasPartialMatch) return GuessStatus.PARTIAL;
+  return GuessStatus.WRONG;
+}
+
 export function mapGuessToRow(guess: CharacterGuess, answer: CharacterGuess) {
   return {
     id: guess.slug,
@@ -17,19 +43,11 @@ export function mapGuessToRow(guess: CharacterGuess, answer: CharacterGuess) {
     },
 
     race: {
-      status: guess.races.some((r) =>
-        answer.races.some((a) => a.slug === r.slug),
-      )
-        ? GuessStatus.PARTIAL
-        : GuessStatus.WRONG,
+      status: compareArrayField(guess.races, answer.races),
     },
 
     affiliation: {
-      status: guess.affiliations.some((a) =>
-        answer.affiliations.some((b) => b.slug === a.slug),
-      )
-        ? GuessStatus.PARTIAL
-        : GuessStatus.WRONG,
+      status: compareArrayField(guess.affiliations, answer.affiliations),
     },
 
     transformation: {
@@ -40,11 +58,7 @@ export function mapGuessToRow(guess: CharacterGuess, answer: CharacterGuess) {
     },
 
     attribute: {
-      status: guess.attributes.some((a) =>
-        answer.attributes.some((b) => b.slug === a.slug),
-      )
-        ? GuessStatus.PARTIAL
-        : GuessStatus.WRONG,
+      status: compareArrayField(guess.attributes, answer.attributes),
     },
 
     series: {
@@ -55,12 +69,7 @@ export function mapGuessToRow(guess: CharacterGuess, answer: CharacterGuess) {
     },
 
     debut_saga: {
-      status:
-        guess.debut_saga.sort_order === answer.debut_saga.sort_order
-          ? GuessStatus.CORRECT
-          : guess.debut_saga.sort_order > answer.debut_saga.sort_order
-            ? GuessStatus.OLDEST // ⬇️
-            : GuessStatus.NEWEST, // ⬆️
+      status: compareSaga(guess.debut_saga, answer.debut_saga),
     },
   };
 }
