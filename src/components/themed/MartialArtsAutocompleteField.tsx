@@ -5,6 +5,7 @@ import { Autocomplete } from "@base-ui/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { SpinnerIcon } from "@phosphor-icons/react";
 
 type Suggestion = {
   id: string;
@@ -19,6 +20,7 @@ type MartialArtsAutocompleteFieldProps = {
   onChange: (value: string) => void;
   onSelect: (id: string) => void;
   disabled?: boolean;
+  isLoading?: boolean;
 };
 
 export function MartialArtsAutocompleteField({
@@ -28,6 +30,7 @@ export function MartialArtsAutocompleteField({
   onChange,
   onSelect,
   disabled,
+  isLoading = true,
 }: MartialArtsAutocompleteFieldProps) {
   const [value, setValue] = useState("");
   const translations = useTranslations("common");
@@ -68,8 +71,12 @@ export function MartialArtsAutocompleteField({
               "bg-primary border-2 border-primary-dark rounded-md shadow-[0_10px_24px_rgba(0,0,0,0.35)] overflow-y-auto",
             )}
           >
-            <Autocomplete.Empty className="flex items-center p-5 font-ui font-semibold text-white empty:m-0 empty:p-0">
-              {translations.noResults}
+            <Autocomplete.Empty className="flex items-center justify-center p-5 font-ui font-semibold text-white empty:m-0 empty:p-0">
+              {isLoading ? (
+                <SpinnerIcon className="animate-spin w-10 h-10" />
+              ) : (
+                translations.noResults
+              )}
             </Autocomplete.Empty>
             <Autocomplete.List>
               {(suggestion) => (

@@ -1,10 +1,8 @@
 import { Header } from "@/components/ui/Header";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { ClassicProviders } from "./providers";
-import { hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,

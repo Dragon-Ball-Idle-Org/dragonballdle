@@ -24,7 +24,11 @@ export function MartialArtsGuessForm({
   const { isGameWon, wonGame, updateWinsCount } = useGameContext();
 
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
-  const results = useCharacterSearch(query, locale, memoizedGuesses);
+  const { results, isLoading } = useCharacterSearch(
+    query,
+    locale,
+    memoizedGuesses,
+  );
 
   const submitGuess = async (slug: string | null) => {
     const target = slug ?? selectedSlug;
@@ -67,6 +71,7 @@ export function MartialArtsGuessForm({
         onSelect={(slug) => setSelectedSlug(slug)}
         submitOnSelect
         disabled={hydrated && isGameWon}
+        isLoading={isLoading}
       />
       <button
         type="submit"
