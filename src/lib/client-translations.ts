@@ -1,6 +1,11 @@
 import { getTranslations as getServerTranslations } from "next-intl/server";
 
-export type TranslateType = "home" | "classic" | "winModal" | "winBanner";
+export type TranslateType =
+  | "home"
+  | "classic"
+  | "winModal"
+  | "winBanner"
+  | "hero";
 
 export async function getTranslationsBundle(
   type?: TranslateType | TranslateType[],
@@ -74,6 +79,12 @@ export async function getTranslationsBundle(
   };
 
   const components = {
+    hero: {
+      hero: {
+        title: t("hero.title"),
+        subtitle: t("hero.subtitle"),
+      },
+    },
     winModal: {
       winModal: {
         congrats: t("winModal.congrats"),

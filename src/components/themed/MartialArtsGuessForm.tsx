@@ -21,7 +21,7 @@ export function MartialArtsGuessForm({
   const locale = useLocale();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const { guesses, addGuess, hydrated } = useGuessesContext();
-  const { isGameWon, wonGame } = useGameContext();
+  const { isGameWon, wonGame, updateWinsCount } = useGameContext();
 
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
   const results = useCharacterSearch(query, locale, memoizedGuesses);
@@ -39,7 +39,8 @@ export function MartialArtsGuessForm({
 
     if (character.slug === dailyCharacter.slug) {
       wonGame();
-      incrementWins();
+      const newWinsCount = await incrementWins();
+      updateWinsCount(newWinsCount);
     }
   };
 

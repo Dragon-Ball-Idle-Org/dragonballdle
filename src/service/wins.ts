@@ -1,7 +1,9 @@
-import { createClientWithTag } from "@/lib/supabase/client";
+import { createClient } from "@/lib/supabase/client";
+
+let cachedWinsCount = 0;
 
 export async function getWinsCount(): Promise<number> {
-  const supabase = createClientWithTag("wins");
+  const supabase = createClient();
   const date = new Date().toISOString().split("T")[0];
 
   const { data, error } = await supabase
@@ -15,21 +17,27 @@ export async function getWinsCount(): Promise<number> {
     return 0;
   }
 
-  return data?.wins_count ?? 0;
+  cachedWinsCount = data?.wins_count ?? 0;
+
+  return cachedWinsCount;
 }
 
-export async function incrementWins(): Promise<void> {
-  const supabase = createClientWithTag("wins");
+export async function incrementWins(): Promise<number> {
+  const supabase = createClient();
   const date = new Date().toISOString().split("T")[0];
 
-  const { error } = await supabase.functions.invoke("increment-wins", {
+  const {
+    data: { wins_count },
+    error,
+  } = await supabase.functions.invoke("increment-wins", {
     body: { date },
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY}`,
-    },
   });
 
   if (error) {
     console.error("[incrementWins] Error incrementing wins:", error);
+    return cachedWinsCount;
   }
+
+  cachedWinsCount = wins_count;
+  return wins_count;
 }

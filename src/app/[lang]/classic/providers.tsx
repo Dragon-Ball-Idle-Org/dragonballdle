@@ -14,6 +14,7 @@ export async function ClassicProviders({
     "classic",
     "winModal",
     "winBanner",
+    "hero",
   ]);
 
   return (
