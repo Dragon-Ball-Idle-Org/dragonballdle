@@ -1,5 +1,15 @@
 export function msUntilMidnightUTC(): number {
-  const midnight = new Date();
-  midnight.setUTCHours(24, 0, 0, 0);
-  return midnight.getTime() - Date.now();
+  const now = new Date();
+  const midnight = new Date(
+    Date.UTC(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate() + 1,
+      0,
+      0,
+      0,
+      0,
+    ),
+  );
+  return midnight.getTime() - now.getTime();
 }
