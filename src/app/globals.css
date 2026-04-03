@@ -143,6 +143,20 @@
     background-size: cover;
   }
 
+  .border-martial-arts-sm {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      border: 20px solid transparent;
+      border-image: url("/assets/dragon-border.svg") 500 stretch;
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+
   .border-martial-arts {
     position: relative;
 
@@ -162,6 +176,7 @@
       opacity: 0;
       transform: scale(0.65) translateY(20px);
     }
+
     100% {
       opacity: 1;
       transform: scale(1) translateY(0);
@@ -174,6 +189,7 @@
       transform: translate(-50%, -50%) scale(2);
       filter: blur(10px) brightness(4);
     }
+
     100% {
       opacity: 0.75;
       transform: translate(-50%, -50%) scale(1);

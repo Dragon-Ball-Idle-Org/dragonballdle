@@ -49,7 +49,7 @@ export function MartialArtsAutocompleteField({
 
   return (
     <Autocomplete.Root items={suggestions} submitOnItemClick={submitOnSelect}>
-      <div className="w-full border-martial-arts">
+      <div className="w-full border-martial-arts-sm">
         <Autocomplete.Input
           className={cn(
             "guess-input h-14 w-full px-6 font-ui text-md font-semibold text-on-primary caret-on-primary bg-primary",
