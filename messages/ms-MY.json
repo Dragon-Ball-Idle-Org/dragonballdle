@@ -63,5 +63,56 @@
   "hero": {
     "title": "Teka Watak Dragon Ball Hari Ini!",
     "subtitle": "orang telah meneka hari ini!"
+  },
+  "common": {
+    "none": "Tiada",
+    "yes": "Ya",
+    "no": "Tidak",
+    "loading": "Sedang memuatkan...",
+    "searchPlaceholder": "Taip nama watak...",
+    "noResults": "Tiada watak ditemui...",
+    "changeLanguage": "Tukar bahasa",
+    "language": "Bahasa",
+    "roles": {
+      "frontend": "Pembangun front-end",
+      "analytics": "Penganalisis analitik web",
+      "fullstack": "Pembangun full stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Watak harian tidak dijumpai",
+    "table": {
+      "character": "Watak",
+      "gender": "Jantina",
+      "race": "Bangsa",
+      "affiliation": "Afiliasi",
+      "transformation": "Transformasi",
+      "attribute": "Atribut",
+      "series": "Siri",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Perlu panduan pantas?",
+      "correct": "Betul - Atribut ini tepat sekali.",
+      "partial": "Separa — Sekurang-kurangnya satu nilai sepadan.",
+      "incorrect": "Salah - Atribut ini salah sama sekali.",
+      "after": "Selepas — Saga debut watak harian adalah selepas tekaan anda.",
+      "before": "Sebelum — Saga debut watak harian adalah sebelum tekaan anda."
+    }
+  },
+  "yesterday": {
+    "title": "Watak semalam",
+    "characterLabel": "Watak"
+  },
+  "winBanner": {
+    "title": "Keputusan hari ini",
+    "tries": "Percubaan",
+    "nextCharacter": "Watak seterusnya",
+    "todayCharacter": "Watak hari ini",
+    "shareX": "Kongsi di X",
+    "supportUs": "Sokong kami"
+  },
+  "guessForm": {
+    "submitAlt": "Bola Naga bintang 4"
   }
 }

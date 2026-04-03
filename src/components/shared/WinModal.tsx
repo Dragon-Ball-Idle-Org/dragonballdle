@@ -7,27 +7,22 @@ import { XIcon } from "@phosphor-icons/react";
 import { CountdownToMidnight } from "./CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
+import { useTranslations } from "@/contexts/TranslationContext";
 
 type WinModalProps = {
   characterName: string;
   characterImage: string;
-  translations: {
-    congrats: string;
-    lineBefore: string;
-    lineAfter: string;
-    countdown: string;
-  };
 };
 
 export function WinModal({
   characterName,
   characterImage,
-  translations,
 }: WinModalProps) {
   const [openWinModal, setOpenWinModal] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const { isGameWon } = useGameContext();
   const { tries } = useGuessesContext();
+  const t = useTranslations("winModal");
 
   useEffect(() => {
     setIsMounted(true);
@@ -107,12 +102,12 @@ export function WinModal({
 
             <div className="flex flex-col items-center gap-5 mt-[-20%] text-center">
               <h2 className="font-display text-[clamp(1.5rem,4vw,2rem)] font-normal text-white drop-shadow-md">
-                {translations.congrats}
+                {t.congrats}
               </h2>
 
               <p className="font-base text-[clamp(0.875rem,2.3vw,1rem)] font-semibold text-white">
-                {translations.lineBefore} <strong>{tries}</strong>{" "}
-                {translations.lineAfter}
+                {t.lineBefore} <strong>{tries}</strong>{" "}
+                {t.lineAfter}
               </p>
 
               <div className="mb-1">
@@ -122,7 +117,7 @@ export function WinModal({
               </div>
 
               <div className="inline-flex items-center gap-2 rounded-md border-1.5 border-white/55 bg-black/12 px-3 py-1 font-ui text-[clamp(0.875rem,2.4vw,1rem)] font-black text-white shadow-[inset_0_2px_12px_rgba(0,0,0,0.18),0_4px_16px_rgba(0,0,0,0.15)] backdrop-blur-xs">
-                <span>⏳ {translations.countdown}</span>
+                <span>⏳ {t.countdown}</span>
                 <CountdownToMidnight />
               </div>
             </div>

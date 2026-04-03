@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import { Autocomplete } from "@base-ui/react";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "@/contexts/TranslationContext";
 
 type Suggestion = {
   id: string;
@@ -29,6 +30,7 @@ export function MartialArtsAutocompleteField({
   disabled,
 }: MartialArtsAutocompleteFieldProps) {
   const [value, setValue] = useState("");
+  const translations = useTranslations("common");
 
   const handleChange = (value: string) => {
     setValue(value);
@@ -51,7 +53,7 @@ export function MartialArtsAutocompleteField({
             "focus-visible:outline-2 focus-visible:outline-primary-light focus-visible:outline-offset-2",
             className,
           )}
-          placeholder="Type character name..."
+          placeholder={translations.searchPlaceholder}
           value={value}
           onChange={(e) => handleChange(e.target.value)}
           disabled={disabled}
@@ -67,7 +69,7 @@ export function MartialArtsAutocompleteField({
             )}
           >
             <Autocomplete.Empty className="flex items-center p-5 font-ui font-semibold text-white empty:m-0 empty:p-0">
-              No characters found...
+              {translations.noResults}
             </Autocomplete.Empty>
             <Autocomplete.List>
               {(suggestion) => (

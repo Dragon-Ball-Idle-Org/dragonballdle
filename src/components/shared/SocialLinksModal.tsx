@@ -9,11 +9,12 @@ import {
   GlobeIcon,
   XLogoIcon,
 } from "@phosphor-icons/react";
-import { SOCIAL_LINKS_MAINTAINERS } from "@/shared/constants";
+import { CreatorRole, SOCIAL_LINKS_MAINTAINERS } from "@/shared/constants";
 import Image from "next/image";
 
 type SocialLinksModalProps = PropsWithChildren<{
   title: string;
+  roles: Record<CreatorRole, string>;
   className?: string;
 }>;
 
@@ -27,6 +28,7 @@ const IconMap = {
 
 export function SocialLinksModal({
   title,
+  roles,
   children,
   className,
 }: SocialLinksModalProps) {
@@ -75,7 +77,7 @@ export function SocialLinksModal({
                 </h3>
 
                 <p className="text-sm font-medium text-zinc-400 mb-6 font-ui text-nowrap">
-                  {maintainer.role}
+                  {roles[maintainer.role]}
                 </p>
 
                 <div className="grid grid-cols-5 md:grid-cols-3 content-center gap-4">

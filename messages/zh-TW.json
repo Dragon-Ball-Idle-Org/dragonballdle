@@ -63,5 +63,56 @@
   "hero": {
     "title": "猜猜今天的龍珠角色！",
     "subtitle": "人已經猜中了今天的角色！"
+  },
+  "common": {
+    "none": "無",
+    "yes": "是",
+    "no": "否",
+    "loading": "載入中...",
+    "searchPlaceholder": "輸入角色名稱...",
+    "noResults": "未找到角色...",
+    "changeLanguage": "更改語言",
+    "language": "語言",
+    "roles": {
+      "frontend": "前端開發工程師",
+      "analytics": "網站分析師",
+      "fullstack": "全端開發工程師"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "未找到今日角色",
+    "table": {
+      "character": "角色",
+      "gender": "性別",
+      "race": "種族",
+      "affiliation": "所属",
+      "transformation": "變身",
+      "attribute": "屬性",
+      "series": "系列",
+      "saga": "篇章"
+    },
+    "guide": {
+      "header": " need a quick guide?",
+      "correct": "正確 - 此屬性完全正確。",
+      "partial": "部分匹配 - 至少有一個值匹配。",
+      "incorrect": "錯誤 - 此屬性完全錯誤。",
+      "after": "之後 - 今日角色的首秀篇章在你的猜測之後。",
+      "before": "之前 - 今日角色的首秀篇章在你的猜測之前。"
+    }
+  },
+  "yesterday": {
+    "title": "昨日角色",
+    "characterLabel": "角色"
+  },
+  "winBanner": {
+    "title": "今日結果",
+    "tries": "嘗試次數",
+    "nextCharacter": "下一個角色",
+    "todayCharacter": "今日角色",
+    "shareX": "在 X 上分享",
+    "supportUs": "支持我們"
+  },
+  "guessForm": {
+    "submitAlt": "四星龍珠"
   }
 }

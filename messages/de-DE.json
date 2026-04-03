@@ -63,5 +63,56 @@
   "hero": {
     "title": "Rate den heutigen Dragon Ball Charakter!",
     "subtitle": "Personen haben den heutigen Charakter bereits erraten!"
+  },
+  "common": {
+    "none": "Keiner",
+    "yes": "Ja",
+    "no": "Nein",
+    "loading": "Wird geladen...",
+    "searchPlaceholder": "Charakternamen eingeben...",
+    "noResults": "Keine Charaktere gefunden...",
+    "changeLanguage": "Sprache ändern",
+    "language": "Sprache",
+    "roles": {
+      "frontend": "Frontend-Entwickler",
+      "analytics": "Webanalyse-Analyst",
+      "fullstack": "Full-Stack-Entwickler"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Tägliche Figur nicht gefunden",
+    "table": {
+      "character": "Charakter",
+      "gender": "Geschlecht",
+      "race": "Rasse",
+      "affiliation": "Zugehörigkeit",
+      "transformation": "Verwandlung",
+      "attribute": "Attribut",
+      "series": "Serie",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Brauchen Sie eine Kurzanleitung?",
+      "correct": "Korrekt - Dieses Attribut ist genau richtig.",
+      "partial": "Teilweise — Mindestens ein Wert stimmt überein.",
+      "incorrect": "Falsch - Dieses Attribut ist völlig falsch.",
+      "after": "Danach — Die Debüt-Saga der täglichen Figur ist nach Ihrer Vermutung.",
+      "before": "Davor — Die Debüt-Saga der täglichen Figur ist vor Ihrer Vermutung."
+    }
+  },
+  "yesterday": {
+    "title": "Figur von gestern",
+    "characterLabel": "Charakter"
+  },
+  "winBanner": {
+    "title": "Ergebnis von heute",
+    "tries": "Versuche",
+    "nextCharacter": "Nächste Figur",
+    "todayCharacter": "Heutige Figur",
+    "shareX": "Auf X teilen",
+    "supportUs": "Unterstütze uns"
+  },
+  "guessForm": {
+    "submitAlt": "4-Sterne-Dragonball"
   }
 }

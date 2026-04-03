@@ -63,5 +63,56 @@
   "hero": {
     "title": "오늘의 드래곤볼 캐릭터를 맞춰보세요!",
     "subtitle": "명이 이미 오늘의 캐릭터를 맞췄습니다!"
+  },
+  "common": {
+    "none": "없음",
+    "yes": "예",
+    "no": "아니요",
+    "loading": "불러오는 중...",
+    "searchPlaceholder": "캐릭터 이름 입력...",
+    "noResults": "캐릭터를 찾을 수 없습니다...",
+    "changeLanguage": "언어 변경",
+    "language": "언어",
+    "roles": {
+      "frontend": "프론트엔드 개발자",
+      "analytics": "웹 분석가",
+      "fullstack": "풀스택 개발자"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "오늘의 캐릭터를 찾을 수 없습니다",
+    "table": {
+      "character": "캐릭터",
+      "gender": "성별",
+      "race": "종족",
+      "affiliation": "소속",
+      "transformation": "변신",
+      "attribute": "속성",
+      "series": "시리즈",
+      "saga": "사가"
+    },
+    "guide": {
+      "header": "빠른 가이드가 필요하신가요?",
+      "correct": "정답 - 이 속성은 정확합니다.",
+      "partial": "부분 일치 - 적어도 하나의 값이 일치합니다.",
+      "incorrect": "오답 - 이 속성은 완전히 틀렸습니다.",
+      "after": "이후 - 오늘의 캐릭터 데뷔 사가는 추측보다 이후입니다.",
+      "before": "이전 - 오늘의 캐릭터 데뷔 사가는 추측보다 이전입니다."
+    }
+  },
+  "yesterday": {
+    "title": "어제의 캐릭터",
+    "characterLabel": "캐릭터"
+  },
+  "winBanner": {
+    "title": "오늘의 결과",
+    "tries": "시도",
+    "nextCharacter": "다음 캐릭터",
+    "todayCharacter": "오늘의 캐릭터",
+    "shareX": "X에서 공유하기",
+    "supportUs": "후원하기"
+  },
+  "guessForm": {
+    "submitAlt": "4성구"
   }
 }

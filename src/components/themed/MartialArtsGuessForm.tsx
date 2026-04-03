@@ -9,6 +9,7 @@ import { getCharacterBySlug } from "@/service/characters";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
 import { ClassicCharacter } from "@/types/guess";
+import { useTranslations } from "@/contexts/TranslationContext";
 
 export function MartialArtsGuessForm({
   dailyCharacter,
@@ -40,6 +41,8 @@ export function MartialArtsGuessForm({
     }
   };
 
+  const translations = useTranslations("guessForm");
+
   return (
     <form
       className="sticky top-0 left-0 right-0 w-full flex items-center gap-2 mb-2 bg-transparent overflow-visible z-2"
@@ -68,7 +71,7 @@ export function MartialArtsGuessForm({
       >
         <Image
           src="/assets/dragon_ball_4_stars.svg"
-          alt="4 Starts Dragon Ball"
+          alt={translations.submitAlt}
           width={80}
           height={80}
           className="w-20 h-20"

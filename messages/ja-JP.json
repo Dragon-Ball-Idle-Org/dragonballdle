@@ -63,5 +63,56 @@
   "hero": {
     "title": "今日のドラゴンボールキャラクターを当てよう！",
     "subtitle": "人が今日のキャラクターを当てました！"
+  },
+  "common": {
+    "none": "なし",
+    "yes": "はい",
+    "no": "いいえ",
+    "loading": "読み込み中...",
+    "searchPlaceholder": "キャラクター名を入力...",
+    "noResults": "キャラクターが見つかりません...",
+    "changeLanguage": "言語を変更",
+    "language": "言語",
+    "roles": {
+      "frontend": "フロントエンド開発者",
+      "analytics": "Webアナリティクスアナリスト",
+      "fullstack": "フルスタック開発者"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "今日のキャラクターが見つかりません",
+    "table": {
+      "character": "キャラクター",
+      "gender": "性別",
+      "race": "種族",
+      "affiliation": "所属",
+      "transformation": "変身",
+      "attribute": "属性",
+      "series": "シリーズ",
+      "saga": "章/サーガ"
+    },
+    "guide": {
+      "header": "クイックガイドが必要ですか？",
+      "correct": "正解 - この属性は完全に一致しています。",
+      "partial": "部分一致 - 少なくとも1つの値が一致しています。",
+      "incorrect": "不正解 - この属性は完全に間違っています。",
+      "after": "後 - 今日のキャラクターのデビュー・サーガは、あなたの予想より後です。",
+      "before": "前 - 今日のキャラクターのデビュー・サーガは、あなたの予想より前です。"
+    }
+  },
+  "yesterday": {
+    "title": "昨日のキャラクター",
+    "characterLabel": "キャラクター"
+  },
+  "winBanner": {
+    "title": "今日の結果",
+    "tries": "試行回数",
+    "nextCharacter": "次のキャラクター",
+    "todayCharacter": "今日のキャラクター",
+    "shareX": "Xでシェア",
+    "supportUs": "サポートする"
+  },
+  "guessForm": {
+    "submitAlt": "四星球 (スーシンチュウ)"
   }
 }

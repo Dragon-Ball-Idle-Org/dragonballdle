@@ -9,6 +9,7 @@ import { useGuessesContext } from "@/contexts/GuessesContext";
 import { ReactNode } from "react";
 import { useGameContext } from "@/contexts/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "@/contexts/TranslationContext";
 
 type MartialArtsWinBannerProps = {
   todayCharacterName: string;
@@ -21,6 +22,7 @@ export function MartialArtsWinBanner({
 }: MartialArtsWinBannerProps) {
   const { tries } = useGuessesContext();
   const { isGameWon } = useGameContext();
+  const translations = useTranslations("winBanner");
 
   return (
     <AnimatePresence>
@@ -39,18 +41,18 @@ export function MartialArtsWinBanner({
             )}
           >
             <h3 className="text-center text-xl font-black m-0 mb-2 pb-2 border-b-2 border-black/16">
-              Today&apos;s result
+              {translations.title}
             </h3>
 
-            <Row title="Tries" value={String(tries)} />
+            <Row title={translations.tries} value={String(tries)} />
             <Row
-              title="Next character"
+              title={translations.nextCharacter}
               value={<CountdownToMidnight className="font-ui font-black" />}
             />
 
             <div className="w-full flex flex-col items-center justify-center gap-3 border-t border-black/12 pt-3 pb-2">
               <div className="flex flex-col items-center gap-2 text-center">
-                <span className="font-bold">Today&apos;s character</span>
+                <span className="font-bold">{translations("todayCharacter")}</span>
                 <strong
                   className={cn(
                     "inline-block rounded-xl py-2 px-3 shadow-[inset_0_1px_8px_#00000038,0_2px_8px_#0000001f]",
@@ -79,7 +81,7 @@ export function MartialArtsWinBanner({
                 )}
               >
                 <XLogoIcon size={18} />
-                <span className="leading-none">Share on X</span>
+                <span className="leading-none">{translations("shareX")}</span>
               </Link>
               <Link
                 href=""
@@ -96,7 +98,7 @@ export function MartialArtsWinBanner({
                   height={28}
                   className="w-7 h-7"
                 />
-                <span className="leading-none">Support us</span>
+                <span className="leading-none">{translations("supportUs")}</span>
               </Link>
             </div>
           </div>

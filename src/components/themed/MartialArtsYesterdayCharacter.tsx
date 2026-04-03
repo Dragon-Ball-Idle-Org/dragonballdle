@@ -1,4 +1,5 @@
 import { cn } from "@/utils/cn";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 type MartialArtsYesterdayCharacterProps = {
@@ -8,8 +9,10 @@ type MartialArtsYesterdayCharacterProps = {
 
 export function MartialArtsYesterdayCharacter({
   characterName,
-  characterImage
+  characterImage,
 }: MartialArtsYesterdayCharacterProps) {
+  const t = useTranslations("yesterday");
+
   return (
     <div
       className={cn(
@@ -19,7 +22,7 @@ export function MartialArtsYesterdayCharacter({
         "border-martial-arts",
       )}
     >
-      <h4 className="text-sm font-bold">Yesterday&apos;s character</h4>
+      <h4 className="text-sm font-bold">{t("title")}</h4>
       <div className="flex flex-nowrap items-center justify-center gap-2">
         <Image
           src={characterImage}
@@ -29,7 +32,9 @@ export function MartialArtsYesterdayCharacter({
           className="w-12 h-12 rounded-xl border object-cover bg-white shadow-[0_0_0_2px_#fff9,0_4px_12px_#0000004d]"
         />
         <div className="flex flex-col items-center gap-1">
-          <span className="text-xs font-semibold">Character</span>
+          <span className="text-xs font-semibold">
+            {t("characterLabel")}
+          </span>
           <span
             className={cn(
               "font-ui font-bold text-[clamp(var(--text-sm),2.6vw,var(--text-md))] text-shadow-[0_1px_2px_rgba(0,0,0,.35)]",

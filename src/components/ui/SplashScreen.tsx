@@ -25,7 +25,7 @@ export function SplashScreen() {
     >
       <Image
         src="/assets/baba-icon.svg"
-        alt="Loading..."
+        alt={"Loading..."}
         priority
         width={180}
         height={180}

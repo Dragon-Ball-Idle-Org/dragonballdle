@@ -83,6 +83,13 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   setRequestLocale(lang);
 
   const tSocial = await getTranslations("socialLinksModal");
+  const tCommon = await getTranslations("common");
+
+  const roles = {
+    frontend: tCommon("roles.frontend"),
+    analytics: tCommon("roles.analytics"),
+    fullstack: tCommon("roles.fullstack"),
+  };
 
   return (
     <html lang={lang}>
@@ -98,7 +105,12 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         <Providers locale={lang}>
           {children}
           <Footer />
-          <BottomNavBar socialLinksTitle={tSocial("title")} />
+          <BottomNavBar
+            socialLinksTitle={tSocial("title")}
+            roles={roles}
+            languagesDrawerTitle={tCommon("language")}
+            changeLanguageButtonTitle={tCommon("changeLanguage")}
+          />
         </Providers>
       </body>
     </html>

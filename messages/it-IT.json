@@ -63,5 +63,56 @@
   "hero": {
     "title": "Indovina il personaggio di Dragon Ball di oggi!",
     "subtitle": "persone hanno già indovinato il personaggio di oggi!"
+  },
+  "common": {
+    "none": "Nessuno",
+    "yes": "Sì",
+    "no": "No",
+    "loading": "Caricamento in corso...",
+    "searchPlaceholder": "Digita il nome del personaggio...",
+    "noResults": "Nessun personaggio trovato...",
+    "changeLanguage": "Cambia lingua",
+    "language": "Lingua",
+    "roles": {
+      "frontend": "Sviluppatore front-end",
+      "analytics": "Analista di web analytics",
+      "fullstack": "Sviluppatore full-stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Personaggio del giorno non trovato",
+    "table": {
+      "character": "Personaggio",
+      "gender": "Genere",
+      "race": "Razza",
+      "affiliation": "Affiliazione",
+      "transformation": "Trasformazione",
+      "attribute": "Attributo",
+      "series": "Serie",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Ti serve una guida rapida?",
+      "correct": "Corretto - Questo attributo è esattamente corretto.",
+      "partial": "Parziale - Almeno un valore corrisponde.",
+      "incorrect": "Errato - Questo attributo è completamente sbagliato.",
+      "after": "Dopo - La saga di debutto del personaggio del giorno è successiva alla tua ipotesi.",
+      "before": "Prima - La saga di debutto del personaggio del giorno è precedente alla tua ipotesi."
+    }
+  },
+  "yesterday": {
+    "title": "Personaggio di ieri",
+    "characterLabel": "Personaggio"
+  },
+  "winBanner": {
+    "title": "Risultato di oggi",
+    "tries": "Tentativi",
+    "nextCharacter": "Personaggio successivo",
+    "todayCharacter": "Personaggio di oggi",
+    "shareX": "Condividi su X",
+    "supportUs": "Supportaci"
+  },
+  "guessForm": {
+    "submitAlt": "Sfera a 4 stelle"
   }
 }

@@ -63,5 +63,56 @@
   "hero": {
     "title": "Đoán Nhân vật Dragon Ball của hôm nay!",
     "subtitle": "người đã đoán trúng hôm nay!"
+  },
+  "common": {
+    "none": "Không có",
+    "yes": "Có",
+    "no": "Không",
+    "loading": "Đang tải...",
+    "searchPlaceholder": "Nhập tên nhân vật...",
+    "noResults": "Không tìm thấy nhân vật...",
+    "changeLanguage": "Thay đổi ngôn ngữ",
+    "language": "Ngôn ngữ",
+    "roles": {
+      "frontend": "Lập trình viên front-end",
+      "analytics": "Chuyên viên phân tích web",
+      "fullstack": "Lập trình viên full-stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Không tìm thấy nhân vật trong ngày",
+    "table": {
+      "character": "Nhân vật",
+      "gender": "Giới tính",
+      "race": "Chủng tộc",
+      "affiliation": "Liên kết",
+      "transformation": "Biến hình",
+      "attribute": "Thuộc tính",
+      "series": "Series",
+      "saga": "Chương"
+    },
+    "guide": {
+      "header": "Bạn có cần hướng dẫn nhanh không?",
+      "correct": "Đúng - Thuộc tính này hoàn toàn chính xác.",
+      "partial": "Một phần - Ít nhất một giá trị khớp.",
+      "incorrect": "Sai - Thuộc tính này hoàn toàn sai.",
+      "after": "Sau - Saga ra mắt của nhân vật trong ngày là sau dự đoán của bạn.",
+      "before": "Trước - Saga ra mắt của nhân vậtใน ngày là trước dự đoán của bạn."
+    }
+  },
+  "yesterday": {
+    "title": "Nhân vật hôm qua",
+    "characterLabel": "Nhân vật"
+  },
+  "winBanner": {
+    "title": "Kết quả hôm nay",
+    "tries": "Số lần thử",
+    "nextCharacter": "Nhân vật tiếp theo",
+    "todayCharacter": "Nhân vật hôm nay",
+    "shareX": "Chia sẻ trên X",
+    "supportUs": "Ủng hộ chúng tôi"
+  },
+  "guessForm": {
+    "submitAlt": "Ngọc rồng 4 sao"
   }
 }

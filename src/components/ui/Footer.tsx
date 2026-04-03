@@ -1,13 +1,20 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { LinkIcon } from "@phosphor-icons/react/ssr";
 import { IconLink } from "../ui/Link";
 import { SocialLinksModal } from "../shared/SocialLinksModal";
 
-export function Footer() {
-  const t = useTranslations("footer");
-  const tSocial = useTranslations("socialLinksModal");
+export async function Footer() {
+  const t = await getTranslations("footer");
+  const tSocial = await getTranslations("socialLinksModal");
+  const tCommon = await getTranslations("common");
   const currentYear = new Date().getFullYear();
+
+  const roles = {
+    frontend: tCommon("roles.frontend"),
+    analytics: tCommon("roles.analytics"),
+    fullstack: tCommon("roles.fullstack"),
+  };
 
   return (
     <footer className="flex flex-col items-center gap-1 w-full text-center p-2 mb-24 md:mb-2">
@@ -23,6 +30,7 @@ export function Footer() {
       <div className="hidden md:flex items-center gap-3">
         <SocialLinksModal
           title={tSocial("title")}
+          roles={roles}
           className="cursor-pointer transition-transform hover:scale-110"
         >
           <div className="flex items-center justify-center w-14 h-14 font-display text-2xl text-primary bg-black rounded-full border-2 border-primary">
@@ -43,7 +51,7 @@ export function Footer() {
             src="/assets/buy-me-a-coffe.webp"
             width={64}
             height={64}
-            alt="Buy me a coffe"
+            alt="Buy me a coffee"
           />
         </IconLink>
       </div>

@@ -2,7 +2,7 @@ import { createClientWithTag } from "@/lib/supabase/client";
 import { CharacterGuess } from "@/types/guess";
 
 export async function searchCharacters(query: string, locale: string) {
-  if (query.length < 2) return [];
+  if (query.length < 1) return [];
 
   const supabase = createClientWithTag("characters");
 

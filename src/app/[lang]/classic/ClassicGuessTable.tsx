@@ -2,6 +2,7 @@
 
 import { GuessesTable } from "@/components/shared/GuessesTable";
 import { useGuessesContext } from "@/contexts/GuessesContext";
+import { useTranslations } from "@/contexts/TranslationContext";
 import {
   ClassicCharacter,
   compareSaga,
@@ -12,6 +13,8 @@ import dynamic from "next/dynamic";
 
 export function ClassicGuessTable({ daily }: { daily: ClassicCharacter }) {
   const { guesses, hydrated } = useGuessesContext();
+  const t = useTranslations("classic");
+  const tc = useTranslations("common");
 
   if (!hydrated || !guesses.length) {
     return null;
@@ -20,14 +23,14 @@ export function ClassicGuessTable({ daily }: { daily: ClassicCharacter }) {
   return (
     <GuessesTable
       headers={[
-        { value: "character", label: "Character" },
-        { value: "gender", label: "Gender" },
-        { value: "race", label: "Race" },
-        { value: "affiliation", label: "Affiliation" },
-        { value: "transformation", label: "Transformation" },
-        { value: "attribute", label: "Attribute" },
-        { value: "series", label: "Series" },
-        { value: "debut_saga", label: "Saga" },
+        { value: "character", label: t.table.character },
+        { value: "gender", label: t.table.gender },
+        { value: "race", label: t.table.race },
+        { value: "affiliation", label: t.table.affiliation },
+        { value: "transformation", label: t.table.transformation },
+        { value: "attribute", label: t.table.attribute },
+        { value: "series", label: t.table.series },
+        { value: "debut_saga", label: t.table.saga },
       ]}
       guesses={guesses.map((g) => ({
         id: g.slug,
@@ -53,36 +56,36 @@ export function ClassicGuessTable({ daily }: { daily: ClassicCharacter }) {
           ),
         },
         affiliation: {
-          value: g.affiliations?.map((a) => a.name).join(", ") ?? "None",
+          value: g.affiliations?.map((a) => a.name).join(", ") ?? tc.none,
           status: compareValue(
             g.affiliations
               ?.sort((a, b) => a.slug.localeCompare(b.slug))
               .map((a) => a.slug)
-              .join(", ") ?? "None",
+              .join(", ") ?? tc.none,
             daily.affiliations
               ?.sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
               .map((a) => a.slug)
-              .join(", ") ?? "None",
+              .join(", ") ?? tc.none,
           ),
         },
         transformation: {
-          value: g.has_transformations ? "Yes" : "No",
+          value: g.has_transformations ? tc.yes : tc.no,
           status: compareTransformation(
             g.has_transformations,
             daily.has_transformations,
           ),
         },
         attribute: {
-          value: g.attributes?.map((a) => a.name).join(", ") ?? "None",
+          value: g.attributes?.map((a) => a.name).join(", ") ?? tc.none,
           status: compareValue(
             g.attributes
               ?.sort((a, b) => a.slug.localeCompare(b.slug))
               ?.map((a) => a.slug)
-              ?.join(", ") ?? "None",
+              ?.join(", ") ?? tc.none,
             daily.attributes
               ?.sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
               ?.map((a) => a.slug)
-              ?.join(", ") ?? "None",
+              ?.join(", ") ?? tc.none,
           ),
         },
         series: {

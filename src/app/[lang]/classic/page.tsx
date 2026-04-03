@@ -11,25 +11,26 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { ClassicGuessTableLoader } from "./ClassicGuessTable";
 import { getDailyCharacter, getYesterdayCharacter } from "@/service/daily";
-import { getLocale } from "next-intl/server";
-import { WinModalWrapper } from "@/components/shared/WinModalWrapper";
+import { getLocale, getTranslations } from "next-intl/server";
+import { WinModal } from "@/components/shared/WinModal";
 
 export default async function ClassicPage() {
   const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: "classic" });
   const dailyChar = await getDailyCharacter(locale);
   const yesterdayChar = await getYesterdayCharacter(locale);
 
   if (!dailyChar) {
     return (
       <div className="flex-1 flex items-center justify-center">
-        <h1>Daily character not found</h1>
+        <h1>{t("dailyNotFound")}</h1>
       </div>
     );
   }
 
   return (
     <>
-      <WinModalWrapper
+      <WinModal
         characterName={dailyChar.name}
         characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.image_path}`}
       />
@@ -63,22 +64,22 @@ export default async function ClassicPage() {
           items={[
             {
               value: "tutorial",
-              header: "Need a quick guide?",
+              header: t("guide.header"),
               content: (
                 <div className="p-3">
                   <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
                     <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-green-600"></div>
-                    <span>Correct - This attribute is exactly right.</span>
+                    <span>{t("guide.correct")}</span>
                   </div>
 
                   <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
                     <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-amber-600"></div>
-                    <span>Partial — At least one value matches.</span>
+                    <span>{t("guide.partial")}</span>
                   </div>
 
                   <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
                     <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
-                    <span>Incorrect — This attribute is completely wrong.</span>
+                    <span>{t("guide.incorrect")}</span>
                   </div>
 
                   <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
@@ -91,10 +92,7 @@ export default async function ClassicPage() {
                       </span>
                     </div>
 
-                    <span>
-                      After — The daily character’s debut saga is after your
-                      guess.
-                    </span>
+                    <span>{t("guide.after")}</span>
                   </div>
 
                   <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
@@ -106,10 +104,7 @@ export default async function ClassicPage() {
                         />
                       </span>
                     </div>
-                    <span>
-                      Before — The daily character’s debut saga is before your
-                      guess.
-                    </span>
+                    <span>{t("guide.before")}</span>
                   </div>
                 </div>
               ),
