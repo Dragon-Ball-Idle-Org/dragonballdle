@@ -40,7 +40,7 @@ export function MartialArtsWinBanner({
           <div
             className={cn(
               "grid auto-rows-max justify-items-center w-full",
-              "max-w-[90xw] min-w-130 p-4 sm:p-3 border-martial-arts",
+              "sm:max-w-[90xw] min-w-80 sm:min-w-130 p-4 sm:p-3 border-martial-arts",
               "bg-primary shadow-[0_8px_20px_#00000042] text-shadow-[1px_1px_3px_rgba(0,0,0,.85)]",
             )}
           >
