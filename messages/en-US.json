@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "Maintainers"
+  },
+  "winModal": {
+    "congrats": "Congratulations!",
+    "line": {
+      "before": "You guessed today’s Dragon Ball character in",
+      "after": "tries:"
+    },
+    "countdown": "Next character in:"
   }
 }

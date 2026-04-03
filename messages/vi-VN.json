@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "Người bảo trì"
+  },
+  "winModal": {
+    "congrats": "Chúc mừng!",
+    "line": {
+      "before": "Bạn đã đoán đúng nhân vật Dragon Ball hôm nay trong",
+      "after": "lần thử:"
+    },
+    "countdown": "Nhân vật tiếp theo sau:"
   }
 }

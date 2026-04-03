@@ -9,12 +9,10 @@ export function useCharacterSearch(
   const [results, setResults] = useState<CharacterSearchResult[]>([]);
   const deferred = useDeferredValue(query);
 
-  if (deferred.length < 1 && results.length > 0) {
-    setResults([]);
-  }
-
   useEffect(() => {
-    if (deferred.length < 1) return;
+    if (deferred.length < 1 && results.length > 0) {
+      setResults([]);
+    }
 
     const controller = new AbortController();
 

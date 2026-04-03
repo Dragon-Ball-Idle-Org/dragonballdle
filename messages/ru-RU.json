@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "Сопровождающие"
+  },
+  "winModal": {
+    "congrats": "Поздравляем!",
+    "line": {
+      "before": "Вы угадали сегодняшнего персонажа Dragon Ball за",
+      "after": "попыток:"
+    },
+    "countdown": "Следующий персонаж через:"
   }
 }

@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "Mantenedores"
+  },
+  "winModal": {
+    "congrats": "¡Felicidades!",
+    "line": {
+      "before": "Adivinaste el personaje de Dragon Ball de hoje en",
+      "after": "intentos:"
+    },
+    "countdown": "Próximo personaje en:"
   }
 }

@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "维护者"
+  },
+  "winModal": {
+    "congrats": "恭喜您！",
+    "line": {
+      "before": "您在",
+      "after": "次尝试中猜中了今天的龙珠角色："
+    },
+    "countdown": "下一个角色更新倒计时："
   }
 }

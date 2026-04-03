@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "Penyelenggara"
+  },
+  "winModal": {
+    "congrats": "Tahniah!",
+    "line": {
+      "before": "Anda telah meneka watak Dragon Ball hari ini dalam",
+      "after": "percubaan:"
+    },
+    "countdown": "Watak seterusnya dalam:"
   }
 }

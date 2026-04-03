@@ -1,0 +1,142 @@
+"use client";
+
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { XIcon } from "@phosphor-icons/react";
+import { CountdownToMidnight } from "./CountdownToMidnight";
+import { useGuessesContext } from "@/contexts/GuessesContext";
+import { useGameContext } from "@/contexts/GameContext";
+
+type WinModalProps = {
+  characterName: string;
+  characterImage: string;
+  translations: {
+    congrats: string;
+    lineBefore: string;
+    lineAfter: string;
+    countdown: string;
+  };
+};
+
+export function WinModal({
+  characterName,
+  characterImage,
+  translations,
+}: WinModalProps) {
+  const [openWinModal, setOpenWinModal] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const { isGameWon } = useGameContext();
+  const { tries } = useGuessesContext();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isGameWon) {
+      setOpenWinModal(true);
+    }
+  }, [isGameWon]);
+
+  if (!isMounted) return null;
+
+  return (
+    <AnimatePresence>
+      {openWinModal && (
+        <div className="fixed inset-0 z-50 flex items-start justify-center overflow-auto p-4 pt-[clamp(12px,3vw,24px)]">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpenWinModal(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+          />
+
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={{
+              initial: { opacity: 0, scale: 0.65, y: 20 },
+              animate: { opacity: 1, scale: 1, y: 0 },
+              exit: { opacity: 0, scale: 0.65, y: 20 },
+            }}
+            transition={{ duration: 0.42, ease: "easeOut" }}
+            className="relative z-10 mx-auto mt-[clamp(8px,6vh,40px)] w-[min(80vw,500px)] overflow-visible rounded-xl border-3 border-[#ffcc00] bg-linear-to-b from-correct-light to-correct-dark p-[clamp(12px,2.5vw,24px)] shadow-[0_0_20px_5px_rgba(255,215,0,0.7)]"
+          >
+            <div className="relative mb-4 flex justify-center transform -translate-y-[15%] pointer-events-none">
+              <div className="relative w-[min(92%,540px)] origin-bottom">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}/win-png.png`}
+                  alt="Baba Uranai"
+                  width={540}
+                  height={400}
+                  className="h-auto w-full object-contain"
+                />
+
+                <div className="absolute top-[80%] left-[49%] -translate-x-1/2 -translate-y-1/2 w-[36%] aspect-square rounded-full overflow-hidden isolation-isolate">
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      scale: 2,
+                      filter: "blur(10px) brightness(4)",
+                    }}
+                    animate={{
+                      opacity: 0.75,
+                      scale: 1,
+                      filter: "blur(0) brightness(1)",
+                    }}
+                    transition={{
+                      delay: 0.2,
+                      duration: 1.2,
+                      ease: [0.28, 0.79, 0.28, 0.79],
+                    }}
+                    className="w-full h-full"
+                  >
+                    <Image
+                      src={characterImage}
+                      alt={characterName}
+                      fill
+                      className="object-cover rounded-full"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-5 mt-[-20%] text-center">
+              <h2 className="font-display text-[clamp(1.5rem,4vw,2rem)] font-normal text-white drop-shadow-md">
+                {translations.congrats}
+              </h2>
+
+              <p className="font-base text-[clamp(0.875rem,2.3vw,1rem)] font-semibold text-white">
+                {translations.lineBefore} <strong>{tries}</strong>{" "}
+                {translations.lineAfter}
+              </p>
+
+              <div className="mb-1">
+                <span className="inline-block rounded-full bg-primary border-2 border-primary-dark px-4 py-1 font-ui text-[clamp(1.125rem,3vw,1.25rem)] font-black text-white shadow-[inset_0_2px_12px_rgba(230,81,0,0.35),0_2px_10px_rgba(0,0,0,0.12)] text-shadow-md">
+                  {characterName}
+                </span>
+              </div>
+
+              <div className="inline-flex items-center gap-2 rounded-md border-1.5 border-white/55 bg-black/12 px-3 py-1 font-ui text-[clamp(0.875rem,2.4vw,1rem)] font-black text-white shadow-[inset_0_2px_12px_rgba(0,0,0,0.18),0_4px_16px_rgba(0,0,0,0.15)] backdrop-blur-xs">
+                <span>⏳ {translations.countdown}</span>
+                <CountdownToMidnight />
+              </div>
+            </div>
+
+            <button
+              onClick={() => setOpenWinModal(false)}
+              className="absolute -right-2.5 -top-2.5 flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-sm border-2 border-black bg-[#e53935] font-base font-bold text-white transition-transform hover:scale-110 active:scale-95"
+              aria-label="Close"
+            >
+              <XIcon size={18} weight="bold" />
+            </button>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+}

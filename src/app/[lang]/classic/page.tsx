@@ -12,7 +12,7 @@ import {
 import { ClassicGuessTableLoader } from "./ClassicGuessTable";
 import { getDailyCharacter, getYesterdayCharacter } from "@/service/daily";
 import { getLocale } from "next-intl/server";
-import { useGameContext } from "@/contexts/GameContext";
+import { WinModalWrapper } from "@/components/shared/WinModalWrapper";
 
 export default async function ClassicPage() {
   const locale = await getLocale();
@@ -28,85 +28,95 @@ export default async function ClassicPage() {
   }
 
   return (
-    <MainContainer>
-      <MartialArtsHero />
-      {yesterdayChar && (
-        <MartialArtsYesterdayCharacter
-          characterName={yesterdayChar.name}
-          characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.thumb_path}`}
-        />
-      )}
-      <MartialArtsWinBanner
-        todayCharacterName={dailyChar.name}
-        todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
+    <>
+      <WinModalWrapper
+        characterName={dailyChar.name}
+        characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.image_path}`}
       />
-      <div
-        className={cn(
-          "flex flex-col items-center w-full max-w-200 p-4 relative z-1",
-          "bg-black/17 backdrop-blur-xs rounded-xl shadow-[0_6px_24px_#00000026]",
-          "[-webkit-overflow-scrolling:touch] [scrollbar-width:thin] snap-x snap-proximity overflow-x-auto",
+
+      <MainContainer>
+        <MartialArtsHero />
+        {yesterdayChar && (
+          <MartialArtsYesterdayCharacter
+            characterName={yesterdayChar.name}
+            characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.thumb_path}`}
+          />
         )}
-      >
-        <MartialArtsGuessForm dailyCharacter={dailyChar} />
-        <ClassicGuessTableLoader dailyCharacter={dailyChar} />
-      </div>
+        <MartialArtsWinBanner
+          todayCharacterName={dailyChar.name}
+          todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
+        />
+        <div
+          className={cn(
+            "flex flex-col items-center w-full max-w-200 p-4 relative z-1",
+            "bg-black/17 backdrop-blur-xs rounded-xl shadow-[0_6px_24px_#00000026]",
+            "[-webkit-overflow-scrolling:touch] [scrollbar-width:thin] snap-x snap-proximity overflow-x-auto",
+          )}
+        >
+          <MartialArtsGuessForm dailyCharacter={dailyChar} />
+          <ClassicGuessTableLoader dailyCharacter={dailyChar} />
+        </div>
 
-      <GlassAccordion
-        className="w-full max-w-3xl"
-        defaultOpenedValues={["tutorial"]}
-        items={[
-          {
-            value: "tutorial",
-            header: "Need a quick guide?",
-            content: (
-              <div className="p-3">
-                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
-                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-green-600"></div>
-                  <span>Correct - This attribute is exactly right.</span>
-                </div>
+        <GlassAccordion
+          className="w-full max-w-3xl"
+          defaultOpenedValues={["tutorial"]}
+          items={[
+            {
+              value: "tutorial",
+              header: "Need a quick guide?",
+              content: (
+                <div className="p-3">
+                  <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                    <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-green-600"></div>
+                    <span>Correct - This attribute is exactly right.</span>
+                  </div>
 
-                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
-                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-amber-600"></div>
-                  <span>Partial — At least one value matches.</span>
-                </div>
+                  <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                    <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-amber-600"></div>
+                    <span>Partial — At least one value matches.</span>
+                  </div>
 
-                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
-                  <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
-                  <span>Incorrect — This attribute is completely wrong.</span>
-                </div>
+                  <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                    <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
+                    <span>Incorrect — This attribute is completely wrong.</span>
+                  </div>
 
-                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
-                  <div className="relative w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600">
-                    <span className="absolute inset-0 flex items-center justify-center text-black pointer-events-none select-none">
-                      <ArrowFatUpIcon weight="fill" className="w-full h-full" />
+                  <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                    <div className="relative w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600">
+                      <span className="absolute inset-0 flex items-center justify-center text-black pointer-events-none select-none">
+                        <ArrowFatUpIcon
+                          weight="fill"
+                          className="w-full h-full"
+                        />
+                      </span>
+                    </div>
+
+                    <span>
+                      After — The daily character’s debut saga is after your
+                      guess.
                     </span>
                   </div>
 
-                  <span>
-                    After — The daily character’s debut saga is after your
-                    guess.
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
-                  <div className="relative w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600">
-                    <span className="absolute inset-0 flex items-center justify-center text-black pointer-events-none select-none">
-                      <ArrowFatDownIcon
-                        weight="fill"
-                        className="w-full h-full"
-                      />
+                  <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                    <div className="relative w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600">
+                      <span className="absolute inset-0 flex items-center justify-center text-black pointer-events-none select-none">
+                        <ArrowFatDownIcon
+                          weight="fill"
+                          className="w-full h-full"
+                        />
+                      </span>
+                    </div>
+                    <span>
+                      Before — The daily character’s debut saga is before your
+                      guess.
                     </span>
                   </div>
-                  <span>
-                    Before — The daily character’s debut saga is before your
-                    guess.
-                  </span>
                 </div>
-              </div>
-            ),
-          },
-        ]}
-      />
-    </MainContainer>
+              ),
+            },
+          ]}
+        />
+      </MainContainer>
+    </>
   );
 }

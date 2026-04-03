@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "Maintainer"
+  },
+  "winModal": {
+    "congrats": "Herzlichen Glückwunsch!",
+    "line": {
+      "before": "Du hast den heutigen Dragon Ball Charakter erraten in",
+      "after": "Versuchen:"
+    },
+    "countdown": "Nächster Charakter in:"
   }
 }

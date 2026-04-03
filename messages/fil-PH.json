@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "Mga Tagapangalaga"
+  },
+  "winModal": {
+    "congrats": "Maligayang pagbati!",
+    "line": {
+      "before": "Nahulaan mo ang character ng Dragon Ball ngayon sa",
+      "after": "(na) subok:"
+    },
+    "countdown": "Susunod na character sa:"
   }
 }

@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "維護者"
+  },
+  "winModal": {
+    "congrats": "恭喜！",
+    "line": {
+      "before": "你在",
+      "after": "次嘗試中猜中了今天的龍珠角色："
+    },
+    "countdown": "下一個角色更新倒計時："
   }
 }

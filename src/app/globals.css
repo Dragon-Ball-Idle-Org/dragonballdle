@@ -26,6 +26,9 @@
   --color-primary-dark: var(--palette-orange-dark);
   --color-primary-light: var(--palette-orange-light);
 
+  --color-correct-dark: var(--palette-green-dark);
+  --color-correct-light: var(--palette-green-light);
+
   --color-red-light: var(--pallete-red-light);
   --color-buy-me-a-coffe: var(--pallete-blue-light);
 
@@ -151,6 +154,30 @@
       border-image: url("/assets/dragon-border.svg") 500 stretch;
       pointer-events: none;
       z-index: 1;
+    }
+  }
+
+  @keyframes popupZoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.65) translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes focusIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(2);
+      filter: blur(10px) brightness(4);
+    }
+    100% {
+      opacity: 0.75;
+      transform: translate(-50%, -50%) scale(1);
+      filter: blur(0) brightness(1);
     }
   }
 }

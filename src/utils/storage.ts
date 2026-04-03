@@ -1,9 +1,15 @@
 type StorageItem<T> = {
   value: T;
-  expiresAt: number; // timestamp em ms
+  expiresAt: number;
 };
 
+function isClient() {
+  return typeof window !== "undefined";
+}
+
 export function setWithExpiry<T>(key: string, value: T, ttlMs: number) {
+  if (!isClient()) return;
+
   const item: StorageItem<T> = {
     value,
     expiresAt: Date.now() + ttlMs,
@@ -12,6 +18,8 @@ export function setWithExpiry<T>(key: string, value: T, ttlMs: number) {
 }
 
 export function getWithExpiry<T>(key: string): T | null {
+  if (!isClient()) return null;
+
   const raw = localStorage.getItem(key);
   if (!raw) return null;
 

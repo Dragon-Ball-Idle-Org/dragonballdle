@@ -51,5 +51,13 @@
   },
   "socialLinksModal": {
     "title": "メンテナー"
+  },
+  "winModal": {
+    "congrats": "おめでとうございます！",
+    "line": {
+      "before": "今日のドラゴンボールのキャラクターを",
+      "after": "回で当てました："
+    },
+    "countdown": "次のキャラクターまで："
   }
 }

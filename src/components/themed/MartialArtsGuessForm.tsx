@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { MartialArtsAutocompleteField } from "./MartialArtsAutocompleteField";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useCharacterSearch } from "@/hooks/useCharacterSearch";
 import { useLocale } from "next-intl";
 import { getCharacterBySlug } from "@/service/characters";
@@ -20,13 +20,9 @@ export function MartialArtsGuessForm({
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const { guesses, addGuess } = useGuessesContext();
   const { isGameWon, wonGame } = useGameContext();
-  const [inputEnabled, setInputEnabled] = useState(!isGameWon);
 
-  const results = useCharacterSearch(
-    query,
-    locale,
-    guesses.map((g) => g.slug),
-  );
+  const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
+  const results = useCharacterSearch(query, locale, memoizedGuesses);
 
   const submitGuess = async (slug: string | null) => {
     const target = slug ?? selectedSlug;
@@ -64,7 +60,7 @@ export function MartialArtsGuessForm({
         onChange={(value) => setQuery(value)}
         onSelect={(slug) => setSelectedSlug(slug)}
         submitOnSelect
-        disabled={!inputEnabled}
+        disabled={isGameWon}
       />
       <button
         type="submit"

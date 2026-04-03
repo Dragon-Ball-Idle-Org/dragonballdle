@@ -45,7 +45,19 @@
   "manifest": {
     "description": "Adivinhe o personagem de Dragon Ball de hoje. Desafio diário rápido e gratuito."
   },
+  "metadata": {
+    "title": "DragonBallDle — Jogo de Adivinhação",
+    "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
+  },
   "socialLinksModal": {
     "title": "Mantenedores"
+  },
+  "winModal": {
+    "congrats": "Parabéns!",
+    "line": {
+      "before": "Você adivinhou o personagem Dragon Ball de hoje em",
+      "after": "tentativas:"
+    },
+    "countdown": "Próximo personagem em:"
   }
 }

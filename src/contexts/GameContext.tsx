@@ -1,6 +1,7 @@
 "use client";
 
 import { getWithExpiry, setWithExpiry } from "@/utils/storage";
+import { msUntilMidnightUTC } from "@/utils/time";
 import { createContext, useContext, ReactNode, useState } from "react";
 
 const GAME_WON_KEY = "dragonballdle:game-won";
@@ -14,10 +15,13 @@ const GameContext = createContext<GameContextValue | null>(null);
 
 export function GameProvider({ children }: { children: ReactNode }) {
   const [isGameWon, setIsGameWon] = useState<boolean>(
-    getWithExpiry(GAME_WON_KEY) ?? false,
+    typeof window !== "undefined"
+      ? (getWithExpiry(GAME_WON_KEY) ?? false)
+      : false,
   );
 
   const wonGame = () => {
+    if (typeof window === "undefined") return;
     setIsGameWon(true);
     setWithExpiry(GAME_WON_KEY, true, msUntilMidnightUTC());
   };
