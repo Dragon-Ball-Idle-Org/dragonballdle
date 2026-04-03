@@ -109,7 +109,9 @@
     "tries": "Deneme",
     "nextCharacter": "Sonraki karakter",
     "todayCharacter": "Bugünkü karakter",
-    "shareX": "X'te paylaş",
+    "share": "Paylaş",
+    "shareOnX": "X'te paylaş",
+    "copyToClipboard": "Panoya kopyala",
     "supportUs": "Bizi destekle"
   },
   "guessForm": {

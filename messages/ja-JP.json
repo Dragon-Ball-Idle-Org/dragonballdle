@@ -109,7 +109,9 @@
     "tries": "試行回数",
     "nextCharacter": "次のキャラクター",
     "todayCharacter": "今日のキャラクター",
-    "shareX": "Xでシェア",
+    "share": "シェア",
+    "shareOnX": "Xでシェア",
+    "copyToClipboard": "クリップボードにコピー",
     "supportUs": "サポートする"
   },
   "guessForm": {

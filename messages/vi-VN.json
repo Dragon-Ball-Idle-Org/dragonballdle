@@ -109,7 +109,9 @@
     "tries": "Số lần thử",
     "nextCharacter": "Nhân vật tiếp theo",
     "todayCharacter": "Nhân vật hôm nay",
-    "shareX": "Chia sẻ trên X",
+    "share": "Chia sẻ",
+    "shareOnX": "Chia sẻ trên X",
+    "copyToClipboard": "Sao chép vào bộ nhớ tạm",
     "supportUs": "Ủng hộ chúng tôi"
   },
   "guessForm": {

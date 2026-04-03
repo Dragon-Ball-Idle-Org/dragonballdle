@@ -109,7 +109,9 @@
     "tries": "Percubaan",
     "nextCharacter": "Watak seterusnya",
     "todayCharacter": "Watak hari ini",
-    "shareX": "Kongsi di X",
+    "share": "Kongsi",
+    "shareOnX": "Kongsi di X",
+    "copyToClipboard": "Salin ke papan klip",
     "supportUs": "Sokong kami"
   },
   "guessForm": {

@@ -109,7 +109,9 @@
     "tries": "시도",
     "nextCharacter": "다음 캐릭터",
     "todayCharacter": "오늘의 캐릭터",
-    "shareX": "X에서 공유하기",
+    "share": "공유",
+    "shareOnX": "X에서 공유하기",
+    "copyToClipboard": "클립보드에 복사",
     "supportUs": "후원하기"
   },
   "guessForm": {

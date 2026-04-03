@@ -1,10 +1,6 @@
 import { getTranslations as getServerTranslations } from "next-intl/server";
 
-export type TranslateType =
-  | "home"
-  | "classic"
-  | "winModal"
-  | "winBanner";
+export type TranslateType = "home" | "classic" | "winModal" | "winBanner";
 
 export async function getTranslationsBundle(
   type?: TranslateType | TranslateType[],
@@ -92,7 +88,9 @@ export async function getTranslationsBundle(
         tries: t("winBanner.tries"),
         nextCharacter: t("winBanner.nextCharacter"),
         todayCharacter: t("winBanner.todayCharacter"),
-        shareX: t("winBanner.shareX"),
+        share: t("winBanner.share"),
+        shareOnX: t("winBanner.shareOnX"),
+        copyToClipboard: t("winBanner.copyToClipboard"),
         supportUs: t("winBanner.supportUs"),
       },
     },

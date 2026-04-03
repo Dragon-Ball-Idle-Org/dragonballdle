@@ -109,7 +109,9 @@
     "tries": "प्रयास",
     "nextCharacter": "अगला पात्र",
     "todayCharacter": "आज का पात्र",
-    "shareX": "X पर साझा करें",
+    "share": "साझा करें",
+    "shareOnX": "X पर साझा करें",
+    "copyToClipboard": "क्लिपबोर्ड पर कॉपी करें",
     "supportUs": "हमारा समर्थन करें"
   },
   "guessForm": {

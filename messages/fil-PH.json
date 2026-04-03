@@ -109,7 +109,9 @@
     "tries": "Mga pagsubok",
     "nextCharacter": "Susunod na karakter",
     "todayCharacter": "Karakter ngayong araw",
-    "shareX": "I-share sa X",
+    "share": "Ibahagi",
+    "shareOnX": "I-share sa X",
+    "copyToClipboard": "Kopyahin sa clipboard",
     "supportUs": "Suportahan kami"
   },
   "guessForm": {

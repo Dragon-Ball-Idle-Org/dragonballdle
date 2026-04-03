@@ -109,7 +109,9 @@
     "tries": "尝试次数",
     "nextCharacter": "下一个角色",
     "todayCharacter": "今日角色",
-    "shareX": "在 X 上分享",
+    "share": "分享",
+    "shareOnX": "在 X 上分享",
+    "copyToClipboard": "复制到剪贴板",
     "supportUs": "支持我们"
   },
   "guessForm": {

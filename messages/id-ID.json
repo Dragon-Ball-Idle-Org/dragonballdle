@@ -109,7 +109,9 @@
     "tries": "Percobaan",
     "nextCharacter": "Karakter berikutnya",
     "todayCharacter": "Karakter hari ini",
-    "shareX": "Bagikan di X",
+    "share": "Bagikan",
+    "shareOnX": "Bagikan di X",
+    "copyToClipboard": "Salin ke papan klip",
     "supportUs": "Dukung kami"
   },
   "guessForm": {

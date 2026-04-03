@@ -109,7 +109,9 @@
     "tries": "จำนวนครั้งที่ลอง",
     "nextCharacter": "ตัวละครถัดไป",
     "todayCharacter": "ตัวละครของวันนี้",
-    "shareX": "แชร์บน X",
+    "share": "แชร์",
+    "shareOnX": "แชร์บน X",
+    "copyToClipboard": "คัดลอกไปยังคลิปบอร์ด",
     "supportUs": "สนับสนุนเรา"
   },
   "guessForm": {

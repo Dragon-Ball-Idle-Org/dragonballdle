@@ -2,7 +2,6 @@
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/utils/cn";
-import { XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { CountdownToMidnight } from "../shared/CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
@@ -10,8 +9,7 @@ import { ReactNode, useMemo } from "react";
 import { useGameContext } from "@/contexts/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
-import { buildShareText } from "@/utils/build-share-text";
-import { compareGuess } from "@/utils/guess";
+import { ShareDropdown } from "../ui/ShareDropdown";
 
 type MartialArtsWinBannerProps = {
   todayCharacterSlug: string;
@@ -24,37 +22,9 @@ export function MartialArtsWinBanner({
   todayCharacterName,
   todayCharacterImage,
 }: MartialArtsWinBannerProps) {
-  const { guesses, tries, hydrated } = useGuessesContext();
+  const { tries, hydrated } = useGuessesContext();
   const { isGameWon } = useGameContext();
   const translations = useTranslations("winBanner");
-  const shareTextTranslations = useTranslations("share");
-
-  const shareText = useMemo(() => {
-    const dailyChar = guesses.find((g) => g.slug === todayCharacterSlug)!;
-    const comparedGuesses = guesses.map((g) => compareGuess(g, dailyChar));
-
-    return buildShareText({
-      tries,
-      headers: [
-        { value: "character" },
-        { value: "gender" },
-        { value: "race" },
-        { value: "affiliation" },
-        { value: "transformation" },
-        { value: "attribute" },
-        { value: "series" },
-        { value: "debut_saga" },
-      ],
-      guesses: comparedGuesses,
-      translations: shareTextTranslations,
-    });
-  }, [tries, guesses, todayCharacterName, shareTextTranslations]);
-
-  const xShareUrl = useMemo(() => {
-    return (
-      "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText)
-    );
-  }, [shareText]);
 
   if (!hydrated) return null;
 
@@ -106,19 +76,7 @@ export function MartialArtsWinBanner({
               />
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
-              <Link
-                href={xShareUrl}
-                target="_blank"
-                rel="noopener"
-                className={cn(
-                  "inline-flex items-center justify-center gap-2 w-full sm:w-auto! max-h-11 rounded-xl p-4",
-                  "bg-black shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_#00000040]",
-                  "transition-transform ease-linear hover:scale-105",
-                )}
-              >
-                <XLogoIcon size={18} />
-                <span className="leading-none">{translations.shareX}</span>
-              </Link>
+              <ShareDropdown todayCharacterSlug={todayCharacterSlug} />
               <Link
                 href="https://buymeacoffee.com/dragonballdle"
                 target="_blank"
