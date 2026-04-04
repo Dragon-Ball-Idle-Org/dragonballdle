@@ -2,10 +2,10 @@
 
 import { cn } from "@/utils/cn";
 import { Autocomplete } from "@base-ui/react";
-import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { SpinnerIcon } from "@phosphor-icons/react";
+import { ImageWithFallback } from "../ui/ImageWithFallback";
 
 type Suggestion = {
   id: string;
@@ -92,7 +92,7 @@ export function MartialArtsAutocompleteField({
                   onClick={() => handleSelect(suggestion.id)}
                 >
                   {suggestion.image ? (
-                    <Image
+                    <ImageWithFallback
                       src={suggestion.image}
                       alt={suggestion.name}
                       width={56}
