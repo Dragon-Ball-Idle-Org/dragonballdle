@@ -27,11 +27,6 @@ export function mapGuessToRow(guess: CharacterGuess, answer: CharacterGuess) {
   return {
     id: guess.slug,
 
-    character: {
-      status:
-        guess.slug === answer.slug ? GuessStatus.CORRECT : GuessStatus.WRONG,
-    },
-
     gender: {
       status:
         guess.gender.slug === answer.gender.slug

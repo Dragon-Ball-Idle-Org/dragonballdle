@@ -30,7 +30,6 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
     return buildShareText({
       tries,
       headers: [
-        { value: "character" },
         { value: "gender" },
         { value: "race" },
         { value: "affiliation" },
