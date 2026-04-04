@@ -1,5 +1,6 @@
 "use client";
 
+import { CacheProvider } from "@/components/providers/CacheProvider";
 import { NextIntlClientProvider } from "next-intl";
 
 export function Providers({
@@ -10,6 +11,8 @@ export function Providers({
   locale: string;
 }) {
   return (
-    <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+    <NextIntlClientProvider locale={locale}>
+      <CacheProvider locale={locale}>{children}</CacheProvider>
+    </NextIntlClientProvider>
   );
 }

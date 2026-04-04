@@ -576,6 +576,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_all_characters_with_translations: {
+        Args: { p_limit?: number; p_locale: string; p_offset?: number }
+        Returns: Json[]
+      }
       get_character_with_translations: {
         Args: { p_locale: string; p_slug: string }
         Returns: Json
@@ -589,6 +593,7 @@ export type Database = {
           thumb_path: string
         }[]
       }
+      unaccent: { Args: { "": string }; Returns: string }
     }
     Enums: {
       [_ in never]: never

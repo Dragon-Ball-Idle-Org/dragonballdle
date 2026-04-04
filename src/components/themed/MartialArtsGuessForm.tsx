@@ -11,6 +11,7 @@ import { useGameContext } from "@/contexts/GameContext";
 import { ClassicCharacter } from "@/types/guess";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { incrementWins } from "@/service/wins";
+import { useCharacterCache } from "@/hooks/useCharacterCache";
 
 export function MartialArtsGuessForm({
   dailyCharacter,
@@ -22,6 +23,7 @@ export function MartialArtsGuessForm({
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const { guesses, addGuess, hydrated } = useGuessesContext();
   const { isGameWon, wonGame, updateWinsCount } = useGameContext();
+  const { findBySlug } = useCharacterCache(locale);
 
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
   const { results, isLoading } = useCharacterSearch(
@@ -34,7 +36,8 @@ export function MartialArtsGuessForm({
     const target = slug ?? selectedSlug;
     if (!target) return;
 
-    const character = await getCharacterBySlug(target, locale);
+    const character =
+      (await findBySlug(target)) ?? (await getCharacterBySlug(target, locale));
     if (!character) return;
 
     addGuess(character);
