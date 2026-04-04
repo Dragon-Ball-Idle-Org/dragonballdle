@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import {
   getCharacterIndexForDay,
-  getDayIndex,
+  getDayIndexBrasilia,
   ymdFromDayIndex,
 } from "../src/lib/daily";
 import * as dotenv from "dotenv";
@@ -31,7 +31,7 @@ async function main() {
   console.log(`Found ${characters.length} characters`);
 
   const N = characters.length;
-  const todayK = getDayIndex();
+  const todayK = getDayIndexBrasilia();
   const targetK = todayK + DAYS_AHEAD;
 
   const { data: existing } = await supabase

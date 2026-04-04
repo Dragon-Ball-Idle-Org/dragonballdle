@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { getDayIndex } from "@/lib/daily";
+import { getDayIndexBrasilia } from "@/lib/daily";
 import { ClassicCharacter, YesterdayCharacter } from "@/types/guess";
 import {
   AffiliationJoin,
@@ -49,7 +49,7 @@ export async function getDailyCharacter(
   locale: string,
 ): Promise<ClassicCharacter | null> {
   const supabase = createClient();
-  const dayIndex = getDayIndex();
+  const dayIndex = getDayIndexBrasilia();
 
   const threatedLocale = locale.toLowerCase();
 
@@ -130,7 +130,7 @@ export async function getYesterdayCharacter(
   locale: string,
 ): Promise<YesterdayCharacter | null> {
   const supabase = createClient();
-  const dayIndex = getDayIndex() - 1;
+  const dayIndex = getDayIndexBrasilia() - 1;
 
   const threatedLocale = locale.toLowerCase();
 

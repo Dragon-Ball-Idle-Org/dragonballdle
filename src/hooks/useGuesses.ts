@@ -3,7 +3,7 @@
 import { getCharacterBySlug } from "@/service/characters";
 import { CharacterGuess } from "@/types/guess";
 import { getWithExpiry, setWithExpiry } from "@/utils/storage";
-import { msUntilMidnightUTC } from "@/utils/time";
+import { msUntilMidnightBrasilia } from "@/utils/time";
 import { useEffect, useState } from "react";
 
 const SLUGS_KEY = "dragonballdle:guesses";
@@ -71,7 +71,7 @@ export function useGuesses(locale: string) {
       const next = [character, ...prev];
       saveCachedGuesses(next, locale);
 
-      const ttl = msUntilMidnightUTC();
+      const ttl = msUntilMidnightBrasilia();
       const slugs = loadSlugs();
       const nextSlugs = Array.from(new Set([character.slug, ...slugs]));
       setWithExpiry(SLUGS_KEY, nextSlugs, ttl);

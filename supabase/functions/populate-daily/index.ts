@@ -1,8 +1,5 @@
 import { createClient } from "jsr:@supabase/supabase-js@2";
-import {
-  getCharacterIndexForDay,
-  getDayIndex,
-} from "./daily.ts";
+import { getCharacterIndexForDay, getDayIndexBrasilia } from "./daily.ts";
 
 const DAYS_AHEAD = 90;
 
@@ -22,7 +19,7 @@ Deno.serve(async () => {
   }
 
   const N = characters.length;
-  const todayK = getDayIndex();
+  const todayK = getDayIndexBrasilia();
   const targetK = todayK + DAYS_AHEAD;
 
   const { data: existing } = await supabase

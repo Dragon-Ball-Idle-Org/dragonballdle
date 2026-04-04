@@ -15,12 +15,21 @@ export function ymdFromDayIndex(k: number): string {
   d.setUTCDate(d.getUTCDate() + k);
   return d.toISOString().slice(0, 10);
 }
+export function todayBrasiliaKey(): string {
+  const now = new Date();
 
-export function todayUTCKey(): string {
-  return new Date().toISOString().slice(0, 10);
+  // Obter a data em Brasília (America/Sao_Paulo)
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+
+  return formatter.format(now);
 }
 
-export function getDayIndex(ymd: string = todayUTCKey()): number {
+export function getDayIndexBrasilia(ymd: string = todayBrasiliaKey()): number {
   return daysBetween(EPOCH_YMD, ymd);
 }
 
