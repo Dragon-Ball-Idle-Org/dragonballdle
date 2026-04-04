@@ -6,11 +6,11 @@ export enum GuessStatus {
   NEWEST,
 }
 
-export type YesterdayCharacter= {
+export type YesterdayCharacter = {
   slug: string;
   name: string;
   thumb_path: string | null;
-}
+};
 
 export type ClassicCharacter = {
   slug: string;
@@ -40,7 +40,33 @@ export type CharacterGuess = {
 };
 
 export function compareValue(guessed: string, daily: string): GuessStatus {
-  return guessed === daily ? GuessStatus.CORRECT : GuessStatus.WRONG;
+  const guessedSlugs = guessed
+    .split(",")
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0)
+    .sort();
+
+  const dailySlugs = daily
+    .split(",")
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0)
+    .sort();
+
+  if (
+    guessedSlugs.length === dailySlugs.length &&
+    guessedSlugs.every((slug, i) => slug === dailySlugs[i])
+  ) {
+    return GuessStatus.CORRECT;
+  }
+
+  const dailySet = new Set(dailySlugs);
+  const hasCommonSlug = guessedSlugs.some((slug) => dailySet.has(slug));
+
+  if (hasCommonSlug) {
+    return GuessStatus.PARTIAL;
+  }
+
+  return GuessStatus.WRONG;
 }
 
 export function compareSaga(
