@@ -45,8 +45,11 @@ export function MartialArtsGuessForm({
     setSelectedSlug(null);
 
     if (character.slug === dailyCharacter.slug) {
-      wonGame();
-      await incrementWins();
+      // Wait guess animation ends to show win screen
+      setTimeout(async () => {
+        wonGame();
+        await incrementWins();
+      }, 2700);
     }
   };
 
