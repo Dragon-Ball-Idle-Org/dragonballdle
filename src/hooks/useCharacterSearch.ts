@@ -24,11 +24,13 @@ export function useCharacterSearch(
 
     if (cached.length > 0) {
       setResults(
-        cached.map((c) => ({
-          slug: c.slug,
-          name: c.name,
-          thumb_path: c.thumb_path,
-        })),
+        cached
+          .filter((c) => !guesses.includes(c.slug))
+          .map((c) => ({
+            slug: c.slug,
+            name: c.name,
+            thumb_path: c.thumb_path,
+          })),
       );
       return;
     }
