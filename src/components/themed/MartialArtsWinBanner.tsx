@@ -10,6 +10,7 @@ import { useGameContext } from "@/contexts/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { ShareDropdown } from "../ui/ShareDropdown";
+import { ShineGradientButton } from "../ui/ShineGradientButton";
 
 type MartialArtsWinBannerProps = {
   todayCharacterSlug: string;
@@ -57,15 +58,16 @@ export function MartialArtsWinBanner({
             <div className="w-full flex flex-col items-center justify-center gap-3 border-t border-black/12 pt-3 pb-2">
               <div className="flex flex-col items-center gap-2 text-center">
                 <span className="font-bold">{translations.todayCharacter}</span>
-                <strong
+                <ShineGradientButton
                   className={cn(
-                    "inline-block rounded-xl py-2 px-3 shadow-[inset_0_1px_8px_#00000038,0_2px_8px_#0000001f]",
+                    "py-2 px-3 shadow-[inset_0_1px_8px_#00000038,0_2px_8px_#0000001f]",
                     "bg-linear-135 from-green-500 to-green-700",
                     "font-ui font-black text-xl text-shadow-[1px_1px_2px_rgba(0,0,0,.6)] whitespace-nowrap",
                   )}
+                  shineColor="rgba(74, 222, 128, 0.4)"
                 >
                   {todayCharacterName}
-                </strong>
+                </ShineGradientButton>
               </div>
               <img
                 src={todayCharacterImage}

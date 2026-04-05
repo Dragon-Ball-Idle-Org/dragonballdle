@@ -11,6 +11,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { buildShareText } from "@/utils/build-share-text";
 import { mapGuessToRow } from "@/utils/map-guess-to-row";
+import { ShineGradientButton } from "./ShineGradientButton";
 
 type ShareDropdownProps = {
   todayCharacterSlug: string;
@@ -83,18 +84,20 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <button
+      <ShineGradientButton
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "inline-flex items-center justify-center gap-2 w-full sm:w-auto! max-h-11 rounded-xl p-4",
+          " w-full sm:w-auto! max-h-11 rounded-xl p-4",
           "bg-linear-135 from-green-500 to-green-700 shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_#00000040]",
           "transition-transform ease-linear hover:scale-105",
           "text-white font-ui font-black leading-none cursor-pointer",
         )}
+        contentClassName={cn("inline-flex items-center justify-center gap-2")}
+        shineColor="rgba(74, 222, 128, 0.4)"
       >
         <span>{translations.share}</span>
         <CaretDownIcon size={16} weight="bold" />
-      </button>
+      </ShineGradientButton>
 
       {isOpen && (
         <div
