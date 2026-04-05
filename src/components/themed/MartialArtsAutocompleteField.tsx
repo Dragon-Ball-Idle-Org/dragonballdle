@@ -48,7 +48,7 @@ export function MartialArtsAutocompleteField({
   };
 
   return (
-    <Autocomplete.Root items={suggestions} submitOnItemClick={submitOnSelect}>
+    <Autocomplete.Root items={suggestions} submitOnItemClick={submitOnSelect} autoHighlight="always">
       <div className="w-full border-martial-arts-sm">
         <Autocomplete.Input
           className={cn(
