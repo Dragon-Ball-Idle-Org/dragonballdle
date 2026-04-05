@@ -16,6 +16,13 @@ export default function Home() {
           href="/classic"
         />
 
+        <GameButton
+          icon={<h1 className="font-display text-9xl">◐</h1>}
+          title={t("silhouette.title")}
+          subtitle={t("silhouette.subtitle")}
+          href="/silhouette"
+        />
+
         <GameButtonDisabled
           icon={<h1 className="font-display text-9xl">X</h1>}
           title={t("inProgress.title")}

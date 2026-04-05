@@ -3,6 +3,9 @@ import { getTranslations as getServerTranslations } from "next-intl/server";
 export type TranslateType =
   | "home"
   | "classic"
+  | "silhouette"
+  | "silhouetteHero"
+  | "silhouetteViewer"
   | "winModal"
   | "winBanner"
   | "share"
@@ -41,6 +44,10 @@ export async function getTranslationsBundle(
           title: t("home.classic.title"),
           subtitle: t("home.classic.subtitle"),
         },
+        silhouette: {
+          title: t("home.silhouette.title"),
+          subtitle: t("home.silhouette.subtitle"),
+        },
         inProgress: {
           title: t("home.inProgress.title"),
           subtitle: t("home.inProgress.subtitle"),
@@ -77,6 +84,18 @@ export async function getTranslationsBundle(
         submitAlt: t("guessForm.submitAlt"),
       },
     },
+    silhouette: {
+      silhouette: {
+        dailyNotFound: t("silhouette.dailyNotFound"),
+      },
+      yesterday: {
+        title: t("yesterday.title"),
+        characterLabel: t("yesterday.characterLabel"),
+      },
+      guessForm: {
+        submitAlt: t("guessForm.submitAlt"),
+      },
+    },
   };
 
   const components = {
@@ -84,6 +103,26 @@ export async function getTranslationsBundle(
       hero: {
         title: t("hero.title"),
         subtitle: t("hero.subtitle"),
+      },
+    },
+    silhouetteHero: {
+      silhouetteHero: {
+        title: t("silhouetteHero.title"),
+        subtitle: t("silhouetteHero.subtitle"),
+      },
+    },
+    silhouetteViewer: {
+      silhouetteViewer: {
+        revealPercent: t("silhouetteViewer.revealPercent", { percent: "__P__" }),
+        guessCountOne: t("silhouetteViewer.guessCountOne"),
+        guessCountMany: t("silhouetteViewer.guessCountMany", {
+          count: "__C__",
+        }),
+        characterRevealed: t("silhouetteViewer.characterRevealed"),
+        imageAltDaily: t("silhouetteViewer.imageAltDaily"),
+        imageAltRevealed: t("silhouetteViewer.imageAltRevealed", {
+          name: "__NAME__",
+        }),
       },
     },
     winModal: {
@@ -107,19 +146,27 @@ export async function getTranslationsBundle(
       },
     },
     share: {
-      share: {
-        tweet: {
-          one: t("share.tweet.one", {
-            tries: "1",
-            guesses: "[guesses]",
-            url: "[url]",
-          }),
-          other: t("share.tweet.other", {
-            tries: "[tries]",
-            guesses: "[guesses]",
-            url: "[url]",
-          }),
-        },
+      tweet: {
+        one: t("share.tweet.one", {
+          tries: "1",
+          guesses: "[guesses]",
+          url: "[url]",
+        }),
+        other: t("share.tweet.other", {
+          tries: "[tries]",
+          guesses: "[guesses]",
+          url: "[url]",
+        }),
+        silhouetteOne: t("share.silhouette.one", {
+          tries: "1",
+          guesses: "[guesses]",
+          url: "[url]",
+        }),
+        silhouetteOther: t("share.silhouette.other", {
+          tries: "[tries]",
+          guesses: "[guesses]",
+          url: "[url]",
+        }),
       },
     },
   };

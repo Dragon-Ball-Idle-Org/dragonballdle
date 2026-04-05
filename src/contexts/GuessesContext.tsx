@@ -2,6 +2,7 @@
 
 import { createContext, useContext, ReactNode } from "react";
 import { useGuesses } from "@/hooks/useGuesses";
+import type { GameMode } from "@/types/game-mode";
 import { CharacterGuess } from "@/types/guess";
 
 type GuessesContextValue = {
@@ -15,12 +16,14 @@ const GuessesContext = createContext<GuessesContextValue | null>(null);
 
 export function GuessesProvider({
   locale,
+  gameMode = "classic",
   children,
 }: {
   locale: string;
+  gameMode?: GameMode;
   children: ReactNode;
 }) {
-  const { guesses, addGuess, hydrated } = useGuesses(locale);
+  const { guesses, addGuess, hydrated } = useGuesses(locale, gameMode);
 
   return (
     <GuessesContext.Provider

@@ -15,6 +15,10 @@
   --palette-green-dark: #228b22;
   --palette-green-light: #32cd32;
 
+  --palette-blue-base: #4facfe;
+  --palette-blue-light: #60a5fa;
+  --palette-blue-dark: #0284c7;
+
   --pallete-red-light: #d51919;
 
   --pallete-blue-light: #48a8db;
@@ -169,6 +173,107 @@
       pointer-events: none;
       z-index: 1;
     }
+  }
+
+  /* Capsule Corp Theme — corporate tech / Trunks timeline (distinct from Martial Arts dragon frame) */
+  .bg-capsule-corp-primary {
+    background-color: var(--palette-blue-base);
+    background-image: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.14) 100%
+    );
+  }
+
+  .text-capsule-corp-primary {
+    color: var(--palette-blue-light);
+  }
+
+  .text-capsule-corp-bright {
+    color: #e0f2fe;
+  }
+
+  .border-capsule-corp-primary {
+    border-color: var(--palette-blue-base);
+  }
+
+  .border-capsule-corp-primary-dark {
+    border-color: var(--palette-blue-dark);
+  }
+
+  .outline-capsule-corp-primary-dark {
+    outline-color: var(--palette-blue-dark);
+  }
+
+  .focus-visible\:outline-capsule-corp-primary-light:focus-visible {
+    outline-color: var(--palette-blue-light);
+  }
+
+  /* Hero / panels: lab grid + cool blue (no orange dragon texture) */
+  .background-capsule-corp-texture {
+    background-color: #0369a1;
+    background-image:
+      radial-gradient(
+        ellipse 130% 90% at 15% 15%,
+        rgba(255, 255, 255, 0.16),
+        transparent 52%
+      ),
+      radial-gradient(
+        ellipse 90% 70% at 88% 88%,
+        rgba(56, 189, 248, 0.35),
+        transparent 50%
+      ),
+      repeating-linear-gradient(
+        -14deg,
+        transparent,
+        transparent 7px,
+        rgba(255, 255, 255, 0.04) 7px,
+        rgba(255, 255, 255, 0.04) 8px
+      ),
+      linear-gradient(155deg, #075985 0%, #0ea5e9 48%, #0369a1 100%);
+  }
+
+  /* Input row: compact cyan tech rim */
+  .border-capsule-corp-sm {
+    position: relative;
+    border-radius: 0.75rem;
+    box-shadow:
+      0 0 0 2px rgba(56, 189, 248, 0.55),
+      0 0 16px rgba(14, 165, 233, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Cards / banners: metallic capsule frame */
+  .border-capsule-corp {
+    position: relative;
+    border-radius: 1rem;
+    box-shadow:
+      0 0 0 2px rgba(125, 211, 252, 0.55),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+      0 10px 28px rgba(2, 132, 199, 0.38);
+  }
+
+  /* Silhouette viewport: inner “scanner” bezel */
+  .border-capsule-corp-viewport {
+    box-shadow:
+      0 0 0 2px rgba(14, 165, 233, 0.65),
+      0 0 24px rgba(56, 189, 248, 0.2),
+      inset 0 0 48px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* Game board glass panel */
+  .panel-capsule-corp {
+    background: linear-gradient(
+      145deg,
+      rgba(15, 23, 42, 0.55) 0%,
+      rgba(12, 74, 110, 0.35) 100%
+    );
+    box-shadow:
+      0 0 0 1px rgba(125, 211, 252, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 12px 40px rgba(2, 6, 23, 0.5);
   }
 
   @keyframes popupZoom {

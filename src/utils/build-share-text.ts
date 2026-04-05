@@ -18,11 +18,13 @@ export function buildShareText<T extends string>({
   translations,
 }: BuildShareTextParams<T>) {
   const one =
-    translations?.["share.tweet.one"] ||
+    translations?.["share.silhouette.one"] ??
+    translations?.["share.tweet.one"] ??
     "I guessed today's DragonBallDle character in 1 try:\n[guesses]\nTry it too at [url]";
 
   const other =
-    translations?.["share.tweet.other"] ||
+    translations?.["share.silhouette.other"] ??
+    translations?.["share.tweet.other"] ??
     "I guessed today's DragonBallDle character in [tries] tries:\n[guesses]\nTry it too at [url]";
 
   let emojis = "";
