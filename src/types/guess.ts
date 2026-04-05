@@ -17,12 +17,12 @@ export type ClassicCharacter = {
   name: string;
   thumb_path: string | null;
   image_path: string | null;
-  gender: { slug: string | null; name: string | null };
-  races: { slug: string | null; name: string | null }[];
-  series: { slug: string | null; name: string | null };
+  gender: { slug: string; name: string };
   debut_saga: { slug: string; name: string; sort_order: number };
-  affiliations: { slug: string | null; name: string | null }[];
-  attributes: { slug: string | null; name: string | null }[];
+  races: { slug: string; name: string }[] | null;
+  affiliations: { slug: string; name: string }[] | null;
+  attributes: { slug: string; name: string }[] | null;
+  series: { slug: string; name: string };
   has_transformations: boolean;
 };
 

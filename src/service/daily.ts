@@ -9,6 +9,13 @@ import {
 } from "@/types/supabase-joins";
 
 function mapToClassicCharacter(c: DailyCharacterRow): ClassicCharacter {
+  const mapIfExists = <T, U>(
+    array: T[] | undefined | null,
+    mapper: (item: T) => U
+  ): U[] | null => {
+    return array && array.length > 0 ? array.map(mapper) : null;
+  }
+
   return {
     slug: c.slug,
     thumb_path: c.thumb_path,
@@ -28,17 +35,17 @@ function mapToClassicCharacter(c: DailyCharacterRow): ClassicCharacter {
       name: c.sagas?.saga_translations[0]?.name ?? "",
       sort_order: c.sagas?.sort_order ?? 0,
     },
-    races: (c.character_races ?? []).map((cr: RaceJoin) => ({
+    races: mapIfExists(c.character_races, (cr: RaceJoin) => ({
       slug: cr.races?.slug ?? "",
       name: cr.races?.race_translations[0]?.name ?? "",
     })),
-    affiliations: (c.character_affiliations ?? []).map(
+    affiliations: mapIfExists(c.character_affiliations, 
       (ca: AffiliationJoin) => ({
         slug: ca.affiliations?.slug ?? "",
         name: ca.affiliations?.affiliation_translations[0]?.name ?? "",
       }),
     ),
-    attributes: (c.character_attributes ?? []).map((ca: AttributeJoin) => ({
+    attributes: mapIfExists(c.character_attributes, (ca: AttributeJoin) => ({
       slug: ca.attributes?.slug ?? "",
       name: ca.attributes?.attribute_translations[0]?.name ?? "",
     })),

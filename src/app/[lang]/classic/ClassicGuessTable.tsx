@@ -19,7 +19,7 @@ export function ClassicGuessTable({ daily }: { daily: ClassicCharacter }) {
   if (!hydrated || !guesses.length) {
     return null;
   }
-
+  
   return (
     <GuessesTable
       headers={[
@@ -46,13 +46,13 @@ export function ClassicGuessTable({ daily }: { daily: ClassicCharacter }) {
           value: g.races.map((r) => r.name).join(", "),
           status: compareValue(
             g.races
-              .sort((a, b) => a.slug.localeCompare(b.slug))
+              ?.sort((a, b) => a.slug.localeCompare(b.slug))
               .map((a) => a.slug)
-              .join(", "),
+              .join(", ") ?? tc.none,
             daily.races
-              .sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
+              ?.sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
               .map((a) => a.slug)
-              .join(", "),
+              .join(", ") ?? tc.none,
           ),
         },
         affiliation: {
@@ -80,12 +80,12 @@ export function ClassicGuessTable({ daily }: { daily: ClassicCharacter }) {
           status: compareValue(
             g.attributes
               ?.sort((a, b) => a.slug.localeCompare(b.slug))
-              ?.map((a) => a.slug)
-              ?.join(", ") ?? tc.none,
+              .map((a) => a.slug)
+              .join(", ") ?? tc.none,
             daily.attributes
               ?.sort((a, b) => a.slug?.localeCompare(b.slug ?? "") ?? 0)
-              ?.map((a) => a.slug)
-              ?.join(", ") ?? tc.none,
+              .map((a) => a.slug)
+              .join(", ") ?? tc.none,
           ),
         },
         series: {
