@@ -92,7 +92,6 @@ export function WinModal({
                     <img
                       src={characterImage}
                       alt={characterName}
-                      fill
                       className="object-cover rounded-full"
                     />
                   </motion.div>
