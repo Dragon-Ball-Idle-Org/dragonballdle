@@ -11,8 +11,9 @@ Este documento descreve a arquitetura, o design system, os padrões de código e
 ## 2. Arquitetura e Estrutura de Pastas
 - `src/app/[lang]/`: Utiliza o App Router do Next.js com suporte a múltiplos idiomas nativo nas rotas. Nenhuma página deve ser criada fora do escopo de `[lang]` a menos que seja um utilitário global/API.
 - `src/components/`: Componentes de layout e de contexto inteligente (ex: `Header.tsx`, `Footer.tsx`).
-- `src/components/_UI/`: Componentes visuais "dumb"/reutilizáveis. Siga o paradigma de atomic design para botões, modais, loaders (ex: `GameButton.tsx`, `SplashScreen.tsx`).
+- `src/components/ui/`: Componentes visuais "dumb"/reutilizáveis. Siga o paradigma de atomic design para botões, modais, loaders (ex: `GameButton.tsx`, `SplashScreen.tsx`).
 - `src/i18n/`: Configurações do `next-intl`. Contém wrappers essenciais para navegação.
+- `src/components/themed`: Componentes que possuem uma temática no game. (ex: `MartialArts*.tsx`, `CapsuleCorp*.tsx`)
 
 ## 3. Padrões de Design de UI e Design System
 O projeto possui uma identidade visual fortemente inspirada em jogos (Game UI) e no universo de Dragon Ball.
