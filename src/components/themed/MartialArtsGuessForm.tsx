@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { MartialArtsAutocompleteField } from "./MartialArtsAutocompleteField";
 import { useMemo, useState } from "react";
 import { useCharacterSearch } from "@/hooks/useCharacterSearch";
@@ -12,6 +11,7 @@ import { ClassicCharacter } from "@/types/guess";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { incrementWins } from "@/service/wins";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
+import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
 
 export function MartialArtsGuessForm({
   dailyCharacter,
@@ -33,6 +33,8 @@ export function MartialArtsGuessForm({
   );
 
   const submitGuess = async (slug: string | null) => {
+    hideMobileKeyboard();
+
     const target = slug ?? selectedSlug;
     if (!target) return;
 
