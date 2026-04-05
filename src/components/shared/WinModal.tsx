@@ -92,7 +92,7 @@ export function WinModal({
                     <img
                       src={characterImage}
                       alt={characterName}
-                      className="object-cover rounded-full"
+                      className="object-cover rounded-full w-full h-full"
                     />
                   </motion.div>
                 </div>

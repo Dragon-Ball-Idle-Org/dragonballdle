@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function SplashScreen() {
@@ -28,7 +27,8 @@ export function SplashScreen() {
         alt={"Loading..."}
         width={180}
         height={180}
-        className="w-[180px] animate-[pulse_1.2s_ease-in-out_infinite]"
+        fetchPriority="high"
+        className="w-45 animate-[pulse_1.2s_ease-in-out_infinite]"
       />
     </div>
   );
