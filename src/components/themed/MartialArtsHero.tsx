@@ -2,24 +2,12 @@
 
 import { cn } from "@/utils/cn";
 import { WinsBadge } from "../shared/WinsBadge";
-import { getWinsCount } from "@/service/wins";
-import { useGameContext } from "@/contexts/GameContext";
 import { useTranslations } from "@/contexts/TranslationContext";
-import { Suspense, useEffect, useState } from "react";
+import { useWinsRealtime } from "@/hooks/useWinsRealtime";
 
 export function MartialArtsHero() {
   const translations = useTranslations("hero");
-  const { winsCount, updateWinsCount } = useGameContext();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getWinsCount()
-      .then((count) => {
-        if (typeof window === "undefined") return;
-        updateWinsCount(count);
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
+  const { winsCount, isLoading } = useWinsRealtime();
 
   return (
     <div

@@ -7,8 +7,6 @@ import { createContext, useContext, ReactNode, useState } from "react";
 const GAME_WON_KEY = "dragonballdle:game-won";
 
 type GameContextValue = {
-  winsCount?: number;
-  updateWinsCount: (newCount: number) => void;
   isGameWon: boolean;
   wonGame: () => void;
 };
@@ -16,7 +14,6 @@ type GameContextValue = {
 const GameContext = createContext<GameContextValue | null>(null);
 
 export function GameProvider({ children }: { children: ReactNode }) {
-  const [winsCount, setWinsCount] = useState<number | undefined>(undefined);
   const [isGameWon, setIsGameWon] = useState<boolean>(
     typeof window !== "undefined"
       ? (getWithExpiry(GAME_WON_KEY) ?? false)
@@ -29,13 +26,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setWithExpiry(GAME_WON_KEY, true, msUntilMidnightBrasilia());
   };
 
-  const updateWinsCount = (newCount: number) => {
-    setWinsCount(newCount);
-  };
-
   return (
     <GameContext.Provider
-      value={{ winsCount, updateWinsCount, isGameWon, wonGame }}
+      value={{ isGameWon, wonGame }}
     >
       {children}
     </GameContext.Provider>
