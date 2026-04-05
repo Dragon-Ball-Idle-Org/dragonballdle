@@ -23,10 +23,9 @@ export function SplashScreen() {
       id="app-loading"
       className={`fixed inset-0 z-9999 flex items-center justify-center bg-primary transition-opacity duration-400 ease-out ${loaded ? "pointer-events-none opacity-0" : "opacity-100"}`}
     >
-      <Image
+      <img
         src="/assets/baba-icon.svg"
         alt={"Loading..."}
-        priority
         width={180}
         height={180}
         className="w-[180px] animate-[pulse_1.2s_ease-in-out_infinite]"

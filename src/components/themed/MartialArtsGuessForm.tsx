@@ -80,7 +80,7 @@ export function MartialArtsGuessForm({
         type="submit"
         className="cursor-pointer transition-transform hover:scale-105 active:scale-95"
       >
-        <Image
+        <img
           src="/assets/dragon_ball_4_stars.svg"
           alt={translations.submitAlt}
           width={80}

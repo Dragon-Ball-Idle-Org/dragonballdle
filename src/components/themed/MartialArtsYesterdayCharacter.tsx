@@ -24,7 +24,7 @@ export function MartialArtsYesterdayCharacter({
     >
       <h4 className="text-sm font-bold">{t("title")}</h4>
       <div className="flex flex-nowrap items-center justify-center gap-2">
-        <Image
+        <img
           src={characterImage}
           alt={characterName}
           width={48}

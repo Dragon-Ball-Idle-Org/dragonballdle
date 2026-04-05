@@ -16,11 +16,10 @@ export function Header({
           {!hideBackButton && <BackButton />}
         </div>
 
-        <Image
+        <img
           id="logo"
           className="logo"
           src={`${cdnURL}/logo.png`}
-          priority
           width={640}
           height={100}
           alt="DragonBallDle logo"

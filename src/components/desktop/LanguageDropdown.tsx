@@ -43,7 +43,7 @@ export function LanguageDropdown({ placement = "bottom" }: LanguageDropdownProps
         aria-controls="lang-menu"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <Image
+        <img
           src={`/assets/flags/${currentLanguage.toLowerCase()}.svg`}
           width={24}
           height={16}
@@ -69,7 +69,7 @@ export function LanguageDropdown({ placement = "bottom" }: LanguageDropdownProps
               onClick={() => onChangeLanguage(lang)}
               className="flex items-center gap-2 h-9 px-2 py-1 rounded-md text-xs font-semibold text-white hover:bg-white/20"
             >
-              <Image
+              <img
                 src={`/assets/flags/${lang.toLowerCase()}.svg`}
                 width={24}
                 height={16}

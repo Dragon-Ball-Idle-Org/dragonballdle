@@ -47,7 +47,7 @@ export async function Footer() {
           target="_blank"
           rel="noopener"
         >
-          <Image
+          <img
             src="/assets/buy-me-a-coffe.webp"
             width={64}
             height={64}

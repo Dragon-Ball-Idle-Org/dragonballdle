@@ -56,7 +56,7 @@ export function SocialLinksModal({
 
               <div className="relative flex flex-col items-center text-center">
                 {maintainer.image ? (
-                  <Image
+                  <img
                     src={maintainer.image}
                     alt={maintainer.name}
                     width={64}

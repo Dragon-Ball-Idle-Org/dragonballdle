@@ -9,7 +9,7 @@ export function ImageWithFallback(props: ImageProps) {
   });
 
   return (
-    <Image
+    <img
       {...props}
       src={src}
       onLoad={onLoad}

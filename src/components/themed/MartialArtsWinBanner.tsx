@@ -67,7 +67,7 @@ export function MartialArtsWinBanner({
                   {todayCharacterName}
                 </strong>
               </div>
-              <Image
+              <img
                 src={todayCharacterImage}
                 alt={`${todayCharacterName} thumbnail`}
                 width={80}
@@ -87,7 +87,7 @@ export function MartialArtsWinBanner({
                   "transition-transform ease-linear hover:scale-105",
                 )}
               >
-                <Image
+                <img
                   src="/assets/buy-me-a-coffe.svg"
                   alt="Buy me a coffe"
                   width={28}

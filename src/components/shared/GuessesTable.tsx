@@ -112,7 +112,7 @@ function GuessCell({
     >
       {isImageCell(cell) && (
         <Tooltip content={cell.alt}>
-          <Image src={cell.imgSrc} alt={cell.alt} width={85} height={85} />
+          <img src={cell.imgSrc} alt={cell.alt} width={85} height={85} />
         </Tooltip>
       )}
       {isGuessCell(cell) && (

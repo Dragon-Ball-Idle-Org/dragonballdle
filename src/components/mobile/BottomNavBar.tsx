@@ -65,7 +65,7 @@ export function BottomNavBar({
               className="flex flex-col items-center justify-center transition-transform hover:scale-110 active:scale-95 active:duration-75"
             >
               <div className="rounded-full p-1.5 border-2 border-orange-600 shadow-[0_0_20px_rgba(234,88,12,0.4)] bg-black/80 backdrop-blur-md">
-                <Image
+                <img
                   src="/assets/dragon-radar.svg"
                   alt="Home"
                   width={60}
@@ -96,7 +96,7 @@ export function BottomNavBar({
               className="flex flex-col items-center justify-center cursor-pointer text-zinc-400 hover:text-orange-400 transition-colors"
             >
               <div className="w-7 h-7 flex items-center justify-center">
-                <Image
+                <img
                   src={`/assets/flags/${currentLanguage.toLowerCase()}.svg`}
                   width={24}
                   height={16}
@@ -145,7 +145,7 @@ export function BottomNavBar({
                         : "text-white hover:bg-white/10 border border-transparent"
                     }`}
                   >
-                    <Image
+                    <img
                       src={`/assets/flags/${lang.toLowerCase()}.svg`}
                       width={32}
                       height={24}

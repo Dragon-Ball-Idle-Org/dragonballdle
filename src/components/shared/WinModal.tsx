@@ -62,7 +62,7 @@ export function WinModal({
           >
             <div className="relative mb-4 flex justify-center transform -translate-y-[15%] pointer-events-none">
               <div className="relative w-[min(92%,540px)] origin-bottom">
-                <Image
+                <img
                   src={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}/win-png.png`}
                   alt="Baba Uranai"
                   width={540}
@@ -89,7 +89,7 @@ export function WinModal({
                     }}
                     className="w-full h-full"
                   >
-                    <Image
+                    <img
                       src={characterImage}
                       alt={characterName}
                       fill
