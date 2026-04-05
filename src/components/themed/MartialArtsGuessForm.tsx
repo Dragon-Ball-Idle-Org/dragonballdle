@@ -80,7 +80,7 @@ export function MartialArtsGuessForm({
       />
       <button
         type="submit"
-        className="cursor-pointer transition-transform hover:scale-105 active:scale-95"
+        className="hidden sm:block cursor-pointer transition-transform hover:scale-105 active:scale-95"
       >
         <img
           src="/assets/dragon_ball_4_stars.svg"

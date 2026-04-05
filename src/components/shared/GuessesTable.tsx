@@ -46,20 +46,26 @@ export function GuessesTable<T extends string>({
       cell.status === GuessStatus.WRONG && "bg-red-600",
       cell.status === GuessStatus.OLDEST && "bg-red-600",
       cell.status === GuessStatus.NEWEST && "bg-red-600",
-      "text-center font-bold text-sm text-shadow-[1px_1px_3px_#000000] p-1 whitespace-normal overflow-wrap-anywhere word-break-break-word",
+      "text-center font-bold text-xs sm:text-sm text-shadow-[1px_1px_3px_#000000] p-1 whitespace-normal overflow-wrap-anywhere word-break-break-word",
     );
   };
 
   return (
     <div
-      className={`relative grid justify-start gap-2 w-full mt-0 mb-0.5 overflow-x-visible break`}
-      style={{ gridTemplateColumns: `repeat(${headers.length}, 5.5rem)` }}
+      className={cn(
+        "relative grid justify-start gap-1 md:gap-2",
+        "w-full mt-0 mb-0.5 overflow-x-visible break",
+        "[--col-size:5rem] sm:[--col-size:5.5rem]",
+      )}
+      style={{
+        gridTemplateColumns: `repeat(${headers.length}, var(--col-size))`,
+      }}
     >
       {headers.map((header) => (
         <span
           key={header.value}
           className={cn(
-            "w-22 h-5 flex items-end justify-center",
+            "w-20 sm:w-22 h-5 flex items-end justify-center",
             "text-center pb-1 text-xs font-semibold text-shadow-[2px_2px_3px_#000000]",
             "border-b-3 border-white rounded-lg",
           )}
@@ -105,7 +111,7 @@ function GuessCell({
       animate={{ opacity: 1, translateY: 0, scale: 1 }}
       transition={{ delay: i * 0.3, duration: 0.3 }}
       className={cn(
-        "w-22 h-22 flex flex-wrap items-center justify-center overflow-hidden",
+        "w-20 h-20 sm:w-22 sm:h-22 flex flex-wrap items-center justify-center overflow-hidden",
         "relative border border-white rounded-xl",
         getCellClassName(cell),
       )}
