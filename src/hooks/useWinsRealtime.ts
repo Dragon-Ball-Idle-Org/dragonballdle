@@ -33,7 +33,9 @@ export function useWinsRealtime() {
           filter: `game_date=eq.${today}`,
         },
         (payload) => {
-          console.log("Received wins count update:", payload);
+          if (process.env.NODE_ENV === "development") {
+            console.log("Received wins count update:", payload);
+          }
           setWinsCount(payload.new.wins_count);
         },
       )
