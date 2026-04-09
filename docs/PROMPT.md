@@ -49,7 +49,7 @@ Os botões do jogo utilizam padrões recorrentes:
 
 1. **Estilização e Animações:**
    - **Sempre use Tailwind classes:** Evite ao máximo criar arquivos `.css` paralelos.
-   - **Framer Motion:** Para animações complexas, surgimento de elementos em tela e transições (como modais, menus laterais e drawers), utilize a biblioteca `framer-motion` em vez de tentar forçar a sintaxe do Tailwind. Animações simples como de `hover:scale` continuam no Tailwind.
+   - **Framer Motion UX:** Sempre busque aprimorar a experiência do usuário (UX) utilizando a biblioteca `framer-motion` para suavizar transições de layout (como troca de abas, modais, alertas de erro/sucesso com `<AnimatePresence>`). As animações devem trazer um aspecto fluido, usando `layoutId` para elementos flutuantes ou componentes condicionais, mas evite exageros. Mantenha as durações sempre curtas (`duration: 0.2` a `0.3`) e opte pela discrição. Animações simples como `hover:scale-105` continuam no Tailwind.
    - **Phosphor Icons:** Para ícones, utilize a biblioteca `@phosphor-icons/react`. Sempre utilize a propriedade `weight` para definir o estilo do ícone (ex: `weight="fill"`, `weight="light"`, `weight="regular"`, `weight="bold"`, `weight="thin"`). Sempre importe os ícone com o sufixo `Icon` (ex: `import { Gamepad as GamepadIcon } from "@phosphor-icons/react";`).
    - **Função `cn()` para Strings de Estilo Muito Grandes:** Quando o atributo `className` ficar muito grande (mais de uma linha), importe e utilize a função `cn()` de `src/utils/cn.ts`. Esta função combina `clsx` com `twMerge` para evitar conflitos de classes Tailwind e melhorar a legibilidade do código.
 

@@ -2,6 +2,7 @@
 
 import { useTranslations } from "@/contexts/TranslationContext";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function ContactForm() {
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL!;
@@ -79,9 +80,12 @@ export function ContactForm() {
           }`}
         >
           {activeTab === "email" && (
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-orange-600 to-orange-400" />
+            <motion.div
+              layoutId="contact-tab-indicator"
+              className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-orange-600 to-orange-400"
+            />
           )}
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-2 relative z-10">
             📧
             {t.directEmail}
           </span>
@@ -98,67 +102,86 @@ export function ContactForm() {
           }`}
         >
           {activeTab === "form" && (
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-orange-600 to-orange-400" />
+            <motion.div
+              layoutId="contact-tab-indicator"
+              className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-orange-600 to-orange-400"
+            />
           )}
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-2 relative z-10">
             ✉️
             {t.sendButton}
           </span>
         </button>
       </div>
 
-      <div className="transition-all duration-300">
-        {activeTab === "email" && (
-          <div className="flex flex-col items-center justify-center">
-            <div className="w-full max-w-md relative p-6 sm:p-8 bg-orange-600/10 backdrop-blur-sm border-2 border-orange-600/30 hover:border-orange-600/60 rounded-2xl transition-all duration-300">
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="p-3 bg-orange-600/20 rounded-full text-4xl">
-                    📧
+      <div className="relative overflow-hidden w-full min-h-[300px]">
+        <AnimatePresence mode="wait">
+          {activeTab === "email" && (
+            <motion.div
+              key="email-view"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col items-center justify-center w-full"
+            >
+              <div className="w-full max-w-md relative p-6 sm:p-8 bg-orange-600/10 backdrop-blur-sm border-2 border-orange-600/30 hover:border-orange-600/60 rounded-2xl transition-all duration-300">
+                <div className="relative z-10">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="p-3 bg-orange-600/20 rounded-full text-4xl">
+                      📧
+                    </div>
                   </div>
-                </div>
 
-                <h3 className="font-display text-2xl sm:text-3xl text-white text-center mb-2">
-                  {t.directEmail}
-                </h3>
+                  <h3 className="font-display text-2xl sm:text-3xl text-white text-center mb-2">
+                    {t.directEmail}
+                  </h3>
 
-                <p className="font-ui text-zinc-400 text-xs sm:text-sm text-center mb-6">
-                  Copy our contact email
-                </p>
-
-                <div className="p-4 bg-zinc-900/50 border border-orange-600/30 rounded-lg mb-6 text-center">
-                  <p className="font-ui text-orange-400 text-sm sm:text-base break-all">
-                    {contactEmail}
+                  <p className="font-ui text-zinc-400 text-xs sm:text-sm text-center mb-6">
+                    Copy our contact email
                   </p>
+
+                  <div className="p-4 bg-zinc-900/50 border border-orange-600/30 rounded-lg mb-6 text-center">
+                    <p className="font-ui text-orange-400 text-sm sm:text-base break-all">
+                      {contactEmail}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={handleCopyEmail}
+                    className={`w-full py-3 px-4 rounded-xl font-display font-semibold transition-all border-2 flex items-center justify-center gap-2 cursor-pointer ${
+                      copied
+                        ? "bg-green-600/90 border-green-600 text-white shadow-lg shadow-green-600/50"
+                        : "bg-orange-600 border-orange-600 text-white hover:shadow-lg hover:shadow-orange-600/50 hover:scale-105 active:scale-95"
+                    }`}
+                  >
+                    {copied ? (
+                      <>
+                        <span>✓</span>
+                        <span>{t.copiedFeedback}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>📋</span>
+                        <span>{t.copyButton}</span>
+                      </>
+                    )}
+                  </button>
                 </div>
-
-                <button
-                  onClick={handleCopyEmail}
-                  className={`w-full py-3 px-4 rounded-xl font-display font-semibold transition-all border-2 flex items-center justify-center gap-2 cursor-pointer ${
-                    copied
-                      ? "bg-green-600/90 border-green-600 text-white shadow-lg shadow-green-600/50"
-                      : "bg-orange-600 border-orange-600 text-white hover:shadow-lg hover:shadow-orange-600/50 hover:scale-105 active:scale-95"
-                  }`}
-                >
-                  {copied ? (
-                    <>
-                      <span>✓</span>
-                      <span>{t.copiedFeedback}</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>📋</span>
-                      <span>{t.copyButton}</span>
-                    </>
-                  )}
-                </button>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
 
-        {activeTab === "form" && (
-          <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto">
+          {activeTab === "form" && (
+            <motion.form
+              key="form-view"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.2 }}
+              onSubmit={handleSubmit}
+              className="w-full max-w-2xl mx-auto"
+            >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-5 justify-center">
               <div className="sm:col-span-1">
                 <label
@@ -227,22 +250,35 @@ export function ContactForm() {
               <span>{isSubmitting ? "..." : t.sendButton}</span>
             </button>
 
-            {submitFeedback === "success" && (
-              <div className="mt-4 p-3 bg-green-600/20 border border-green-600/50 rounded-lg text-center">
-                <p className="text-green-400 font-ui text-sm">
-                  {t.submitSuccess}
-                </p>
-              </div>
-            )}
-            {submitFeedback === "error" && (
-              <div className="mt-4 p-3 bg-red-600/20 border border-red-600/50 rounded-lg text-center">
-                <p className="text-red-400 font-ui text-sm">
-                  {t.submitError}
-                </p>
-              </div>
-            )}
-          </form>
+            <AnimatePresence>
+              {submitFeedback === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                  animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                  className="p-3 bg-green-600/20 border border-green-600/50 rounded-lg text-center overflow-hidden"
+                >
+                  <p className="text-green-400 font-ui text-sm">
+                    {t.submitSuccess}
+                  </p>
+                </motion.div>
+              )}
+              {submitFeedback === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                  animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                  className="p-3 bg-red-600/20 border border-red-600/50 rounded-lg text-center overflow-hidden"
+                >
+                  <p className="text-red-400 font-ui text-sm">
+                    {t.submitError}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.form>
         )}
+        </AnimatePresence>
       </div>
     </div>
   );
