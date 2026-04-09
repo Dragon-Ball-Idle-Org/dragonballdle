@@ -15,10 +15,10 @@ export function ymdFromDayIndex(k: number): string {
   d.setUTCDate(d.getUTCDate() + k);
   return d.toISOString().slice(0, 10);
 }
+
 export function todayBrasiliaKey(): string {
   const now = new Date();
 
-  // Obter a data em Brasília (America/Sao_Paulo)
   const formatter = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Sao_Paulo",
     year: "numeric",
