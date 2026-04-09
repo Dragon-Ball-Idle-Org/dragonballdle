@@ -5,7 +5,7 @@ let cachedWinsCount = 0;
 
 export async function getWinsCount(): Promise<number> {
   const supabase = createClient();
-  const date = new Date().toISOString().split("T")[0];
+  const date = todayBrasiliaKey();
 
   const { data, error } = await supabase
     .from("wins")
