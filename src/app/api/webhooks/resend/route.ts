@@ -7,7 +7,10 @@ export async function POST(req: Request) {
   try {
     const payload = await req.json();
 
-    if (payload.type === "email.received") {
+    if (
+      payload.type === "email.received" ||
+      payload.type === "email.delivered"
+    ) {
       const emailData = payload.data;
 
       const maintainersEnv = process.env.MAINTAINERS_EMAILS || "";
