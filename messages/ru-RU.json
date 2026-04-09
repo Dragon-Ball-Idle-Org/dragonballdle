@@ -139,6 +139,8 @@
     "metadata": {
       "title": "DragonBallDle — Контакты",
       "description": "Свяжитесь с командой DragonBallDle. Нам бы очень хотелось услышать от вас!"
-    }
+    },
+    "submitSuccess": "✓ Email успешно отправлен!",
+    "submitError": "✗ Ошибка отправки. Попробуйте снова."
   }
 }

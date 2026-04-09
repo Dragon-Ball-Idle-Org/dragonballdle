@@ -139,6 +139,8 @@
     "metadata": {
       "title": "DragonBallDle — İletişim",
       "description": "DragonBallDle ekibine ulaşın. Sizden haber almaktan çok memnun oluruz!"
-    }
+    },
+    "submitSuccess": "✓ E-posta başarıyla gönderildi!",
+    "submitError": "✗ Gönderme hatası. Tekrar deneyin."
   }
 }

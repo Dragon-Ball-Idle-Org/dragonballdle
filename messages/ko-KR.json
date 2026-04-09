@@ -139,6 +139,8 @@
     "metadata": {
       "title": "DragonBallDle — 문의",
       "description": "DragonBallDle 팀에 문의하세요. 저희에게 알려주세요!"
-    }
+    },
+    "submitSuccess": "✓ 이메일이 성공적으로 전송되었습니다!",
+    "submitError": "✗ 전송 오류. 다시 시도하세요."
   }
 }

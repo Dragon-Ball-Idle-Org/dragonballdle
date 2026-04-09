@@ -137,6 +137,8 @@ export async function getTranslationsBundle(
         copyButton: t("contact.copyButton"),
         copiedFeedback: t("contact.copiedFeedback"),
         sendButton: t("contact.sendButton"),
+        submitSuccess: t("contact.submitSuccess"),
+        submitError: t("contact.submitError"),
       },
     },
   };

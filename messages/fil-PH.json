@@ -139,6 +139,8 @@
     "metadata": {
       "title": "DragonBallDle — Makipag-ugnayan",
       "description": "Makipag-ugnayan sa koponan ng DragonBallDle. Nais naming marinig mula sa iyo!"
-    }
+    },
+    "submitSuccess": "✓ Tagumpay na naipadala ang email!",
+    "submitError": "✗ Error sa pagpapadala. Subukang muli."
   }
 }

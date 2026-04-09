@@ -139,6 +139,8 @@
     "metadata": {
       "title": "DragonBallDle — お問い合わせ",
       "description": "DragonBallDleチームにお問い合わせください。ぜひお知らせください。"
-    }
+    },
+    "submitSuccess": "✓ メールが正常に送信されました！",
+    "submitError": "✗ 送信エラー。もう一度やり直してください。"
   }
 }

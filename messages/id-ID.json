@@ -139,6 +139,8 @@
     "metadata": {
       "title": "DragonBallDle — Hubungi Kami",
       "description": "Hubungi tim DragonBallDle. Kami ingin mendengar dari Anda!"
-    }
+    },
+    "submitSuccess": "✓ Email berhasil dikirim!",
+    "submitError": "✗ Kesalahan mengirim. Coba lagi."
   }
 }

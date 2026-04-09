@@ -41,16 +41,25 @@ export function ContactForm() {
     setSubmitFeedback("idle");
 
     try {
-      const subject = encodeURIComponent("Contact from DragonBallDle");
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
-      );
-      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      setFormData({ name: "", email: "", message: "" });
-      setSubmitFeedback("success");
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setFormData({ name: "", email: "", message: "" });
+        setSubmitFeedback("success");
+      } else {
+        console.error("Failed to send email via API:", result.error);
+        setSubmitFeedback("error");
+      }
+
       setTimeout(() => setSubmitFeedback("idle"), 3000);
-    } catch {
+    } catch (err) {
+      console.error(err);
       setSubmitFeedback("error");
       setTimeout(() => setSubmitFeedback("idle"), 3000);
     } finally {
@@ -221,14 +230,14 @@ export function ContactForm() {
             {submitFeedback === "success" && (
               <div className="mt-4 p-3 bg-green-600/20 border border-green-600/50 rounded-lg text-center">
                 <p className="text-green-400 font-ui text-sm">
-                  ✓ Email client opening...
+                  {t.submitSuccess}
                 </p>
               </div>
             )}
             {submitFeedback === "error" && (
               <div className="mt-4 p-3 bg-red-600/20 border border-red-600/50 rounded-lg text-center">
                 <p className="text-red-400 font-ui text-sm">
-                  ✗ Error submitting. Try again.
+                  {t.submitError}
                 </p>
               </div>
             )}

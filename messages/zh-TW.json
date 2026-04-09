@@ -139,6 +139,8 @@
     "metadata": {
       "title": "DragonBallDle — 聯繫我們",
       "description": "與DragonBallDle團隊聯繫。我們很樂意聽到你的來信！"
-    }
+    },
+    "submitSuccess": "✓ 郵件發送成功！",
+    "submitError": "✗ 提交錯誤。請重試。"
   }
 }
