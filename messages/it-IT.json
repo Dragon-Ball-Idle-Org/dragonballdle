@@ -122,5 +122,23 @@
       "one": "Ho indovinato il personaggio di DragonBallDle di oggi in 1 tentativo:\n{guesses}\nProva anche tu su {url}",
       "other": "Ho indovinato il personaggio di DragonBallDle di oggi in {tries} tentativi:\n{guesses}\nProva anche tu su {url}"
     }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "description": "Hai domande? Ci piacerebbe molto sentirti!",
+    "emailLabel": "Indirizzo Email",
+    "emailPlaceholder": "tuo@email.com",
+    "nameLabel": "Il Tuo Nome",
+    "namePlaceholder": "Inserisci il tuo nome",
+    "messageLabel": "Messaggio",
+    "messagePlaceholder": "Raccontaci cosa ne pensi...",
+    "sendButton": "Invia Messaggio",
+    "copyButton": "Copia Email",
+    "copiedFeedback": "Email copiata!",
+    "directEmail": "Invia Email Direttamente",
+    "metadata": {
+      "title": "DragonBallDle — Contatti",
+      "description": "Contatta il team di DragonBallDle. Ci piacerebbe molto sentirti!"
+    }
   }
 }

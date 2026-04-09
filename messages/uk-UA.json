@@ -122,5 +122,23 @@
       "one": "Я вгадав персонажа DragonBallDle на сьогодні за 1 спробу:\n{guesses}\nСпробуйте також на {url}",
       "other": "Я вгадав персонажа DragonBallDle на сьогодні за {tries} спроб:\n{guesses}\nСпробуйте також на {url}"
     }
+  },
+  "contact": {
+    "title": "Зв'яжіться з нами",
+    "description": "Є запитання? Нам дуже хотілось би від вас чути!",
+    "emailLabel": "Адреса електронної пошти",
+    "emailPlaceholder": "ваша@email.com",
+    "nameLabel": "Ваше ім'я",
+    "namePlaceholder": "Введіть ваше ім'я",
+    "messageLabel": "Повідомлення",
+    "messagePlaceholder": "Розповідайте нам, що ви думаєте...",
+    "sendButton": "Надіслати повідомлення",
+    "copyButton": "Скопіювати електронну пошту",
+    "copiedFeedback": "Електронну пошту скопійовано!",
+    "directEmail": "Надіслати електронну пошту безпосередньо",
+    "metadata": {
+      "title": "DragonBallDle — Контакти",
+      "description": "Зв'яжіться з командою DragonBallDle. Нам дуже хотілось би від вас чути!"
+    }
   }
 }

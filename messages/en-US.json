@@ -122,5 +122,23 @@
       "one": "I guessed today's DragonBallDle character in 1 try:\n{guesses}\nTry it too at {url}",
       "other": "I guessed today's DragonBallDle character in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Have questions? We'd love to hear from you!",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell us what's on your mind...",
+    "sendButton": "Send Message",
+    "copyButton": "Copy Email",
+    "copiedFeedback": "Email copied!",
+    "directEmail": "Send Direct Email",
+    "metadata": {
+      "title": "DragonBallDle — Contact Us",
+      "description": "Get in touch with the DragonBallDle team. We'd love to hear from you!"
+    }
   }
 }

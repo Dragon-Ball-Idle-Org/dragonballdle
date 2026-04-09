@@ -122,5 +122,23 @@
       "one": "मैंने आज के DragonBallDle चरित्र को 1 प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें",
       "other": "मैंने आज के DragonBallDle चरित्र को {tries} प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें"
     }
+  },
+  "contact": {
+    "title": "हमसे संपर्क करें",
+    "description": "कोई सवाल? हम आपसे सुनना पसंद करेंगे!",
+    "emailLabel": "ईमेल पता",
+    "emailPlaceholder": "आपका@email.com",
+    "nameLabel": "आपका नाम",
+    "namePlaceholder": "अपना नाम दर्ज करें",
+    "messageLabel": "संदेश",
+    "messagePlaceholder": "हमें बताएं कि आप क्या सोचते हैं...",
+    "sendButton": "संदेश भेजें",
+    "copyButton": "ईमेल कॉपी करें",
+    "copiedFeedback": "ईमेल कॉपी किया गया!",
+    "directEmail": "सीधे ईमेल भेजें",
+    "metadata": {
+      "title": "DragonBallDle — संपर्क करें",
+      "description": "DragonBallDle टीम से संपर्क करें। हम आपसे सुनना पसंद करेंगे!"
+    }
   }
 }

@@ -122,5 +122,23 @@
       "one": "لقد خمنت شخصية DragonBallDle لهذا اليوم في محاولة واحدة:\n{guesses}\nجرّب الآن في {url}",
       "other": "لقد خمنت شخصية DragonBallDle لهذا اليوم في {tries} محاولة:\n{guesses}\nجرّب الآن في {url}"
     }
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "description": "هل لديك أسئلة؟ نود أن نسمع منك!",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "emailPlaceholder": "بريدك@email.com",
+    "nameLabel": "اسمك",
+    "namePlaceholder": "أدخل اسمك",
+    "messageLabel": "الرسالة",
+    "messagePlaceholder": "أخبرنا برأيك...",
+    "sendButton": "إرسال الرسالة",
+    "copyButton": "نسخ البريد الإلكتروني",
+    "copiedFeedback": "تم نسخ البريد الإلكتروني!",
+    "directEmail": "إرسال بريد مباشر",
+    "metadata": {
+      "title": "DragonBallDle — اتصل بنا",
+      "description": "تواصل مع فريق DragonBallDle. نود أن نسمع منك!"
+    }
   }
 }

@@ -122,5 +122,23 @@
       "one": "Nahulaan ko ang character ng DragonBallDle ngayong araw sa 1 pagsubok:\n{guesses}\nSubukan din sa {url}",
       "other": "Nahulaan ko ang character ng DragonBallDle ngayong araw sa {tries} pagsubok:\n{guesses}\nSubukan din sa {url}"
     }
+  },
+  "contact": {
+    "title": "Makipag-ugnayan sa Amin",
+    "description": "May mga katanungan? Nais naming marinig mula sa iyo!",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "iyong@email.com",
+    "nameLabel": "Iyong Pangalan",
+    "namePlaceholder": "Ipasok ang iyong pangalan",
+    "messageLabel": "Mensahe",
+    "messagePlaceholder": "Sabihin sa amin kung ano ang nasa iyong isip...",
+    "sendButton": "Magpadala ng Mensahe",
+    "copyButton": "Kopyahin ang Email",
+    "copiedFeedback": "Email ay nakopya!",
+    "directEmail": "Direktang Magpadala ng Email",
+    "metadata": {
+      "title": "DragonBallDle — Makipag-ugnayan",
+      "description": "Makipag-ugnayan sa koponan ng DragonBallDle. Nais naming marinig mula sa iyo!"
+    }
   }
 }

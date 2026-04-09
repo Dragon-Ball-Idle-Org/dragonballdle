@@ -122,5 +122,23 @@
       "one": "我在1次尝试中猜中了今天的龙珠Dle角色:\n{guesses}\n在{url}也试试吧",
       "other": "我在{tries}次尝试中猜中了今天的龙珠Dle角色:\n{guesses}\n在{url}也试试吧"
     }
+  },
+  "contact": {
+    "title": "联系我们",
+    "description": "有问题？我们很乐意听到你的声音！",
+    "emailLabel": "电子邮件地址",
+    "emailPlaceholder": "你的@email.com",
+    "nameLabel": "你的名字",
+    "namePlaceholder": "输入你的名字",
+    "messageLabel": "信息",
+    "messagePlaceholder": "告诉我们你的想法...",
+    "sendButton": "发送消息",
+    "copyButton": "复制电子邮件",
+    "copiedFeedback": "电子邮件已复制！",
+    "directEmail": "直接发送电子邮件",
+    "metadata": {
+      "title": "DragonBallDle — 联系我们",
+      "description": "与DragonBallDle团队联系。我们很乐意听到你的声音！"
+    }
   }
 }
