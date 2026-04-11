@@ -8,7 +8,7 @@ import { useLocale } from "next-intl";
 import { getCharacterBySlug } from "@/service/characters";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
-import { ClassicCharacter } from "@/types/guess";
+import type { SilhouetteCharacter } from "@/types/guess";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { incrementWins } from "@/service/wins";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
@@ -18,7 +18,7 @@ import { cn } from "@/utils/cn";
 export function SilhouetteGameBoard({
   dailyCharacter,
 }: {
-  dailyCharacter: ClassicCharacter;
+  dailyCharacter: SilhouetteCharacter;
 }) {
   const [query, setQuery] = useState("");
   const locale = useLocale();
@@ -71,7 +71,7 @@ export function SilhouetteGameBoard({
         dailyCharacter={dailyCharacter}
         guessCount={guesses.length}
       />
-      
+
       <form
         className="sticky top-0 left-0 right-0 w-full flex items-center gap-2 mb-2 bg-transparent overflow-visible z-2"
         onSubmit={(e) => {

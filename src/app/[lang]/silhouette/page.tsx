@@ -3,15 +3,20 @@ import { CapsuleCorpHero } from "@/components/themed/CapsuleCorpHero";
 import { CapsuleCorpYesterdayCharacter } from "@/components/themed/CapsuleCorpYesterdayCharacter";
 import { CapsuleCorpWinBanner } from "@/components/themed/CapsuleCorpWinBanner";
 import { SilhouetteGameBoard } from "@/components/themed/SilhouetteGameBoard";
-import { getDailyCharacter, getYesterdayCharacter } from "@/service/daily";
+import {
+  getDailyCharacter,
+  getDailySilhouetteCharacter,
+  getYesterdayCharacter,
+  getYesterdaySilhouetteCharacter,
+} from "@/service/daily";
 import { getLocale, getTranslations } from "next-intl/server";
 import { WinModal } from "@/components/shared/WinModal";
 
 export default async function SilhouettePage() {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "silhouette" });
-  const dailyChar = await getDailyCharacter(locale);
-  const yesterdayChar = await getYesterdayCharacter(locale);
+  const dailyChar = await getDailySilhouetteCharacter(locale);
+  const yesterdayChar = await getYesterdaySilhouetteCharacter(locale);
 
   if (!dailyChar) {
     return (
@@ -33,13 +38,13 @@ export default async function SilhouettePage() {
         {yesterdayChar && (
           <CapsuleCorpYesterdayCharacter
             characterName={yesterdayChar.name}
-            characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.thumb_path}`}
+            characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.image_path}`}
           />
         )}
         <CapsuleCorpWinBanner
           todayCharacterSlug={dailyChar.slug}
           todayCharacterName={dailyChar.name}
-          todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
+          todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.silhouette_path}`}
           shareVariant="silhouette"
         />
         <SilhouetteGameBoard dailyCharacter={dailyChar} />
