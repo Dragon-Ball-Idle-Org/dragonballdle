@@ -4,9 +4,7 @@ import { CapsuleCorpYesterdayCharacter } from "@/components/themed/CapsuleCorpYe
 import { CapsuleCorpWinBanner } from "@/components/themed/CapsuleCorpWinBanner";
 import { SilhouetteGameBoard } from "@/components/themed/SilhouetteGameBoard";
 import {
-  getDailyCharacter,
   getDailySilhouetteCharacter,
-  getYesterdayCharacter,
   getYesterdaySilhouetteCharacter,
 } from "@/service/daily";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -14,9 +12,11 @@ import { WinModal } from "@/components/shared/WinModal";
 
 export default async function SilhouettePage() {
   const locale = await getLocale();
-  const t = await getTranslations({ locale, namespace: "silhouette" });
-  const dailyChar = await getDailySilhouetteCharacter(locale);
-  const yesterdayChar = await getYesterdaySilhouetteCharacter(locale);
+  const [t, dailyChar, yesterdayChar] = await Promise.all([
+    getTranslations({ locale, namespace: "silhouette" }),
+    getDailySilhouetteCharacter(locale),
+    getYesterdaySilhouetteCharacter(locale),
+  ]);
 
   if (!dailyChar) {
     return (

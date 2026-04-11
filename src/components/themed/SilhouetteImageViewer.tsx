@@ -42,7 +42,7 @@ export function SilhouetteImageViewer({
     initialZoom - guessCount * ZOOM_DECREMENT,
   );
 
-  const characterImage = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyCharacter.image_path}`;
+  const characterImage = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyCharacter.silhouette_path}`;
   const silhouetteImageUrl = `${characterImage}?auto=format&w=600&h=800&fit=crop&q=80`;
 
   const revealPercent = Math.round(
@@ -60,7 +60,7 @@ export function SilhouetteImageViewer({
       <div
         className={cn(
           "relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden",
-          "bg-slate-950 border-capsule-corp-viewport border-2 border-sky-500/50",
+          "bg-capsule-corp-primary border-capsule-corp-viewport border-2 border-sky-500/50",
         )}
       >
         <motion.div

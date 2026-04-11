@@ -16,9 +16,11 @@ import { WinModal } from "@/components/shared/WinModal";
 
 export default async function ClassicPage() {
   const locale = await getLocale();
-  const t = await getTranslations({ locale, namespace: "classic" });
-  const dailyChar = await getDailyCharacter(locale);
-  const yesterdayChar = await getYesterdayCharacter(locale);
+  const [t, dailyChar, yesterdayChar] = await Promise.all([
+    getTranslations({ locale, namespace: "classic" }),
+    getDailyCharacter(locale),
+    getYesterdayCharacter(locale),
+  ]);
 
   if (!dailyChar) {
     return (

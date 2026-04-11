@@ -2,21 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export function SplashScreen() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const handleLoad = () => setLoaded(true);
-
-    if (document.readyState === "complete") {
-      const timeoutId = setTimeout(handleLoad, 0);
-      return () => clearTimeout(timeoutId);
-    }
-
-    window.addEventListener("load", handleLoad);
-    return () => window.removeEventListener("load", handleLoad);
-  }, []);
-
+export function SplashScreenUI({ loaded = false }: { loaded?: boolean }) {
   return (
     <div
       id="app-loading"
@@ -32,4 +18,22 @@ export function SplashScreen() {
       />
     </div>
   );
+}
+
+export function SplashScreen() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const handleLoad = () => setLoaded(true);
+
+    if (document.readyState === "complete") {
+      const timeoutId = setTimeout(handleLoad, 0);
+      return () => clearTimeout(timeoutId);
+    }
+
+    window.addEventListener("load", handleLoad);
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
+
+  return <SplashScreenUI loaded={loaded} />;
 }

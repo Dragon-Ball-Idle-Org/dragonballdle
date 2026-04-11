@@ -48,12 +48,16 @@ export function CapsuleCorpAutocompleteField({
   };
 
   return (
-    <Autocomplete.Root items={suggestions} submitOnItemClick={submitOnSelect} autoHighlight="always">
+    <Autocomplete.Root
+      items={suggestions}
+      submitOnItemClick={submitOnSelect}
+      autoHighlight="always"
+    >
       <div className="w-full border-capsule-corp-sm">
         <Autocomplete.Input
           className={cn(
             "guess-input h-14 w-full px-6 font-ui text-md font-semibold text-on-primary caret-on-primary bg-capsule-corp-primary",
-            "focus-visible:outline-2 focus-visible:outline-capsule-corp-primary-light focus-visible:outline-offset-2",
+            "focus-visible:outline-2 focus-visible:outline-capsule-corp-primary-light focus-visible:outline-offset-2 rounded-xl",
             className,
           )}
           placeholder={translations.searchPlaceholder}
@@ -73,10 +77,7 @@ export function CapsuleCorpAutocompleteField({
           >
             <Autocomplete.Empty className="flex items-center justify-center p-5 font-ui font-semibold text-white empty:m-0 empty:p-0">
               {isLoading ? (
-                <SpinnerIcon
-                  className="animate-spin w-10 h-10"
-                  weight="bold"
-                />
+                <SpinnerIcon className="animate-spin w-10 h-10" weight="bold" />
               ) : (
                 translations.noResults
               )}

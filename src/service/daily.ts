@@ -1,6 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { getDayIndexBrasilia } from "@/lib/daily";
-import { ClassicCharacter, YesterdayCharacter, SilhouetteCharacter } from "@/types/guess";
+import {
+  ClassicCharacter,
+  YesterdayCharacter,
+  SilhouetteCharacter,
+} from "@/types/guess";
 import {
   AffiliationJoin,
   AttributeJoin,
@@ -11,10 +15,10 @@ import {
 function mapToClassicCharacter(c: DailyCharacterRow): ClassicCharacter {
   const mapIfExists = <T, U>(
     array: T[] | undefined | null,
-    mapper: (item: T) => U
+    mapper: (item: T) => U,
   ): U[] | null => {
     return array && array.length > 0 ? array.map(mapper) : null;
-  }
+  };
 
   return {
     slug: c.slug,
@@ -39,7 +43,8 @@ function mapToClassicCharacter(c: DailyCharacterRow): ClassicCharacter {
       slug: cr.races?.slug ?? "",
       name: cr.races?.race_translations[0]?.name ?? "",
     })),
-    affiliations: mapIfExists(c.character_affiliations, 
+    affiliations: mapIfExists(
+      c.character_affiliations,
       (ca: AffiliationJoin) => ({
         slug: ca.affiliations?.slug ?? "",
         name: ca.affiliations?.affiliation_translations[0]?.name ?? "",
@@ -254,4 +259,3 @@ export async function getYesterdaySilhouetteCharacter(
     silhouette_path: data.characters.silhouette_path,
   };
 }
-

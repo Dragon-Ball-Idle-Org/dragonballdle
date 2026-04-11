@@ -3,6 +3,7 @@
 import { SilhouetteImageViewer } from "./SilhouetteImageViewer";
 import { CapsuleCorpAutocompleteField } from "./CapsuleCorpAutocompleteField";
 import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useCharacterSearch } from "@/hooks/useCharacterSearch";
 import { useLocale } from "next-intl";
 import { getCharacterBySlug } from "@/service/characters";
@@ -107,6 +108,51 @@ export function SilhouetteGameBoard({
           />
         </button>
       </form>
+
+      <div className="w-full flex flex-col items-center gap-2 mt-4">
+        <AnimatePresence mode="popLayout">
+          {guesses.map((guess, idx) => {
+            const isCorrect = guess.slug === dailyCharacter.slug;
+            return (
+              <motion.div
+                key={guess.slug}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.2 }}
+                className={cn(
+                  "w-full flex items-center justify-between p-2 rounded-xl border-2 shadow-lg",
+                  isCorrect
+                    ? "bg-green-600/80 border-green-400"
+                    : "bg-red-600/80 border-red-500",
+                )}
+              >
+                <div className="w-12 h-12 relative shrink-0 bg-slate-800 rounded-lg overflow-hidden border border-white/20">
+                  {guess.thumb_path ? (
+                    <img
+                      src={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${guess.thumb_path}`}
+                      alt={guess.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-xs text-slate-500">
+                      ?
+                    </div>
+                  )}
+                </div>
+
+                <p className="font-display text-white text-xl flex-1 text-center truncate px-2 drop-shadow-md">
+                  {guess.name}
+                </p>
+
+                {/* Spacer balanceia imagem esquerdista para centralizar nome */}
+                <div className="w-12 h-12 shrink-0" />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
