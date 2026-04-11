@@ -15,8 +15,9 @@ export type YesterdayCharacter = {
 export type SilhouetteCharacter = {
   slug: string;
   name: string;
-  image_path: string | null;
+  thumb_path: string | null;
   silhouette_path: string | null;
+  silhouette_colored_path: string | null;
 };
 
 export type ClassicCharacter = {

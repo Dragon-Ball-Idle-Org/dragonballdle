@@ -147,27 +147,29 @@ export async function getTranslationsBundle(
       },
     },
     share: {
-      tweet: {
-        one: t("share.tweet.one", {
-          tries: "1",
-          guesses: "[guesses]",
-          url: "[url]",
-        }),
-        other: t("share.tweet.other", {
-          tries: "[tries]",
-          guesses: "[guesses]",
-          url: "[url]",
-        }),
-        silhouetteOne: t("share.silhouette.one", {
-          tries: "1",
-          guesses: "[guesses]",
-          url: "[url]",
-        }),
-        silhouetteOther: t("share.silhouette.other", {
-          tries: "[tries]",
-          guesses: "[guesses]",
-          url: "[url]",
-        }),
+      share: {
+        tweet: {
+          one: t("share.tweet.one", {
+            tries: "1",
+            guesses: "[guesses]",
+            url: "[url]",
+          }),
+          other: t("share.tweet.other", {
+            tries: "[tries]",
+            guesses: "[guesses]",
+            url: "[url]",
+          }),
+          silhouetteOne: t("share.silhouette.one", {
+            tries: "1",
+            guesses: "[guesses]",
+            url: "[url]",
+          }),
+          silhouetteOther: t("share.silhouette.other", {
+            tries: "[tries]",
+            guesses: "[guesses]",
+            url: "[url]",
+          }),
+        },
       },
     },
     contact: {

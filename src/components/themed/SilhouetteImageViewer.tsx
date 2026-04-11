@@ -23,18 +23,43 @@ export function SilhouetteImageViewer({
   const { isGameWon } = useGameContext();
   const tr = useTranslations("silhouetteViewer");
 
-  // Initialize zoom with a random position
-  const initialZoom = useMemo(() => {
-    return MAX_ZOOM + Math.random() * 0.5; // Slightly randomize initial zoom
-  }, []);
+  const { zoom: initialZoom, direction: randomDirection } = useMemo(() => {
+    // Gera um seed determinístico baseado no personagem do dia
+    let seed = dailyCharacter.slug
+      .split("")
+      .reduce((a, b) => a + b.charCodeAt(0), 0);
+    const rng = () => {
+      seed = (seed * 9301 + 49297) % 233280;
+      return seed / 233280;
+    };
 
-  const randomPosition = useMemo(
-    () => ({
-      x: Math.random() * (MAX_ZOOM - 1) * 100,
-      y: Math.random() * (MAX_ZOOM - 1) * 100,
-    }),
-    [],
-  );
+    const initialZ = MAX_ZOOM + rng() * 0.5; // Slightly randomize initial zoom
+
+    // Zonas de interesse mapeadas (evitando o topo/cabeça na medida > 0.1 e extremos vazios)
+    const zones = [
+      // Braço/Lado Esquerdo (Move câmera p/ direita -> x > 0)
+      { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1 },
+      // Braço/Lado Direito
+      { xMin: -0.55, xMax: -0.3, yMin: -0.2, yMax: 0.1 },
+      // Perna/Pé Esquerdo
+      { xMin: 0.2, xMax: 0.4, yMin: -0.6, yMax: -0.3 },
+      // Perna/Pé Direito
+      { xMin: -0.4, xMax: -0.2, yMin: -0.6, yMax: -0.3 },
+      // Torso Central (Variação um pouco menor p/ não focar só nos extremos)
+      { xMin: -0.15, xMax: 0.15, yMin: -0.3, yMax: 0.1 },
+    ];
+
+    const zoneIndex = Math.floor(rng() * zones.length);
+    const zone = zones[zoneIndex];
+
+    const dirX = zone.xMin + rng() * (zone.xMax - zone.xMin);
+    const dirY = zone.yMin + rng() * (zone.yMax - zone.yMin);
+
+    return {
+      zoom: initialZ,
+      direction: { x: dirX, y: dirY },
+    };
+  }, [dailyCharacter.slug]);
 
   // Calculate current zoom based on wrong guesses
   const currentZoom = Math.max(
@@ -42,11 +67,26 @@ export function SilhouetteImageViewer({
     initialZoom - guessCount * ZOOM_DECREMENT,
   );
 
-  const characterImage = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyCharacter.silhouette_path}`;
-  const silhouetteImageUrl = `${characterImage}?auto=format&w=600&h=800&fit=crop&q=80`;
+  // Max pan percent ensures the scaled element's edges don't enter the viewport
+  const maxPanPercent = ((currentZoom - 1) / 2) * 100;
+  const currentX = randomDirection.x * maxPanPercent;
+  const currentY = randomDirection.y * maxPanPercent;
+
+  const silhouetteImage = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyCharacter.silhouette_path}`;
+  const characterImage = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyCharacter.silhouette_colored_path}`;
+  const imageUrlToShow = useMemo(
+    () => `${isGameWon ? characterImage : silhouetteImage}`,
+    [isGameWon, characterImage, silhouetteImage],
+  );
 
   const revealPercent = Math.round(
-    Math.max(0, (1 - currentZoom / MAX_ZOOM) * 100),
+    Math.max(
+      0,
+      Math.min(
+        100,
+        ((initialZoom - currentZoom) / (initialZoom - MIN_ZOOM)) * 100,
+      ),
+    ),
   );
 
   const revealLabel = tr.revealPercent.replace("__P__", String(revealPercent));
@@ -67,8 +107,8 @@ export function SilhouetteImageViewer({
           className="absolute inset-0 origin-center"
           animate={{
             scale: isGameWon ? 1 : currentZoom,
-            x: isGameWon ? 0 : `${randomPosition.x * -0.01 * currentZoom}px`,
-            y: isGameWon ? 0 : `${randomPosition.y * -0.01 * currentZoom}px`,
+            x: isGameWon ? "0%" : `${currentX}%`,
+            y: isGameWon ? "0%" : `${currentY}%`,
           }}
           transition={{
             duration: 0.5,
@@ -76,14 +116,14 @@ export function SilhouetteImageViewer({
           }}
         >
           <motion.img
-            src={silhouetteImageUrl}
+            src={imageUrlToShow}
             alt={
               isGameWon
                 ? tr.imageAltRevealed.replace("__NAME__", dailyCharacter.name)
                 : tr.imageAltDaily
             }
             className={cn(
-              "w-full h-full object-cover",
+              "w-full h-full object-contain p-2",
               isGameWon ? "filter-none" : "filter brightness-0 contrast-110",
             )}
             style={{

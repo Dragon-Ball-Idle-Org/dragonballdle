@@ -30,7 +30,7 @@ export default async function SilhouettePage() {
     <>
       <WinModal
         characterName={dailyChar.name}
-        characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.image_path}`}
+        characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.silhouette_colored_path}`}
       />
 
       <MainContainer>
@@ -38,13 +38,13 @@ export default async function SilhouettePage() {
         {yesterdayChar && (
           <CapsuleCorpYesterdayCharacter
             characterName={yesterdayChar.name}
-            characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.image_path}`}
+            characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.thumb_path}`}
           />
         )}
         <CapsuleCorpWinBanner
           todayCharacterSlug={dailyChar.slug}
           todayCharacterName={dailyChar.name}
-          todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.silhouette_path}`}
+          todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
           shareVariant="silhouette"
         />
         <SilhouetteGameBoard dailyCharacter={dailyChar} />

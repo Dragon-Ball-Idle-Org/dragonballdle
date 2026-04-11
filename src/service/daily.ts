@@ -193,8 +193,9 @@ export async function getDailySilhouetteCharacter(
       day_index,
       characters (
         slug,
-        image_path,
+        thumb_path,
         silhouette_path,
+        silhouette_colored_path,
         character_translations!inner (name)
       )
     `,
@@ -214,14 +215,15 @@ export async function getDailySilhouetteCharacter(
     slug: data.characters.slug,
     name:
       data.characters.character_translations[0]?.name ?? data.characters.slug,
-    image_path: data.characters.image_path,
+    thumb_path: data.characters.thumb_path,
     silhouette_path: data.characters.silhouette_path,
+    silhouette_colored_path: data.characters.silhouette_colored_path,
   };
 }
 
 export async function getYesterdaySilhouetteCharacter(
   locale: string,
-): Promise<SilhouetteCharacter | null> {
+): Promise<YesterdayCharacter | null> {
   const supabase = createClient();
   const dayIndex = getDayIndexBrasilia() - 1;
 
@@ -234,8 +236,7 @@ export async function getYesterdaySilhouetteCharacter(
       day_index,
       characters (
         slug,
-        image_path,
-        silhouette_path,
+        thumb_path,
         character_translations!inner (name)
       )
     `,
@@ -255,7 +256,6 @@ export async function getYesterdaySilhouetteCharacter(
     slug: data.characters.slug,
     name:
       data.characters.character_translations[0]?.name ?? data.characters.slug,
-    image_path: data.characters.image_path,
-    silhouette_path: data.characters.silhouette_path,
+    thumb_path: data.characters.thumb_path,
   };
 }
