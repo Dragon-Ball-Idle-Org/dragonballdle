@@ -122,5 +122,25 @@
       "one": "今日のDragonBallDleキャラクターを1回で当てました:\n{guesses}\n{url}でも試してみてください",
       "other": "今日のDragonBallDleキャラクターを{tries}回で当てました:\n{guesses}\n{url}でも試してみてください"
     }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "ご質問がありますか？ぜひお知らせください。",
+    "emailLabel": "メールアドレス",
+    "emailPlaceholder": "あなた@email.com",
+    "nameLabel": "お名前",
+    "namePlaceholder": "お名前を入力してください",
+    "messageLabel": "メッセージ",
+    "messagePlaceholder": "ご意見をお聞かせください...",
+    "sendButton": "メッセージを送信",
+    "copyButton": "メールをコピー",
+    "copiedFeedback": "メールをコピーしました！",
+    "directEmail": "メールを直接送信",
+    "metadata": {
+      "title": "DragonBallDle — お問い合わせ",
+      "description": "DragonBallDleチームにお問い合わせください。ぜひお知らせください。"
+    },
+    "submitSuccess": "✓ メールが正常に送信されました！",
+    "submitError": "✗ 送信エラー。もう一度やり直してください。"
   }
 }

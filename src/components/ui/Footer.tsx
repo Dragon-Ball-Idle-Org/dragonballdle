@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
-import { LinkIcon } from "@phosphor-icons/react/ssr";
+import { LinkIcon, PhoneIcon } from "@phosphor-icons/react/ssr";
 import { IconLink } from "../ui/Link";
 import { SocialLinksModal } from "../shared/SocialLinksModal";
 
@@ -53,6 +52,12 @@ export async function Footer() {
             height={64}
             alt="Buy me a coffee"
           />
+        </IconLink>
+        <IconLink
+          href="/contact-us"
+          className="flex items-center justify-center w-14 h-14 font-display text-2xl text-primary bg-black rounded-full border-2 border-primary cursor-pointer transition-transform hover:scale-110"
+        >
+          <PhoneIcon weight="fill" />
         </IconLink>
       </div>
     </footer>

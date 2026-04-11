@@ -122,5 +122,25 @@
       "one": "Saya menebak karakter DragonBallDle hari ini dalam 1 percobaan:\n{guesses}\nCoba juga di {url}",
       "other": "Saya menebak karakter DragonBallDle hari ini dalam {tries} percobaan:\n{guesses}\nCoba juga di {url}"
     }
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "description": "Ada pertanyaan? Kami ingin mendengar dari Anda!",
+    "emailLabel": "Alamat Email",
+    "emailPlaceholder": "anda@email.com",
+    "nameLabel": "Nama Anda",
+    "namePlaceholder": "Masukkan nama Anda",
+    "messageLabel": "Pesan",
+    "messagePlaceholder": "Ceritakan pada kami apa yang Anda pikirkan...",
+    "sendButton": "Kirim Pesan",
+    "copyButton": "Salin Email",
+    "copiedFeedback": "Email disalin!",
+    "directEmail": "Kirim Email Langsung",
+    "metadata": {
+      "title": "DragonBallDle — Hubungi Kami",
+      "description": "Hubungi tim DragonBallDle. Kami ingin mendengar dari Anda!"
+    },
+    "submitSuccess": "✓ Email berhasil dikirim!",
+    "submitError": "✗ Kesalahan mengirim. Coba lagi."
   }
 }

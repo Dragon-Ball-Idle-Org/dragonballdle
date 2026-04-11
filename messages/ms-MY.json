@@ -122,5 +122,25 @@
       "one": "Saya meneka karakter DragonBallDle hari ini dalam 1 percubaan:\n{guesses}\nCuba juga di {url}",
       "other": "Saya meneka karakter DragonBallDle hari ini dalam {tries} percubaan:\n{guesses}\nCuba juga di {url}"
     }
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "description": "Ada soalan? Kami ingin mendengar dari Anda!",
+    "emailLabel": "Alamat E-mel",
+    "emailPlaceholder": "anda@email.com",
+    "nameLabel": "Nama Anda",
+    "namePlaceholder": "Masukkan nama Anda",
+    "messageLabel": "Mesej",
+    "messagePlaceholder": "Beritahu kami apa pendapat Anda...",
+    "sendButton": "Hantar Mesej",
+    "copyButton": "Salin E-mel",
+    "copiedFeedback": "E-mel disalin!",
+    "directEmail": "Hantar E-mel Terus",
+    "metadata": {
+      "title": "DragonBallDle — Hubungi Kami",
+      "description": "Hubungi pasukan DragonBallDle. Kami ingin mendengar dari Anda!"
+    },
+    "submitSuccess": "✓ E-mel berjaya dihantar!",
+    "submitError": "✗ Ralat menghantar. Cuba lagi."
   }
 }

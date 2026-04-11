@@ -1,10 +1,11 @@
+import { todayBrasiliaKey } from "@/lib/daily";
 import { createClient } from "@/lib/supabase/client";
 
 let cachedWinsCount = 0;
 
 export async function getWinsCount(): Promise<number> {
   const supabase = createClient();
-  const date = new Date().toISOString().split("T")[0];
+  const date = todayBrasiliaKey();
 
   const { data, error } = await supabase
     .from("wins")
@@ -24,7 +25,7 @@ export async function getWinsCount(): Promise<number> {
 
 export async function incrementWins(): Promise<number> {
   const supabase = createClient();
-  const date = new Date().toISOString().split("T")[0];
+  const date = todayBrasiliaKey();
 
   const {
     data: { wins_count },

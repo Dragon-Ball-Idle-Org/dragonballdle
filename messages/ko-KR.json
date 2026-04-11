@@ -122,5 +122,25 @@
       "one": "오늘의 DragonBallDle 캐릭터를 1번 만에 맞혔습니다:\n{guesses}\n{url}에서도 시도해보세요",
       "other": "오늘의 DragonBallDle 캐릭터를 {tries}번 만에 맞혔습니다:\n{guesses}\n{url}에서도 시도해보세요"
     }
+  },
+  "contact": {
+    "title": "문의하기",
+    "description": "질문이 있으신가요? 저희에게 알려주세요!",
+    "emailLabel": "이메일 주소",
+    "emailPlaceholder": "당신@email.com",
+    "nameLabel": "성함",
+    "namePlaceholder": "이름을 입력하세요",
+    "messageLabel": "메시지",
+    "messagePlaceholder": "의견을 알려주세요...",
+    "sendButton": "메시지 보내기",
+    "copyButton": "이메일 복사",
+    "copiedFeedback": "이메일이 복사되었습니다!",
+    "directEmail": "이메일 직접 보내기",
+    "metadata": {
+      "title": "DragonBallDle — 문의",
+      "description": "DragonBallDle 팀에 문의하세요. 저희에게 알려주세요!"
+    },
+    "submitSuccess": "✓ 이메일이 성공적으로 전송되었습니다!",
+    "submitError": "✗ 전송 오류. 다시 시도하세요."
   }
 }

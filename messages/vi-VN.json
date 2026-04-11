@@ -122,5 +122,25 @@
       "one": "Tôi đoán được nhân vật DragonBallDle hôm nay trong 1 lần thử:\n{guesses}\nHãy thử tại {url}",
       "other": "Tôi đoán được nhân vật DragonBallDle hôm nay trong {tries} lần thử:\n{guesses}\nHãy thử tại {url}"
     }
+  },
+  "contact": {
+    "title": "Liên Hệ Với Chúng Tôi",
+    "description": "Có câu hỏi? Chúng tôi rất muốn nghe từ bạn!",
+    "emailLabel": "Địa Chỉ Email",
+    "emailPlaceholder": "của_bạn@email.com",
+    "nameLabel": "Tên Của Bạn",
+    "namePlaceholder": "Nhập tên của bạn",
+    "messageLabel": "Tin Nhắn",
+    "messagePlaceholder": "Cho chúng tôi biết bạn đang nghĩ gì...",
+    "sendButton": "Gửi Tin Nhắn",
+    "copyButton": "Sao Chép Email",
+    "copiedFeedback": "Email đã được sao chép!",
+    "directEmail": "Gửi Email Trực Tiếp",
+    "metadata": {
+      "title": "DragonBallDle — Liên Hệ",
+      "description": "Liên hệ với đội ngũ DragonBallDle. Chúng tôi rất muốn nghe từ bạn!"
+    },
+    "submitSuccess": "✓ Gửi email thành công!",
+    "submitError": "✗ Lỗi gửi đi. Thử lại."
   }
 }

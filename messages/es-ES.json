@@ -149,5 +149,25 @@
       "one": "¡Revelé la silueta de DragonBallDle de hoy en 1 intento!\n{guesses}\n¡Pruébalo tú también en {url}",
       "other": "¡Revelé la silueta de DragonBallDle de hoy en {tries} intentos!\n{guesses}\n¡Pruébalo tú también en {url}"
     }
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "description": "¿Tienes preguntas? ¡Nos encantaría saber de ti!",
+    "emailLabel": "Dirección de Email",
+    "emailPlaceholder": "tu@email.com",
+    "nameLabel": "Tu Nombre",
+    "namePlaceholder": "Ingresa tu nombre",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Cuéntanos lo que piensas...",
+    "sendButton": "Enviar Mensaje",
+    "copyButton": "Copiar Email",
+    "copiedFeedback": "¡Email copiado!",
+    "directEmail": "Enviar Email Directo",
+    "metadata": {
+      "title": "DragonBallDle — Contacto",
+      "description": "Ponte en contacto con el equipo de DragonBallDle. ¡Nos encantaría saber de ti!"
+    },
+    "submitSuccess": "✓ ¡Correo devuelto con éxito!",
+    "submitError": "✗ Error al enviar. Inténtalo de nuevo."
   }
 }

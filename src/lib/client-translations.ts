@@ -9,7 +9,8 @@ export type TranslateType =
   | "winModal"
   | "winBanner"
   | "share"
-  | "hero";
+  | "hero"
+  | "contact";
 
 export async function getTranslationsBundle(
   type?: TranslateType | TranslateType[],
@@ -167,6 +168,24 @@ export async function getTranslationsBundle(
           guesses: "[guesses]",
           url: "[url]",
         }),
+      },
+    },
+    contact: {
+      contact: {
+        title: t("contact.title"),
+        description: t("contact.description"),
+        directEmail: t("contact.directEmail"),
+        nameLabel: t("contact.nameLabel"),
+        namePlaceholder: t("contact.namePlaceholder"),
+        emailLabel: t("contact.emailLabel"),
+        emailPlaceholder: t("contact.emailPlaceholder"),
+        messageLabel: t("contact.messageLabel"),
+        messagePlaceholder: t("contact.messagePlaceholder"),
+        copyButton: t("contact.copyButton"),
+        copiedFeedback: t("contact.copiedFeedback"),
+        sendButton: t("contact.sendButton"),
+        submitSuccess: t("contact.submitSuccess"),
+        submitError: t("contact.submitError"),
       },
     },
   };

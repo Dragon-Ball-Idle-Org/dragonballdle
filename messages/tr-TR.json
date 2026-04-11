@@ -122,5 +122,25 @@
       "one": "Bugünün DragonBallDle karakterini 1 denemede tahmin ettim:\n{guesses}\n{url}'de de dene",
       "other": "Bugünün DragonBallDle karakterini {tries} denemede tahmin ettim:\n{guesses}\n{url}'de de dene"
     }
+  },
+  "contact": {
+    "title": "Bize Ulaşın",
+    "description": "Sorularınız mı var? Sizden haber almaktan çok memnun oluruz!",
+    "emailLabel": "E-posta Adresi",
+    "emailPlaceholder": "sizin@email.com",
+    "nameLabel": "Adınız",
+    "namePlaceholder": "Adınızı girin",
+    "messageLabel": "Mesaj",
+    "messagePlaceholder": "Bize ne düşündüğünüzü anlatin...",
+    "sendButton": "Mesaj Gönder",
+    "copyButton": "E-postayı Kopyala",
+    "copiedFeedback": "E-posta kopyalandı!",
+    "directEmail": "E-postayı Doğrudan Gönder",
+    "metadata": {
+      "title": "DragonBallDle — İletişim",
+      "description": "DragonBallDle ekibine ulaşın. Sizden haber almaktan çok memnun oluruz!"
+    },
+    "submitSuccess": "✓ E-posta başarıyla gönderildi!",
+    "submitError": "✗ Gönderme hatası. Tekrar deneyin."
   }
 }

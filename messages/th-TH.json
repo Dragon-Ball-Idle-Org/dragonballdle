@@ -122,5 +122,25 @@
       "one": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน 1 ครั้ง:\n{guesses}\nลองดูที่ {url}",
       "other": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน {tries} ครั้ง:\n{guesses}\nลองดูที่ {url}"
     }
+  },
+  "contact": {
+    "title": "ติดต่อเรา",
+    "description": "มีคำถาม? เราต้องการได้ยินจากคุณ!",
+    "emailLabel": "ที่อยู่อีเมล",
+    "emailPlaceholder": "ของคุณ@email.com",
+    "nameLabel": "ชื่อของคุณ",
+    "namePlaceholder": "ใส่ชื่อของคุณ",
+    "messageLabel": "ข้อความ",
+    "messagePlaceholder": "บอกเราว่าคุณคิดอะไร...",
+    "sendButton": "ส่งข้อความ",
+    "copyButton": "คัดลอกอีเมล",
+    "copiedFeedback": "คัดลอกอีเมลแล้ว!",
+    "directEmail": "ส่งอีเมลโดยตรง",
+    "metadata": {
+      "title": "DragonBallDle — ติดต่อเรา",
+      "description": "ติดต่อทีม DragonBallDle เราต้องการได้ยินจากคุณ!"
+    },
+    "submitSuccess": "✓ ส่งอีเมลสำเร็จแล้ว!",
+    "submitError": "✗ มีข้อผิดพลาดในการส่ง ลองใหม่อีกครั้ง"
   }
 }
