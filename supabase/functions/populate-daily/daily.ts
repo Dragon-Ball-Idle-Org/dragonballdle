@@ -37,11 +37,19 @@ export function getDayIndexBrasilia(ymd: string = todayBrasiliaKey()): number {
 export function getCharacterIndexForDay(
   k: number,
   N: number,
+  gameMode: string,
   seqCache: (number | undefined)[] = [],
 ): { index: number; cache: (number | undefined)[] } {
   const cache = [...seqCache];
 
-  for (let day = cache.filter(Boolean).length; day <= k; day++) {
+  let lastCalculated = -1;
+  for (let i = 0; i < cache.length; i++) {
+    if (cache[i] !== undefined) {
+      lastCalculated = i;
+    }
+  }
+
+  for (let day = lastCalculated + 1; day <= k; day++) {
     const dayYMD = ymdFromDayIndex(day);
     const start = Math.max(0, day - WINDOW_DAYS);
     const recent = new Set<number>();
@@ -53,7 +61,7 @@ export function getCharacterIndexForDay(
 
     let chosen: number | null = null;
     for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
-      const cand = deterministicCandidate(dayYMD, attempt, N);
+      const cand = deterministicCandidate(dayYMD, attempt, N, gameMode);
       if (!recent.has(cand)) {
         chosen = cand;
         break;
@@ -64,7 +72,7 @@ export function getCharacterIndexForDay(
       let bestIdx = 0;
       let bestGap = -Infinity;
       for (let attempt = 0; attempt < Math.max(MAX_ATTEMPTS, 32); attempt++) {
-        const cand = deterministicCandidate(dayYMD, attempt, N);
+        const cand = deterministicCandidate(dayYMD, attempt, N, gameMode);
         let last = -Infinity;
         for (let i = day - 1; i >= start; i--) {
           if (cache[i] === cand) {

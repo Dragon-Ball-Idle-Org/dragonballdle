@@ -314,16 +314,19 @@ export type Database = {
           character_id: string | null
           date: string | null
           day_index: number
+          game_mode: string
         }
         Insert: {
           character_id?: string | null
           date?: string | null
           day_index: number
+          game_mode?: string
         }
         Update: {
           character_id?: string | null
           date?: string | null
           day_index?: number
+          game_mode?: string
         }
         Relationships: [
           {

@@ -18,6 +18,7 @@ Deno.serve(async () => {
     return new Response("No characters found", { status: 500 });
   }
 
+  const GAME_MODES = ["classic", "silhouette"];
   const N = characters.length;
   const todayK = getDayIndexBrasilia();
   const tomorrowK = todayK + 1;
@@ -33,51 +34,60 @@ Deno.serve(async () => {
     .lte("day_index", targetK);
 
   const existingSet = new Set((existing ?? []).map((r) => r.day_index));
-  const missingDays = Array.from(
-    { length: DAYS_AHEAD + 1 },
-    (_, i) => todayK + i,
-  ).filter((k) => !existingSet.has(k));
+  
+  const rows: { day_index: number; character_id: string; game_mode: string }[] = [];
 
-  if (!missingDays.length) {
+  for (const gameMode of GAME_MODES) {
+    const missingDays = Array.from(
+      { length: DAYS_AHEAD + 1 },
+      (_, i) => todayK + i,
+    ).filter((k) => !existingSet.has(k));
+
+    if (!missingDays.length) {
+      continue;
+    }
+
+    const startK = Math.min(...missingDays);
+    const { data: historical } = await supabase
+      .from("daily_characters")
+      .select("day_index, characters(slug)")
+      .lt("day_index", startK)
+      .gte("day_index", startK - 30);
+
+    const cache: (number | undefined)[] = [];
+    for (const row of historical ?? []) {
+      const slug = (row.characters as any)?.slug;
+      const charIdx = characters.findIndex((c) => c.slug === slug);
+      if (charIdx >= 0) cache[row.day_index] = charIdx;
+    }
+
+    let currentCache = [...cache];
+
+    for (const k of missingDays) {
+      const { index, cache: newCache } = getCharacterIndexForDay(
+        k,
+        N,
+        gameMode,
+        currentCache,
+      );
+      currentCache = newCache;
+      rows.push({ day_index: k, character_id: characters[index].id, game_mode: gameMode });
+    }
+  }
+
+  if (rows.length === 0) {
     return new Response(JSON.stringify({ message: "Already up to date" }), {
       status: 200,
     });
   }
 
-  const startK = Math.min(...missingDays);
-  const { data: historical } = await supabase
-    .from("daily_characters")
-    .select("day_index, characters(slug)")
-    .lt("day_index", startK)
-    .gte("day_index", startK - 30);
-
-  const cache: (number | undefined)[] = [];
-  for (const row of historical ?? []) {
-    const slug = (row.characters as any)?.slug;
-    const charIdx = characters.findIndex((c) => c.slug === slug);
-    if (charIdx >= 0) cache[row.day_index] = charIdx;
-  }
-
-  const rows: { day_index: number; character_id: string }[] = [];
-  let currentCache = [...cache];
-
-  for (const k of missingDays) {
-    const { index, cache: newCache } = getCharacterIndexForDay(
-      k,
-      N,
-      currentCache,
-    );
-    currentCache = newCache;
-    rows.push({ day_index: k, character_id: characters[index].id });
-  }
-
   const { error } = await supabase
     .from("daily_characters")
-    .upsert(rows, { onConflict: "day_index" });
+    .upsert(rows, { onConflict: "day_index, game_mode" });
 
   if (error) return new Response(JSON.stringify({ error }), { status: 500 });
 
   return new Response(JSON.stringify({ populated: rows.length }), {
     status: 200,
   });
-};);
+});

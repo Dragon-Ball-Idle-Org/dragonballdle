@@ -38,8 +38,9 @@ export function deterministicCandidate(
   ymd: string,
   attempt: number,
   N: number,
+  gameMode: string = "classic",
 ): number {
-  const seedStr = `${ymd}|${attempt}|${DAILY_SECRET}|soft-norepeat-v2`;
+  const seedStr = `${ymd}|${gameMode}|${attempt}|${DAILY_SECRET}|soft-norepeat-v2`;
   const [s0] = cyrb128(seedStr);
   const rnd = mulberry32(s0); // XOR dos dois primeiros seeds — mais entropia inicial
 
