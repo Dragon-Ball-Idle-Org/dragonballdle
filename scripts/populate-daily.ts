@@ -32,7 +32,11 @@ async function main() {
 
   const N = characters.length;
   const todayK = getDayIndexBrasilia();
+  const tomorrowK = todayK + 1;
   const targetK = todayK + DAYS_AHEAD;
+
+  // Limpa registros futuros para repopular personagens futuros
+  await supabase.from("daily_characters").delete().gte("day_index", tomorrowK);
 
   const { data: existing } = await supabase
     .from("daily_characters")

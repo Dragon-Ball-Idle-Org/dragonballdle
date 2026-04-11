@@ -39,9 +39,14 @@ export function deterministicCandidate(
   attempt: number,
   N: number,
 ): number {
-  const seedStr = `${ymd}|${attempt}|${DAILY_SECRET}|soft-norepeat-v1`;
+  const seedStr = `${ymd}|${attempt}|${DAILY_SECRET}|soft-norepeat-v2`;
   const [s0] = cyrb128(seedStr);
-  const rnd = mulberry32(s0);
+  const rnd = mulberry32(s0); // XOR dos dois primeiros seeds — mais entropia inicial
+
+  // Descarta as primeiras iterações para desacoplar correlação entre dias próximos
+  const WARMUP = 12;
+  for (let i = 0; i < WARMUP; i++) rnd();
+
   return Math.floor(rnd() * N);
 }
 
