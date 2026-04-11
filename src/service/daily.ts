@@ -106,6 +106,7 @@ export async function getDailyCharacter(
     `,
     )
     .eq("day_index", dayIndex)
+    .eq("game_mode", "classic")
     .eq("characters.character_translations.locale", threatedLocale)
     .eq("characters.genders.gender_translations.locale", threatedLocale)
     .eq("characters.series.series_translations.locale", threatedLocale)
@@ -123,6 +124,7 @@ export async function getDailyCharacter(
       threatedLocale,
     )
     .single();
+    
 
   if (error || !data?.characters) {
     console.log("data", data);
@@ -154,6 +156,7 @@ export async function getYesterdayCharacter(
     `,
     )
     .eq("day_index", dayIndex)
+    .eq("game_mode", "classic")
     .eq("characters.character_translations.locale", threatedLocale)
     .single();
 
