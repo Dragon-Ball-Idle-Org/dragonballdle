@@ -5,6 +5,7 @@ import {
   ymdFromDayIndex,
 } from "../src/lib/daily";
 import * as dotenv from "dotenv";
+import { GameMode } from "@/types/game-mode";
 
 dotenv.config({ path: ".env" });
 
@@ -30,6 +31,7 @@ async function main() {
 
   console.log(`Found ${characters.length} characters`);
 
+  const GAME_MODES = ["classic", "silhouette"];
   const N = characters.length;
   const todayK = getDayIndexBrasilia();
   const tomorrowK = todayK + 1;
@@ -45,57 +47,67 @@ async function main() {
     .lte("day_index", targetK);
 
   const existingSet = new Set((existing ?? []).map((r) => r.day_index));
-  const missingDays = Array.from(
-    { length: DAYS_AHEAD + 1 },
-    (_, i) => todayK + i,
-  ).filter((k) => !existingSet.has(k));
 
-  if (!missingDays.length) {
-    console.log("All days already populated!");
-    return;
-  }
+  const rows: { day_index: number; character_id: string; game_mode: string }[] =
+    [];
 
-  console.log(
-    `Populating ${missingDays.length} missing days (${ymdFromDayIndex(missingDays[0])} → ${ymdFromDayIndex(missingDays[missingDays.length - 1])})...`,
-  );
+  for (const gameMode of GAME_MODES) {
+    const missingDays = Array.from(
+      { length: DAYS_AHEAD + 1 },
+      (_, i) => todayK + i,
+    ).filter((k) => !existingSet.has(k));
 
-  const startK = Math.min(...missingDays);
-  const cache: (number | undefined)[] = [];
-
-  const { data: historical } = await supabase
-    .from("daily_characters")
-    .select("day_index, characters(slug)")
-    .lt("day_index", startK)
-    .gte("day_index", startK - 30);
-
-  if (historical) {
-    for (const row of historical) {
-      const slug = (row.characters as unknown as { slug: string })?.slug;
-      const charIdx = characters.findIndex((c) => c.slug === slug);
-      if (charIdx >= 0) cache[row.day_index] = charIdx;
+    if (!missingDays.length) {
+      console.log("All days already populated!");
+      return;
     }
-  }
 
-  const rows: { day_index: number; character_id: string }[] = [];
-  let currentCache = [...cache];
-
-  for (const k of missingDays) {
-    const { index, cache: newCache } = getCharacterIndexForDay(
-      k,
-      N,
-      currentCache,
+    console.log(
+      `Populating ${missingDays.length} missing days (${ymdFromDayIndex(missingDays[0])} → ${ymdFromDayIndex(missingDays[missingDays.length - 1])})...`,
     );
-    currentCache = newCache;
 
-    const character = characters[index];
-    rows.push({ day_index: k, character_id: character.id });
+    const startK = Math.min(...missingDays);
+    const cache: (number | undefined)[] = [];
 
-    console.log(`  Day ${k} (${ymdFromDayIndex(k)}): ${character.slug}`);
+    const { data: historical } = await supabase
+      .from("daily_characters")
+      .select("day_index, characters(slug)")
+      .lt("day_index", startK)
+      .gte("day_index", startK - 30);
+
+    if (historical) {
+      for (const row of historical) {
+        const slug = (row.characters as unknown as { slug: string })?.slug;
+        const charIdx = characters.findIndex((c) => c.slug === slug);
+        if (charIdx >= 0) cache[row.day_index] = charIdx;
+      }
+    }
+
+    let currentCache = [...cache];
+
+    for (const k of missingDays) {
+      const { index, cache: newCache } = getCharacterIndexForDay(
+        k,
+        N,
+        gameMode as GameMode,
+        currentCache,
+      );
+      currentCache = newCache;
+
+      const character = characters[index];
+      rows.push({
+        day_index: k,
+        character_id: character.id,
+        game_mode: gameMode,
+      });
+
+      console.log(`  Day ${k} (${ymdFromDayIndex(k)}): ${character.slug}`);
+    }
   }
 
   const { error: insertError } = await supabase
     .from("daily_characters")
-    .upsert(rows, { onConflict: "day_index" });
+    .upsert(rows, { onConflict: "day_index, game_mode" });
 
   if (insertError) {
     console.error("Insert failed:", insertError);
