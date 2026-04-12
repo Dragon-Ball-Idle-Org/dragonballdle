@@ -14,6 +14,7 @@ import { useTranslations } from "@/contexts/TranslationContext";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
 import { cn } from "@/utils/cn";
+import { incrementWins } from "@/service/wins";
 
 export function SilhouetteGameBoard({
   dailyCharacter,
@@ -50,7 +51,7 @@ export function SilhouetteGameBoard({
 
     if (character.slug === dailyCharacter.slug) {
       wonGame();
-      // await incrementWins();
+      await incrementWins("silhouette");
     }
   };
 
