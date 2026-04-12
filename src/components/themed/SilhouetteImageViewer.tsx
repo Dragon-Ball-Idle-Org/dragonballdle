@@ -100,7 +100,7 @@ export function SilhouetteImageViewer({
       <div
         className={cn(
           "relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden",
-          "bg-capsule-corp-primary border-capsule-corp-viewport border-2 border-emerald-500/50",
+          "bg-capsule-corp-primary border-capsule-corp-viewport border-2 border-white",
         )}
       >
         <motion.div

@@ -72,7 +72,7 @@ export function CapsuleCorpAutocompleteField({
           <Autocomplete.Popup
             className={cn(
               "max-h-100 w-(--anchor-width) max-w-(--available-width)",
-              "background-capsule-corp-texture border-2 border-capsule-corp-primary-dark rounded-md shadow-[0_10px_24px_rgba(0,0,0,0.55)] overflow-y-auto",
+              "bg-radar-green border-2 border-white rounded-md shadow-[0_10px_24px_rgba(0,0,0,0.55)] overflow-y-auto",
             )}
           >
             <Autocomplete.Empty className="flex items-center justify-center p-5 font-ui font-semibold text-white empty:m-0 empty:p-0">

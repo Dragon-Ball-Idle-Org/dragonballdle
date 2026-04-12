@@ -42,11 +42,11 @@ export function CapsuleCorpWinBanner({
           <div
             className={cn(
               "grid auto-rows-max justify-items-center w-full",
-              "sm:max-w-[90xw] min-w-80 sm:min-w-130 p-4 sm:p-3 border-capsule-corp rounded-2xl",
+              "sm:max-w-[90xw] min-w-80 sm:min-w-130 p-4 sm:p-3 border-2 border-white rounded-2xl",
               "background-capsule-corp-texture shadow-[0_8px_32px_rgba(2,6,23,0.6)] text-shadow-[1px_1px_3px_rgba(0,0,0,.85)] text-white",
             )}
           >
-            <h3 className="text-center text-xl font-black m-0 mb-2 pb-2 border-b-2 border-emerald-500/30">
+            <h3 className="text-center text-xl font-black m-0 mb-2 pb-2 border-b-2 border-amber-400/80">
               {translations.title}
             </h3>
 
@@ -56,7 +56,7 @@ export function CapsuleCorpWinBanner({
               value={<CountdownToMidnight className="font-ui font-black" />}
             />
 
-            <div className="w-full flex flex-col items-center justify-center gap-3 border-t border-emerald-500/20 pt-3 pb-2">
+            <div className="w-full flex flex-col items-center justify-center gap-3 pt-3 pb-2">
               <div className="flex flex-col items-center gap-2 text-center">
                 <span className="font-bold">{translations.todayCharacter}</span>
                 <ShineGradientButton
@@ -113,7 +113,7 @@ export function CapsuleCorpWinBanner({
 
 function Row({ title, value }: { title: string; value: ReactNode }) {
   return (
-    <div className="w-full flex items-center justify-between gap-4 py-2 border-b border-emerald-500/15 last:border-b-0 px-2">
+    <div className="w-full flex items-center justify-between gap-4 py-2 border-b border-amber-400/80 last:border-b-0 px-2">
       <span className="text-sm font-bold">{title}</span>
       <span className="font-ui font-black text-sm text-right">{value}</span>
     </div>

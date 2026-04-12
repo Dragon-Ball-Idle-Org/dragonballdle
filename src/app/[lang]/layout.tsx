@@ -97,9 +97,11 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
       <body
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
-        style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("${process.env.NEXT_PUBLIC_CDN_BASE_URL}/background-img.jpg") center bottom / cover no-repeat fixed`,
-        }}
+        style={
+          {
+            background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), var(--bg-image, url("${process.env.NEXT_PUBLIC_CDN_BASE_URL}/background-img.jpg")) center bottom / cover no-repeat fixed`,
+          } as React.CSSProperties
+        }
       >
         <SplashScreen />
         <Providers locale={lang}>

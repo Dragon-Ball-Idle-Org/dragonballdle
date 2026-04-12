@@ -27,6 +27,8 @@
   --palette-radar-gray: #e5e7eb;
   /* Radar Body */
 
+  --pallete-radar-green: #338551;
+
   --pallete-red-light: #ef4444;
 
   --color-background: var(--background);
@@ -38,6 +40,8 @@
 
   --color-correct-dark: var(--palette-green-dark);
   --color-correct-light: var(--palette-green-light);
+
+  --color-radar-green: var(--pallete-radar-green);
 
   --color-red-light: var(--pallete-red-light);
   --color-buy-me-a-coffe: var(--pallete-blue-light);

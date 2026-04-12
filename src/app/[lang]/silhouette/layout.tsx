@@ -49,9 +49,13 @@ export default async function SilhouetteLayout({
 
   return (
     <SilhouetteProviders locale={lang}>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `body { --bg-image: url("${process.env.NEXT_PUBLIC_CDN_BASE_URL}/background-capsule-corp.png"); }`,
+        }}
+      />
       <Header />
       {children}
     </SilhouetteProviders>
   );
 }
-

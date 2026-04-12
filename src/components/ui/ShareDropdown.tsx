@@ -121,14 +121,14 @@ export function ShareDropdown({
         className={cn(
           " w-full sm:w-auto! max-h-11 rounded-xl p-4",
           isCapsule
-            ? "bg-linear-135 from-sky-400 to-blue-700 shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_rgba(2,132,199,0.45)]"
+            ? "bg-linear-135 from-emerald-500 to-emerald-800 shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_rgba(51,133,81,0.45)]"
             : "bg-linear-135 from-green-500 to-green-700 shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_#00000040]",
           "transition-transform ease-linear hover:scale-105",
           "text-white font-ui font-black leading-none cursor-pointer",
         )}
         contentClassName={cn("inline-flex items-center justify-center gap-2")}
         shineColor={
-          isCapsule ? "rgba(125, 211, 252, 0.45)" : "rgba(74, 222, 128, 0.4)"
+          isCapsule ? "rgba(51, 133, 81, 0.45)" : "rgba(74, 222, 128, 0.4)"
         }
       >
         <span>{translations.share}</span>
@@ -141,7 +141,7 @@ export function ShareDropdown({
             "absolute top-full mt-2 right-0 z-50",
             "min-w-48 rounded-xl border border-white/25 overflow-hidden",
             isCapsule
-              ? "bg-linear-135 from-sky-600 to-blue-800 shadow-[0_8px_24px_rgba(2,132,199,0.45)]"
+              ? "bg-linear-135 from-emerald-600 to-emerald-900 shadow-[0_8px_24px_rgba(51,133,81,0.45)]"
               : "bg-linear-135 from-green-600 to-green-700 shadow-[0_8px_20px_#00000042]",
           )}
         >

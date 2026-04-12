@@ -19,7 +19,7 @@ export function CapsuleCorpYesterdayCharacter({
         "grid justify-center gap-y-2 p-6 w-fit max-w-full mx-auto rounded-2xl",
         "background-capsule-corp-texture shadow-[0_4px_16px_rgba(2,6,23,0.5)]",
         "text-center text-shadow-[1px_1px_3px_#000000] text-white",
-        "border-capsule-corp",
+        "border-2 border-white",
       )}
     >
       <h4 className="text-sm font-bold">{t("title")}</h4>
