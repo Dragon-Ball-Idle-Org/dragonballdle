@@ -1,8 +1,8 @@
 import { MainContainer } from "@/components/ui/MainContainer";
-import { CapsuleCorpHero } from "@/components/themed/MartialArts/CapsuleCorp/CapsuleCorpHero";
-import { CapsuleCorpYesterdayCharacter } from "@/components/themed/MartialArts/CapsuleCorp/CapsuleCorpYesterdayCharacter";
-import { CapsuleCorpWinBanner } from "@/components/themed/MartialArts/CapsuleCorp/CapsuleCorpWinBanner";
-import { SilhouetteGameBoard } from "@/components/themed/MartialArts/SilhouetteGameBoard";
+import { CapsuleCorpHero } from "@/components/themed/CapsuleCorp/CapsuleCorpHero";
+import { CapsuleCorpYesterdayCharacter } from "@/components/themed/CapsuleCorp/CapsuleCorpYesterdayCharacter";
+import { CapsuleCorpWinBanner } from "@/components/themed/CapsuleCorp/CapsuleCorpWinBanner";
+import { SilhouetteGameBoard } from "@/components/themed/SilhouetteGameBoard";
 import {
   getDailySilhouetteCharacter,
   getYesterdaySilhouetteCharacter,

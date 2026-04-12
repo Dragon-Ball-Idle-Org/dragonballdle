@@ -15,13 +15,24 @@ const supabase = createClient(
 );
 
 const DAYS_AHEAD = 90;
+const CDN_URL = process.env.NEXT_PUBLIC_CDN_BASE_URL || "";
+
+async function checkAssetExists(path: string): Promise<boolean> {
+  if (!path) return false;
+  try {
+    const res = await fetch(`${CDN_URL}${path}`, { method: "HEAD" });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
 
 async function main() {
   console.log("Fetching canonical character list...");
 
   const { data: characters, error } = await supabase
     .from("characters")
-    .select("id, slug")
+    .select("id, slug, silhouette_path, silhouette_colored_path")
     .order("slug", { ascending: true });
 
   if (error || !characters?.length) {
@@ -62,8 +73,29 @@ async function main() {
       return;
     }
 
+    let candidateCharacters = characters;
+
+    if (gameMode === "silhouette") {
+      console.log("Verifying silhouette assets in CDN...");
+      const filtered = [];
+      for (const char of characters) {
+        if (!char.silhouette_path || !char.silhouette_colored_path) continue;
+
+        const exists = await checkAssetExists(char.silhouette_path);
+        if (exists) {
+          filtered.push(char);
+        } else {
+          console.warn(`  Skipping ${char.slug}: Silhouette asset not found in CDN`);
+        }
+      }
+      candidateCharacters = filtered;
+      console.log(`  Silhouette pool size: ${candidateCharacters.length} (from ${characters.length} total)`);
+    }
+
+    const N = candidateCharacters.length;
+
     console.log(
-      `Populating ${missingDays.length} missing days (${ymdFromDayIndex(missingDays[0])} → ${ymdFromDayIndex(missingDays[missingDays.length - 1])})...`,
+      `Populating ${missingDays.length} missing days for ${gameMode} (${ymdFromDayIndex(missingDays[0])} → ${ymdFromDayIndex(missingDays[missingDays.length - 1])})...`,
     );
 
     const startK = Math.min(...missingDays);
@@ -78,7 +110,7 @@ async function main() {
     if (historical) {
       for (const row of historical) {
         const slug = (row.characters as unknown as { slug: string })?.slug;
-        const charIdx = characters.findIndex((c) => c.slug === slug);
+        const charIdx = candidateCharacters.findIndex((c) => c.slug === slug);
         if (charIdx >= 0) cache[row.day_index] = charIdx;
       }
     }
@@ -94,7 +126,7 @@ async function main() {
       );
       currentCache = newCache;
 
-      const character = characters[index];
+      const character = candidateCharacters[index];
       rows.push({
         day_index: k,
         character_id: character.id,

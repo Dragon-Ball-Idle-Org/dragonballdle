@@ -3,6 +3,15 @@ import { getCharacterIndexForDay, getDayIndexBrasilia } from "./daily.ts";
 
 const DAYS_AHEAD = 90;
 
+async function checkAssetExists(url: string): Promise<boolean> {
+  try {
+    const res = await fetch(url, { method: "HEAD" });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 Deno.serve(async () => {
   const supabase = createClient(
     Deno.env.get("SUPABASE_URL")!,
@@ -11,7 +20,7 @@ Deno.serve(async () => {
 
   const { data: characters } = await supabase
     .from("characters")
-    .select("id, slug")
+    .select("id, slug, silhouette_path, silhouette_colored_path")
     .order("slug", { ascending: true });
 
   if (!characters?.length) {
@@ -19,7 +28,7 @@ Deno.serve(async () => {
   }
 
   const GAME_MODES = ["classic", "silhouette"];
-  const N = characters.length;
+  const CDN_URL = Deno.env.get("NEXT_PUBLIC_CDN_BASE_URL") || "";
   const todayK = getDayIndexBrasilia();
   const tomorrowK = todayK + 1;
   const targetK = todayK + DAYS_AHEAD;
@@ -47,6 +56,21 @@ Deno.serve(async () => {
       continue;
     }
 
+    let candidateCharacters = characters;
+
+    if (gameMode === "silhouette") {
+      const filtered = [];
+      for (const char of characters) {
+        if (!char.silhouette_path || !char.silhouette_colored_path) continue;
+        const exists = await checkAssetExists(`${CDN_URL}${char.silhouette_path}`);
+        if (exists) filtered.push(char);
+      }
+      candidateCharacters = filtered;
+    }
+
+    const N = candidateCharacters.length;
+    if (N === 0) continue;
+
     const startK = Math.min(...missingDays);
     const { data: historical } = await supabase
       .from("daily_characters")
@@ -57,7 +81,7 @@ Deno.serve(async () => {
     const cache: (number | undefined)[] = [];
     for (const row of historical ?? []) {
       const slug = (row.characters as any)?.slug;
-      const charIdx = characters.findIndex((c) => c.slug === slug);
+      const charIdx = candidateCharacters.findIndex((c: any) => c.slug === slug);
       if (charIdx >= 0) cache[row.day_index] = charIdx;
     }
 
@@ -71,7 +95,7 @@ Deno.serve(async () => {
         currentCache,
       );
       currentCache = newCache;
-      rows.push({ day_index: k, character_id: characters[index].id, game_mode: gameMode });
+      rows.push({ day_index: k, character_id: candidateCharacters[index].id, game_mode: gameMode });
     }
   }
 
