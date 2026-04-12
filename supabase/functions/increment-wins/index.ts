@@ -6,6 +6,10 @@ const CORS_HEADERS = {
     "Content-Type, Authorization, apikey, x-client-info",
 };
 const ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY");
+
+const VALID_GAME_MODES = ["classic", "silhouette"] as const;
+type GameMode = (typeof VALID_GAME_MODES)[number];
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
@@ -38,7 +42,8 @@ Deno.serve(async (req) => {
     );
   }
   try {
-    const { date } = await req.json();
+    const { date, game_mode } = await req.json();
+
     if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
       return Response.json(
         {
@@ -50,12 +55,23 @@ Deno.serve(async (req) => {
         },
       );
     }
+
+    if (!game_mode || !VALID_GAME_MODES.includes(game_mode as GameMode)) {
+      return Response.json(
+        {
+          error: `invalid game_mode, must be one of: ${VALID_GAME_MODES.join(", ")}`,
+        },
+        { status: 400, headers: CORS_HEADERS },
+      );
+    }
+
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL"),
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY"),
     );
     const { data, error } = await supabase.rpc("increment_wins", {
       date,
+      game_mode,
     });
     if (error) throw error;
     return Response.json(

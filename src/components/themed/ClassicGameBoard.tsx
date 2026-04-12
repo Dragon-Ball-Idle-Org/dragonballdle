@@ -50,7 +50,7 @@ export function ClassicGameBoard({
       // Wait guess animation ends to show win screen
       setTimeout(async () => {
         wonGame();
-        await incrementWins();
+        await incrementWins("classic");
       }, 2700);
     }
   };

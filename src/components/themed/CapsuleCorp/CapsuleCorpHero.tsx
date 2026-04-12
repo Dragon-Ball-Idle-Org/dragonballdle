@@ -7,7 +7,7 @@ import { useWinsRealtime } from "@/hooks/useWinsRealtime";
 
 export function CapsuleCorpHero() {
   const translations = useTranslations("silhouetteHero");
-  const { winsCount, isLoading } = useWinsRealtime();
+  const { winsCount, isLoading } = useWinsRealtime("silhouette");
 
   return (
     <div

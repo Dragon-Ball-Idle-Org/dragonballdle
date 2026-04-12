@@ -1,9 +1,10 @@
 import { todayBrasiliaKey } from "@/lib/daily";
 import { createClient } from "@/lib/supabase/client";
+import type { GameMode } from "@/types/game-mode";
 
 let cachedWinsCount = 0;
 
-export async function getWinsCount(): Promise<number> {
+export async function getWinsCount(gameMode: GameMode): Promise<number> {
   const supabase = createClient();
   const date = todayBrasiliaKey();
 
@@ -11,6 +12,7 @@ export async function getWinsCount(): Promise<number> {
     .from("wins")
     .select("wins_count")
     .eq("game_date", date)
+    .eq("game_mode", gameMode)
     .maybeSingle();
 
   if (error) {
@@ -23,7 +25,7 @@ export async function getWinsCount(): Promise<number> {
   return cachedWinsCount;
 }
 
-export async function incrementWins(): Promise<number> {
+export async function incrementWins(gameMode: GameMode): Promise<number> {
   const supabase = createClient();
   const date = todayBrasiliaKey();
 
@@ -31,7 +33,7 @@ export async function incrementWins(): Promise<number> {
     data: { wins_count },
     error,
   } = await supabase.functions.invoke("increment-wins", {
-    body: { date },
+    body: { date, game_mode: gameMode },
   });
 
   if (error) {

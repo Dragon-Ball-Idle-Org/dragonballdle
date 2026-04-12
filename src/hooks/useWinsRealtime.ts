@@ -2,17 +2,18 @@
 
 import { createClient } from "@/lib/supabase/client";
 import { getWinsCount } from "@/service/wins";
+import { GameMode } from "@/types/game-mode";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 
-export function useWinsRealtime() {
+export function useWinsRealtime(gameMode: GameMode) {
   const [winsCount, setWinsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const getCurrentWinsCount = async () => {
     try {
       setIsLoading(true);
-      const count = await getWinsCount();
+      const count = await getWinsCount(gameMode);
       setWinsCount(count);
     } finally {
       setIsLoading(false);
@@ -23,14 +24,14 @@ export function useWinsRealtime() {
     const today = new Date().toISOString().split("T")[0];
 
     return supabase
-      .channel("global-wins")
+      .channel(`wins-${gameMode}-${today}`)
       .on(
         "postgres_changes",
         {
           event: "UPDATE",
           schema: "public",
           table: "wins",
-          filter: `game_date=eq.${today}`,
+          filter: `game_mode=eq.${gameMode}`,
         },
         (payload) => {
           if (process.env.NODE_ENV === "development") {

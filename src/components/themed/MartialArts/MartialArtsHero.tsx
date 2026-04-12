@@ -7,7 +7,7 @@ import { useWinsRealtime } from "@/hooks/useWinsRealtime";
 
 export function MartialArtsHero() {
   const translations = useTranslations("hero");
-  const { winsCount, isLoading } = useWinsRealtime();
+  const { winsCount, isLoading } = useWinsRealtime("classic");
 
   return (
     <div

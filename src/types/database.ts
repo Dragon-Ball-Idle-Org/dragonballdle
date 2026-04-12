@@ -562,16 +562,19 @@ export type Database = {
       wins: {
         Row: {
           game_date: string
+          game_mode: string
           id: string
           wins_count: number
         }
         Insert: {
           game_date?: string
+          game_mode: string
           id?: string
           wins_count?: number
         }
         Update: {
           game_date?: string
+          game_mode?: string
           id?: string
           wins_count?: number
         }
