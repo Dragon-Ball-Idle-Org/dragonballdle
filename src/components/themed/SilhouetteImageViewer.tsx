@@ -24,7 +24,6 @@ export function SilhouetteImageViewer({
   const tr = useTranslations("silhouetteViewer");
 
   const { zoom: initialZoom, direction: randomDirection } = useMemo(() => {
-    // Gera um seed determinístico baseado no personagem do dia
     let seed = dailyCharacter.slug
       .split("")
       .reduce((a, b) => a + b.charCodeAt(0), 0);
@@ -61,13 +60,11 @@ export function SilhouetteImageViewer({
     };
   }, [dailyCharacter.slug]);
 
-  // Calculate current zoom based on wrong guesses
   const currentZoom = Math.max(
     MIN_ZOOM,
     initialZoom - guessCount * ZOOM_DECREMENT,
   );
 
-  // Max pan percent ensures the scaled element's edges don't enter the viewport
   const maxPanPercent = ((currentZoom - 1) / 2) * 100;
   const currentX = randomDirection.x * maxPanPercent;
   const currentY = randomDirection.y * maxPanPercent;
@@ -105,6 +102,11 @@ export function SilhouetteImageViewer({
       >
         <motion.div
           className="absolute inset-0 origin-center"
+          initial={{
+            scale: isGameWon ? 1 : currentZoom,
+            x: isGameWon ? "0%" : `${currentX}%`,
+            y: isGameWon ? "0%" : `${currentY}%`,
+          }}
           animate={{
             scale: isGameWon ? 1 : currentZoom,
             x: isGameWon ? "0%" : `${currentX}%`,
