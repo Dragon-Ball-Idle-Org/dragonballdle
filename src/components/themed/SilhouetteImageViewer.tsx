@@ -14,7 +14,6 @@ type SilhouetteImageViewerProps = {
 
 const MAX_ZOOM = 4;
 const MIN_ZOOM = 1;
-const ZOOM_DECREMENT = 0.3;
 
 export function SilhouetteImageViewer({
   dailyCharacter,
@@ -23,7 +22,11 @@ export function SilhouetteImageViewer({
   const { isGameWon } = useGameContext();
   const tr = useTranslations("silhouetteViewer");
 
-  const { zoom: initialZoom, direction: randomDirection } = useMemo(() => {
+  const {
+    zoom: initialZoom,
+    direction: randomDirection,
+    decrement,
+  } = useMemo(() => {
     let seed = dailyCharacter.slug
       .split("")
       .reduce((a, b) => a + b.charCodeAt(0), 0);
@@ -32,7 +35,7 @@ export function SilhouetteImageViewer({
       return seed / 233280;
     };
 
-    const initialZ = MAX_ZOOM + rng() * 0.5; // Slightly randomize initial zoom
+    const initialZ = MAX_ZOOM + rng() * 0.5;
 
     // Zonas de interesse mapeadas (evitando o topo/cabeça na medida > 0.1 e extremos vazios)
     const zones = [
@@ -54,16 +57,16 @@ export function SilhouetteImageViewer({
     const dirX = zone.xMin + rng() * (zone.xMax - zone.xMin);
     const dirY = zone.yMin + rng() * (zone.yMax - zone.yMin);
 
+    const dynamicDecrement = (initialZ - MIN_ZOOM) / 25;
+
     return {
       zoom: initialZ,
       direction: { x: dirX, y: dirY },
+      decrement: dynamicDecrement,
     };
   }, [dailyCharacter.slug]);
 
-  const currentZoom = Math.max(
-    MIN_ZOOM,
-    initialZoom - guessCount * ZOOM_DECREMENT,
-  );
+  const currentZoom = Math.max(MIN_ZOOM, initialZoom - guessCount * decrement);
 
   const maxPanPercent = ((currentZoom - 1) / 2) * 100;
   const currentX = randomDirection.x * maxPanPercent;
