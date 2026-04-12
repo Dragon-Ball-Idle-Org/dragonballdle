@@ -70,8 +70,8 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY"),
     );
     const { data, error } = await supabase.rpc("increment_wins", {
-      date,
-      game_mode,
+      p_date: date,
+      p_game_mode: game_mode,
     });
     if (error) throw error;
     return Response.json(

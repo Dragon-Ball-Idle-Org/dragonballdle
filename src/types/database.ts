@@ -593,7 +593,10 @@ export type Database = {
         Args: { p_locale: string; p_slug: string }
         Returns: Json
       }
-      increment_wins: { Args: { date: string }; Returns: number }
+      increment_wins: {
+        Args: { p_date: string; p_game_mode: string }
+        Returns: number
+      }
       search_characters: {
         Args: { loc: string; query: string }
         Returns: {

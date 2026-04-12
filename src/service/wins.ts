@@ -29,18 +29,21 @@ export async function incrementWins(gameMode: GameMode): Promise<number> {
   const supabase = createClient();
   const date = todayBrasiliaKey();
 
-  const {
-    data: { wins_count },
-    error,
-  } = await supabase.functions.invoke("increment-wins", {
-    body: { date, game_mode: gameMode },
-  });
+  try {
+    const { data, error } = await supabase.functions.invoke("increment-wins", {
+      body: { date, game_mode: gameMode },
+    });
 
-  if (error) {
-    console.error("[incrementWins] Error incrementing wins:", error);
+    if (error || !data) {
+      console.error("[incrementWins] Error incrementing wins:", error);
+      return cachedWinsCount;
+    }
+
+    const { wins_count } = data;
+    cachedWinsCount = wins_count;
+    return wins_count;
+  } catch (err) {
+    console.error("[incrementWins] Unexpected error:", err);
     return cachedWinsCount;
   }
-
-  cachedWinsCount = wins_count;
-  return wins_count;
 }
