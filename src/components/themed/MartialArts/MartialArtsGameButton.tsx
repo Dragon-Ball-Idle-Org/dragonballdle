@@ -23,7 +23,7 @@ export function MartialArtsGameButton({
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-4 sm:gap-10 w-full sm:w-auto sm:min-w-130 p-3",
+        "flex items-center gap-4 sm:gap-10 w-full sm:w-auto sm:min-w-130 min-h-42 p-3",
         "background-dragon-texture",
         "cursor-pointer transition-all hover:scale-105 sm:hover:scale-110",
         "relative before:absolute before:content-[''] before:inset-0 before:border-24 before:border-transparent before:pointer-events-none before:[border-image:url('/assets/dragon-border.svg')_500_stretch] before:z-1",
@@ -55,7 +55,7 @@ export function MartialArtsGameButtonDisabled({
     <div className="flex flex-col items-center w-full sm:w-auto">
       <div
         className={cn(
-          "flex items-center gap-4 sm:gap-10 w-full sm:w-auto sm:min-w-130 p-3",
+          "flex items-center gap-4 sm:gap-10 w-full sm:w-auto sm:min-w-130 min-h-42 p-3",
           "background-dragon-texture-gray",
           "relative before:absolute before:content-[''] before:inset-0 before:border-24 before:border-transparent before:pointer-events-none before:[border-image:url('/assets/dragon-border-gray.svg')_500_stretch] before:z-1",
         )}
@@ -111,9 +111,9 @@ export function MartialArtsGameButtonDisabled({
                 </div>
 
                 <div className="flex flex-col items-start leading-none text-left">
-                  <span className="block text-[#3e2723] font-display text-[12px] uppercase tracking-[0.2em] mb-1">
+                  {/* <span className="block text-[#3e2723] font-display text-[12px] uppercase tracking-[0.2em] mb-1">
                     Próximo Combate
-                  </span>
+                  </span> */}
                   <CountdownToMidnight className="font-display text-4xl text-red-light drop-shadow-[0_2px_1px_rgba(0,0,0,0.2)] tabular-nums" />
                 </div>
               </div>
@@ -153,5 +153,3 @@ function ChainLink({ isEven }: { isEven?: boolean }) {
     </div>
   );
 }
-
-

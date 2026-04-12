@@ -4,6 +4,7 @@ import {
 } from "@/components/themed/MartialArts/MartialArtsGameButton";
 import { Header } from "@/components/ui/Header";
 import { ANONYMOUS_CONTEXT, getFeatureFlag } from "@/lib/feature-flags";
+import { TimerIcon } from "@phosphor-icons/react/dist/ssr";
 import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
@@ -35,9 +36,9 @@ export default async function Home() {
           />
         ) : (
           <MartialArtsGameButtonDisabled
-            icon={<h1 className="font-display text-9xl">◐</h1>}
-            title={t("silhouette.title")}
-            subtitle={t("silhouette.subtitle")}
+            icon={<TimerIcon weight="fill" className="text-8xl" />}
+            title={"Debuts today"}
+            subtitle={"Coming soon..."}
             countDown={true}
           />
         )}
