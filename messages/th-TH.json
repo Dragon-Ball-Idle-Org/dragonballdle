@@ -112,7 +112,8 @@
     "share": "แชร์",
     "shareOnX": "แชร์บน X",
     "copyToClipboard": "คัดลอกไปยังคลิปบอร์ด",
-    "supportUs": "สนับสนุนเรา"
+    "supportUs": "สนับสนุนเรา",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "ดราก้อนบอล 4 ดาว"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ ส่งอีเมลสำเร็จแล้ว!",
     "submitError": "✗ มีข้อผิดพลาดในการส่ง ลองใหม่อีกครั้ง"
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

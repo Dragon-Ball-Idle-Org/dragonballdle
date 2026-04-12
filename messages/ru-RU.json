@@ -112,7 +112,8 @@
     "share": "Поделиться",
     "shareOnX": "Поделиться в X",
     "copyToClipboard": "Скопировать в буфер обмена",
-    "supportUs": "Поддержать нас"
+    "supportUs": "Поддержать нас",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4-звездочный Драконий жемчуг"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ Email успешно отправлен!",
     "submitError": "✗ Ошибка отправки. Попробуйте снова."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

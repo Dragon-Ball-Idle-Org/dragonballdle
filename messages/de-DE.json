@@ -112,7 +112,8 @@
     "share": "Teilen",
     "shareOnX": "Auf X teilen",
     "copyToClipboard": "In die Zwischenablage kopieren",
-    "supportUs": "Unterstütze uns"
+    "supportUs": "Unterstütze uns",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4-Sterne-Dragonball"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ E-Mail erfolgreich gesendet!",
     "submitError": "✗ Fehler beim Senden. Versuchen Sie es erneut."
+  },
+  "silhouetteHero": {
+    "title": "Enthülle die Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

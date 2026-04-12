@@ -112,7 +112,8 @@
     "share": "साझा करें",
     "shareOnX": "X पर साझा करें",
     "copyToClipboard": "क्लिपबोर्ड पर कॉपी करें",
-    "supportUs": "हमारा समर्थन करें"
+    "supportUs": "हमारा समर्थन करें",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4 सितारा ड्रैगन बॉल"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ ईमेल सफलतापूर्वक भेजा गया!",
     "submitError": "✗ सबमिट करने में त्रुटि। पुनः प्रयास करें।"
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

@@ -112,7 +112,8 @@
     "share": "مشاركة",
     "shareOnX": "مشاركة على X",
     "copyToClipboard": "نسخ إلى الحافظة",
-    "supportUs": "ادعمنا"
+    "supportUs": "ادعمنا",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "كرة التنين ذات الأربع نجوم"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ تم إرسال البريد الإلكتروني بنجاح!",
     "submitError": "✗ خطأ في الإرسال. حاول مرة أخرى."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

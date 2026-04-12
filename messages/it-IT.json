@@ -112,7 +112,8 @@
     "share": "Condividi",
     "shareOnX": "Condividi su X",
     "copyToClipboard": "Copia negli appunti",
-    "supportUs": "Supportaci"
+    "supportUs": "Supportaci",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "Sfera a 4 stelle"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ Email inviata con successo!",
     "submitError": "✗ Errore di invio. Riprova."
+  },
+  "silhouetteHero": {
+    "title": "Rivela la Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

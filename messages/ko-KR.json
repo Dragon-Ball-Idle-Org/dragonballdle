@@ -112,7 +112,8 @@
     "share": "공유",
     "shareOnX": "X에서 공유하기",
     "copyToClipboard": "클립보드에 복사",
-    "supportUs": "후원하기"
+    "supportUs": "후원하기",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4성구"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ 이메일이 성공적으로 전송되었습니다!",
     "submitError": "✗ 전송 오류. 다시 시도하세요."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

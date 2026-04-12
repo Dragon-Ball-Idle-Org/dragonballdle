@@ -112,7 +112,8 @@
     "share": "シェア",
     "shareOnX": "Xでシェア",
     "copyToClipboard": "クリップボードにコピー",
-    "supportUs": "サポートする"
+    "supportUs": "サポートする",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "四星球 (スーシンチュウ)"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ メールが正常に送信されました！",
     "submitError": "✗ 送信エラー。もう一度やり直してください。"
+  },
+  "silhouetteHero": {
+    "title": "シルエットを明かそう！",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

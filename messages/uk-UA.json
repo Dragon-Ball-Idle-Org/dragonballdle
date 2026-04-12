@@ -112,7 +112,8 @@
     "share": "Поділитися",
     "shareOnX": "Поділитися в X",
     "copyToClipboard": "Скопіювати в буфер обміну",
-    "supportUs": "Підтримати нас"
+    "supportUs": "Підтримати нас",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4-зірковий Драконячий жемчуг"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ Email успішно надіслано!",
     "submitError": "✗ Помилка надсилання. Спробуйте ще раз."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

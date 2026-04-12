@@ -112,7 +112,8 @@
     "share": "分享",
     "shareOnX": "在 X 上分享",
     "copyToClipboard": "複製到剪貼簿",
-    "supportUs": "支持我們"
+    "supportUs": "支持我們",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "四星龍珠"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ 郵件發送成功！",
     "submitError": "✗ 提交錯誤。請重試。"
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

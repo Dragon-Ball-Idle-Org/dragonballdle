@@ -112,7 +112,8 @@
     "share": "Chia sẻ",
     "shareOnX": "Chia sẻ trên X",
     "copyToClipboard": "Sao chép vào bộ nhớ tạm",
-    "supportUs": "Ủng hộ chúng tôi"
+    "supportUs": "Ủng hộ chúng tôi",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "Ngọc rồng 4 sao"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ Gửi email thành công!",
     "submitError": "✗ Lỗi gửi đi. Thử lại."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

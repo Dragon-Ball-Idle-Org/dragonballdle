@@ -112,7 +112,8 @@
     "share": "Bagikan",
     "shareOnX": "Bagikan di X",
     "copyToClipboard": "Salin ke papan klip",
-    "supportUs": "Dukung kami"
+    "supportUs": "Dukung kami",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "Bola naga bintang 4"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ Email berhasil dikirim!",
     "submitError": "✗ Kesalahan mengirim. Coba lagi."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

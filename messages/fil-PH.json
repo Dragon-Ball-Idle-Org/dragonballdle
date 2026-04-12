@@ -112,7 +112,8 @@
     "share": "Ibahagi",
     "shareOnX": "I-share sa X",
     "copyToClipboard": "Kopyahin sa clipboard",
-    "supportUs": "Suportahan kami"
+    "supportUs": "Suportahan kami",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ Tagumpay na naipadala ang email!",
     "submitError": "✗ Error sa pagpapadala. Subukang muli."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

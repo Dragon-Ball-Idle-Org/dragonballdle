@@ -116,7 +116,8 @@
     "share": "Compartilhar",
     "shareOnX": "Compartilhar no X",
     "copyToClipboard": "Copiar para Área de Transferência",
-    "supportUs": "Apoie-nos"
+    "supportUs": "Apoie-nos",
+    "characterThumbnail": "Miniatura de {name}"
   },
   "guessForm": {
     "submitAlt": "Esfera de 4 Estrelas"
@@ -134,7 +135,9 @@
     "guessCountMany": "{count} palpites",
     "characterRevealed": "Personagem revelado!",
     "imageAltDaily": "Desafio diário da silhueta",
-    "imageAltRevealed": "{name}"
+    "imageAltRevealed": "{name}",
+    "fullReveal": "Revelação Total",
+    "guessLabel": "{count}/{total}"
   },
   "silhouetteHero": {
     "title": "Revele a Silhueta!",

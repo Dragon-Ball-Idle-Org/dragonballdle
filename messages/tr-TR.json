@@ -112,7 +112,8 @@
     "share": "Paylaş",
     "shareOnX": "X'te paylaş",
     "copyToClipboard": "Panoya kopyala",
-    "supportUs": "Bizi destekle"
+    "supportUs": "Bizi destekle",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4 Yıldızlı Ejderha Topu"
@@ -142,5 +143,19 @@
     },
     "submitSuccess": "✓ E-posta başarıyla gönderildi!",
     "submitError": "✗ Gönderme hatası. Tekrar deneyin."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 palpite",
+    "guessCountMany": "{count} palpites",
+    "characterRevealed": "Personagem revelado!",
+    "imageAltDaily": "Desafio diário da silhueta",
+    "imageAltRevealed": "{name}"
   }
 }

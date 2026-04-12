@@ -116,7 +116,8 @@
     "share": "Share",
     "shareOnX": "Share on X",
     "copyToClipboard": "Copy to Clipboard",
-    "supportUs": "Support us"
+    "supportUs": "Support us",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"
@@ -134,7 +135,9 @@
     "guessCountMany": "{count} guesses",
     "characterRevealed": "Character revealed!",
     "imageAltDaily": "Daily silhouette challenge",
-    "imageAltRevealed": "{name}"
+    "imageAltRevealed": "{name}",
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}"
   },
   "silhouetteHero": {
     "title": "Reveal the Silhouette!",

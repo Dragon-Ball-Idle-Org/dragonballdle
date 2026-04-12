@@ -116,7 +116,8 @@
     "share": "Partager",
     "shareOnX": "Partager sur X",
     "copyToClipboard": "Copier dans le presse-papiers",
-    "supportUs": "Soutenez-nous"
+    "supportUs": "Soutenez-nous",
+    "characterThumbnail": "{name} thumbnail"
   },
   "guessForm": {
     "submitAlt": "Boule à 4 étoiles"
@@ -134,7 +135,9 @@
     "guessCountMany": "{count} essais",
     "characterRevealed": "Personnage révélé !",
     "imageAltDaily": "Défi silhouette du jour",
-    "imageAltRevealed": "{name}"
+    "imageAltRevealed": "{name}",
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}"
   },
   "silhouetteHero": {
     "title": "Révélez la Silhouette !",
