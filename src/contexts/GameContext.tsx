@@ -1,10 +1,13 @@
 "use client";
 
+import type { GameMode } from "@/types/game-mode";
 import { getWithExpiry, setWithExpiry } from "@/utils/storage";
 import { msUntilMidnightBrasilia } from "@/utils/time";
 import { createContext, useContext, ReactNode, useState } from "react";
 
-const GAME_WON_KEY = "dragonballdle:game-won";
+function gameWonStorageKey(gameMode: GameMode) {
+  return `dragonballdle:game-won:${gameMode}`;
+}
 
 type GameContextValue = {
   isGameWon: boolean;
@@ -13,17 +16,23 @@ type GameContextValue = {
 
 const GameContext = createContext<GameContextValue | null>(null);
 
-export function GameProvider({ children }: { children: ReactNode }) {
+export function GameProvider({
+  children,
+  gameMode = "classic",
+}: {
+  children: ReactNode;
+  gameMode?: GameMode;
+}) {
   const [isGameWon, setIsGameWon] = useState<boolean>(
     typeof window !== "undefined"
-      ? (getWithExpiry(GAME_WON_KEY) ?? false)
+      ? (getWithExpiry(gameWonStorageKey(gameMode)) ?? false)
       : false,
   );
 
   const wonGame = () => {
     if (typeof window === "undefined") return;
     setIsGameWon(true);
-    setWithExpiry(GAME_WON_KEY, true, msUntilMidnightBrasilia());
+    setWithExpiry(gameWonStorageKey(gameMode), true, msUntilMidnightBrasilia());
   };
 
   return (

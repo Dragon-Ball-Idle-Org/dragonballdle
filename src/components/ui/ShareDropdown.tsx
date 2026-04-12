@@ -9,15 +9,23 @@ import {
 import { useTranslations } from "@/contexts/TranslationContext";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useGuessesContext } from "@/contexts/GuessesContext";
+import { GuessStatus } from "@/types/guess";
 import { buildShareText } from "@/utils/build-share-text";
 import { mapGuessToRow } from "@/utils/map-guess-to-row";
 import { ShineGradientButton } from "./ShineGradientButton";
 
 type ShareDropdownProps = {
   todayCharacterSlug: string;
+  variant?: "classic" | "silhouette";
+  /** Capsule Corp (silhouette) vs Martial Arts (classic) chrome */
+  uiTheme?: "martial" | "capsule";
 };
 
-export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
+export function ShareDropdown({
+  todayCharacterSlug,
+  variant = "classic",
+  uiTheme = "martial",
+}: ShareDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { guesses, tries } = useGuessesContext();
@@ -25,6 +33,28 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
   const shareTextTranslations = useTranslations("share");
 
   const shareText = useMemo(() => {
+    if (variant === "silhouette") {
+      const comparedGuesses = guesses.map((g) => ({
+        id: g.slug,
+        hint: {
+          status:
+            g.slug === todayCharacterSlug
+              ? GuessStatus.CORRECT
+              : GuessStatus.WRONG,
+        },
+      }));
+
+      return buildShareText({
+        tries,
+        headers: [{ value: "hint" }],
+        guesses: comparedGuesses,
+        translations: {
+          "share.silhouette.one": shareTextTranslations.tweet.silhouetteOne,
+          "share.silhouette.other": shareTextTranslations.tweet.silhouetteOther,
+        },
+      });
+    }
+
     const dailyChar = guesses.find((g) => g.slug === todayCharacterSlug)!;
     const comparedGuesses = guesses.map((g) => mapGuessToRow(g, dailyChar));
 
@@ -45,7 +75,7 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
         "share.tweet.other": shareTextTranslations.tweet.other,
       },
     });
-  }, [tries, guesses, todayCharacterSlug, shareTextTranslations]);
+  }, [tries, guesses, todayCharacterSlug, shareTextTranslations, variant]);
 
   const xShareUrl = useMemo(() => {
     return (
@@ -82,18 +112,24 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
     setIsOpen(false);
   };
 
+  const isCapsule = uiTheme === "capsule";
+
   return (
     <div className="relative" ref={dropdownRef}>
       <ShineGradientButton
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           " w-full sm:w-auto! max-h-11 rounded-xl p-4",
-          "bg-linear-135 from-green-500 to-green-700 shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_#00000040]",
+          isCapsule
+            ? "bg-linear-135 from-sky-400 to-blue-700 shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_rgba(2,132,199,0.45)]"
+            : "bg-linear-135 from-green-500 to-green-700 shadow-[inset_0_0_0_1px_#fff3,0_6px_14px_#00000040]",
           "transition-transform ease-linear hover:scale-105",
           "text-white font-ui font-black leading-none cursor-pointer",
         )}
         contentClassName={cn("inline-flex items-center justify-center gap-2")}
-        shineColor="rgba(74, 222, 128, 0.4)"
+        shineColor={
+          isCapsule ? "rgba(125, 211, 252, 0.45)" : "rgba(74, 222, 128, 0.4)"
+        }
       >
         <span>{translations.share}</span>
         <CaretDownIcon size={16} weight="bold" />
@@ -103,8 +139,10 @@ export function ShareDropdown({ todayCharacterSlug }: ShareDropdownProps) {
         <div
           className={cn(
             "absolute top-full mt-2 right-0 z-50",
-            "min-w-48 rounded-xl bg-linear-135 from-green-600 to-green-700 border border-white/25",
-            "shadow-[0_8px_20px_#00000042] overflow-hidden",
+            "min-w-48 rounded-xl border border-white/25 overflow-hidden",
+            isCapsule
+              ? "bg-linear-135 from-sky-600 to-blue-800 shadow-[0_8px_24px_rgba(2,132,199,0.45)]"
+              : "bg-linear-135 from-green-600 to-green-700 shadow-[0_8px_20px_#00000042]",
           )}
         >
           <button

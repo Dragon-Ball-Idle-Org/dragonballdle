@@ -3,7 +3,7 @@ import { GuessesProvider } from "@/contexts/GuessesContext";
 import { TranslationProvider } from "@/contexts/TranslationContext";
 import { getTranslationsBundle } from "@/lib/client-translations";
 
-export async function ClassicProviders({
+export async function SilhouetteProviders({
   children,
   locale,
 }: {
@@ -11,17 +11,18 @@ export async function ClassicProviders({
   locale: string;
 }) {
   const translations = await getTranslationsBundle([
-    "classic",
+    "silhouette",
+    "silhouetteHero",
+    "silhouetteViewer",
     "winModal",
     "winBanner",
-    "hero",
     "share",
   ]);
 
   return (
     <TranslationProvider translations={translations}>
-      <GuessesProvider locale={locale} gameMode="classic">
-        <GameProvider gameMode="classic">{children}</GameProvider>
+      <GuessesProvider locale={locale} gameMode="silhouette">
+        <GameProvider gameMode="silhouette">{children}</GameProvider>
       </GuessesProvider>
     </TranslationProvider>
   );

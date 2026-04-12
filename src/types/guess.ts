@@ -12,6 +12,14 @@ export type YesterdayCharacter = {
   thumb_path: string | null;
 };
 
+export type SilhouetteCharacter = {
+  slug: string;
+  name: string;
+  thumb_path: string | null;
+  silhouette_path: string | null;
+  silhouette_colored_path: string | null;
+};
+
 export type ClassicCharacter = {
   slug: string;
   name: string;

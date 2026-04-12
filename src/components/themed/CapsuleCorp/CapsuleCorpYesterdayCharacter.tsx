@@ -1,26 +1,25 @@
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { ShineGradientButton } from "../ui/ShineGradientButton";
+import { ShineGradientButton } from "../../ui/ShineGradientButton";
 
-type MartialArtsYesterdayCharacterProps = {
+type CapsuleCorpYesterdayCharacterProps = {
   characterName: string;
   characterImage: string;
 };
 
-export function MartialArtsYesterdayCharacter({
+export function CapsuleCorpYesterdayCharacter({
   characterName,
   characterImage,
-}: MartialArtsYesterdayCharacterProps) {
+}: CapsuleCorpYesterdayCharacterProps) {
   const t = useTranslations("yesterday");
 
   return (
     <div
       className={cn(
-        "grid justify-center gap-y-2 p-6 w-fit max-w-full mx-auto",
-        "bg-primary shadow-[0_4px_12px_#00000040]",
-        "text-center text-shadow-[1px_1px_3px_#000000]",
-        "border-martial-arts",
+        "grid justify-center gap-y-2 p-6 w-fit max-w-full mx-auto rounded-2xl",
+        "bg-capsule-corp-primary shadow-[0_4px_16px_rgba(2,6,23,0.4)]",
+        "text-center text-shadow-[1px_1px_3px_#000000] text-white",
+        "border-capsule-corp",
       )}
     >
       <h4 className="text-sm font-bold">{t("title")}</h4>
@@ -37,10 +36,10 @@ export function MartialArtsYesterdayCharacter({
           <ShineGradientButton
             className={cn(
               "font-ui font-bold text-[clamp(var(--text-sm),2.6vw,var(--text-md))] text-shadow-[0_1px_2px_rgba(0,0,0,.35)]",
-              "py-1 px-2 rounded-full [box-shadow:inset 0 2px 10px #0000002e,0 1px 10px #0000001f]",
-              "bg-linear-135 from-green-500 to-green-700",
+              "py-1 px-2 rounded-full [box-shadow:inset_0_2px_10px_#0000002e,0_1px_10px_#0000001f]",
+              "bg-linear-135 from-blue-400 to-blue-600",
             )}
-            shineColor="rgba(74, 222, 128, 0.4)"
+            shineColor="rgba(96, 165, 250, 0.4)"
           >
             {characterName}
           </ShineGradientButton>

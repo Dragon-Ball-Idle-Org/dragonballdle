@@ -254,6 +254,7 @@ export type Database = {
           image_path: string | null
           saga_id: string
           serie_id: string
+          silhouette_colored_path: string | null
           silhouette_path: string | null
           slug: string
           thumb_path: string | null
@@ -267,6 +268,7 @@ export type Database = {
           image_path?: string | null
           saga_id?: string
           serie_id?: string
+          silhouette_colored_path?: string | null
           silhouette_path?: string | null
           slug: string
           thumb_path?: string | null
@@ -280,6 +282,7 @@ export type Database = {
           image_path?: string | null
           saga_id?: string
           serie_id?: string
+          silhouette_colored_path?: string | null
           silhouette_path?: string | null
           slug?: string
           thumb_path?: string | null
@@ -320,7 +323,7 @@ export type Database = {
           character_id?: string | null
           date?: string | null
           day_index: number
-          game_mode: string
+          game_mode?: string
         }
         Update: {
           character_id?: string | null

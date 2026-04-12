@@ -4,6 +4,10 @@
       "title": "Classique",
       "subtitle": "Devinez le personnage du jour"
     },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Révélez le personnage mystérieux"
+    },
     "inProgress": {
       "title": "En cours...",
       "subtitle": "Un nouveau jeu arrive..."
@@ -117,10 +121,33 @@
   "guessForm": {
     "submitAlt": "Boule à 4 étoiles"
   },
+  "silhouette": {
+    "dailyNotFound": "Personnage du jour introuvable",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Révélez le personnage mystère de Dragon Ball du jour à partir d'une silhouette ! Un mini-jeu quotidien gratuit pour les fans."
+    }
+  },
+  "silhouetteViewer": {
+    "revealPercent": "{percent} %",
+    "guessCountOne": "1 essai",
+    "guessCountMany": "{count} essais",
+    "characterRevealed": "Personnage révélé !",
+    "imageAltDaily": "Défi silhouette du jour",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouetteHero": {
+    "title": "Révélez la Silhouette !",
+    "subtitle": "personnes ont déjà révélé le personnage d'aujourd'hui !"
+  },
   "share": {
     "tweet": {
       "one": "J'ai deviné le personnage DragonBallDle d'aujourd'hui en 1 essai :\n{guesses}\nEssayez aussi sur {url}",
       "other": "J'ai deviné le personnage DragonBallDle d'aujourd'hui en {tries} essais :\n{guesses}\nEssayez aussi sur {url}"
+    },
+    "silhouette": {
+      "one": "J'ai révélé la silhouette DragonBallDle du jour en 1 essai :\n{guesses}\nEssayez aussi sur {url}",
+      "other": "J'ai révélé la silhouette DragonBallDle du jour en {tries} essais :\n{guesses}\nEssayez aussi sur {url}"
     }
   },
   "contact": {

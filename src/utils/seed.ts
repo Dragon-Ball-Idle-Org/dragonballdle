@@ -1,3 +1,5 @@
+import { GameMode } from "@/types/game-mode";
+
 export const DAILY_SECRET = process.env.DAILY_SECRET!;
 
 export function cyrb128(str: string): [number, number, number, number] {
@@ -38,8 +40,9 @@ export function deterministicCandidate(
   ymd: string,
   attempt: number,
   N: number,
+  gameMode: GameMode = "classic",
 ): number {
-  const seedStr = `${ymd}|${attempt}|${DAILY_SECRET}|soft-norepeat-v2`;
+  const seedStr = `${ymd}|${gameMode}|${attempt}|${DAILY_SECRET}|soft-norepeat-v2`;
   const [s0] = cyrb128(seedStr);
   const rnd = mulberry32(s0); // XOR dos dois primeiros seeds — mais entropia inicial
 

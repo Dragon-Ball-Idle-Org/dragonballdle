@@ -4,6 +4,10 @@
       "title": "Classic",
       "subtitle": "Guess the daily character"
     },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
+    },
     "inProgress": {
       "title": "In progress...",
       "subtitle": "A new game is coming..."
@@ -117,10 +121,33 @@
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"
   },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
+  },
+  "silhouetteViewer": {
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 guess",
+    "guessCountMany": "{count} guesses",
+    "characterRevealed": "Character revealed!",
+    "imageAltDaily": "Daily silhouette challenge",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "people have already revealed today's character!"
+  },
   "share": {
     "tweet": {
       "one": "I guessed today's DragonBallDle character in 1 try:\n{guesses}\nTry it too at {url}",
       "other": "I guessed today's DragonBallDle character in {tries} tries:\n{guesses}\nTry it too at {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {

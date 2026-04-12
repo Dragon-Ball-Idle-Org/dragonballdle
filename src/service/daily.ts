@@ -1,6 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { getDayIndexBrasilia } from "@/lib/daily";
-import { ClassicCharacter, YesterdayCharacter } from "@/types/guess";
+import {
+  ClassicCharacter,
+  YesterdayCharacter,
+  SilhouetteCharacter,
+} from "@/types/guess";
 import {
   AffiliationJoin,
   AttributeJoin,
@@ -11,10 +15,10 @@ import {
 function mapToClassicCharacter(c: DailyCharacterRow): ClassicCharacter {
   const mapIfExists = <T, U>(
     array: T[] | undefined | null,
-    mapper: (item: T) => U
+    mapper: (item: T) => U,
   ): U[] | null => {
     return array && array.length > 0 ? array.map(mapper) : null;
-  }
+  };
 
   return {
     slug: c.slug,
@@ -39,7 +43,8 @@ function mapToClassicCharacter(c: DailyCharacterRow): ClassicCharacter {
       slug: cr.races?.slug ?? "",
       name: cr.races?.race_translations[0]?.name ?? "",
     })),
-    affiliations: mapIfExists(c.character_affiliations, 
+    affiliations: mapIfExists(
+      c.character_affiliations,
       (ca: AffiliationJoin) => ({
         slug: ca.affiliations?.slug ?? "",
         name: ca.affiliations?.affiliation_translations[0]?.name ?? "",
@@ -124,7 +129,6 @@ export async function getDailyCharacter(
       threatedLocale,
     )
     .single();
-    
 
   if (error || !data?.characters) {
     console.log("data", data);
@@ -157,6 +161,88 @@ export async function getYesterdayCharacter(
     )
     .eq("day_index", dayIndex)
     .eq("game_mode", "classic")
+    .eq("characters.character_translations.locale", threatedLocale)
+    .single();
+
+  if (error || !data?.characters) {
+    console.log("data", data);
+    console.error("error", error);
+    return null;
+  }
+
+  return {
+    slug: data.characters.slug,
+    name:
+      data.characters.character_translations[0]?.name ?? data.characters.slug,
+    thumb_path: data.characters.thumb_path,
+  };
+}
+
+export async function getDailySilhouetteCharacter(
+  locale: string,
+): Promise<SilhouetteCharacter | null> {
+  const supabase = createClient();
+  const dayIndex = getDayIndexBrasilia();
+
+  const threatedLocale = locale.toLowerCase();
+
+  const { data, error } = await supabase
+    .from("daily_characters")
+    .select(
+      `
+      day_index,
+      characters (
+        slug,
+        thumb_path,
+        silhouette_path,
+        silhouette_colored_path,
+        character_translations!inner (name)
+      )
+    `,
+    )
+    .eq("day_index", dayIndex)
+    .eq("game_mode", "silhouette")
+    .eq("characters.character_translations.locale", threatedLocale)
+    .single();
+
+  if (error || !data?.characters) {
+    console.log("data", data);
+    console.error("error", error);
+    return null;
+  }
+
+  return {
+    slug: data.characters.slug,
+    name:
+      data.characters.character_translations[0]?.name ?? data.characters.slug,
+    thumb_path: data.characters.thumb_path,
+    silhouette_path: data.characters.silhouette_path,
+    silhouette_colored_path: data.characters.silhouette_colored_path,
+  };
+}
+
+export async function getYesterdaySilhouetteCharacter(
+  locale: string,
+): Promise<YesterdayCharacter | null> {
+  const supabase = createClient();
+  const dayIndex = getDayIndexBrasilia() - 1;
+
+  const threatedLocale = locale.toLowerCase();
+
+  const { data, error } = await supabase
+    .from("daily_characters")
+    .select(
+      `
+      day_index,
+      characters (
+        slug,
+        thumb_path,
+        character_translations!inner (name)
+      )
+    `,
+    )
+    .eq("day_index", dayIndex)
+    .eq("game_mode", "silhouette")
     .eq("characters.character_translations.locale", threatedLocale)
     .single();
 

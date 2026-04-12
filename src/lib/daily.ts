@@ -1,3 +1,4 @@
+import { GameMode } from "@/types/game-mode";
 import { deterministicCandidate } from "@/utils/seed";
 
 export const EPOCH_YMD = "2025-01-01";
@@ -44,6 +45,7 @@ export function getCanonicalList<T extends { slug?: string }>(list: T[]): T[] {
 export function getCharacterIndexForDay(
   k: number,
   N: number,
+  gameMode: GameMode,
   seqCache: (number | undefined)[] = [],
 ): { index: number; cache: (number | undefined)[] } {
   const cache = [...seqCache];
@@ -67,7 +69,7 @@ export function getCharacterIndexForDay(
 
     let chosen: number | null = null;
     for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
-      const cand = deterministicCandidate(dayYMD, attempt, N);
+      const cand = deterministicCandidate(dayYMD, attempt, N, gameMode);
       if (!recent.has(cand)) {
         chosen = cand;
         break;
@@ -78,7 +80,7 @@ export function getCharacterIndexForDay(
       let bestIdx = 0;
       let bestGap = -Infinity;
       for (let attempt = 0; attempt < Math.max(MAX_ATTEMPTS, 32); attempt++) {
-        const cand = deterministicCandidate(dayYMD, attempt, N);
+        const cand = deterministicCandidate(dayYMD, attempt, N, gameMode);
         let last = -Infinity;
         for (let i = day - 1; i >= start; i--) {
           if (cache[i] === cand) {
