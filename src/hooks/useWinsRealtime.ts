@@ -28,6 +28,21 @@ export function useWinsRealtime(gameMode: GameMode) {
       .on(
         "postgres_changes",
         {
+          event: "INSERT",
+          schema: "public",
+          table: "wins",
+          filter: `game_mode=eq.${gameMode}`,
+        },
+        (payload) => {
+          if (process.env.NODE_ENV === "development") {
+            console.log("Received new win row:", payload);
+          }
+          setWinsCount(payload.new.wins_count);
+        },
+      )
+      .on(
+        "postgres_changes",
+        {
           event: "UPDATE",
           schema: "public",
           table: "wins",
@@ -35,7 +50,7 @@ export function useWinsRealtime(gameMode: GameMode) {
         },
         (payload) => {
           if (process.env.NODE_ENV === "development") {
-            console.log("Received wins count update:", payload);
+            console.log("Received wins update:", payload);
           }
           setWinsCount(payload.new.wins_count);
         },
