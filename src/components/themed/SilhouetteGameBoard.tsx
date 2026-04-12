@@ -11,7 +11,6 @@ import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
 import type { SilhouetteCharacter } from "@/types/guess";
 import { useTranslations } from "@/contexts/TranslationContext";
-import { incrementWins } from "@/service/wins";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
 import { cn } from "@/utils/cn";
@@ -143,7 +142,6 @@ export function SilhouetteGameBoard({
                   {guess.name}
                 </p>
 
-                {/* Spacer balanceia imagem esquerdista para centralizar nome */}
                 <div className="w-12 h-12 shrink-0" />
               </motion.div>
             );
