@@ -173,3 +173,4 @@ Os botões do jogo utilizam padrões recorrentes:
 - Ao criar um componente novo, pergunte-se: "Isso é genérico?" Se sim, deite-o em `_UI/`.
 - Antes de aplicar novos estilos, verifique se não existe uma variável no `@theme inline` dentro do `globals.css` que já satisfaça a necessidade estética.
 - Ao atualizar ou instanciar qualquer configuração global de CSS, tenha em mente a sintaxe v4 do TailwindCSS (`@import "tailwindcss";` / `@theme inline { ... }`).
+- Utilizar comentários no código se, e somente se, for extremamente necessário.
