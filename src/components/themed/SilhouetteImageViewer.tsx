@@ -104,7 +104,7 @@ export function SilhouetteImageViewer({
         )}
       >
         <motion.div
-          className="absolute inset-0 origin-center"
+          className="absolute inset-0 origin-center bg-scouter-texture"
           initial={{
             scale: isGameWon ? 1 : currentZoom,
             x: isGameWon ? "0%" : `${currentX}%`,

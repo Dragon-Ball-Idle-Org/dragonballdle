@@ -199,6 +199,14 @@
     background-size: cover;
   }
 
+  .bg-scouter-texture {
+    background-image: url("/assets/scouter-texture.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+  }
+
   .border-capsule-corp-sm {
     position: relative;
     border-radius: 0.75rem;
