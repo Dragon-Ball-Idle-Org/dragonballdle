@@ -50,11 +50,8 @@ export function SilhouetteGameBoard({
     setSelectedSlug(null);
 
     if (character.slug === dailyCharacter.slug) {
-      // Wait guess animation ends to show win screen
-      setTimeout(async () => {
-        wonGame();
-        await incrementWins();
-      }, 2700);
+      wonGame();
+      // await incrementWins();
     }
   };
 
