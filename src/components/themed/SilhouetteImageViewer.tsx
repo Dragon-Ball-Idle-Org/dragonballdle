@@ -100,7 +100,7 @@ export function SilhouetteImageViewer({
       <div
         className={cn(
           "relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden",
-          "bg-capsule-corp-primary border-capsule-corp-viewport border-2 border-sky-500/50",
+          "bg-capsule-corp-primary border-capsule-corp-viewport border-2 border-emerald-500/50",
         )}
       >
         <motion.div
@@ -137,15 +137,15 @@ export function SilhouetteImageViewer({
           />
         </motion.div>
 
-        <div className="absolute top-4 right-4 bg-slate-950/85 px-3 py-1 rounded-full text-xs font-bold text-sky-200 border border-sky-400/60 shadow-[0_0_12px_rgba(56,189,248,0.35)]">
+        <div className="absolute top-4 right-4 bg-slate-950/85 px-3 py-1 rounded-full text-xs font-bold text-emerald-200 border border-emerald-400/60 shadow-[0_0_12px_rgba(16,185,129,0.35)]">
           {revealLabel}
         </div>
       </div>
 
       <div className="w-full flex items-center gap-2">
-        <div className="flex-1 h-2 bg-slate-900/80 rounded-full overflow-hidden border border-sky-500/40">
+        <div className="flex-1 h-2 bg-slate-900/80 rounded-full overflow-hidden border border-emerald-500/40">
           <motion.div
-            className="h-full bg-linear-135 from-sky-300 via-sky-500 to-blue-700 rounded-full"
+            className="h-full bg-linear-135 from-emerald-300 via-emerald-500 to-teal-700 rounded-full"
             animate={{
               width: `${revealPercent}%`,
             }}
@@ -155,7 +155,7 @@ export function SilhouetteImageViewer({
             }}
           />
         </div>
-        <span className="text-xs font-bold text-sky-200 whitespace-nowrap drop-shadow-sm">
+        <span className="text-xs font-bold text-emerald-200 whitespace-nowrap drop-shadow-sm">
           {guessLabel}
         </span>
       </div>
@@ -164,7 +164,7 @@ export function SilhouetteImageViewer({
         <motion.p
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-sm font-bold text-sky-300"
+          className="text-sm font-bold text-emerald-300"
         >
           ✓ {tr.characterRevealed}
         </motion.p>

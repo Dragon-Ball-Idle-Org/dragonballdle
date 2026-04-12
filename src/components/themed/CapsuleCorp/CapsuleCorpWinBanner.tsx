@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/utils/cn";
 import { CountdownToMidnight } from "../../shared/CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import { useGameContext } from "@/contexts/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
