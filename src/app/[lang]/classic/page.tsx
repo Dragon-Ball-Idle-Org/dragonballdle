@@ -1,8 +1,8 @@
 import { MainContainer } from "@/components/ui/MainContainer";
-import { MartialArtsHero } from "@/components/themed/MartialArtsHero";
-import { MartialArtsYesterdayCharacter } from "@/components/themed/MartialArtsYesterdayCharacter";
-import { MartialArtsWinBanner } from "@/components/themed/MartialArtsWinBanner";
-import { MartialArtsGuessForm } from "@/components/themed/MartialArtsGuessForm";
+import { MartialArtsHero } from "@/components/themed/MartialArts/MartialArtsHero";
+import { MartialArtsYesterdayCharacter } from "@/components/themed/MartialArts/MartialArtsYesterdayCharacter";
+import { MartialArtsWinBanner } from "@/components/themed/MartialArts/MartialArtsWinBanner";
+import { ClassicGameBoard } from "@/components/themed/ClassicGameBoard";
 import { cn } from "@/utils/cn";
 import GlassAccordion from "@/components/ui/GlassAccordion";
 import {
@@ -57,7 +57,7 @@ export default async function ClassicPage() {
             "[-webkit-overflow-scrolling:touch] [scrollbar-width:thin] snap-x snap-proximity overflow-x-auto",
           )}
         >
-          <MartialArtsGuessForm dailyCharacter={dailyChar} />
+          <ClassicGameBoard dailyCharacter={dailyChar} />
           <ClassicGuessTableLoader dailyCharacter={dailyChar} />
         </div>
 

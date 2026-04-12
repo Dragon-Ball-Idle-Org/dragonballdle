@@ -1,6 +1,6 @@
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
-import { ShineGradientButton } from "../ui/ShineGradientButton";
+import { ShineGradientButton } from "../../ui/ShineGradientButton";
 
 type CapsuleCorpYesterdayCharacterProps = {
   characterName: string;

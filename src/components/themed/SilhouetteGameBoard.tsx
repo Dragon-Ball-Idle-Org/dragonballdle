@@ -1,7 +1,7 @@
 "use client";
 
 import { SilhouetteImageViewer } from "./SilhouetteImageViewer";
-import { CapsuleCorpAutocompleteField } from "./CapsuleCorpAutocompleteField";
+import { CapsuleCorpAutocompleteField } from "./CapsuleCorp/CapsuleCorpAutocompleteField";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCharacterSearch } from "@/hooks/useCharacterSearch";

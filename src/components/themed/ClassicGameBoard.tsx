@@ -1,6 +1,6 @@
 "use client";
 
-import { MartialArtsAutocompleteField } from "./MartialArtsAutocompleteField";
+import { MartialArtsAutocompleteField } from "./MartialArts/MartialArtsAutocompleteField";
 import { useMemo, useState } from "react";
 import { useCharacterSearch } from "@/hooks/useCharacterSearch";
 import { useLocale } from "next-intl";
@@ -13,7 +13,7 @@ import { incrementWins } from "@/service/wins";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
 
-export function MartialArtsGuessForm({
+export function ClassicGameBoard({
   dailyCharacter,
 }: {
   dailyCharacter: ClassicCharacter;

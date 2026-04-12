@@ -1,7 +1,6 @@
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { ShineGradientButton } from "../ui/ShineGradientButton";
+import { ShineGradientButton } from "@/components/ui/ShineGradientButton";
 
 type MartialArtsYesterdayCharacterProps = {
   characterName: string;

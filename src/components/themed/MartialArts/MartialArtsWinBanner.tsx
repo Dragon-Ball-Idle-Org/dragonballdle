@@ -2,28 +2,26 @@
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/utils/cn";
-import { CountdownToMidnight } from "../shared/CountdownToMidnight";
+import { CountdownToMidnight } from "@/components/shared/CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import { useGameContext } from "@/contexts/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
-import { ShareDropdown } from "../ui/ShareDropdown";
-import { ShineGradientButton } from "../ui/ShineGradientButton";
+import { ShareDropdown } from "@/components/ui/ShareDropdown";
+import { ShineGradientButton } from "@/components/ui/ShineGradientButton";
 
-type CapsuleCorpWinBannerProps = {
+type MartialArtsWinBannerProps = {
   todayCharacterSlug: string;
   todayCharacterName: string;
   todayCharacterImage: string;
-  shareVariant?: "classic" | "silhouette";
 };
 
-export function CapsuleCorpWinBanner({
+export function MartialArtsWinBanner({
   todayCharacterSlug,
   todayCharacterName,
   todayCharacterImage,
-  shareVariant = "classic",
-}: CapsuleCorpWinBannerProps) {
+}: MartialArtsWinBannerProps) {
   const { tries, hydrated } = useGuessesContext();
   const { isGameWon } = useGameContext();
   const translations = useTranslations("winBanner");
@@ -42,11 +40,11 @@ export function CapsuleCorpWinBanner({
           <div
             className={cn(
               "grid auto-rows-max justify-items-center w-full",
-              "sm:max-w-[90xw] min-w-80 sm:min-w-130 p-4 sm:p-3 border-capsule-corp rounded-2xl",
-              "bg-capsule-corp-primary shadow-[0_8px_20px_rgba(2,6,23,0.45)] text-shadow-[1px_1px_3px_rgba(0,0,0,.85)] text-white",
+              "sm:max-w-[90xw] min-w-80 sm:min-w-130 p-4 sm:p-3 border-martial-arts",
+              "bg-primary shadow-[0_8px_20px_#00000042] text-shadow-[1px_1px_3px_rgba(0,0,0,.85)]",
             )}
           >
-            <h3 className="text-center text-xl font-black m-0 mb-2 pb-2 border-b-2 border-sky-950/35">
+            <h3 className="text-center text-xl font-black m-0 mb-2 pb-2 border-b-2 border-black/16">
               {translations.title}
             </h3>
 
@@ -56,16 +54,16 @@ export function CapsuleCorpWinBanner({
               value={<CountdownToMidnight className="font-ui font-black" />}
             />
 
-            <div className="w-full flex flex-col items-center justify-center gap-3 border-t border-sky-950/30 pt-3 pb-2">
+            <div className="w-full flex flex-col items-center justify-center gap-3 border-t border-black/12 pt-3 pb-2">
               <div className="flex flex-col items-center gap-2 text-center">
                 <span className="font-bold">{translations.todayCharacter}</span>
                 <ShineGradientButton
                   className={cn(
                     "py-2 px-3 shadow-[inset_0_1px_8px_#00000038,0_2px_8px_#0000001f]",
-                    "bg-linear-135 from-blue-400 to-blue-600",
+                    "bg-linear-135 from-green-500 to-green-700",
                     "font-ui font-black text-xl text-shadow-[1px_1px_2px_rgba(0,0,0,.6)] whitespace-nowrap",
                   )}
-                  shineColor="rgba(96, 165, 250, 0.4)"
+                  shineColor="rgba(74, 222, 128, 0.4)"
                 >
                   {todayCharacterName}
                 </ShineGradientButton>
@@ -79,11 +77,7 @@ export function CapsuleCorpWinBanner({
               />
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
-              <ShareDropdown
-                todayCharacterSlug={todayCharacterSlug}
-                variant={shareVariant}
-                uiTheme="capsule"
-              />
+              <ShareDropdown todayCharacterSlug={todayCharacterSlug} />
               <Link
                 href="https://buymeacoffee.com/dragonballdle"
                 target="_blank"
@@ -111,11 +105,16 @@ export function CapsuleCorpWinBanner({
   );
 }
 
-function Row({ title, value }: { title: string; value: ReactNode }) {
+function Row({ title, value }: { title: string; value: string | ReactNode }) {
   return (
-    <div className="w-full flex items-center justify-between gap-4 py-2 border-b border-sky-950/25 last:border-b-0 px-2">
-      <span className="text-sm font-bold">{title}</span>
-      <span className="font-ui font-black text-sm text-right">{value}</span>
+    <div className="flex items-center justify-between w-full p-2 border-t border-black/12">
+      <span className="font-bold">{title}</span>
+      <span
+        className="font-ui font-black py-0.5 px-2 rounded-xl outline outline-white/45 bg-black/15"
+        suppressHydrationWarning
+      >
+        {value}
+      </span>
     </div>
   );
 }
