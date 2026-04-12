@@ -17,7 +17,7 @@ export function CapsuleCorpYesterdayCharacter({
     <div
       className={cn(
         "grid justify-center gap-y-2 p-6 w-fit max-w-full mx-auto rounded-2xl",
-        "bg-capsule-corp-primary shadow-[0_4px_16px_rgba(2,6,23,0.4)]",
+        "background-capsule-corp-texture shadow-[0_4px_16px_rgba(2,6,23,0.5)]",
         "text-center text-shadow-[1px_1px_3px_#000000] text-white",
         "border-capsule-corp",
       )}
@@ -29,17 +29,17 @@ export function CapsuleCorpYesterdayCharacter({
           alt={characterName}
           width={48}
           height={48}
-          className="w-12 h-12 rounded-xl border object-cover bg-white shadow-[0_0_0_2px_#fff9,0_4px_12px_#0000004d]"
+          className="w-12 h-12 rounded-xl border border-white/20 object-cover bg-white shadow-[0_0_0_2px_#ffffff22,0_4px_12px_#0000004d]"
         />
         <div className="flex flex-col items-center gap-1">
           <span className="text-xs font-semibold">{t("characterLabel")}</span>
           <ShineGradientButton
             className={cn(
               "font-ui font-bold text-[clamp(var(--text-sm),2.6vw,var(--text-md))] text-shadow-[0_1px_2px_rgba(0,0,0,.35)]",
-              "py-1 px-2 rounded-full [box-shadow:inset_0_2px_10px_#0000002e,0_1px_10px_#0000001f]",
-              "bg-linear-135 from-blue-400 to-blue-600",
+              "py-1 px-2 rounded-full [box-shadow:inset_0_2px_10px_#0000002e,0_1px_10px_#10b98133]",
+              "bg-linear-135 from-emerald-400 to-teal-600",
             )}
-            shineColor="rgba(96, 165, 250, 0.4)"
+            shineColor="rgba(16, 185, 129, 0.4)"
           >
             {characterName}
           </ShineGradientButton>

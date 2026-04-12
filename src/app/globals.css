@@ -15,13 +15,14 @@
   --palette-green-dark: #228b22;
   --palette-green-light: #32cd32;
 
-  --palette-blue-base: #4facfe;
-  --palette-blue-light: #60a5fa;
-  --palette-blue-dark: #0284c7;
+  --palette-blue-base: #0d9488; /* Scouter Teal */
+  --palette-blue-light: #2dd4bf; /* Neon Scouter Tint */
+  --palette-blue-dark: #0f766e; /* Deep Scouter Lens */
 
-  --pallete-red-light: #d51919;
+  --palette-tech-green: #10b981; /* Dragon Radar Screen */
+  --palette-radar-gray: #e5e7eb; /* Radar Body */
 
-  --pallete-blue-light: #48a8db;
+  --pallete-red-light: #ef4444;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -175,14 +176,14 @@
     }
   }
 
-  /* Capsule Corp Theme — corporate tech / Trunks timeline (distinct from Martial Arts dragon frame) */
+  /* Capsule Corp Theme — Dragon Radar & Scouter tech (Green/Teal digital lens) */
   .bg-capsule-corp-primary {
     background-color: var(--palette-blue-base);
     background-image: linear-gradient(
       165deg,
       rgba(255, 255, 255, 0.1) 0%,
-      transparent 40%,
-      rgba(0, 0, 0, 0.14) 100%
+      transparent 50%,
+      rgba(0, 0, 0, 0.2) 100%
     );
   }
 
@@ -191,7 +192,7 @@
   }
 
   .text-capsule-corp-bright {
-    color: #e0f2fe;
+    color: #ccfbf1; /* teal-100 */
   }
 
   .border-capsule-corp-primary {
@@ -211,64 +212,77 @@
   }
 
   .background-capsule-corp-texture {
-    background-color: #0369a1;
+    background-color: #064e3b; /* base deep emerald */
     background-image:
-      radial-gradient(
-        ellipse 130% 90% at 15% 15%,
-        rgba(255, 255, 255, 0.16),
-        transparent 52%
+      /* Digital Scanlines */
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
       ),
+      /* Radar Grid Vertical */
+      repeating-linear-gradient(
+        90deg,
+        rgba(34, 197, 94, 0.05),
+        rgba(34, 197, 94, 0.05) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      /* Radar Grid Horizontal */
+      repeating-linear-gradient(
+        0deg,
+        rgba(34, 197, 94, 0.05),
+        rgba(34, 197, 94, 0.05) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      /* Electronic Glow Highlights */
       radial-gradient(
         ellipse 90% 70% at 88% 88%,
-        rgba(56, 189, 248, 0.35),
+        rgba(16, 185, 129, 0.25),
         transparent 50%
       ),
-      repeating-linear-gradient(
-        -14deg,
-        transparent,
-        transparent 7px,
-        rgba(255, 255, 255, 0.04) 7px,
-        rgba(255, 255, 255, 0.04) 8px
-      ),
-      linear-gradient(155deg, #075985 0%, #0ea5e9 48%, #0369a1 100%);
+      linear-gradient(155deg, #065f46 0%, #059669 48%, #064e3b 100%);
   }
 
   .border-capsule-corp-sm {
     position: relative;
     border-radius: 0.75rem;
     box-shadow:
-      0 0 0 2px rgba(56, 189, 248, 0.55),
-      0 0 16px rgba(14, 165, 233, 0.22),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 0 0 2px rgba(16, 185, 129, 0.5),
+      0 0 16px rgba(16, 185, 129, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
   .border-capsule-corp {
     position: relative;
     border-radius: 1rem;
     box-shadow:
-      0 0 0 2px rgba(125, 211, 252, 0.55),
-      0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-      0 10px 28px rgba(2, 132, 199, 0.38);
+      0 0 0 2px rgba(45, 212, 191, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 10px 28px rgba(13, 148, 136, 0.3);
   }
 
   .border-capsule-corp-viewport {
     box-shadow:
-      0 0 0 2px rgba(14, 165, 233, 0.65),
-      0 0 24px rgba(56, 189, 248, 0.2),
-      inset 0 0 48px rgba(0, 0, 0, 0.55),
-      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      0 0 0 2px rgba(20, 184, 166, 0.8),
+      0 0 24px rgba(20, 184, 166, 0.3),
+      inset 0 0 60px rgba(0, 0, 0, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .panel-capsule-corp {
     background: linear-gradient(
       145deg,
-      rgba(15, 23, 42, 0.55) 0%,
-      rgba(12, 74, 110, 0.35) 100%
+      rgba(15, 23, 42, 0.75) 0%,
+      rgba(6, 78, 59, 0.45) 100%
     );
     box-shadow:
-      0 0 0 1px rgba(125, 211, 252, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 12px 40px rgba(2, 6, 23, 0.5);
+      0 0 0 1px rgba(45, 212, 191, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 12px 40px rgba(2, 6, 23, 0.6);
   }
 
   @keyframes popupZoom {
