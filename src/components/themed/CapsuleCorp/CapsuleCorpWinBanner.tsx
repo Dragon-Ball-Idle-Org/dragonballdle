@@ -43,7 +43,7 @@ export function CapsuleCorpWinBanner({
             className={cn(
               "grid auto-rows-max justify-items-center w-full",
               "sm:max-w-[90xw] min-w-80 sm:min-w-130 p-4 sm:p-3 border-2 border-white rounded-2xl",
-              "background-capsule-corp-texture shadow-[0_8px_32px_rgba(2,6,23,0.6)] text-shadow-[1px_1px_3px_rgba(0,0,0,.85)] text-white",
+              "bg-capsule-corp-texture shadow-[0_8px_32px_rgba(2,6,23,0.6)] text-shadow-[1px_1px_3px_rgba(0,0,0,.85)] text-white",
             )}
           >
             <h3 className="text-center text-xl font-black m-0 mb-2 pb-2 border-b-2 border-amber-400/80">

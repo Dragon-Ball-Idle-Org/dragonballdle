@@ -53,19 +53,17 @@ export function CapsuleCorpAutocompleteField({
       submitOnItemClick={submitOnSelect}
       autoHighlight="always"
     >
-      <div className="w-full border-capsule-corp-sm">
-        <Autocomplete.Input
-          className={cn(
-            "guess-input h-14 w-full px-6 font-ui text-md font-semibold text-on-primary caret-on-primary bg-capsule-corp-primary",
-            "focus-visible:outline-2 focus-visible:outline-capsule-corp-primary-light focus-visible:outline-offset-2 rounded-xl",
-            className,
-          )}
-          placeholder={translations.searchPlaceholder}
-          value={value}
-          onChange={(e) => handleChange(e.target.value)}
-          disabled={disabled}
-        />
-      </div>
+      <Autocomplete.Input
+        className={cn(
+          "guess-input h-14 w-full px-6 font-ui text-md font-semibold text-on-primary caret-on-primary bg-radar-green border-2 border-white",
+          "focus-visible:outline-2 focus-visible:outline-radar-green/80 focus-visible:outline-offset-2 rounded-xl",
+          className,
+        )}
+        placeholder={translations.searchPlaceholder}
+        value={value}
+        onChange={(e) => handleChange(e.target.value)}
+        disabled={disabled}
+      />
 
       <Autocomplete.Portal className="z-10">
         <Autocomplete.Positioner sideOffset={5}>

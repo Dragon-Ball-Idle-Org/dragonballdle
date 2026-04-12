@@ -15,19 +15,9 @@
   --palette-green-dark: #228b22;
   --palette-green-light: #32cd32;
 
-  --palette-blue-base: #0d9488;
-  /* Scouter Teal */
-  --palette-blue-light: #2dd4bf;
-  /* Neon Scouter Tint */
-  --palette-blue-dark: #0f766e;
-  /* Deep Scouter Lens */
-
-  --palette-tech-green: #10b981;
-  /* Dragon Radar Screen */
-  --palette-radar-gray: #e5e7eb;
-  /* Radar Body */
-
   --pallete-radar-green: #338551;
+
+  --pallete-blue-light: #00b4d8;
 
   --pallete-red-light: #ef4444;
 
@@ -186,14 +176,6 @@
   }
 
   /* Capsule Corp Theme — Dragon Radar & Scouter tech (Green/Teal digital lens) */
-  .bg-capsule-corp-primary {
-    background-color: var(--palette-blue-base);
-    background-image: linear-gradient(165deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        transparent 50%,
-        rgba(0, 0, 0, 0.2) 100%);
-  }
-
   .text-capsule-corp-primary {
     color: var(--palette-blue-light);
   }
@@ -203,24 +185,15 @@
     /* teal-100 */
   }
 
-  .border-capsule-corp-primary {
-    border-color: var(--palette-blue-base);
+  .bg-capsule-corp-texture-sm {
+    background-color: var(--color-radar-green);
+    background-image: url("/assets/dragon-radar-texture-small.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
-  .border-capsule-corp-primary-dark {
-    border-color: var(--palette-blue-dark);
-  }
-
-  .outline-capsule-corp-primary-dark {
-    outline-color: var(--palette-blue-dark);
-  }
-
-  .focus-visible\:outline-capsule-corp-primary-light:focus-visible {
-    outline-color: var(--palette-blue-light);
-  }
-
-  .background-capsule-corp-texture {
-    background-color: #064e3b;
+  .bg-capsule-corp-texture {
+    background-color: var(--color-radar-green);
     background-image: url("/assets/dragon-radar-texture.svg");
     background-repeat: no-repeat;
     background-size: cover;

@@ -14,7 +14,7 @@ export function CapsuleCorpHero() {
       className={cn(
         "flex flex-col items-center justify-center gap-2 sm:gap-5 p-4 text-center",
         "w-full max-w-180 my-0 mx-auto p-6 sm:p-4 rounded-2xl overflow-hidden",
-        "background-capsule-corp-texture shadow-hero",
+        "bg-capsule-corp-texture shadow-hero",
         "border-2 border-white text-white",
       )}
     >
