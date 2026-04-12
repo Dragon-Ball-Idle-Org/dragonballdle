@@ -57,7 +57,7 @@ export function SilhouetteImageViewer({
     const dirX = zone.xMin + rng() * (zone.xMax - zone.xMin);
     const dirY = zone.yMin + rng() * (zone.yMax - zone.yMin);
 
-    const dynamicDecrement = (initialZ - MIN_ZOOM) / 25;
+    const dynamicDecrement = (initialZ - MIN_ZOOM) / 18;
 
     return {
       zoom: initialZ,

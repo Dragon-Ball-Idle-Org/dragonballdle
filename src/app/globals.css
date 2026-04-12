@@ -15,12 +15,17 @@
   --palette-green-dark: #228b22;
   --palette-green-light: #32cd32;
 
-  --palette-blue-base: #0d9488; /* Scouter Teal */
-  --palette-blue-light: #2dd4bf; /* Neon Scouter Tint */
-  --palette-blue-dark: #0f766e; /* Deep Scouter Lens */
+  --palette-blue-base: #0d9488;
+  /* Scouter Teal */
+  --palette-blue-light: #2dd4bf;
+  /* Neon Scouter Tint */
+  --palette-blue-dark: #0f766e;
+  /* Deep Scouter Lens */
 
-  --palette-tech-green: #10b981; /* Dragon Radar Screen */
-  --palette-radar-gray: #e5e7eb; /* Radar Body */
+  --palette-tech-green: #10b981;
+  /* Dragon Radar Screen */
+  --palette-radar-gray: #e5e7eb;
+  /* Radar Body */
 
   --pallete-red-light: #ef4444;
 
@@ -179,12 +184,10 @@
   /* Capsule Corp Theme — Dragon Radar & Scouter tech (Green/Teal digital lens) */
   .bg-capsule-corp-primary {
     background-color: var(--palette-blue-base);
-    background-image: linear-gradient(
-      165deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      transparent 50%,
-      rgba(0, 0, 0, 0.2) 100%
-    );
+    background-image: linear-gradient(165deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.2) 100%);
   }
 
   .text-capsule-corp-primary {
@@ -192,7 +195,8 @@
   }
 
   .text-capsule-corp-bright {
-    color: #ccfbf1; /* teal-100 */
+    color: #ccfbf1;
+    /* teal-100 */
   }
 
   .border-capsule-corp-primary {
@@ -212,39 +216,10 @@
   }
 
   .background-capsule-corp-texture {
-    background-color: #064e3b; /* base deep emerald */
-    background-image:
-      /* Digital Scanlines */
-      repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.15) 1px,
-        transparent 1px,
-        transparent 2px
-      ),
-      /* Radar Grid Vertical */
-      repeating-linear-gradient(
-        90deg,
-        rgba(34, 197, 94, 0.05),
-        rgba(34, 197, 94, 0.05) 1px,
-        transparent 1px,
-        transparent 40px
-      ),
-      /* Radar Grid Horizontal */
-      repeating-linear-gradient(
-        0deg,
-        rgba(34, 197, 94, 0.05),
-        rgba(34, 197, 94, 0.05) 1px,
-        transparent 1px,
-        transparent 40px
-      ),
-      /* Electronic Glow Highlights */
-      radial-gradient(
-        ellipse 90% 70% at 88% 88%,
-        rgba(16, 185, 129, 0.25),
-        transparent 50%
-      ),
-      linear-gradient(155deg, #065f46 0%, #059669 48%, #064e3b 100%);
+    background-color: #064e3b;
+    background-image: url("/assets/dragon-radar-texture.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .border-capsule-corp-sm {
@@ -274,11 +249,9 @@
   }
 
   .panel-capsule-corp {
-    background: linear-gradient(
-      145deg,
-      rgba(15, 23, 42, 0.75) 0%,
-      rgba(6, 78, 59, 0.45) 100%
-    );
+    background: linear-gradient(145deg,
+        rgba(15, 23, 42, 0.75) 0%,
+        rgba(6, 78, 59, 0.45) 100%);
     box-shadow:
       0 0 0 1px rgba(45, 212, 191, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
