@@ -155,7 +155,7 @@ export function SilhouetteGameBoard({
                   )}
                 </div>
 
-                <p className="font-display text-white text-xl flex-1 text-center truncate px-2 drop-shadow-md">
+                <div className="font-display text-white text-xl flex-1 text-center truncate px-2 drop-shadow-md">
                   <ScrambleText
                     text={guess.name}
                     animate={!isFinished}
@@ -164,7 +164,7 @@ export function SilhouetteGameBoard({
                       handleScrambleEnd(guess.slug, isCorrect)
                     }
                   />
-                </p>
+                </div>
 
                 <div className="w-12 h-12 shrink-0" />
               </motion.div>

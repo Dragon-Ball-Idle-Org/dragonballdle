@@ -17,7 +17,6 @@ import { ShineGradientButton } from "./ShineGradientButton";
 type ShareDropdownProps = {
   todayCharacterSlug: string;
   variant?: "classic" | "silhouette";
-  /** Capsule Corp (silhouette) vs Martial Arts (classic) chrome */
   uiTheme?: "martial" | "capsule";
 };
 

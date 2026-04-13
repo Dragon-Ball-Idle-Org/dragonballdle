@@ -194,6 +194,14 @@
     background-size: cover;
   }
 
+
+  .bg-capsule-corp-texture-square {
+    background-color: var(--color-radar-green);
+    background-image: url("/assets/dragon-radar-texture-square.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .bg-capsule-corp-texture {
     background-color: var(--color-radar-green);
     background-image: url("/assets/dragon-radar-texture.svg");
