@@ -58,7 +58,8 @@
       "before": "Ви вгадали сьогоднішнього персонажа Dragon Ball за",
       "after": "спроб:"
     },
-    "countdown": "Наступний персонаж через:"
+    "countdown": "Наступний персонаж через:",
+    "playNewGame": "Нова гра!"
   },
   "hero": {
     "title": "Вгадай сьогоднішнього персонажа Dragon Ball!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "Скопіювати в буфер обміну",
     "supportUs": "Підтримати нас",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Грати в режим силуету"
+    "playSilhouette": "Грати в режим силуету!"
   },
   "guessForm": {
     "submitAlt": "4-зірковий Драконячий жемчуг"

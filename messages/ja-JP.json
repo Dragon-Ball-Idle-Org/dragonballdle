@@ -58,7 +58,8 @@
       "before": "今日のドラゴンボールのキャラクターを",
       "after": "回で当てました："
     },
-    "countdown": "次のキャラクターまで："
+    "countdown": "次のキャラクターまで：",
+    "playNewGame": "新ゲーム！"
   },
   "hero": {
     "title": "今日のドラゴンボールキャラクターを当てよう！",
@@ -114,7 +115,7 @@
     "copyToClipboard": "クリップボードにコピー",
     "supportUs": "サポートする",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "シルエットモードをプレイ"
+    "playSilhouette": "シルエットモードをプレイ！"
   },
   "guessForm": {
     "submitAlt": "四星球 (スーシンチュウ)"

@@ -58,7 +58,8 @@
       "before": "Bugünkü Dragon Ball karakterini",
       "after": "denemede tahmin ettin:"
     },
-    "countdown": "Sıradaki karakter:"
+    "countdown": "Sıradaki karakter:",
+    "playNewGame": "Yeni Oyun!"
   },
   "hero": {
     "title": "Bugünün Dragon Ball Karakterini Tahmin Et!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "Panoya kopyala",
     "supportUs": "Bizi destekle",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Siluet Modunu Oyna"
+    "playSilhouette": "Siluet Modunu Oyna!"
   },
   "guessForm": {
     "submitAlt": "4 Yıldızlı Ejderha Topu"

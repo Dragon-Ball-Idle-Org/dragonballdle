@@ -58,7 +58,8 @@
       "before": "您在",
       "after": "次尝试中猜中了今天的龙珠角色："
     },
-    "countdown": "下一个角色更新倒计时："
+    "countdown": "下一个角色更新倒计时：",
+    "playNewGame": "新游戏！"
   },
   "hero": {
     "title": "猜猜今天的龙珠角色！",
@@ -114,7 +115,7 @@
     "copyToClipboard": "复制到剪贴板",
     "supportUs": "支持我们",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "玩剪影模式"
+    "playSilhouette": "玩剪影模式！"
   },
   "guessForm": {
     "submitAlt": "四星龙珠"

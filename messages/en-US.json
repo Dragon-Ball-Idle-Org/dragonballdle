@@ -62,7 +62,8 @@
       "before": "You guessed today’s Dragon Ball character in",
       "after": "tries:"
     },
-    "countdown": "Next character in:"
+    "countdown": "Next character in:",
+    "playNewGame": "New Game!"
   },
   "hero": {
     "title": "Guess Today's Dragon Ball Character!",
@@ -118,7 +119,7 @@
     "copyToClipboard": "Copy to Clipboard",
     "supportUs": "Support us",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Play Silhouette Mode"
+    "playSilhouette": "Play Silhouette Mode!"
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"

@@ -58,7 +58,8 @@
       "before": "Hai indovinato il personaggio Dragon Ball di oggi in",
       "after": "tentativi:"
     },
-    "countdown": "Prossimo personaggio tra:"
+    "countdown": "Prossimo personaggio tra:",
+    "playNewGame": "Nuovo Gioco!"
   },
   "hero": {
     "title": "Indovina il personaggio di Dragon Ball di oggi!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "Copia negli appunti",
     "supportUs": "Supportaci",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Gioca alla modalità Silhouette"
+    "playSilhouette": "Gioca alla modalità Silhouette!"
   },
   "guessForm": {
     "submitAlt": "Sfera a 4 stelle"

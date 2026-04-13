@@ -58,7 +58,8 @@
       "before": "คุณทายตัวละครดราก้อนบอลของวันนี้ได้ใน",
       "after": "ครั้ง:"
     },
-    "countdown": "ตัวละครถัดไปในอีก:"
+    "countdown": "ตัวละครถัดไปในอีก:",
+    "playNewGame": "New Game!"
   },
   "hero": {
     "title": "ทายตัวละครดราก้อนบอลของวันนี้!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "คัดลอกไปยังคลิปบอร์ด",
     "supportUs": "สนับสนุนเรา",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Play Silhouette Mode"
+    "playSilhouette": "Play Silhouette Mode!"
   },
   "guessForm": {
     "submitAlt": "ดราก้อนบอล 4 ดาว"

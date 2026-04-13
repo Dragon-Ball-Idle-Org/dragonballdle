@@ -2,22 +2,20 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { XIcon } from "@phosphor-icons/react";
+import { XIcon, EyeIcon } from "@phosphor-icons/react";
 import { CountdownToMidnight } from "./CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { Link } from "@/i18n/navigation";
+import { cn } from "@/utils/cn";
 
 type WinModalProps = {
   characterName: string;
   characterImage: string;
 };
 
-export function WinModal({
-  characterName,
-  characterImage,
-}: WinModalProps) {
+export function WinModal({ characterName, characterImage }: WinModalProps) {
   const [openWinModal, setOpenWinModal] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const { isGameWon } = useGameContext();
@@ -105,8 +103,7 @@ export function WinModal({
               </h2>
 
               <p className="font-base text-[clamp(0.875rem,2.3vw,1rem)] font-semibold text-white">
-                {t.lineBefore} <strong>{tries}</strong>{" "}
-                {t.lineAfter}
+                {t.lineBefore} <strong>{tries}</strong> {t.lineAfter}
               </p>
 
               <div className="mb-1">
@@ -119,6 +116,20 @@ export function WinModal({
                 <span>⏳ {t.countdown}</span>
                 <CountdownToMidnight />
               </div>
+
+              <Link
+                href="/silhouette"
+                className={cn(
+                  "mt-2 w-full flex items-center justify-center gap-3 py-[clamp(12px,2vw,16px)] px-6 rounded-2xl",
+                  "bg-orange-500 border-2 border-black",
+                  "shadow-[0_6px_0_#9a3412] active:shadow-none active:translate-y-[4px]",
+                  "hover:scale-105 transition-all text-white",
+                  "font-display text-[clamp(1.5rem,3.5vw,2rem)] uppercase tracking-wider",
+                )}
+              >
+                <EyeIcon weight="fill" className="w-[1.2em] h-[1.2em]" />
+                {t.playNewGame}
+              </Link>
             </div>
 
             <button

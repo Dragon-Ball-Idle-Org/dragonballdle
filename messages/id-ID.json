@@ -58,7 +58,8 @@
       "before": "Anda menebak karakter Dragon Ball hari ini dalam",
       "after": "percobaan:"
     },
-    "countdown": "Karakter berikutnya dalam:"
+    "countdown": "Karakter berikutnya dalam:",
+    "playNewGame": "Game Baru!"
   },
   "hero": {
     "title": "Tebak Karakter Dragon Ball Hari Ini!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "Salin ke papan klip",
     "supportUs": "Dukung kami",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Mainkan Mode Siluet"
+    "playSilhouette": "Mainkan Mode Siluet!"
   },
   "guessForm": {
     "submitAlt": "Bola naga bintang 4"

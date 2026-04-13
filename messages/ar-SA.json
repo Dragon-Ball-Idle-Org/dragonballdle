@@ -58,7 +58,8 @@
       "before": "لقد خمنت شخصية دراغون بول اليوم في",
       "after": "محاولات:"
     },
-    "countdown": "الشخصية التالية في:"
+    "countdown": "الشخصية التالية في:",
+    "playNewGame": "لعبة جديدة!"
   },
   "hero": {
     "title": "خمن شخصية دراغون بول اليوم!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "نسخ إلى الحافظة",
     "supportUs": "ادعمنا",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "العب وضع الصورة الظلية"
+    "playSilhouette": "العب وضع الصورة الظلية!"
   },
   "guessForm": {
     "submitAlt": "كرة التنين ذات الأربع نجوم"

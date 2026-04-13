@@ -58,7 +58,8 @@
       "before": "आपने आज के ड्रैगन बॉल चरित्र का अनुमान लगाया",
       "after": "प्रयासों में:"
     },
-    "countdown": "अगला चरित्र इसमें:"
+    "countdown": "अगला चरित्र इसमें:",
+    "playNewGame": "नया गेम!"
   },
   "hero": {
     "title": "आज के ड्रैगन बॉल कैरेक्टर का अनुमान लगाएं!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "क्लिपबोर्ड पर कॉपी करें",
     "supportUs": "हमारा समर्थन करें",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "सिल्हूट मोड खेलें"
+    "playSilhouette": "सिल्हूट मोड खेलें!"
   },
   "guessForm": {
     "submitAlt": "4 सितारा ड्रैगन बॉल"

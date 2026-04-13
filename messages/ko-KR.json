@@ -58,7 +58,8 @@
       "before": "오늘의 드래곤볼 캐릭터를",
       "after": "번 만에 맞혔습니다:"
     },
-    "countdown": "다음 캐릭터까지:"
+    "countdown": "다음 캐릭터까지:",
+    "playNewGame": "새 게임!"
   },
   "hero": {
     "title": "오늘의 드래곤볼 캐릭터를 맞춰보세요!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "클립보드에 복사",
     "supportUs": "후원하기",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "실루엣 모드 플레이"
+    "playSilhouette": "실루엣 모드 플레이！"
   },
   "guessForm": {
     "submitAlt": "4성구"

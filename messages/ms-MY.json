@@ -58,7 +58,8 @@
       "before": "Anda telah meneka watak Dragon Ball hari ini dalam",
       "after": "percubaan:"
     },
-    "countdown": "Watak seterusnya dalam:"
+    "countdown": "Watak seterusnya dalam:",
+    "playNewGame": "Permainan Baru!"
   },
   "hero": {
     "title": "Teka Watak Dragon Ball Hari Ini!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "Salin ke papan klip",
     "supportUs": "Sokong kami",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Mainkan Mod Siluet"
+    "playSilhouette": "Mainkan Mod Siluet!"
   },
   "guessForm": {
     "submitAlt": "Bola Naga bintang 4"

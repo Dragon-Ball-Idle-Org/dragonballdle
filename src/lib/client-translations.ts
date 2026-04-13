@@ -132,6 +132,7 @@ export async function getTranslationsBundle(
         lineBefore: t("winModal.line.before"),
         lineAfter: t("winModal.line.after"),
         countdown: t("winModal.countdown"),
+        playNewGame: t("winModal.playNewGame"),
       },
     },
     winBanner: {

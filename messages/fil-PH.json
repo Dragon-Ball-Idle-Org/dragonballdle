@@ -58,7 +58,8 @@
       "before": "Nahulaan mo ang character ng Dragon Ball ngayon sa",
       "after": "(na) subok:"
     },
-    "countdown": "Susunod na character sa:"
+    "countdown": "Susunod na character sa:",
+    "playNewGame": "Bagong Laro!"
   },
   "hero": {
     "title": "Hulaan ang Dragon Ball Character Ngayon!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "Kopyahin sa clipboard",
     "supportUs": "Suportahan kami",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "I-play ang Silhouette Mode"
+    "playSilhouette": "I-play ang Silhouette Mode!"
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"

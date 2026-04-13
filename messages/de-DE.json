@@ -58,7 +58,8 @@
       "before": "Du hast den heutigen Dragon Ball Charakter erraten in",
       "after": "Versuchen:"
     },
-    "countdown": "Nächster Charakter in:"
+    "countdown": "Nächster Charakter in:",
+    "playNewGame": "Neues Spiel!"
   },
   "hero": {
     "title": "Rate den heutigen Dragon Ball Charakter!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "In die Zwischenablage kopieren",
     "supportUs": "Unterstütze uns",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Silhouette-Modus spielen"
+    "playSilhouette": "Silhouette-Modus spielen!"
   },
   "guessForm": {
     "submitAlt": "4-Sterne-Dragonball"

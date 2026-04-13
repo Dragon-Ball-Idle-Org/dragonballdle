@@ -58,7 +58,8 @@
       "before": "Bạn đã đoán đúng nhân vật Dragon Ball hôm nay trong",
       "after": "lần thử:"
     },
-    "countdown": "Nhân vật tiếp theo sau:"
+    "countdown": "Nhân vật tiếp theo sau:",
+    "playNewGame": "Trò chơi mới!"
   },
   "hero": {
     "title": "Đoán Nhân vật Dragon Ball của hôm nay!",
@@ -114,7 +115,7 @@
     "copyToClipboard": "Sao chép vào bộ nhớ tạm",
     "supportUs": "Ủng hộ chúng tôi",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "Chơi chế độ Bóng hình"
+    "playSilhouette": "Chơi chế độ Bóng hình!"
   },
   "guessForm": {
     "submitAlt": "Ngọc rồng 4 sao"
