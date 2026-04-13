@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — เกมทายตัวละคร",
       "description": "ทายตัวละครปริศนาดราก้อนบอลประจำวัน! ทดสอบความรู้เรื่องอนิเมะของคุณและท้าทายเพื่อนๆ ในเกมรายวันฟรีนี้."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน 1 ครั้ง:\n{guesses}\nลองดูที่ {url}",
       "other": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน {tries} ครั้ง:\n{guesses}\nลองดูที่ {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -148,16 +156,23 @@
   },
   "silhouetteHero": {
     "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "subtitle": "มี {count} คนเปิดเผยตัวละครวันนี้แล้ว！"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "เปิดเผยทั้งหมด",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 การเดา",
+    "guessCountMany": "{count} การเดา",
+    "characterRevealed": "ตัวละครถูกเปิดเผยแล้ว！",
+    "imageAltDaily": "ความท้าทายเงาวันนี้",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

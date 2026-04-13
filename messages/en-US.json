@@ -143,7 +143,7 @@
   },
   "silhouetteHero": {
     "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "subtitle": "{count} people have already revealed today's character!"
   },
   "share": {
     "tweet": {

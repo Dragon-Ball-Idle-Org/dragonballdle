@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Gioco a Quiz",
       "description": "Indovina il personaggio misterioso di Dragon Ball di oggi! Metti alla prova la tua cultura Dragon Ball in questo gioco gratuito."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Svela il personaggio misterioso"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "Ho indovinato il personaggio di DragonBallDle di oggi in 1 tentativo:\n{guesses}\nProva anche tu su {url}",
       "other": "Ho indovinato il personaggio di DragonBallDle di oggi in {tries} tentativi:\n{guesses}\nProva anche tu su {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -148,16 +156,23 @@
   },
   "silhouetteHero": {
     "title": "Rivela la Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "subtitle": "{count} persone hanno già svelato il personaggio di oggi!"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Rivelazione completa",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 tentativo",
+    "guessCountMany": "{count} tentativi",
+    "characterRevealed": "Personaggio svelato!",
+    "imageAltDaily": "Sfida quotidiana della silhouette",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

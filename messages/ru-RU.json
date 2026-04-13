@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Игра в угадайку",
       "description": "Угадай тайного персонажа Dragon Ball на сегодня! Проверь свои знания аниме в этой бесплатной ежедневной игре с друзьями."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "Я угадал сегодняшнего персонажа DragonBallDle с 1 попытки:\n{guesses}\nПопробуйте тоже на {url}",
       "other": "Я угадал сегодняшнего персонажа DragonBallDle за {tries} попыток:\n{guesses}\nПопробуйте тоже на {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -147,17 +155,24 @@
     "submitError": "✗ Ошибка отправки. Попробуйте снова."
   },
   "silhouetteHero": {
-    "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "title": "Раскрой силуэт!",
+    "subtitle": "{count} человек уже раскрыли сегодняшнего персонажа!"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Полное раскрытие",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 попытка",
+    "guessCountMany": "{count} попыток",
+    "characterRevealed": "Персонаж раскрыт!",
+    "imageAltDaily": "Ежедневное испытание силуэтов",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

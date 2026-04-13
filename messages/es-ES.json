@@ -136,14 +136,14 @@
     "guessCountOne": "1 intento",
     "guessCountMany": "{count} intentos",
     "characterRevealed": "¡Personaje revelado!",
-    "imageAltDaily": "Reto diario de la silueta",
+    "imageAltDaily": "Desafío diario de silueta",
     "imageAltRevealed": "{name}",
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Revelación Total",
     "guessLabel": "{count}/{total}"
   },
   "silhouetteHero": {
     "title": "¡Revela la Silueta!",
-    "subtitle": "¡personas ya han revelado el personaje de hoy!"
+    "subtitle": "¡{count} personas ya hanno revelado al personaje de hoy!"
   },
   "share": {
     "tweet": {

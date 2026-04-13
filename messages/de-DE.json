@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Ratespiel",
       "description": "Errate den heutigen geheimen Dragon Ball Charakter! Teste dein Dragon Ball-Wissen und fordere Freunde in diesem Gratis-Spiel heraus."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Enthülle den mysteriösen Charakter"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "Ich habe das heutige DragonBallDle-Charakter in 1 Versuch erraten:\n{guesses}\nProbier es auch auf {url}",
       "other": "Ich habe das heutige DragonBallDle-Charakter in {tries} Versuchen erraten:\n{guesses}\nProbier es auch auf {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -148,16 +156,23 @@
   },
   "silhouetteHero": {
     "title": "Enthülle die Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "subtitle": "{count} Personen haben den heutigen Charakter bereits enthüllt!"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Volle Enthüllung",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 Versuch",
+    "guessCountMany": "{count} Versuche",
+    "characterRevealed": "Charakter enthüllt!",
+    "imageAltDaily": "Tägliche Silhouette-Herausforderung",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

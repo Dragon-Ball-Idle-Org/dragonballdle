@@ -132,18 +132,18 @@
     }
   },
   "silhouetteViewer": {
-    "revealPercent": "{percent} %",
-    "guessCountOne": "1 essai",
-    "guessCountMany": "{count} essais",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 tentative",
+    "guessCountMany": "{count} tentatives",
     "characterRevealed": "Personnage révélé !",
-    "imageAltDaily": "Défi silhouette du jour",
+    "imageAltDaily": "Défi quotidien de silhouette",
     "imageAltRevealed": "{name}",
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Révélation complète",
     "guessLabel": "{count}/{total}"
   },
   "silhouetteHero": {
     "title": "Révélez la Silhouette !",
-    "subtitle": "personnes ont déjà révélé le personnage d'aujourd'hui !"
+    "subtitle": "{count} personnes ont déjà révélé le personnage d'aujourd'hui !"
   },
   "share": {
     "tweet": {

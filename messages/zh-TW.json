@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — 猜謎遊戲",
       "description": "猜猜今天神秘的七龍珠角色！在這個免費的每日遊戲中測試您的動漫知識並挑戰您的朋友。"
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "我在1次嘗試中猜中了今天的龍珠Dle角色:\n{guesses}\n在{url}也試試吧",
       "other": "我在{tries}次嘗試中猜中了今天的龍珠Dle角色:\n{guesses}\n在{url}也試試吧"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -147,17 +155,24 @@
     "submitError": "✗ 提交錯誤。請重試。"
   },
   "silhouetteHero": {
-    "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "title": "揭開剪影！",
+    "subtitle": "已有 {count} 人揭開了今天的角色！"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "完整揭曉",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 次嘗試",
+    "guessCountMany": "{count} 次嘗試",
+    "characterRevealed": "角色已揭曉！",
+    "imageAltDaily": "每日剪影挑戰",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

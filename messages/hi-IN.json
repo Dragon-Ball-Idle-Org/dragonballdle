@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — अनुमान लगाने का गेम",
       "description": "आज के रहस्यमयी ड्रैगन बॉल चरित्र का अनुमान लगाएं! इस दैनिक गेम में अपने ज्ञान का परीक्षण करें और दोस्तों को चुनौती दें।"
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "मैंने आज के DragonBallDle चरित्र को 1 प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें",
       "other": "मैंने आज के DragonBallDle चरित्र को {tries} प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -147,17 +155,24 @@
     "submitError": "✗ सबमिट करने में त्रुटि। पुनः प्रयास करें।"
   },
   "silhouetteHero": {
-    "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "title": "सिल्हूट को उजागर करें!",
+    "subtitle": "{count} लोग पहले ही आज के चरित्र का खुलासा कर चुके हैं!"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "पूर्ण खुलासा",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 अनुमान",
+    "guessCountMany": "{count} अनुमान",
+    "characterRevealed": "चरित्र का खुलासा हुआ!",
+    "imageAltDaily": "दैनिक सिल्हूट चुनौती",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

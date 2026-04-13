@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Tahmin Oyunu",
       "description": "Bugünün gizemli Dragon Ball karakterini tahmin et! Bu ücretsiz günlük oyunda Dragon Ball bilgini test et ve arkadaşlarına meydan oku."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "Bugünün DragonBallDle karakterini 1 denemede tahmin ettim:\n{guesses}\n{url}'de de dene",
       "other": "Bugünün DragonBallDle karakterini {tries} denemede tahmin ettim:\n{guesses}\n{url}'de de dene"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -148,16 +156,23 @@
   },
   "silhouetteHero": {
     "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "subtitle": "{count} kişi bugünün karakterini çoktan ortaya çıkardı!"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Tam Gösterim",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 tahmin",
+    "guessCountMany": "{count} tahmin",
+    "characterRevealed": "Karakter ortaya çıktı!",
+    "imageAltDaily": "Günlük siluet mücadelesi",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

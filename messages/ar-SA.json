@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — لعبة التخمين",
       "description": "خمن شخصية دراغون بول الغامضة لليوم! اختبر معلوماتك في الأنمي وتحدى أصدقاءك في هذه اللعبة اليومية المجانية."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -59,7 +63,7 @@
       "after": "محاولات:"
     },
     "countdown": "الشخصية التالية في:",
-    "playNewGame": "لعبة جديدة!"
+    "playNewGame": "!لعبة جديدة"
   },
   "hero": {
     "title": "خمن شخصية دراغون بول اليوم!",
@@ -115,7 +119,7 @@
     "copyToClipboard": "نسخ إلى الحافظة",
     "supportUs": "ادعمنا",
     "characterThumbnail": "{name} thumbnail",
-    "playSilhouette": "العب وضع الصورة الظلية!"
+    "playSilhouette": "!العب وضع الصورة الظلية"
   },
   "guessForm": {
     "submitAlt": "كرة التنين ذات الأربع نجوم"
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "لقد خمنت شخصية DragonBallDle لهذا اليوم في محاولة واحدة:\n{guesses}\nجرّب الآن في {url}",
       "other": "لقد خمنت شخصية DragonBallDle لهذا اليوم في {tries} محاولة:\n{guesses}\nجرّب الآن في {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -147,17 +155,24 @@
     "submitError": "✗ خطأ في الإرسال. حاول مرة أخرى."
   },
   "silhouetteHero": {
-    "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "title": "!اكشف الصورة الظلية",
+    "subtitle": "!كشف {count} شخصاً بالفعل شخصية اليوم"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "كشف كامل",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "محاولة واحدة",
+    "guessCountMany": "{count} محاولات",
+    "characterRevealed": "!تم كشف الشخصية",
+    "imageAltDaily": "تحدي الصورة الظلية اليومي",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

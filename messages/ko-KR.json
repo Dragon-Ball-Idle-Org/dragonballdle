@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — 추리 게임",
       "description": "오늘의 미스터리 드래곤볼 캐릭터를 맞춰보세요! 이 무료 접속 게임에서 애니메이션 지식을 테스트하고 친구에게 도전하세요."
+    },
+    "silhouette": {
+      "title": "실루엣",
+      "subtitle": "미스터리 캐릭터를 밝혀보세요"
     }
   },
   "footer": {
@@ -59,7 +63,7 @@
       "after": "번 만에 맞혔습니다:"
     },
     "countdown": "다음 캐릭터까지:",
-    "playNewGame": "새 게임!"
+    "playNewGame": "새 게임！"
   },
   "hero": {
     "title": "오늘의 드래곤볼 캐릭터를 맞춰보세요!",
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "오늘의 DragonBallDle 캐릭터를 1번 만에 맞혔습니다:\n{guesses}\n{url}에서도 시도해보세요",
       "other": "오늘의 DragonBallDle 캐릭터를 {tries}번 만에 맞혔습니다:\n{guesses}\n{url}에서도 시도해보세요"
+    },
+    "silhouette": {
+      "one": "오늘의 DragonBallDle 실루엣을 1번 만에 맞혔습니다!\n{guesses}\n{url}에서도 시도해보세요",
+      "other": "오늘의 DragonBallDle 실루엣을 {tries}번 만에 맞혔습니다!\n{guesses}\n{url}에서도 시도해보세요"
     }
   },
   "contact": {
@@ -147,17 +155,24 @@
     "submitError": "✗ 전송 오류. 다시 시도하세요."
   },
   "silhouetteHero": {
-    "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "title": "실루엣을 밝혀보세요！",
+    "subtitle": "이미 {count}명이 오늘 캐릭터를 찾아냈습니다！"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "전체 공개",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1번의 시도",
+    "guessCountMany": "{count}번의 시도",
+    "characterRevealed": "캐릭터가 공개되었습니다！",
+    "imageAltDaily": "일일 실루엣 챌린지",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — 실루엣",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

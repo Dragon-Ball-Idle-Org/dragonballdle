@@ -109,12 +109,14 @@ export async function getTranslationsBundle(
     silhouetteHero: {
       silhouetteHero: {
         title: t("silhouetteHero.title"),
-        subtitle: t("silhouetteHero.subtitle"),
+        subtitle: t("silhouetteHero.subtitle", { count: "" }).trim(),
       },
     },
     silhouetteViewer: {
       silhouetteViewer: {
-        revealPercent: t("silhouetteViewer.revealPercent", { percent: "__P__" }),
+        revealPercent: t("silhouetteViewer.revealPercent", {
+          percent: "__P__",
+        }),
         guessCountOne: t("silhouetteViewer.guessCountOne"),
         guessCountMany: t("silhouetteViewer.guessCountMany", {
           count: "__C__",
@@ -124,6 +126,16 @@ export async function getTranslationsBundle(
         imageAltRevealed: t("silhouetteViewer.imageAltRevealed", {
           name: "__NAME__",
         }),
+        fullReveal: t("silhouetteViewer.fullReveal"),
+        guessLabel: t("silhouetteViewer.guessLabel", {
+          count: "__C__",
+          total: "__TOTAL__",
+        }),
+      },
+    },
+    silhouette: {
+      silhouette: {
+        dailyNotFound: t("silhouette.dailyNotFound"),
       },
     },
     winModal: {

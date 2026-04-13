@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Permainan Meneka",
       "description": "Teka watak misteri Dragon Ball hari ini! Uji pengetahuan Dragon Ball anda dan cabar rakan-rakan dalam permainan harian percuma ini."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "Saya meneka karakter DragonBallDle hari ini dalam 1 percubaan:\n{guesses}\nCuba juga di {url}",
       "other": "Saya meneka karakter DragonBallDle hari ini dalam {tries} percubaan:\n{guesses}\nCuba juga di {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -148,16 +156,23 @@
   },
   "silhouetteHero": {
     "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "subtitle": "{count} orang telah mendedahkan watak hari ini!"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Pendedahan Penuh",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 cubaan",
+    "guessCountMany": "{count} cubaan",
+    "characterRevealed": "Watak didedahkan!",
+    "imageAltDaily": "Cabaran bayangan harian",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

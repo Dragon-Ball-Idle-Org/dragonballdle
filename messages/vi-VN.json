@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Trò chơi đoán xem",
       "description": "Đoán nhân vật Dragon Ball bí ẩn của ngày hôm nay! Thử tài kiến thức Dragon Ball của bạn và thách đấu bạn bè trong trò chơi mỗi ngày."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -124,6 +128,10 @@
     "tweet": {
       "one": "Tôi đoán được nhân vật DragonBallDle hôm nay trong 1 lần thử:\n{guesses}\nHãy thử tại {url}",
       "other": "Tôi đoán được nhân vật DragonBallDle hôm nay trong {tries} lần thử:\n{guesses}\nHãy thử tại {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
     }
   },
   "contact": {
@@ -148,16 +156,23 @@
   },
   "silhouetteHero": {
     "title": "Reveal the Silhouette!",
-    "subtitle": "people have already revealed today's character!"
+    "subtitle": "{count} người đã tiết lộ nhân vật hôm nay!"
   },
   "silhouetteViewer": {
-    "fullReveal": "Full Reveal",
+    "fullReveal": "Tiết lộ đầy đủ",
     "guessLabel": "{count}/{total}",
     "revealPercent": "{percent}%",
-    "guessCountOne": "1 palpite",
-    "guessCountMany": "{count} palpites",
-    "characterRevealed": "Personagem revelado!",
-    "imageAltDaily": "Desafio diário da silhueta",
+    "guessCountOne": "1 dự đoán",
+    "guessCountMany": "{count} dự đoán",
+    "characterRevealed": "Nhân vật đã được tiết lộ!",
+    "imageAltDaily": "Thử thách bóng hình hàng ngày",
     "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }
