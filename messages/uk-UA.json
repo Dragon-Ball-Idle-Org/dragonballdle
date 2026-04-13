@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Гра у відгадування",
       "description": "Вгадай таємного персонажа Dragon Ball сьогодні! Перевір свої знання аніме у цій безкоштовній щоденній грі з друзями."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "Супроводжуючі"
+  },
+  "winModal": {
+    "congrats": "Вітаємо!",
+    "line": {
+      "before": "Ви вгадали сьогоднішнього персонажа Dragon Ball за",
+      "after": "спроб:"
+    },
+    "countdown": "Наступний персонаж через:",
+    "playNewGame": "Нова гра!"
+  },
+  "hero": {
+    "title": "Вгадай сьогоднішнього персонажа Dragon Ball!",
+    "subtitle": "людей сьогодні вже вгадали!"
+  },
+  "common": {
+    "none": "Немає",
+    "yes": "Так",
+    "no": "Ні",
+    "loading": "Завантаження...",
+    "searchPlaceholder": "Введіть ім'я персонажа...",
+    "noResults": "Персонажів не знайдено...",
+    "changeLanguage": "Змінити мову",
+    "language": "Мова",
+    "roles": {
+      "frontend": "Фронтенд-розробник",
+      "analytics": "Аналітик веб-аналитики",
+      "fullstack": "Фулстек-розробник"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Персонаж дня не знайдений",
+    "table": {
+      "character": "Персонаж",
+      "gender": "Стать",
+      "race": "Раса",
+      "affiliation": "Приналежність",
+      "transformation": "Трансформація",
+      "attribute": "Атрибут",
+      "series": "Серія",
+      "saga": "Сага"
+    },
+    "guide": {
+      "header": "Потрібна інструкція?",
+      "correct": "Вірно — цей атрибут збігається.",
+      "partial": "Частково — збігається хоча б одне значення.",
+      "incorrect": "Невірно — цей атрибут зовсім не збігається.",
+      "after": "Після — сага дебюту персонажа дня йде після вашої здогадки.",
+      "before": "До — сага дебюту персонажа дня йде до вашої здогадки."
+    }
+  },
+  "yesterday": {
+    "title": "Вчорашній персонаж",
+    "characterLabel": "Персонаж"
+  },
+  "winBanner": {
+    "title": "Сьогоднішній результат",
+    "tries": "Спроби",
+    "nextCharacter": "Наступний персонаж",
+    "todayCharacter": "Сьогоднішній персонаж",
+    "share": "Поділитися",
+    "shareOnX": "Поділитися в X",
+    "copyToClipboard": "Скопіювати в буфер обміну",
+    "supportUs": "Підтримати нас",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Грати в режим силуету!"
+  },
+  "guessForm": {
+    "submitAlt": "4-зірковий Драконячий жемчуг"
+  },
+  "share": {
+    "tweet": {
+      "one": "Я вгадав персонажа DragonBallDle на сьогодні за 1 спробу:\n{guesses}\nСпробуйте також на {url}",
+      "other": "Я вгадав персонажа DragonBallDle на сьогодні за {tries} спроб:\n{guesses}\nСпробуйте також на {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "Зв'яжіться з нами",
+    "description": "Є запитання? Нам дуже хотілось би від вас чути!",
+    "emailLabel": "Адреса електронної пошти",
+    "emailPlaceholder": "ваша@email.com",
+    "nameLabel": "Ваше ім'я",
+    "namePlaceholder": "Введіть ваше ім'я",
+    "messageLabel": "Повідомлення",
+    "messagePlaceholder": "Розповідайте нам, що ви думаєте...",
+    "sendButton": "Надіслати повідомлення",
+    "copyButton": "Скопіювати електронну пошту",
+    "copiedFeedback": "Електронну пошту скопійовано!",
+    "directEmail": "Надіслати електронну пошту безпосередньо",
+    "metadata": {
+      "title": "DragonBallDle — Контакти",
+      "description": "Зв'яжіться з командою DragonBallDle. Нам дуже хотілось би від вас чути!"
+    },
+    "submitSuccess": "✓ Email успішно надіслано!",
+    "submitError": "✗ Помилка надсилання. Спробуйте ще раз."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "{count} людей вже розкрили сьогоднішнього персонажа!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Повне розкриття",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 спроба",
+    "guessCountMany": "{count} спроб",
+    "characterRevealed": "Персонажа розкрито!",
+    "imageAltDaily": "Щоденний виклик силуетів",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

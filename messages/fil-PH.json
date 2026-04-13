@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Pahulaan Game",
       "description": "Hulaan ang misteryosong karakter ng Dragon Ball ngayon! Subukan ang iyong kaalaman sa Dragon Ball sa libreng araw-araw na larong ito."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "Mga Tagapangalaga"
+  },
+  "winModal": {
+    "congrats": "Maligayang pagbati!",
+    "line": {
+      "before": "Nahulaan mo ang character ng Dragon Ball ngayon sa",
+      "after": "(na) subok:"
+    },
+    "countdown": "Susunod na character sa:",
+    "playNewGame": "Bagong Laro!"
+  },
+  "hero": {
+    "title": "Hulaan ang Dragon Ball Character Ngayon!",
+    "subtitle": "na tao na ang nakahula ngayon!"
+  },
+  "common": {
+    "none": "Wala",
+    "yes": "Oo",
+    "no": "Hindi",
+    "loading": "Naglo-load...",
+    "searchPlaceholder": "I-type ang pangalan ng karakter...",
+    "noResults": "Walang nahanap na mga karakter...",
+    "changeLanguage": "Baguhin ang wika",
+    "language": "Wika",
+    "roles": {
+      "frontend": "Front-end Developer",
+      "analytics": "Web Analytics Analyst",
+      "fullstack": "Full Stack Developer"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Hindi nahanap ang karakter ngayong araw",
+    "table": {
+      "character": "Tauhan",
+      "gender": "Kasarian",
+      "race": "Lahi",
+      "affiliation": "Pangkat",
+      "transformation": "Transformasyon",
+      "attribute": "Katangian",
+      "series": "Serye",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Kailangan mo ba ng gabay?",
+      "correct": "Tama - Eksakto ang katangiang ito.",
+      "partial": "Bahagya — Kahit isa sa mga value ay tumutugma.",
+      "incorrect": "Mali - Maling-mali ang katangiang ito.",
+      "after": "Pagkatapos — Ang debut saga ng karakter ngayong araw ay pagkatapos ng iyong hula.",
+      "before": "Bago — Ang debut saga ng karakter ngayong araw ay bago ang iyong hula."
+    }
+  },
+  "yesterday": {
+    "title": "Karakter kahapon",
+    "characterLabel": "Tauhan"
+  },
+  "winBanner": {
+    "title": "Resulta ngayong araw",
+    "tries": "Mga pagsubok",
+    "nextCharacter": "Susunod na karakter",
+    "todayCharacter": "Karakter ngayong araw",
+    "share": "Ibahagi",
+    "shareOnX": "I-share sa X",
+    "copyToClipboard": "Kopyahin sa clipboard",
+    "supportUs": "Suportahan kami",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "I-play ang Silhouette Mode!"
+  },
+  "guessForm": {
+    "submitAlt": "4 Stars Dragon Ball"
+  },
+  "share": {
+    "tweet": {
+      "one": "Nahulaan ko ang character ng DragonBallDle ngayong araw sa 1 pagsubok:\n{guesses}\nSubukan din sa {url}",
+      "other": "Nahulaan ko ang character ng DragonBallDle ngayong araw sa {tries} pagsubok:\n{guesses}\nSubukan din sa {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "Makipag-ugnayan sa Amin",
+    "description": "May mga katanungan? Nais naming marinig mula sa iyo!",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "iyong@email.com",
+    "nameLabel": "Iyong Pangalan",
+    "namePlaceholder": "Ipasok ang iyong pangalan",
+    "messageLabel": "Mensahe",
+    "messagePlaceholder": "Sabihin sa amin kung ano ang nasa iyong isip...",
+    "sendButton": "Magpadala ng Mensahe",
+    "copyButton": "Kopyahin ang Email",
+    "copiedFeedback": "Email ay nakopya!",
+    "directEmail": "Direktang Magpadala ng Email",
+    "metadata": {
+      "title": "DragonBallDle — Makipag-ugnayan",
+      "description": "Makipag-ugnayan sa koponan ng DragonBallDle. Nais naming marinig mula sa iyo!"
+    },
+    "submitSuccess": "✓ Tagumpay na naipadala ang email!",
+    "submitError": "✗ Error sa pagpapadala. Subukang muli."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "{count} (na) tao na ang nag-reveal ng character ngayon!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 (na) hula",
+    "guessCountMany": "{count} (na) hula",
+    "characterRevealed": "Character naipakita na!",
+    "imageAltDaily": "Araw-araw na hamon sa silhouette",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

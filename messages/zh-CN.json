@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — 猜谜游戏",
       "description": "猜猜今天神秘的七龙珠角色！在这个免费的每日游戏中测试您的动漫知识并挑战您的朋友。"
+    },
+    "silhouette": {
+      "title": "剪影",
+      "subtitle": "揭开神秘角色"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "维护者"
+  },
+  "winModal": {
+    "congrats": "恭喜您！",
+    "line": {
+      "before": "您在",
+      "after": "次尝试中猜中了今天的龙珠角色："
+    },
+    "countdown": "下一个角色更新倒计时：",
+    "playNewGame": "新游戏！"
+  },
+  "hero": {
+    "title": "猜猜今天的龙珠角色！",
+    "subtitle": "人已经猜中了今天的角色！"
+  },
+  "common": {
+    "none": "无",
+    "yes": "是",
+    "no": "否",
+    "loading": "加载中...",
+    "searchPlaceholder": "输入角色名称...",
+    "noResults": "未找到角色...",
+    "changeLanguage": "更改语言",
+    "language": "语言",
+    "roles": {
+      "frontend": "前端开发工程师",
+      "analytics": "网站分析师",
+      "fullstack": "全栈开发工程师"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "未找到今日角色",
+    "table": {
+      "character": "角色",
+      "gender": "性别",
+      "race": "种族",
+      "affiliation": "所属",
+      "transformation": "变身",
+      "attribute": "属性",
+      "series": "系列",
+      "saga": "篇章"
+    },
+    "guide": {
+      "header": "需要快速指南吗？",
+      "correct": "正确 - 此属性完全正确。",
+      "partial": "部分匹配 - 至少有一个值匹配。",
+      "incorrect": "错误 - 此属性完全错误。",
+      "after": "之后 - 今日角色的首秀篇章在你的猜测之后。",
+      "before": "之前 - 今日角色的首秀篇章在你的猜测之前。"
+    }
+  },
+  "yesterday": {
+    "title": "昨日角色",
+    "characterLabel": "角色"
+  },
+  "winBanner": {
+    "title": "今日结果",
+    "tries": "尝试次数",
+    "nextCharacter": "下一个角色",
+    "todayCharacter": "今日角色",
+    "share": "分享",
+    "shareOnX": "在 X 上分享",
+    "copyToClipboard": "复制到剪贴板",
+    "supportUs": "支持我们",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "玩剪影模式！"
+  },
+  "guessForm": {
+    "submitAlt": "四星龙珠"
+  },
+  "share": {
+    "tweet": {
+      "one": "我在1次尝试中猜中了今天的龙珠Dle角色:\n{guesses}\n在{url}也试试吧",
+      "other": "我在{tries}次尝试中猜中了今天的龙珠Dle角色:\n{guesses}\n在{url}也试试吧"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "description": "有问题？我们很乐意听到你的声音！",
+    "emailLabel": "电子邮件地址",
+    "emailPlaceholder": "你的@email.com",
+    "nameLabel": "你的名字",
+    "namePlaceholder": "输入你的名字",
+    "messageLabel": "信息",
+    "messagePlaceholder": "告诉我们你的想法...",
+    "sendButton": "发送消息",
+    "copyButton": "复制电子邮件",
+    "copiedFeedback": "电子邮件已复制！",
+    "directEmail": "直接发送电子邮件",
+    "metadata": {
+      "title": "DragonBallDle — 联系我们",
+      "description": "与DragonBallDle团队联系。我们很乐意听到你的声音！"
+    },
+    "submitSuccess": "✓ 邮件发送成功！",
+    "submitError": "✗ 提交错误。请重试。"
+  },
+  "silhouetteHero": {
+    "title": "揭开剪影！",
+    "subtitle": "已有 {count} 人揭开了今天的角色！"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "完整揭晓",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 次尝试",
+    "guessCountMany": "{count} 次尝试",
+    "characterRevealed": "角色已揭晓！",
+    "imageAltDaily": "每日剪影挑战",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — 剪影",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

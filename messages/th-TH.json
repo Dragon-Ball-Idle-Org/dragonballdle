@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — เกมทายตัวละคร",
       "description": "ทายตัวละครปริศนาดราก้อนบอลประจำวัน! ทดสอบความรู้เรื่องอนิเมะของคุณและท้าทายเพื่อนๆ ในเกมรายวันฟรีนี้."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "ผู้ดูแล"
+  },
+  "winModal": {
+    "congrats": "ขอแสดงความยินดีด้วย!",
+    "line": {
+      "before": "คุณทายตัวละครดราก้อนบอลของวันนี้ได้ใน",
+      "after": "ครั้ง:"
+    },
+    "countdown": "ตัวละครถัดไปในอีก:",
+    "playNewGame": "New Game!"
+  },
+  "hero": {
+    "title": "ทายตัวละครดราก้อนบอลของวันนี้!",
+    "subtitle": "คนทายถูกแล้ว!"
+  },
+  "common": {
+    "none": "ไม่มี",
+    "yes": "ใช่",
+    "no": "ไม่ใช่",
+    "loading": "กำลังโหลด...",
+    "searchPlaceholder": "พิมพ์ชื่อตัวละคร...",
+    "noResults": "ไม่พบตัวละคร...",
+    "changeLanguage": "เปลี่ยนภาษา",
+    "language": "ภาษา",
+    "roles": {
+      "frontend": "นักพัฒนาส่วนหน้า",
+      "analytics": "นักวิเคราะห์เว็บวิเคราะห์",
+      "fullstack": "นักพัฒนาฟูลสแต็ก"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "ไม่พบตัวละครประจำวัน",
+    "table": {
+      "character": "ตัวละคร",
+      "gender": "เพศ",
+      "race": "เผ่าพันธุ์",
+      "affiliation": "สังกัด",
+      "transformation": "การแปลงร่าง",
+      "attribute": "คุณลักษณะ",
+      "series": "ซีรีส์",
+      "saga": "ภาค"
+    },
+    "guide": {
+      "header": "ต้องการคู่มือฉบับย่อหรือไม่?",
+      "correct": "ถูกต้อง - คุณสมบัตินี้ถูกต้องเป๊ะเลย",
+      "partial": "บางส่วน - มีค่าที่ตรงกันอย่างน้อยหนึ่งค่า",
+      "incorrect": "ไม่ถูกต้อง - คุณสมบัตินี้ผิดโดยสิ้นเชิง",
+      "after": "หลังจาก - ภาคเปิดตัวของตัวละครประจำวันอยู่หลังจากที่คุณทาย",
+      "before": "ก่อนหน้า - ภาคเปิดตัวของตัวละครประจำวันอยู่ก่อนที่คุณทาย"
+    }
+  },
+  "yesterday": {
+    "title": "ตัวละครของเมื่อวาน",
+    "characterLabel": "ตัวละคร"
+  },
+  "winBanner": {
+    "title": "ผลลัพธ์ของวันนี้",
+    "tries": "จำนวนครั้งที่ลอง",
+    "nextCharacter": "ตัวละครถัดไป",
+    "todayCharacter": "ตัวละครของวันนี้",
+    "share": "แชร์",
+    "shareOnX": "แชร์บน X",
+    "copyToClipboard": "คัดลอกไปยังคลิปบอร์ด",
+    "supportUs": "สนับสนุนเรา",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Play Silhouette Mode!"
+  },
+  "guessForm": {
+    "submitAlt": "ดราก้อนบอล 4 ดาว"
+  },
+  "share": {
+    "tweet": {
+      "one": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน 1 ครั้ง:\n{guesses}\nลองดูที่ {url}",
+      "other": "ฉันทายตัวละครของ DragonBallDle ในวันนี้ได้ใน {tries} ครั้ง:\n{guesses}\nลองดูที่ {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "ติดต่อเรา",
+    "description": "มีคำถาม? เราต้องการได้ยินจากคุณ!",
+    "emailLabel": "ที่อยู่อีเมล",
+    "emailPlaceholder": "ของคุณ@email.com",
+    "nameLabel": "ชื่อของคุณ",
+    "namePlaceholder": "ใส่ชื่อของคุณ",
+    "messageLabel": "ข้อความ",
+    "messagePlaceholder": "บอกเราว่าคุณคิดอะไร...",
+    "sendButton": "ส่งข้อความ",
+    "copyButton": "คัดลอกอีเมล",
+    "copiedFeedback": "คัดลอกอีเมลแล้ว!",
+    "directEmail": "ส่งอีเมลโดยตรง",
+    "metadata": {
+      "title": "DragonBallDle — ติดต่อเรา",
+      "description": "ติดต่อทีม DragonBallDle เราต้องการได้ยินจากคุณ!"
+    },
+    "submitSuccess": "✓ ส่งอีเมลสำเร็จแล้ว!",
+    "submitError": "✗ มีข้อผิดพลาดในการส่ง ลองใหม่อีกครั้ง"
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "มี {count} คนเปิดเผยตัวละครวันนี้แล้ว！"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "เปิดเผยทั้งหมด",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 การเดา",
+    "guessCountMany": "{count} การเดา",
+    "characterRevealed": "ตัวละครถูกเปิดเผยแล้ว！",
+    "imageAltDaily": "ความท้าทายเงาวันนี้",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

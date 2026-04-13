@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — لعبة التخمين",
       "description": "خمن شخصية دراغون بول الغامضة لليوم! اختبر معلوماتك في الأنمي وتحدى أصدقاءك في هذه اللعبة اليومية المجانية."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "المشرفون"
+  },
+  "winModal": {
+    "congrats": "تهانينا!",
+    "line": {
+      "before": "لقد خمنت شخصية دراغون بول اليوم في",
+      "after": "محاولات:"
+    },
+    "countdown": "الشخصية التالية في:",
+    "playNewGame": "!لعبة جديدة"
+  },
+  "hero": {
+    "title": "خمن شخصية دراغون بول اليوم!",
+    "subtitle": "شخص خمنوا الشخصية بالفعل!"
+  },
+  "common": {
+    "none": "لا يوجد",
+    "yes": "نعم",
+    "no": "لا",
+    "loading": "جارٍ التحميل...",
+    "searchPlaceholder": "اكتب اسم الشخصية...",
+    "noResults": "لم يتم العثور على شخصيات...",
+    "changeLanguage": "تغيير اللغة",
+    "language": "اللغة",
+    "roles": {
+      "frontend": "مطور واجهات أمامية",
+      "analytics": "محلل تحليلات الويب",
+      "fullstack": "مطور كامل التكديس"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "لم يتم العثور على الشخصية اليومية",
+    "table": {
+      "character": "شخصية",
+      "gender": "جنس",
+      "race": "عرق",
+      "affiliation": "انتماء",
+      "transformation": "تحول",
+      "attribute": "سمة",
+      "series": "سلسلة",
+      "saga": "ملحمة"
+    },
+    "guide": {
+      "header": "هل تحتاج إلى دليل سريع؟",
+      "correct": "صحيح - هذه السمة صحيحة تماماً.",
+      "partial": "جزئي - تطابق قيمة واحدة على الأقل.",
+      "incorrect": "غير صحيح - هذه السمة خاطئة تماماً.",
+      "after": "بعد - ملحمة ظهور الشخصية اليومية هي بعد تخمينك.",
+      "before": "قبل - ملحمة ظهور الشخصية اليومية هي قبل تخمينك."
+    }
+  },
+  "yesterday": {
+    "title": "شخصية الأمس",
+    "characterLabel": "شخصية"
+  },
+  "winBanner": {
+    "title": "نتيجة اليوم",
+    "tries": "المحاولات",
+    "nextCharacter": "الشخصية التالية",
+    "todayCharacter": "شخصية اليوم",
+    "share": "مشاركة",
+    "shareOnX": "مشاركة على X",
+    "copyToClipboard": "نسخ إلى الحافظة",
+    "supportUs": "ادعمنا",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "!العب وضع الصورة الظلية"
+  },
+  "guessForm": {
+    "submitAlt": "كرة التنين ذات الأربع نجوم"
+  },
+  "share": {
+    "tweet": {
+      "one": "لقد خمنت شخصية DragonBallDle لهذا اليوم في محاولة واحدة:\n{guesses}\nجرّب الآن في {url}",
+      "other": "لقد خمنت شخصية DragonBallDle لهذا اليوم في {tries} محاولة:\n{guesses}\nجرّب الآن في {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "description": "هل لديك أسئلة؟ نود أن نسمع منك!",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "emailPlaceholder": "بريدك@email.com",
+    "nameLabel": "اسمك",
+    "namePlaceholder": "أدخل اسمك",
+    "messageLabel": "الرسالة",
+    "messagePlaceholder": "أخبرنا برأيك...",
+    "sendButton": "إرسال الرسالة",
+    "copyButton": "نسخ البريد الإلكتروني",
+    "copiedFeedback": "تم نسخ البريد الإلكتروني!",
+    "directEmail": "إرسال بريد مباشر",
+    "metadata": {
+      "title": "DragonBallDle — اتصل بنا",
+      "description": "تواصل مع فريق DragonBallDle. نود أن نسمع منك!"
+    },
+    "submitSuccess": "✓ تم إرسال البريد الإلكتروني بنجاح!",
+    "submitError": "✗ خطأ في الإرسال. حاول مرة أخرى."
+  },
+  "silhouetteHero": {
+    "title": "!اكشف الصورة الظلية",
+    "subtitle": "!كشف {count} شخصاً بالفعل شخصية اليوم"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "كشف كامل",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "محاولة واحدة",
+    "guessCountMany": "{count} محاولات",
+    "characterRevealed": "!تم كشف الشخصية",
+    "imageAltDaily": "تحدي الصورة الظلية اليومي",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

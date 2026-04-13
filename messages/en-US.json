@@ -4,6 +4,10 @@
       "title": "Classic",
       "subtitle": "Guess the daily character"
     },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
+    },
     "inProgress": {
       "title": "In progress...",
       "subtitle": "A new game is coming..."
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "Maintainers"
+  },
+  "winModal": {
+    "congrats": "Congratulations!",
+    "line": {
+      "before": "You guessed today’s Dragon Ball character in",
+      "after": "tries:"
+    },
+    "countdown": "Next character in:",
+    "playNewGame": "New Game!"
+  },
+  "hero": {
+    "title": "Guess Today's Dragon Ball Character!",
+    "subtitle": "people have already guessed today's character!"
+  },
+  "common": {
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Loading...",
+    "searchPlaceholder": "Type character name...",
+    "noResults": "No characters found...",
+    "changeLanguage": "Change language",
+    "language": "Language",
+    "roles": {
+      "frontend": "Front-end Developer",
+      "analytics": "WebAnalytics Analyst",
+      "fullstack": "Full Stack Developer"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Daily character not found",
+    "table": {
+      "character": "Character",
+      "gender": "Gender",
+      "race": "Race",
+      "affiliation": "Affiliation",
+      "transformation": "Transformation",
+      "attribute": "Attribute",
+      "series": "Series",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Need a quick guide?",
+      "correct": "Correct - This attribute is exactly right.",
+      "partial": "Partial — At least one value matches.",
+      "incorrect": "Incorrect — This attribute is completely wrong.",
+      "after": "After — The daily character’s debut saga is after your guess.",
+      "before": "Before — The daily character’s debut saga is before your guess."
+    }
+  },
+  "yesterday": {
+    "title": "Yesterday's character",
+    "characterLabel": "Character"
+  },
+  "winBanner": {
+    "title": "Today's result",
+    "tries": "Tries",
+    "nextCharacter": "Next character",
+    "todayCharacter": "Today's character",
+    "share": "Share",
+    "shareOnX": "Share on X",
+    "copyToClipboard": "Copy to Clipboard",
+    "supportUs": "Support us",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Play Silhouette Mode!"
+  },
+  "guessForm": {
+    "submitAlt": "4 Stars Dragon Ball"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
+  },
+  "silhouetteViewer": {
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 guess",
+    "guessCountMany": "{count} guesses",
+    "characterRevealed": "Character revealed!",
+    "imageAltDaily": "Daily silhouette challenge",
+    "imageAltRevealed": "{name}",
+    "fullReveal": "Full Reveal",
+    "guessLabel": "{count}/{total}"
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "{count} people have already revealed today's character!"
+  },
+  "share": {
+    "tweet": {
+      "one": "I guessed today's DragonBallDle character in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I guessed today's DragonBallDle character in {tries} tries:\n{guesses}\nTry it too at {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Have questions? We'd love to hear from you!",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell us what's on your mind...",
+    "sendButton": "Send Message",
+    "copyButton": "Copy Email",
+    "copiedFeedback": "Email copied!",
+    "directEmail": "Send Direct Email",
+    "metadata": {
+      "title": "DragonBallDle — Contact Us",
+      "description": "Get in touch with the DragonBallDle team. We'd love to hear from you!"
+    },
+    "submitSuccess": "✓ Email sent successfully!",
+    "submitError": "✗ Error submitting. Try again."
   }
 }

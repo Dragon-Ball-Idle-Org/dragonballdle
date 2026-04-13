@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Tahmin Oyunu",
       "description": "Bugünün gizemli Dragon Ball karakterini tahmin et! Bu ücretsiz günlük oyunda Dragon Ball bilgini test et ve arkadaşlarına meydan oku."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "Bakımını Yapanlar"
+  },
+  "winModal": {
+    "congrats": "Tebrikler!",
+    "line": {
+      "before": "Bugünkü Dragon Ball karakterini",
+      "after": "denemede tahmin ettin:"
+    },
+    "countdown": "Sıradaki karakter:",
+    "playNewGame": "Yeni Oyun!"
+  },
+  "hero": {
+    "title": "Bugünün Dragon Ball Karakterini Tahmin Et!",
+    "subtitle": "kişi bugün tahmin etti!"
+  },
+  "common": {
+    "none": "Hiçbiri",
+    "yes": "Evet",
+    "no": "Hayır",
+    "loading": "Yükleniyor...",
+    "searchPlaceholder": "Karakter adını yazın...",
+    "noResults": "Karakter bulunamadı...",
+    "changeLanguage": "Dili değiştir",
+    "language": "Dil",
+    "roles": {
+      "frontend": "Ön yüz geliştirici",
+      "analytics": "Web analitiği analisti",
+      "fullstack": "Full stack geliştirici"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Bugünün karakteri bulunamadı",
+    "table": {
+      "character": "Karakter",
+      "gender": "Cinsiyet",
+      "race": "Irk",
+      "affiliation": "Bağlılık",
+      "transformation": "Dönüşüm",
+      "attribute": "Nitelik",
+      "series": "Seri",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Hızlı bir kılavuza mı ihtiyacınız var?",
+      "correct": "Doğru - Bu özellik tamamen doğru.",
+      "partial": "Kısmi — En az bir değer eşleşiyor.",
+      "incorrect": "Yanlış - Bu özellik tamamen yanlış.",
+      "after": "Sonra — Günlük karakterin ilk çıkış destanı tahmininizden sonradır.",
+      "before": "Önce — Günlük karakterin ilk çıkış destanı tahmininizden öncedir."
+    }
+  },
+  "yesterday": {
+    "title": "Dünkü karakter",
+    "characterLabel": "Karakter"
+  },
+  "winBanner": {
+    "title": "Bugünkü sonuç",
+    "tries": "Deneme",
+    "nextCharacter": "Sonraki karakter",
+    "todayCharacter": "Bugünkü karakter",
+    "share": "Paylaş",
+    "shareOnX": "X'te paylaş",
+    "copyToClipboard": "Panoya kopyala",
+    "supportUs": "Bizi destekle",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Siluet Modunu Oyna!"
+  },
+  "guessForm": {
+    "submitAlt": "4 Yıldızlı Ejderha Topu"
+  },
+  "share": {
+    "tweet": {
+      "one": "Bugünün DragonBallDle karakterini 1 denemede tahmin ettim:\n{guesses}\n{url}'de de dene",
+      "other": "Bugünün DragonBallDle karakterini {tries} denemede tahmin ettim:\n{guesses}\n{url}'de de dene"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "Bize Ulaşın",
+    "description": "Sorularınız mı var? Sizden haber almaktan çok memnun oluruz!",
+    "emailLabel": "E-posta Adresi",
+    "emailPlaceholder": "sizin@email.com",
+    "nameLabel": "Adınız",
+    "namePlaceholder": "Adınızı girin",
+    "messageLabel": "Mesaj",
+    "messagePlaceholder": "Bize ne düşündüğünüzü anlatin...",
+    "sendButton": "Mesaj Gönder",
+    "copyButton": "E-postayı Kopyala",
+    "copiedFeedback": "E-posta kopyalandı!",
+    "directEmail": "E-postayı Doğrudan Gönder",
+    "metadata": {
+      "title": "DragonBallDle — İletişim",
+      "description": "DragonBallDle ekibine ulaşın. Sizden haber almaktan çok memnun oluruz!"
+    },
+    "submitSuccess": "✓ E-posta başarıyla gönderildi!",
+    "submitError": "✗ Gönderme hatası. Tekrar deneyin."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "{count} kişi bugünün karakterini çoktan ortaya çıkardı!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Tam Gösterim",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 tahmin",
+    "guessCountMany": "{count} tahmin",
+    "characterRevealed": "Karakter ortaya çıktı!",
+    "imageAltDaily": "Günlük siluet mücadelesi",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

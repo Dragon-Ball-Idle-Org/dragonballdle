@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — अनुमान लगाने का गेम",
       "description": "आज के रहस्यमयी ड्रैगन बॉल चरित्र का अनुमान लगाएं! इस दैनिक गेम में अपने ज्ञान का परीक्षण करें और दोस्तों को चुनौती दें।"
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "रखरखाव करने वाले"
+  },
+  "winModal": {
+    "congrats": "बधाई हो!",
+    "line": {
+      "before": "आपने आज के ड्रैगन बॉल चरित्र का अनुमान लगाया",
+      "after": "प्रयासों में:"
+    },
+    "countdown": "अगला चरित्र इसमें:",
+    "playNewGame": "नया गेम!"
+  },
+  "hero": {
+    "title": "आज के ड्रैगन बॉल कैरेक्टर का अनुमान लगाएं!",
+    "subtitle": "लोगों ने आज के कैरेक्टर का अनुमान लगा लिया है!"
+  },
+  "common": {
+    "none": "कोई नहीं",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "loading": "लोड हो रहा है...",
+    "searchPlaceholder": "पात्र का नाम टाइप करें...",
+    "noResults": "कोई पात्र नहीं मिला...",
+    "changeLanguage": "भाषा बदलें",
+    "language": "भाषा",
+    "roles": {
+      "frontend": "फ्रंट-एंड डेवलपर",
+      "analytics": "वेब एनालिटिक्स एनालिस्ट",
+      "fullstack": "फुल स्टैक डेवलपर"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "दैनिक पात्र नहीं मिला",
+    "table": {
+      "character": "पात्र",
+      "gender": "लिंग",
+      "race": "जाति",
+      "affiliation": "संबद्धता",
+      "transformation": "परिवर्तन",
+      "attribute": "विशेषता",
+      "series": "श्रृंखला",
+      "saga": "गाथा"
+    },
+    "guide": {
+      "header": "क्या आपको एक त्वरित गाइड चाहिए?",
+      "correct": "सही - यह विशेषता बिल्कुल सही है।",
+      "partial": "आंशिक - कम से कम एक मान मेल खाता है।",
+      "incorrect": "गलत - यह विशेषता पूरी तरह से गलत है।",
+      "after": "बाद में - दैनिक पात्र का डेब्यू सागा आपके अनुमान के बाद है।",
+      "before": "पहले - दैनिक पात्र का डेब्यू साกา आपके अनुमान से पहले है।"
+    }
+  },
+  "yesterday": {
+    "title": "कल का पात्र",
+    "characterLabel": "पात्र"
+  },
+  "winBanner": {
+    "title": "आज का परिणाम",
+    "tries": "प्रयास",
+    "nextCharacter": "अगला पात्र",
+    "todayCharacter": "आज का पात्र",
+    "share": "साझा करें",
+    "shareOnX": "X पर साझा करें",
+    "copyToClipboard": "क्लिपबोर्ड पर कॉपी करें",
+    "supportUs": "हमारा समर्थन करें",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "सिल्हूट मोड खेलें!"
+  },
+  "guessForm": {
+    "submitAlt": "4 सितारा ड्रैगन बॉल"
+  },
+  "share": {
+    "tweet": {
+      "one": "मैंने आज के DragonBallDle चरित्र को 1 प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें",
+      "other": "मैंने आज के DragonBallDle चरित्र को {tries} प्रयास में सही अनुमान लगाया:\n{guesses}\n{url} पर भी कोशिश करें"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "हमसे संपर्क करें",
+    "description": "कोई सवाल? हम आपसे सुनना पसंद करेंगे!",
+    "emailLabel": "ईमेल पता",
+    "emailPlaceholder": "आपका@email.com",
+    "nameLabel": "आपका नाम",
+    "namePlaceholder": "अपना नाम दर्ज करें",
+    "messageLabel": "संदेश",
+    "messagePlaceholder": "हमें बताएं कि आप क्या सोचते हैं...",
+    "sendButton": "संदेश भेजें",
+    "copyButton": "ईमेल कॉपी करें",
+    "copiedFeedback": "ईमेल कॉपी किया गया!",
+    "directEmail": "सीधे ईमेल भेजें",
+    "metadata": {
+      "title": "DragonBallDle — संपर्क करें",
+      "description": "DragonBallDle टीम से संपर्क करें। हम आपसे सुनना पसंद करेंगे!"
+    },
+    "submitSuccess": "✓ ईमेल सफलतापूर्वक भेजा गया!",
+    "submitError": "✗ सबमिट करने में त्रुटि। पुनः प्रयास करें।"
+  },
+  "silhouetteHero": {
+    "title": "सिल्हूट को उजागर करें!",
+    "subtitle": "{count} लोग पहले ही आज के चरित्र का खुलासा कर चुके हैं!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "पूर्ण खुलासा",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 अनुमान",
+    "guessCountMany": "{count} अनुमान",
+    "characterRevealed": "चरित्र का खुलासा हुआ!",
+    "imageAltDaily": "दैनिक सिल्हूट चुनौती",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

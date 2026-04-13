@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — 当てゲーム",
       "description": "今日の謎のドラゴンボールキャラクターを当てよう！アニメの知識を試し、この無料のデイリーゲームで友達に挑戦しよう。"
+    },
+    "silhouette": {
+      "title": "シルエット",
+      "subtitle": "謎のキャラクターを解き明かせ"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "メンテナー"
+  },
+  "winModal": {
+    "congrats": "おめでとうございます！",
+    "line": {
+      "before": "今日のドラゴンボールのキャラクターを",
+      "after": "回で当てました："
+    },
+    "countdown": "次のキャラクターまで：",
+    "playNewGame": "新しいゲーム！"
+  },
+  "hero": {
+    "title": "今日のドラゴンボールキャラクターを当てよう！",
+    "subtitle": "人が今日のキャラクターを当てました！"
+  },
+  "common": {
+    "none": "なし",
+    "yes": "はい",
+    "no": "いいえ",
+    "loading": "読み込み中...",
+    "searchPlaceholder": "キャラクター名を入力...",
+    "noResults": "キャラクターが見つかりません...",
+    "changeLanguage": "言語を変更",
+    "language": "言語",
+    "roles": {
+      "frontend": "フロントエンド開発者",
+      "analytics": "Webアナリティクスアナリスト",
+      "fullstack": "フルスタック開発者"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "今日のキャラクターが見つかりません",
+    "table": {
+      "character": "キャラクター",
+      "gender": "性別",
+      "race": "種族",
+      "affiliation": "所属",
+      "transformation": "変身",
+      "attribute": "属性",
+      "series": "シリーズ",
+      "saga": "章/サーガ"
+    },
+    "guide": {
+      "header": "クイックガイドが必要ですか？",
+      "correct": "正解 - この属性は完全に一致しています。",
+      "partial": "部分一致 - 少なくとも1つの値が一致しています。",
+      "incorrect": "不正解 - この属性は完全に間違っています。",
+      "after": "後 - 今日のキャラクターのデビュー・サーガは、あなたの予想より後です。",
+      "before": "前 - 今日のキャラクターのデビュー・サーガは、あなたの予想より前です。"
+    }
+  },
+  "yesterday": {
+    "title": "昨日のキャラクター",
+    "characterLabel": "キャラクター"
+  },
+  "winBanner": {
+    "title": "今日の結果",
+    "tries": "試行回数",
+    "nextCharacter": "次のキャラクター",
+    "todayCharacter": "今日のキャラクター",
+    "share": "シェア",
+    "shareOnX": "Xでシェア",
+    "copyToClipboard": "クリップボードにコピー",
+    "supportUs": "サポートする",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "シルエットモードをプレイ！"
+  },
+  "guessForm": {
+    "submitAlt": "四星球 (スーシンチュウ)"
+  },
+  "share": {
+    "tweet": {
+      "one": "今日のDragonBallDleキャラクターを1回で当てました:\n{guesses}\n{url}でも試してみてください",
+      "other": "今日のDragonBallDleキャラクターを{tries}回で当てました:\n{guesses}\n{url}でも試してみてください"
+    },
+    "silhouette": {
+      "one": "今日のDragonBallDleシルエットを1回で解き明かしました！\n{guesses}\n{url}であなたも挑戦してね",
+      "other": "今日のDragonBallDleシルエットを{tries}回で解き明かしました！\n{guesses}\n{url}であなたも挑戦してね"
+    }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "ご質問がありますか？ぜひお知らせください。",
+    "emailLabel": "メールアドレス",
+    "emailPlaceholder": "あなた@email.com",
+    "nameLabel": "お名前",
+    "namePlaceholder": "お名前を入力してください",
+    "messageLabel": "メッセージ",
+    "messagePlaceholder": "ご意見をお聞かせください...",
+    "sendButton": "メッセージを送信",
+    "copyButton": "メールをコピー",
+    "copiedFeedback": "メールをコピーしました！",
+    "directEmail": "メールを直接送信",
+    "metadata": {
+      "title": "DragonBallDle — お問い合わせ",
+      "description": "DragonBallDleチームにお問い合わせください。ぜひお知らせください。"
+    },
+    "submitSuccess": "✓ メールが正常に送信されました！",
+    "submitError": "✗ 送信エラー。もう一度やり直してください。"
+  },
+  "silhouetteHero": {
+    "title": "シルエットを解き明かせ！",
+    "subtitle": "既に {count} 人が今日のキャラクターを明らかにしました！"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "全貌公開",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 回の予想",
+    "guessCountMany": "{count} 回の予想",
+    "characterRevealed": "キャラクターが判明しました！",
+    "imageAltDaily": "今日のシルエットチャレンジ",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — シルエット",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

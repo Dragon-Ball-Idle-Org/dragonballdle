@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Game Tebak-Tebakan",
       "description": "Tebak karakter misteri Dragon Ball hari ini! Uji pengetahuan Dragon Ball kamu dan tantang teman-teman di game harian gratis ini."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Reveal the mystery character"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "Pemelihara"
+  },
+  "winModal": {
+    "congrats": "Selamat!",
+    "line": {
+      "before": "Anda menebak karakter Dragon Ball hari ini dalam",
+      "after": "percobaan:"
+    },
+    "countdown": "Karakter berikutnya dalam:",
+    "playNewGame": "Game Baru!"
+  },
+  "hero": {
+    "title": "Tebak Karakter Dragon Ball Hari Ini!",
+    "subtitle": "orang sudah menebak hari ini!"
+  },
+  "common": {
+    "none": "Tidak ada",
+    "yes": "Ya",
+    "no": "Tidak",
+    "loading": "Memuat...",
+    "searchPlaceholder": "Ketik nama karakter...",
+    "noResults": "Karakter tidak ditemukan...",
+    "changeLanguage": "Ubah bahasa",
+    "language": "Bahasa",
+    "roles": {
+      "frontend": "Pengembang front-end",
+      "analytics": "Analis analitik web",
+      "fullstack": "Pengembang full stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Tidak tìm thấy nhân vật trong ngày",
+    "table": {
+      "character": "Karakter",
+      "gender": "Gender",
+      "race": "Ras",
+      "affiliation": "Afiliasi",
+      "transformation": "Transformasi",
+      "attribute": "Atribut",
+      "series": "Seri",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Butuh panduan cepat?",
+      "correct": "Benar - Atribut ini benar sekali.",
+      "partial": "Sebagian — Setidaknya satu nilai cocok.",
+      "incorrect": "Salah - Atribut ini salah total.",
+      "after": "Sesudah — Saga debut karakter harian muncul setelah tebakan Anda.",
+      "before": "Sebelum — Saga debut karakter harian muncul sebelum tebakan Anda."
+    }
+  },
+  "yesterday": {
+    "title": "Karakter kemarin",
+    "characterLabel": "Karakter"
+  },
+  "winBanner": {
+    "title": "Hasil hari ini",
+    "tries": "Percobaan",
+    "nextCharacter": "Karakter berikutnya",
+    "todayCharacter": "Karakter hari ini",
+    "share": "Bagikan",
+    "shareOnX": "Bagikan di X",
+    "copyToClipboard": "Salin ke papan klip",
+    "supportUs": "Dukung kami",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Mainkan Mode Siluet!"
+  },
+  "guessForm": {
+    "submitAlt": "Bola naga bintang 4"
+  },
+  "share": {
+    "tweet": {
+      "one": "Saya menebak karakter DragonBallDle hari ini dalam 1 percobaan:\n{guesses}\nCoba juga di {url}",
+      "other": "Saya menebak karakter DragonBallDle hari ini dalam {tries} percobaan:\n{guesses}\nCoba juga di {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "description": "Ada pertanyaan? Kami ingin mendengar dari Anda!",
+    "emailLabel": "Alamat Email",
+    "emailPlaceholder": "anda@email.com",
+    "nameLabel": "Nama Anda",
+    "namePlaceholder": "Masukkan nama Anda",
+    "messageLabel": "Pesan",
+    "messagePlaceholder": "Ceritakan pada kami apa yang Anda pikirkan...",
+    "sendButton": "Kirim Pesan",
+    "copyButton": "Salin Email",
+    "copiedFeedback": "Email disalin!",
+    "directEmail": "Kirim Email Langsung",
+    "metadata": {
+      "title": "DragonBallDle — Hubungi Kami",
+      "description": "Hubungi tim DragonBallDle. Kami ingin mendengar dari Anda!"
+    },
+    "submitSuccess": "✓ Email berhasil dikirim!",
+    "submitError": "✗ Kesalahan mengirim. Coba lagi."
+  },
+  "silhouetteHero": {
+    "title": "Reveal the Silhouette!",
+    "subtitle": "{count} orang telah mengungkap karakter hari ini!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Ungkap Sepenuhnya",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 tebakan",
+    "guessCountMany": "{count} tebakan",
+    "characterRevealed": "Karakter terungkap!",
+    "imageAltDaily": "Tantangan siluet harian",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }

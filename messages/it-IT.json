@@ -11,6 +11,10 @@
     "metadata": {
       "title": "DragonBallDle — Gioco a Quiz",
       "description": "Indovina il personaggio misterioso di Dragon Ball di oggi! Metti alla prova la tua cultura Dragon Ball in questo gioco gratuito."
+    },
+    "silhouette": {
+      "title": "Silhouette",
+      "subtitle": "Svela il personaggio misterioso"
     }
   },
   "footer": {
@@ -51,5 +55,124 @@
   },
   "socialLinksModal": {
     "title": "Manutentori"
+  },
+  "winModal": {
+    "congrats": "Congratulazioni!",
+    "line": {
+      "before": "Hai indovinato il personaggio Dragon Ball di oggi in",
+      "after": "tentativi:"
+    },
+    "countdown": "Prossimo personaggio tra:",
+    "playNewGame": "Nuovo Gioco!"
+  },
+  "hero": {
+    "title": "Indovina il personaggio di Dragon Ball di oggi!",
+    "subtitle": "persone hanno già indovinato il personaggio di oggi!"
+  },
+  "common": {
+    "none": "Nessuno",
+    "yes": "Sì",
+    "no": "No",
+    "loading": "Caricamento in corso...",
+    "searchPlaceholder": "Digita il nome del personaggio...",
+    "noResults": "Nessun personaggio trovato...",
+    "changeLanguage": "Cambia lingua",
+    "language": "Lingua",
+    "roles": {
+      "frontend": "Sviluppatore front-end",
+      "analytics": "Analista di web analytics",
+      "fullstack": "Sviluppatore full-stack"
+    }
+  },
+  "classic": {
+    "dailyNotFound": "Personaggio del giorno non trovato",
+    "table": {
+      "character": "Personaggio",
+      "gender": "Genere",
+      "race": "Razza",
+      "affiliation": "Affiliazione",
+      "transformation": "Trasformazione",
+      "attribute": "Attributo",
+      "series": "Serie",
+      "saga": "Saga"
+    },
+    "guide": {
+      "header": "Ti serve una guida rapida?",
+      "correct": "Corretto - Questo attributo è esattamente corretto.",
+      "partial": "Parziale - Almeno un valore corrisponde.",
+      "incorrect": "Errato - Questo attributo è completamente sbagliato.",
+      "after": "Dopo - La saga di debutto del personaggio del giorno è successiva alla tua ipotesi.",
+      "before": "Prima - La saga di debutto del personaggio del giorno è precedente alla tua ipotesi."
+    }
+  },
+  "yesterday": {
+    "title": "Personaggio di ieri",
+    "characterLabel": "Personaggio"
+  },
+  "winBanner": {
+    "title": "Risultato di oggi",
+    "tries": "Tentativi",
+    "nextCharacter": "Personaggio successivo",
+    "todayCharacter": "Personaggio di oggi",
+    "share": "Condividi",
+    "shareOnX": "Condividi su X",
+    "copyToClipboard": "Copia negli appunti",
+    "supportUs": "Supportaci",
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Gioca alla modalità Silhouette!"
+  },
+  "guessForm": {
+    "submitAlt": "Sfera a 4 stelle"
+  },
+  "share": {
+    "tweet": {
+      "one": "Ho indovinato il personaggio di DragonBallDle di oggi in 1 tentativo:\n{guesses}\nProva anche tu su {url}",
+      "other": "Ho indovinato il personaggio di DragonBallDle di oggi in {tries} tentativi:\n{guesses}\nProva anche tu su {url}"
+    },
+    "silhouette": {
+      "one": "I revealed today's DragonBallDle silhouette in 1 try:\n{guesses}\nTry it too at {url}",
+      "other": "I revealed today's DragonBallDle silhouette in {tries} tries:\n{guesses}\nTry it too at {url}"
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "description": "Hai domande? Ci piacerebbe molto sentirti!",
+    "emailLabel": "Indirizzo Email",
+    "emailPlaceholder": "tuo@email.com",
+    "nameLabel": "Il Tuo Nome",
+    "namePlaceholder": "Inserisci il tuo nome",
+    "messageLabel": "Messaggio",
+    "messagePlaceholder": "Raccontaci cosa ne pensi...",
+    "sendButton": "Invia Messaggio",
+    "copyButton": "Copia Email",
+    "copiedFeedback": "Email copiata!",
+    "directEmail": "Invia Email Direttamente",
+    "metadata": {
+      "title": "DragonBallDle — Contatti",
+      "description": "Contatta il team di DragonBallDle. Ci piacerebbe molto sentirti!"
+    },
+    "submitSuccess": "✓ Email inviata con successo!",
+    "submitError": "✗ Errore di invio. Riprova."
+  },
+  "silhouetteHero": {
+    "title": "Rivela la Silhouette!",
+    "subtitle": "{count} persone hanno già svelato il personaggio di oggi!"
+  },
+  "silhouetteViewer": {
+    "fullReveal": "Rivelazione completa",
+    "guessLabel": "{count}/{total}",
+    "revealPercent": "{percent}%",
+    "guessCountOne": "1 tentativo",
+    "guessCountMany": "{count} tentativi",
+    "characterRevealed": "Personaggio svelato!",
+    "imageAltDaily": "Sfida quotidiana della silhouette",
+    "imageAltRevealed": "{name}"
+  },
+  "silhouette": {
+    "dailyNotFound": "Daily character not found",
+    "metadata": {
+      "title": "DragonBallDle — Silhouette",
+      "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
+    }
   }
 }
