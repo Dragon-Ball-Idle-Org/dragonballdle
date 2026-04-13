@@ -101,14 +101,14 @@ export function SilhouetteGameBoard({
         />
         <button
           type="submit"
-          className="hidden sm:block cursor-pointer transition-transform hover:scale-105 active:scale-95"
+          className="hidden sm:block cursor-pointer transition-transform hover:scale-105 active:scale-95 -translate-y-[5px]"
         >
           <img
-            src="/assets/dragon_ball_4_stars.svg"
+            src="/assets/dragon-radar-icon.png"
             alt={translations.submitAlt}
             width={80}
             height={80}
-            className="w-20 h-20"
+            className="w-18 h-18"
           />
         </button>
       </form>
