@@ -113,7 +113,8 @@
     "shareOnX": "Поделиться в X",
     "copyToClipboard": "Скопировать в буфер обмена",
     "supportUs": "Поддержать нас",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Играть в режим силуэта"
   },
   "guessForm": {
     "submitAlt": "4-звездочный Драконий жемчуг"

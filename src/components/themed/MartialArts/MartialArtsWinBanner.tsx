@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { ShareDropdown } from "@/components/ui/ShareDropdown";
 import { ShineGradientButton } from "@/components/ui/ShineGradientButton";
+import { EyeIcon } from "@phosphor-icons/react";
 
 type MartialArtsWinBannerProps = {
   todayCharacterSlug: string;
@@ -98,6 +99,20 @@ export function MartialArtsWinBanner({
                 <span className="leading-none">{translations.supportUs}</span>
               </Link>
             </div>
+            <Link
+              href="/silhouette"
+              className={cn(
+                "w-full flex items-center justify-center gap-3 p-6 rounded-2xl relative mt-6 mb-4",
+                "bg-amber-400 border-2 border-[#d41919] shadow-[0_6px_0_#b45309]",
+                "hover:scale-103 active:scale-95 transition-all",
+                "font-display text-2xl uppercase tracking-widest",
+              )}
+            >
+              <EyeIcon weight="fill" className="w-8 h-8 shrink-0" />
+              <span className="relative z-10">
+                {translations.playSilhouette}
+              </span>
+            </Link>
           </div>
         </motion.div>
       )}

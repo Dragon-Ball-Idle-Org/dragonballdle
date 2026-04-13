@@ -113,7 +113,8 @@
     "shareOnX": "Bagikan di X",
     "copyToClipboard": "Salin ke papan klip",
     "supportUs": "Dukung kami",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Mainkan Mode Siluet"
   },
   "guessForm": {
     "submitAlt": "Bola naga bintang 4"

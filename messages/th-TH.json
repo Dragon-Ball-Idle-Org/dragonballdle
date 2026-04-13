@@ -113,7 +113,8 @@
     "shareOnX": "แชร์บน X",
     "copyToClipboard": "คัดลอกไปยังคลิปบอร์ด",
     "supportUs": "สนับสนุนเรา",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Play Silhouette Mode"
   },
   "guessForm": {
     "submitAlt": "ดราก้อนบอล 4 ดาว"

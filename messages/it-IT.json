@@ -113,7 +113,8 @@
     "shareOnX": "Condividi su X",
     "copyToClipboard": "Copia negli appunti",
     "supportUs": "Supportaci",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Gioca alla modalità Silhouette"
   },
   "guessForm": {
     "submitAlt": "Sfera a 4 stelle"

@@ -117,7 +117,8 @@
     "shareOnX": "Partager sur X",
     "copyToClipboard": "Copier dans le presse-papiers",
     "supportUs": "Soutenez-nous",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Jouer au mode Silhouette"
   },
   "guessForm": {
     "submitAlt": "Boule à 4 étoiles"

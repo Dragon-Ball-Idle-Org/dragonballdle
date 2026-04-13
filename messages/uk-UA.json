@@ -113,7 +113,8 @@
     "shareOnX": "Поділитися в X",
     "copyToClipboard": "Скопіювати в буфер обміну",
     "supportUs": "Підтримати нас",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Грати в режим силуету"
   },
   "guessForm": {
     "submitAlt": "4-зірковий Драконячий жемчуг"

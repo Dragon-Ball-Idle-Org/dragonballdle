@@ -113,7 +113,8 @@
     "shareOnX": "Xでシェア",
     "copyToClipboard": "クリップボードにコピー",
     "supportUs": "サポートする",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "シルエットモードをプレイ"
   },
   "guessForm": {
     "submitAlt": "四星球 (スーシンチュウ)"

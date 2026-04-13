@@ -113,7 +113,8 @@
     "shareOnX": "在 X 上分享",
     "copyToClipboard": "复制到剪贴板",
     "supportUs": "支持我们",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "玩剪影模式"
   },
   "guessForm": {
     "submitAlt": "四星龙珠"

@@ -113,7 +113,8 @@
     "shareOnX": "X पर साझा करें",
     "copyToClipboard": "क्लिपबोर्ड पर कॉपी करें",
     "supportUs": "हमारा समर्थन करें",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "सिल्हूट मोड खेलें"
   },
   "guessForm": {
     "submitAlt": "4 सितारा ड्रैगन बॉल"

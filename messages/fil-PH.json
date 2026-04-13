@@ -113,7 +113,8 @@
     "shareOnX": "I-share sa X",
     "copyToClipboard": "Kopyahin sa clipboard",
     "supportUs": "Suportahan kami",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "I-play ang Silhouette Mode"
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"

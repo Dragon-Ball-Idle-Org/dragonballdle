@@ -117,7 +117,8 @@
     "shareOnX": "Share on X",
     "copyToClipboard": "Copy to Clipboard",
     "supportUs": "Support us",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Play Silhouette Mode"
   },
   "guessForm": {
     "submitAlt": "4 Stars Dragon Ball"

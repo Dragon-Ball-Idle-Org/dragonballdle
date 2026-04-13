@@ -144,6 +144,7 @@ export async function getTranslationsBundle(
         shareOnX: t("winBanner.shareOnX"),
         copyToClipboard: t("winBanner.copyToClipboard"),
         supportUs: t("winBanner.supportUs"),
+        playSilhouette: t("winBanner.playSilhouette"),
       },
     },
     share: {

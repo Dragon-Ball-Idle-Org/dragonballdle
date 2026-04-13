@@ -113,7 +113,8 @@
     "shareOnX": "مشاركة على X",
     "copyToClipboard": "نسخ إلى الحافظة",
     "supportUs": "ادعمنا",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "العب وضع الصورة الظلية"
   },
   "guessForm": {
     "submitAlt": "كرة التنين ذات الأربع نجوم"

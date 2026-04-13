@@ -117,7 +117,8 @@
     "shareOnX": "Compartilhar no X",
     "copyToClipboard": "Copiar para Área de Transferência",
     "supportUs": "Apoie-nos",
-    "characterThumbnail": "Miniatura de {name}"
+    "characterThumbnail": "Miniatura de {name}",
+    "playSilhouette": "Jogar Modo Silhueta"
   },
   "guessForm": {
     "submitAlt": "Esfera de 4 Estrelas"

@@ -113,7 +113,8 @@
     "shareOnX": "Auf X teilen",
     "copyToClipboard": "In die Zwischenablage kopieren",
     "supportUs": "Unterstütze uns",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Silhouette-Modus spielen"
   },
   "guessForm": {
     "submitAlt": "4-Sterne-Dragonball"

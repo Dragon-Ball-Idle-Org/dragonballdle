@@ -113,7 +113,8 @@
     "shareOnX": "X에서 공유하기",
     "copyToClipboard": "클립보드에 복사",
     "supportUs": "후원하기",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "실루엣 모드 플레이"
   },
   "guessForm": {
     "submitAlt": "4성구"

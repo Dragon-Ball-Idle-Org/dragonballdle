@@ -113,7 +113,8 @@
     "shareOnX": "X'te paylaş",
     "copyToClipboard": "Panoya kopyala",
     "supportUs": "Bizi destekle",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Siluet Modunu Oyna"
   },
   "guessForm": {
     "submitAlt": "4 Yıldızlı Ejderha Topu"

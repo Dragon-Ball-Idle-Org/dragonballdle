@@ -113,7 +113,8 @@
     "shareOnX": "Chia sẻ trên X",
     "copyToClipboard": "Sao chép vào bộ nhớ tạm",
     "supportUs": "Ủng hộ chúng tôi",
-    "characterThumbnail": "{name} thumbnail"
+    "characterThumbnail": "{name} thumbnail",
+    "playSilhouette": "Chơi chế độ Bóng hình"
   },
   "guessForm": {
     "submitAlt": "Ngọc rồng 4 sao"
