@@ -143,7 +143,9 @@ export function SilhouetteGameBoard({
                       alt={guess.name}
                       className={cn(
                         "w-full h-full object-cover transition-all duration-700",
-                        !isFinished ? "grayscale blur-sm opacity-50" : "grayscale-0 blur-0 opacity-100",
+                        !isFinished
+                          ? "grayscale blur-sm opacity-50"
+                          : "grayscale-0 blur-0 opacity-100",
                       )}
                     />
                   ) : (
@@ -156,7 +158,11 @@ export function SilhouetteGameBoard({
                 <p className="font-display text-white text-xl flex-1 text-center truncate px-2 drop-shadow-md">
                   <ScrambleText
                     text={guess.name}
-                    onScrambleEnd={() => handleScrambleEnd(guess.slug, isCorrect)}
+                    animate={!isFinished}
+                    duration={1000}
+                    onScrambleEnd={() =>
+                      handleScrambleEnd(guess.slug, isCorrect)
+                    }
                   />
                 </p>
 

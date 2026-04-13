@@ -127,13 +127,7 @@ export function SilhouetteImageViewer({
                 ? tr.imageAltRevealed.replace("__NAME__", dailyCharacter.name)
                 : tr.imageAltDaily
             }
-            className={cn(
-              "w-full h-full object-contain p-2",
-              isGameWon ? "filter-none" : "filter brightness-0 contrast-110",
-            )}
-            style={{
-              filter: isGameWon ? "none" : "brightness(0) contrast(110%)",
-            }}
+            className={cn("w-full h-full object-contain p-2")}
           />
         </motion.div>
 
