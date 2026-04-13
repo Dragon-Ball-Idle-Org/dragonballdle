@@ -32,6 +32,12 @@ export function SilhouetteGameBoard({
     new Set(),
   );
 
+  useMemo(() => {
+    if (hydrated && guesses.length > 0 && finishedScrambles.size === 0) {
+      setFinishedScrambles(new Set(guesses.map((g) => g.slug)));
+    }
+  }, [hydrated, guesses, finishedScrambles.size]);
+
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
   const { results, isLoading } = useCharacterSearch(
     query,
@@ -56,7 +62,7 @@ export function SilhouetteGameBoard({
 
   const handleScrambleEnd = async (slug: string, isCorrect: boolean) => {
     setFinishedScrambles((prev) => new Set(prev).add(slug));
-    if (isCorrect) {
+    if (isCorrect && !isGameWon) {
       wonGame();
       await incrementWins("silhouette");
     }
