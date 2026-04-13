@@ -15,6 +15,7 @@ import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
 import { cn } from "@/utils/cn";
 import { incrementWins } from "@/service/wins";
+import { ScrambleText } from "../ui/ScrambleText";
 
 export function SilhouetteGameBoard({
   dailyCharacter,
@@ -27,6 +28,9 @@ export function SilhouetteGameBoard({
   const { guesses, addGuess, hydrated } = useGuessesContext();
   const { isGameWon, wonGame } = useGameContext();
   const { findBySlug } = useCharacterCache(locale);
+  const [finishedScrambles, setFinishedScrambles] = useState<Set<string>>(
+    new Set(),
+  );
 
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
   const { results, isLoading } = useCharacterSearch(
@@ -48,8 +52,11 @@ export function SilhouetteGameBoard({
     addGuess(character);
     setQuery("");
     setSelectedSlug(null);
+  };
 
-    if (character.slug === dailyCharacter.slug) {
+  const handleScrambleEnd = async (slug: string, isCorrect: boolean) => {
+    setFinishedScrambles((prev) => new Set(prev).add(slug));
+    if (isCorrect) {
       wonGame();
       await incrementWins("silhouette");
     }
@@ -110,6 +117,8 @@ export function SilhouetteGameBoard({
         <AnimatePresence mode="popLayout">
           {guesses.map((guess, idx) => {
             const isCorrect = guess.slug === dailyCharacter.slug;
+            const isFinished = finishedScrambles.has(guess.slug);
+
             return (
               <motion.div
                 key={guess.slug}
@@ -119,10 +128,12 @@ export function SilhouetteGameBoard({
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.2 }}
                 className={cn(
-                  "w-full flex items-center justify-between p-2 rounded-xl border-2 shadow-lg",
-                  isCorrect
-                    ? "bg-green-600/80 border-green-400"
-                    : "bg-red-600/80 border-red-500",
+                  "w-full flex items-center justify-between p-2 rounded-xl border-2 shadow-lg transition-colors duration-500",
+                  !isFinished
+                    ? "bg-slate-900/90 border-radar-yellow/30 shadow-[inset_0_0_10px_rgba(251,191,36,0.1)]"
+                    : isCorrect
+                      ? "bg-green-600/80 border-green-400"
+                      : "bg-red-600/80 border-red-500",
                 )}
               >
                 <div className="w-12 h-12 relative shrink-0 bg-slate-800 rounded-lg overflow-hidden border border-white/20">
@@ -130,7 +141,10 @@ export function SilhouetteGameBoard({
                     <img
                       src={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${guess.thumb_path}`}
                       alt={guess.name}
-                      className="w-full h-full object-cover"
+                      className={cn(
+                        "w-full h-full object-cover transition-all duration-700",
+                        !isFinished ? "grayscale blur-sm opacity-50" : "grayscale-0 blur-0 opacity-100",
+                      )}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-xs text-slate-500">
@@ -140,7 +154,10 @@ export function SilhouetteGameBoard({
                 </div>
 
                 <p className="font-display text-white text-xl flex-1 text-center truncate px-2 drop-shadow-md">
-                  {guess.name}
+                  <ScrambleText
+                    text={guess.name}
+                    onScrambleEnd={() => handleScrambleEnd(guess.slug, isCorrect)}
+                  />
                 </p>
 
                 <div className="w-12 h-12 shrink-0" />
