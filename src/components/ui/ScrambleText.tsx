@@ -75,6 +75,8 @@ export function ScrambleText({
 
   const [pos, setPos] = useState(animate ? 0 : text.length * CYCLES_PER_LETTER);
 
+  const effectivePos = animate ? pos : text.length * CYCLES_PER_LETTER;
+
   useEffect(() => {
     if (!animate) return;
 
@@ -115,7 +117,7 @@ export function ScrambleText({
     };
   }, [text, animate, onScrambleEnd, activeShuffleTime, totalAnimationTime]);
 
-  const isFinished = pos / CYCLES_PER_LETTER >= text.length;
+  const isFinished = effectivePos / CYCLES_PER_LETTER >= text.length;
 
   return (
     <span
@@ -126,7 +128,7 @@ export function ScrambleText({
       )}
     >
       {text.split("").map((char, index) => {
-        if (pos / CYCLES_PER_LETTER > index || char === " ") {
+        if (effectivePos / CYCLES_PER_LETTER > index || char === " ") {
           return <span key={index}>{char}</span>;
         }
 
