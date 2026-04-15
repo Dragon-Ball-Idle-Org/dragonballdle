@@ -105,6 +105,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       >
         <SplashScreen />
         <Providers locale={lang}>
+          <h1 className="hidden">DragonBallDle</h1>
           {children}
           <Footer />
           <BottomNavBar

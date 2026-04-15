@@ -21,7 +21,7 @@ export default async function Home() {
       <Header hideBackButton />
       <main className="flex-1 flex h-full flex-col items-center justify-center gap-3 my-3">
         <MartialArtsGameButton
-          icon={<h1 className="font-display text-9xl">?</h1>}
+          icon={<p className="font-display text-9xl">?</p>}
           title={t("classic.title")}
           subtitle={t("classic.subtitle")}
           href="/classic"
@@ -29,7 +29,7 @@ export default async function Home() {
 
         {showSilhouette ? (
           <MartialArtsGameButton
-            icon={<h1 className="font-display text-9xl">◐</h1>}
+            icon={<p className="font-display text-9xl">◐</p>}
             title={t("silhouette.title")}
             subtitle={t("silhouette.subtitle")}
             href="/silhouette"
