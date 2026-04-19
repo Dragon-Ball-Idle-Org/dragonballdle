@@ -2,25 +2,31 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { XIcon, EyeIcon } from "@phosphor-icons/react";
+import { XIcon, EyeIcon, GameControllerIcon } from "@phosphor-icons/react";
 import { CountdownToMidnight } from "./CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
 import { useTranslations } from "@/contexts/TranslationContext";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/utils/cn";
 
 type WinModalProps = {
   characterName: string;
   characterImage: string;
+  playNextLabel?: string;
 };
 
-export function WinModal({ characterName, characterImage }: WinModalProps) {
+export function WinModal({ characterName, characterImage, playNextLabel }: WinModalProps) {
   const [openWinModal, setOpenWinModal] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const { isGameWon } = useGameContext();
   const { tries } = useGuessesContext();
   const t = useTranslations("winModal");
+  const pathname = usePathname();
+
+  const isSilhouette = pathname.startsWith("/silhouette");
+  const nextGameHref = isSilhouette ? "/classic" : "/silhouette";
+  const NextIcon = isSilhouette ? GameControllerIcon : EyeIcon;
 
   useEffect(() => {
     setIsMounted(true);
@@ -118,7 +124,7 @@ export function WinModal({ characterName, characterImage }: WinModalProps) {
               </div>
 
               <Link
-                href="/silhouette"
+                href={nextGameHref}
                 className={cn(
                   "mt-2 w-full flex items-center justify-center gap-3 py-[clamp(12px,2vw,16px)] px-6 rounded-2xl",
                   "bg-orange-500 border-2 border-black",
@@ -127,8 +133,8 @@ export function WinModal({ characterName, characterImage }: WinModalProps) {
                   "font-display text-[clamp(1.5rem,3.5vw,2rem)] uppercase tracking-wider",
                 )}
               >
-                <EyeIcon weight="fill" className="w-[1.2em] h-[1.2em]" />
-                {t.playNewGame}
+                <NextIcon weight="fill" className="w-[1.2em] h-[1.2em]" />
+                <span className="truncate">{playNextLabel || t.playNewGame}</span>
               </Link>
             </div>
 

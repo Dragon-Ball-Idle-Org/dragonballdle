@@ -32,6 +32,7 @@ export default async function SilhouettePage() {
       <WinModal
         characterName={dailyChar.name}
         characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
+        playNextLabel={`${tHome("title")}!`}
       />
 
       <MainContainer>

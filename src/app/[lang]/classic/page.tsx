@@ -16,8 +16,9 @@ import { WinModal } from "@/components/shared/WinModal";
 
 export default async function ClassicPage() {
   const locale = await getLocale();
-  const [t, dailyChar, yesterdayChar] = await Promise.all([
+  const [t, tHome, dailyChar, yesterdayChar] = await Promise.all([
     getTranslations({ locale, namespace: "classic" }),
+    getTranslations({ locale, namespace: "home" }),
     getDailyCharacter(locale),
     getYesterdayCharacter(locale),
   ]);
@@ -35,6 +36,7 @@ export default async function ClassicPage() {
       <WinModal
         characterName={dailyChar.name}
         characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.image_path}`}
+        playNextLabel={`${tHome("silhouette.title")}!`}
       />
 
       <MainContainer>
