@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <>
-      <Header hideBackButton />
+      <Header hideBackButton hideNavigation />
       <main className="flex-1 flex h-full flex-col items-center justify-center gap-3 my-3">
         <MartialArtsGameButton
           icon={<p className="font-display text-9xl">?</p>}
