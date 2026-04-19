@@ -12,8 +12,9 @@ import { WinModal } from "@/components/shared/WinModal";
 
 export default async function SilhouettePage() {
   const locale = await getLocale();
-  const [t, dailyChar, yesterdayChar] = await Promise.all([
+  const [t, tHome, dailyChar, yesterdayChar] = await Promise.all([
     getTranslations({ locale, namespace: "silhouette" }),
+    getTranslations({ locale, namespace: "home.classic" }),
     getDailySilhouetteCharacter(locale),
     getYesterdaySilhouetteCharacter(locale),
   ]);
@@ -46,6 +47,7 @@ export default async function SilhouettePage() {
           todayCharacterName={dailyChar.name}
           todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
           shareVariant="silhouette"
+          playNextLabel={tHome("title") + "!"}
         />
         <SilhouetteGameBoard dailyCharacter={dailyChar} />
       </MainContainer>

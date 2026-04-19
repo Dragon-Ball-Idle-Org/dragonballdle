@@ -16,6 +16,7 @@ type CapsuleCorpWinBannerProps = {
   todayCharacterName: string;
   todayCharacterImage: string;
   shareVariant?: "classic" | "silhouette";
+  playNextLabel?: string;
 };
 
 export function CapsuleCorpWinBanner({
@@ -23,6 +24,7 @@ export function CapsuleCorpWinBanner({
   todayCharacterName,
   todayCharacterImage,
   shareVariant = "classic",
+  playNextLabel,
 }: CapsuleCorpWinBannerProps) {
   const { tries, hydrated } = useGuessesContext();
   const { isGameWon } = useGameContext();
@@ -78,7 +80,7 @@ export function CapsuleCorpWinBanner({
                 className="w-20 h-20 rounded-xl object-cover shadow-[0_0_0_1px_#ffffffa6,0_4px_14px_#00000047]"
               />
             </div>
-            <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-2 w-full">
               <ShareDropdown
                 todayCharacterSlug={todayCharacterSlug}
                 variant={shareVariant}
@@ -104,6 +106,31 @@ export function CapsuleCorpWinBanner({
                 <span className="leading-none">{translations.supportUs}</span>
               </Link>
             </div>
+
+            {playNextLabel && (
+              <Link
+                href="/classic"
+                className={cn(
+                  "w-full flex items-center justify-center gap-4 p-5 rounded-2xl relative mt-5 mb-2 overflow-hidden",
+                  "bg-zinc-900 border-2 border-green-500 shadow-[0_6px_0_#15803d,0_0_15px_rgba(34,197,94,0.3)]",
+                  "hover:scale-103 hover:shadow-[0_6px_0_#15803d,0_0_25px_rgba(34,197,94,0.5)] active:translate-y-1 active:shadow-[0_2px_0_#15803d] transition-all text-white",
+                  "font-display text-2xl uppercase tracking-widest text-shadow-[1px_1px_2px_rgba(0,0,0,0.6)]",
+                )}
+              >
+                <div className="absolute w-[150%] h-[1px] bg-green-500/20 rotate-45 pointer-events-none" />
+                <div className="absolute w-[150%] h-[1px] bg-green-500/20 -rotate-45 pointer-events-none" />
+                <div className="absolute inset-0 border-[1px] border-green-500/20 rounded-full scale-[2] pointer-events-none" />
+
+                <div className="relative flex items-center justify-center w-6 h-6 shrink-0 mr-1">
+                  <div className="absolute w-4 h-4 bg-green-400 rounded-full animate-ping" />
+                  <div className="w-3 h-3 bg-green-400 rounded-full z-10" />
+                </div>
+
+                <span className="relative z-10">
+                  {playNextLabel}
+                </span>
+              </Link>
+            )}
           </div>
         </motion.div>
       )}
