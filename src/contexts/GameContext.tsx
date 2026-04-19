@@ -33,6 +33,7 @@ export function GameProvider({
     if (typeof window === "undefined") return;
     setIsGameWon(true);
     setWithExpiry(gameWonStorageKey(gameMode), true, msUntilMidnightBrasilia());
+    window.dispatchEvent(new Event("game-won-changed"));
   };
 
   return (
