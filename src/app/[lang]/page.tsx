@@ -1,20 +1,9 @@
-import {
-  MartialArtsGameButton,
-  MartialArtsGameButtonDisabled,
-} from "@/components/themed/MartialArts/MartialArtsGameButton";
+import { MartialArtsGameButton } from "@/components/themed/MartialArts/MartialArtsGameButton";
 import { Header } from "@/components/ui/Header";
-import { ANONYMOUS_CONTEXT, getFeatureFlag } from "@/lib/feature-flags";
-import { TimerIcon } from "@phosphor-icons/react/dist/ssr";
 import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
   const t = await getTranslations("home");
-
-  const showSilhouette = await getFeatureFlag(
-    "show-silhouette",
-    ANONYMOUS_CONTEXT,
-    false,
-  );
 
   return (
     <>
@@ -27,21 +16,12 @@ export default async function Home() {
           href="/classic"
         />
 
-        {showSilhouette ? (
-          <MartialArtsGameButton
-            icon={<p className="font-display text-9xl">◐</p>}
-            title={t("silhouette.title")}
-            subtitle={t("silhouette.subtitle")}
-            href="/silhouette"
-          />
-        ) : (
-          <MartialArtsGameButtonDisabled
-            icon={<TimerIcon weight="fill" className="text-8xl" />}
-            title={"Debuts today"}
-            subtitle={"Coming soon..."}
-            countDown={true}
-          />
-        )}
+        <MartialArtsGameButton
+          icon={<p className="font-display text-9xl">◐</p>}
+          title={t("silhouette.title")}
+          subtitle={t("silhouette.subtitle")}
+          href="/silhouette"
+        />
 
         {/* <MartialArtsGameButtonDisabled
           icon={<h1 className="font-display text-9xl">X</h1>}
