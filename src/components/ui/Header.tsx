@@ -1,16 +1,21 @@
-import Image from "next/image";
 import { LanguageDropdown } from "../desktop/LanguageDropdown";
 import { BackButton } from "./BackButton";
+import { getTranslations } from "next-intl/server";
+import { DesktopNavigation } from "../desktop/DesktopNavigation";
 
 const cdnURL = process.env.NEXT_PUBLIC_CDN_BASE_URL;
 
-export function Header({
+export async function Header({
   hideBackButton = false,
+  hideNavigation = false,
 }: {
   hideBackButton?: boolean;
+  hideNavigation?: boolean;
 }) {
+  const t = await getTranslations("home");
+
   return (
-    <header className="grid place-items-center mt-16">
+    <header className="flex flex-col items-center gap-6 mt-16 w-full">
       <div className="flex items-center gap-4">
         <div className="hidden md:block">
           {!hideBackButton && <BackButton />}
@@ -29,6 +34,13 @@ export function Header({
           <LanguageDropdown />
         </div>
       </div>
+
+      {!hideNavigation && (
+        <DesktopNavigation
+          classicLabel={t("classic.title")}
+          silhouetteLabel={t("silhouette.title")}
+        />
+      )}
     </header>
   );
 }
