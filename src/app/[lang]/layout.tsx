@@ -84,6 +84,9 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 
   const tSocial = await getTranslations("socialLinksModal");
   const tCommon = await getTranslations("common");
+  const tHome = await getTranslations("home");
+  const tLegal = await getTranslations("legal");
+  const tWinBanner = await getTranslations("winBanner");
 
   const roles = {
     frontend: tCommon("roles.frontend"),
@@ -113,6 +116,10 @@ export default async function RootLayout({ children, params }: LayoutProps) {
             roles={roles}
             languagesDrawerTitle={tCommon("language")}
             changeLanguageButtonTitle={tCommon("changeLanguage")}
+            classicTitle={tHome("classic.title")}
+            silhouetteTitle={tHome("silhouette.title")}
+            legalTitle={tLegal("title")}
+            supportUsTitle={tWinBanner("supportUs")}
           />
         </Providers>
       </body>
