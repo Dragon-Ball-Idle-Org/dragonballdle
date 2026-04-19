@@ -100,7 +100,7 @@ export function BottomNavBar({
       <AnimatePresence>
         {isFabOpen && (
           <div className="md:hidden fixed inset-0 z-50 pointer-events-none">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -110,53 +110,53 @@ export function BottomNavBar({
             />
 
             <div className="absolute bottom-[90px] left-1/2 -translate-x-1/2 flex justify-center items-end" style={{ width: 0, height: 0 }}>
-                <motion.div
-                  initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
-                  animate={{ x: -100, y: -30, scale: 1, opacity: 1 }}
-                  exit={{ x: 0, y: 0, scale: 0, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.8, delay: 0.05 }}
-                  className="absolute pointer-events-auto flex items-center justify-center flex-col"
-                >
-                  <Link href="/classic" className="flex flex-col items-center gap-2 group" onClick={() => setIsFabOpen(false)}>
-                    <div className={cn("rounded-full p-1.5 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]", isClassicActive ? "border-2 border-orange-500 bg-black/60 scale-110" : "border-2 border-transparent scale-100 bg-black/40")}>
-                      <MobileThematicNode isWon={wonModes.classic} isActive={isClassicActive} />
-                    </div>
-                    <span className="text-xs bg-black/80 font-bold uppercase tracking-wider text-orange-400 px-3 py-1 rounded-full text-nowrap border border-orange-950/50 shadow-md">
-                      {classicTitle}
-                    </span>
-                  </Link>
-                </motion.div>
+              <motion.div
+                initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+                animate={{ x: -100, y: -30, scale: 1, opacity: 1 }}
+                exit={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.8, delay: 0.05 }}
+                className="absolute pointer-events-auto flex items-center justify-center flex-col"
+              >
+                <Link href="/classic" className="flex flex-col items-center gap-2 group" onClick={() => setIsFabOpen(false)}>
+                  <div className={cn("rounded-full p-1.5 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]", isClassicActive ? "border-2 border-orange-500 bg-black/60 scale-110" : "border-2 border-transparent scale-100 bg-black/40")}>
+                    <MobileThematicNode isWon={wonModes.classic} isActive={isClassicActive} />
+                  </div>
+                  <span className="text-xs bg-black/80 font-bold uppercase tracking-wider text-orange-400 px-3 py-1 rounded-full text-nowrap border border-orange-950/50 shadow-md">
+                    {classicTitle}
+                  </span>
+                </Link>
+              </motion.div>
 
-                <motion.div
-                  initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
-                  animate={{ x: 0, y: -110, scale: 1, opacity: 1 }}
-                  exit={{ x: 0, y: 0, scale: 0, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.8, delay: 0.1 }}
-                  className="absolute pointer-events-auto flex items-center justify-center flex-col"
-                >
-                  <Link href="/" className="flex flex-col items-center gap-2 group" onClick={() => setIsFabOpen(false)}>
-                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-zinc-900 border-2 border-orange-600 shadow-[0_0_15px_rgba(234,88,12,0.4)]">
-                      <HouseIcon weight="fill" className="text-orange-500 w-7 h-7" />
-                    </div>
-                  </Link>
-                </motion.div>
+              <motion.div
+                initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+                animate={{ x: 0, y: -110, scale: 1, opacity: 1 }}
+                exit={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.8, delay: 0.1 }}
+                className="absolute pointer-events-auto flex items-center justify-center flex-col"
+              >
+                <Link href="/" className="flex flex-col items-center gap-2 group" onClick={() => setIsFabOpen(false)}>
+                  <div className="w-14 h-14 flex items-center justify-center rounded-full bg-zinc-900 border-2 border-orange-600 shadow-[0_0_15px_rgba(234,88,12,0.4)]">
+                    <HouseIcon weight="fill" className="text-orange-500 w-7 h-7" />
+                  </div>
+                </Link>
+              </motion.div>
 
-                <motion.div
-                  initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
-                  animate={{ x: 100, y: -30, scale: 1, opacity: 1 }}
-                  exit={{ x: 0, y: 0, scale: 0, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.8 }}
-                  className="absolute pointer-events-auto flex items-center justify-center flex-col"
-                >
-                  <Link href="/silhouette" className="flex flex-col items-center gap-2 group" onClick={() => setIsFabOpen(false)}>
-                    <div className={cn("rounded-full p-1.5 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]", isSilhouetteActive ? "border-2 border-orange-500 bg-black/60 scale-110" : "border-2 border-transparent scale-100 bg-black/40")}>
-                      <MobileThematicNode isWon={wonModes.silhouette} isActive={isSilhouetteActive} />
-                    </div>
-                    <span className="text-xs bg-black/80 font-bold uppercase tracking-wider text-orange-400 px-3 py-1 rounded-full text-nowrap border border-orange-950/50 shadow-md">
-                      {silhouetteTitle}
-                    </span>
-                  </Link>
-                </motion.div>
+              <motion.div
+                initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+                animate={{ x: 100, y: -30, scale: 1, opacity: 1 }}
+                exit={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.8 }}
+                className="absolute pointer-events-auto flex items-center justify-center flex-col"
+              >
+                <Link href="/silhouette" className="flex flex-col items-center gap-2 group" onClick={() => setIsFabOpen(false)}>
+                  <div className={cn("rounded-full p-1.5 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]", isSilhouetteActive ? "border-2 border-orange-500 bg-black/60 scale-110" : "border-2 border-transparent scale-100 bg-black/40")}>
+                    <MobileThematicNode isWon={wonModes.silhouette} isActive={isSilhouetteActive} />
+                  </div>
+                  <span className="text-xs bg-black/80 font-bold uppercase tracking-wider text-orange-400 px-3 py-1 rounded-full text-nowrap border border-orange-950/50 shadow-md">
+                    {silhouetteTitle}
+                  </span>
+                </Link>
+              </motion.div>
             </div>
           </div>
         )}
@@ -164,12 +164,12 @@ export function BottomNavBar({
 
       <nav className="md:hidden fixed bottom-0 left-0 w-full bg-zinc-950/95 backdrop-blur-xl border-t border-orange-800/40 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] z-40 pb-safe">
         <ul className="flex justify-around items-center h-[72px] px-2 relative z-10 w-full">
-          
+
           <li className="flex-1 flex justify-center">
             <SocialLinksModal
               title={socialLinksTitle}
               roles={roles}
-              className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors cursor-pointer outline-none"
+              className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-transform hover:scale-110 active:scale-95 active:duration-75 cursor-pointer outline-none"
             >
               <LinkIcon weight="fill" size={28} />
             </SocialLinksModal>
@@ -178,7 +178,7 @@ export function BottomNavBar({
           <li className="flex-1 flex justify-center">
             <Link
               href="/legal"
-              className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors outline-none"
+              className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-transform hover:scale-110 active:scale-95 active:duration-75 outline-none"
             >
               <InfoIcon weight="fill" size={28} />
             </Link>
@@ -187,44 +187,55 @@ export function BottomNavBar({
           <li className="flex-none px-2 relative -top-6">
             <button
               onClick={() => setIsFabOpen((prev) => !prev)}
-              className="flex flex-col items-center justify-center transition-all z-50 outline-none"
+              className="flex flex-col items-center justify-center transition-transform hover:scale-110 active:scale-95 active:duration-75 z-50 outline-none group"
               style={{ WebkitTapHighlightColor: "transparent" }}
             >
-              <motion.div 
+              <motion.div
                 className={cn(
-                  "rounded-full p-1.5 flex items-center justify-center transition-all",
-                  isFabOpen ? "border-2 border-orange-500 bg-black scale-95 shadow-[0_2px_15px_rgba(0,0,0,1)]" : "border-2 border-orange-600 bg-black/80 backdrop-blur-md shadow-[0_0_20px_rgba(234,88,12,0.4)]"
+                  "rounded-full p-1.5 flex items-center justify-center transition-all relative overflow-hidden",
+                  isFabOpen ? "border-2 border-green-500 bg-zinc-950 shadow-[0_0_25px_rgba(34,197,94,0.6)]" : "border-2 border-orange-600 bg-black/80 backdrop-blur-md shadow-[0_0_20px_rgba(234,88,12,0.4)]"
                 )}
-                animate={{ rotate: isFabOpen ? 180 : 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                animate={{ scale: isFabOpen ? 1.05 : 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
+                {isFabOpen && (
+                  <>
+                    <motion.div
+                      className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_70%,rgba(34,197,94,0.6)_100%)] z-0"
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+                    />
+                    <div className="absolute inset-0 bg-green-500/10 animate-pulse z-0" />
+                  </>
+                )}
+
                 <img
                   src="/assets/dragon-radar.svg"
                   alt="Game Navigation"
                   width={60}
                   height={60}
-                  className="w-14 h-14"
+                  className="w-14 h-14 relative z-10"
                 />
               </motion.div>
             </button>
           </li>
 
           <li className="flex-1 flex justify-center">
-             <a
+            <a
               href="https://buymeacoffee.com/dragonballdle"
               target="_blank"
               rel="noopener"
-              className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-colors outline-none"
-             >
+              className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-transform hover:scale-110 active:scale-95 active:duration-75 outline-none"
+            >
               <CoffeeIcon weight="fill" size={28} />
-             </a>
+            </a>
           </li>
 
           <li className="flex-1 flex justify-center">
             <button
               onClick={() => setIsLangOpen(true)}
               title={changeLanguageButtonTitle}
-              className="flex items-center justify-center cursor-pointer text-zinc-400 hover:text-orange-400 transition-colors outline-none"
+              className="flex items-center justify-center cursor-pointer text-zinc-400 hover:text-orange-400 transition-transform hover:scale-110 active:scale-95 active:duration-75 outline-none"
             >
               <div className="flex items-center justify-center h-[28px] w-[36px]">
                 <img
@@ -271,11 +282,10 @@ export function BottomNavBar({
                     key={lang}
                     data-lang={lang}
                     onClick={() => onChangeLanguage(lang)}
-                    className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm cursor-pointer transition-colors ${
-                      lang === currentLanguage
+                    className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm cursor-pointer transition-colors ${lang === currentLanguage
                         ? "bg-orange-600/20 text-orange-500 border border-orange-600/50"
                         : "text-white hover:bg-white/10 border border-transparent"
-                    }`}
+                      }`}
                   >
                     <img
                       src={`/assets/flags/${lang.toLowerCase()}.svg`}
