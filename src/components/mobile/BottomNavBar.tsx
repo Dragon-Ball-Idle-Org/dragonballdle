@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { InfoIcon, CoffeeIcon, ListIcon, StarIcon, LinkIcon } from "@phosphor-icons/react";
+import { InfoIcon, ListIcon, StarIcon, LinkIcon } from "@phosphor-icons/react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
@@ -64,7 +64,7 @@ export function BottomNavBar({
 }: BottomNavBarProps) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const currentLanguage = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -98,11 +98,9 @@ export function BottomNavBar({
   return (
     <>
       <nav className="md:hidden fixed bottom-0 left-0 w-full bg-black/90 backdrop-blur-md border-t-2 border-orange-600 shadow-[0_-4px_20px_rgba(234,88,12,0.2)] z-40 pb-safe">
-        {/* Background track line - Map style dashed line */}
         <div className="absolute top-[35%] left-[32%] right-[32%] h-0 border-t-[3px] border-dashed border-zinc-700/60 -translate-y-1/2 z-0 pointer-events-none" />
 
         <ul className="flex justify-around items-end pb-3 pt-2 h-[72px] px-2 relative z-10 w-full">
-          {/* Hamburger Menu Trigger */}
           <li className="flex-1 flex justify-center pb-1">
             <button
               onClick={() => setIsMenuOpen(true)}
@@ -113,7 +111,6 @@ export function BottomNavBar({
             </button>
           </li>
 
-          {/* Classic Node */}
           <li className="flex-1 flex justify-center">
             <Link
               href="/classic"
@@ -137,7 +134,6 @@ export function BottomNavBar({
             </Link>
           </li>
 
-          {/* Home Node */}
           <li className="flex-none px-2 relative -top-6">
             <Link
               href="/"
@@ -155,7 +151,6 @@ export function BottomNavBar({
             </Link>
           </li>
 
-          {/* Silhouette Node */}
           <li className="flex-1 flex justify-center">
             <Link
               href="/silhouette"
@@ -179,7 +174,6 @@ export function BottomNavBar({
             </Link>
           </li>
 
-          {/* Language Drawer Trigger */}
           <li className="flex-1 flex justify-center pb-1">
             <button
               onClick={() => setIsLangOpen(true)}
@@ -231,11 +225,10 @@ export function BottomNavBar({
                     key={lang}
                     data-lang={lang}
                     onClick={() => onChangeLanguage(lang)}
-                    className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm cursor-pointer transition-colors ${
-                      lang === currentLanguage
-                        ? "bg-orange-600/20 text-orange-500 border border-orange-600/50"
-                        : "text-white hover:bg-white/10 border border-transparent"
-                    }`}
+                    className={`flex items-center gap-3 p-3 rounded-lg font-semibold text-sm cursor-pointer transition-colors ${lang === currentLanguage
+                      ? "bg-orange-600/20 text-orange-500 border border-orange-600/50"
+                      : "text-white hover:bg-white/10 border border-transparent"
+                      }`}
                   >
                     <img
                       src={`/assets/flags/${lang.toLowerCase()}.svg`}
@@ -272,7 +265,7 @@ export function BottomNavBar({
               transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
               <div className="flex items-center justify-center p-6 border-b border-zinc-800 flex-col gap-2">
-                 <img
+                <img
                   src="/assets/dragon-radar.svg"
                   alt="DragonBallDle"
                   width={60}
@@ -285,47 +278,47 @@ export function BottomNavBar({
               </div>
 
               <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
-                
+
                 <div className="flex flex-col gap-2">
-                   <h3 className="text-xs uppercase text-zinc-500 font-bold ml-2">Links</h3>
-                   <div className="flex flex-col bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800">
-                      <SocialLinksModal
-                        title={socialLinksTitle}
-                        roles={roles}
-                        className="flex items-center gap-3 p-4 text-zinc-300 hover:text-orange-400 hover:bg-zinc-800 transition-colors w-full border-b border-zinc-800 cursor-pointer"
-                      >
-                        <LinkIcon weight="fill" size={24} />
-                        <span className="font-bold text-sm uppercase tracking-wide">{socialLinksTitle}</span>
-                      </SocialLinksModal>
-                      
-                      <Link
-                        href="/legal"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="flex items-center gap-3 p-4 text-zinc-300 hover:text-orange-400 hover:bg-zinc-800 transition-colors w-full"
-                      >
-                        <InfoIcon weight="fill" size={24} />
-                        <span className="font-bold text-sm uppercase tracking-wide">{legalTitle}</span>
-                      </Link>
-                   </div>
+                  <h3 className="text-xs uppercase text-zinc-500 font-bold ml-2">Links</h3>
+                  <div className="flex flex-col bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800">
+                    <SocialLinksModal
+                      title={socialLinksTitle}
+                      roles={roles}
+                      className="flex items-center gap-3 p-4 text-zinc-300 hover:text-orange-400 hover:bg-zinc-800 transition-colors w-full border-b border-zinc-800 cursor-pointer"
+                    >
+                      <LinkIcon weight="fill" size={24} />
+                      <span className="font-bold text-sm uppercase tracking-wide">{socialLinksTitle}</span>
+                    </SocialLinksModal>
+
+                    <Link
+                      href="/legal"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center gap-3 p-4 text-zinc-300 hover:text-orange-400 hover:bg-zinc-800 transition-colors w-full"
+                    >
+                      <InfoIcon weight="fill" size={24} />
+                      <span className="font-bold text-sm uppercase tracking-wide">{legalTitle}</span>
+                    </Link>
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-2 mt-4">
-                   <h3 className="text-xs uppercase text-zinc-500 font-bold ml-2">{supportUsTitle}</h3>
-                   <a
+                  <h3 className="text-xs uppercase text-zinc-500 font-bold ml-2">{supportUsTitle}</h3>
+                  <a
                     href="https://buymeacoffee.com/dragonballdle"
                     target="_blank"
                     rel="noopener"
                     className="flex items-center gap-3 p-4 rounded-xl text-white transition-colors bg-gradient-to-r from-orange-600 to-amber-600 shadow-[0_4px_15px_rgba(234,88,12,0.3)] hover:scale-105 active:scale-95"
-                   >
-                     <img
-                        src="/assets/buy-me-a-coffe.svg"
-                        alt="Buy me a coffe"
-                        width={28}
-                        height={28}
-                        className="w-7 h-7"
-                     />
-                     <span className="font-bold text-sm uppercase tracking-wide">{supportUsTitle}</span>
-                   </a>
+                  >
+                    <img
+                      src="/assets/buy-me-a-coffe.svg"
+                      alt="Buy me a coffe"
+                      width={28}
+                      height={28}
+                      className="w-7 h-7"
+                    />
+                    <span className="font-bold text-sm uppercase tracking-wide">{supportUsTitle}</span>
+                  </a>
                 </div>
 
               </div>
