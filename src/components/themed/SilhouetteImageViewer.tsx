@@ -6,27 +6,36 @@ import { cn } from "@/utils/cn";
 import { useGameContext } from "@/contexts/GameContext";
 import { useTranslations } from "@/contexts/TranslationContext";
 import type { SilhouetteCharacter } from "@/types/guess";
+import type { SilhouetteZone } from "@/types/silhouette";
 
 type SilhouetteImageViewerProps = {
   dailyCharacter: SilhouetteCharacter;
   guessCount: number;
+  zones?: SilhouetteZone[];
 };
 
-const MAX_ZOOM = 4;
+const MAX_ZOOM = 12;
 const MIN_ZOOM = 1;
+
+const FALLBACK_ZONES: SilhouetteZone[] = [
+  { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1 },
+  { xMin: -0.55, xMax: -0.3, yMin: -0.2, yMax: 0.1 },
+  { xMin: 0.2, xMax: 0.4, yMin: -0.6, yMax: -0.3 },
+  { xMin: -0.4, xMax: -0.2, yMin: -0.6, yMax: -0.3 },
+  { xMin: -0.15, xMax: 0.15, yMin: -0.3, yMax: 0.1 },
+];
 
 export function SilhouetteImageViewer({
   dailyCharacter,
   guessCount,
+  zones,
 }: SilhouetteImageViewerProps) {
   const { isGameWon } = useGameContext();
   const tr = useTranslations("silhouetteViewer");
 
-  const {
-    zoom: initialZoom,
-    direction: randomDirection,
-    decrement,
-  } = useMemo(() => {
+  const activeZones = zones && zones.length > 0 ? zones : FALLBACK_ZONES;
+
+  const { direction: randomDirection } = useMemo(() => {
     let seed = dailyCharacter.slug
       .split("")
       .reduce((a, b) => a + b.charCodeAt(0), 0);
@@ -35,38 +44,22 @@ export function SilhouetteImageViewer({
       return seed / 233280;
     };
 
-    const initialZ = MAX_ZOOM + rng() * 0.5;
-
-    // Zonas de interesse mapeadas (evitando o topo/cabeça na medida > 0.1 e extremos vazios)
-    const zones = [
-      // Braço/Lado Esquerdo (Move câmera p/ direita -> x > 0)
-      { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1 },
-      // Braço/Lado Direito
-      { xMin: -0.55, xMax: -0.3, yMin: -0.2, yMax: 0.1 },
-      // Perna/Pé Esquerdo
-      { xMin: 0.2, xMax: 0.4, yMin: -0.6, yMax: -0.3 },
-      // Perna/Pé Direito
-      { xMin: -0.4, xMax: -0.2, yMin: -0.6, yMax: -0.3 },
-      // Torso Central (Variação um pouco menor p/ não focar só nos extremos)
-      { xMin: -0.15, xMax: 0.15, yMin: -0.3, yMax: 0.1 },
-    ];
-
-    const zoneIndex = Math.floor(rng() * zones.length);
-    const zone = zones[zoneIndex];
+    const zoneIndex = Math.floor(rng() * activeZones.length);
+    const zone = activeZones[zoneIndex];
 
     const dirX = zone.xMin + rng() * (zone.xMax - zone.xMin);
     const dirY = zone.yMin + rng() * (zone.yMax - zone.yMin);
 
-    const dynamicDecrement = (initialZ - MIN_ZOOM) / 18;
-
     return {
-      zoom: initialZ,
       direction: { x: dirX, y: dirY },
-      decrement: dynamicDecrement,
     };
-  }, [dailyCharacter.slug]);
+  }, [dailyCharacter.slug, activeZones]);
 
-  const currentZoom = Math.max(MIN_ZOOM, initialZoom - guessCount * decrement);
+  const maxGuesses = 18;
+  const currentZoom = Math.max(
+    MIN_ZOOM,
+    Math.pow(MAX_ZOOM, Math.max(0, maxGuesses - guessCount) / maxGuesses)
+  );
 
   const maxPanPercent = ((currentZoom - 1) / 2) * 100;
   const currentX = randomDirection.x * maxPanPercent;
@@ -84,7 +77,7 @@ export function SilhouetteImageViewer({
       0,
       Math.min(
         100,
-        ((initialZoom - currentZoom) / (initialZoom - MIN_ZOOM)) * 100,
+        (guessCount / maxGuesses) * 100,
       ),
     ),
   );

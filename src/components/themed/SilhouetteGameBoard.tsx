@@ -10,6 +10,7 @@ import { getCharacterBySlug } from "@/service/characters";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
 import type { SilhouetteCharacter } from "@/types/guess";
+import type { SilhouetteZone } from "@/types/silhouette";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
@@ -19,8 +20,10 @@ import { ScrambleText } from "../ui/ScrambleText";
 
 export function SilhouetteGameBoard({
   dailyCharacter,
+  zones,
 }: {
   dailyCharacter: SilhouetteCharacter;
+  zones?: SilhouetteZone[];
 }) {
   const [query, setQuery] = useState("");
   const locale = useLocale();
@@ -81,6 +84,7 @@ export function SilhouetteGameBoard({
       <SilhouetteImageViewer
         dailyCharacter={dailyCharacter}
         guessCount={guesses.length}
+        zones={zones}
       />
 
       <form

@@ -9,6 +9,7 @@ import {
 } from "@/service/daily";
 import { getLocale, getTranslations } from "next-intl/server";
 import { WinModal } from "@/components/shared/WinModal";
+import { getSilhouetteZones } from "@/lib/silhouette-zones";
 
 export default async function SilhouettePage() {
   const locale = await getLocale();
@@ -26,6 +27,8 @@ export default async function SilhouettePage() {
       </div>
     );
   }
+
+  const zones = await getSilhouetteZones(dailyChar.silhouette_path);
 
   return (
     <>
@@ -50,7 +53,7 @@ export default async function SilhouettePage() {
           shareVariant="silhouette"
           playNextLabel={tHome("title") + "!"}
         />
-        <SilhouetteGameBoard dailyCharacter={dailyChar} />
+        <SilhouetteGameBoard dailyCharacter={dailyChar} zones={zones} />
       </MainContainer>
     </>
   );
