@@ -128,7 +128,7 @@ export function useCharacterCache(locale: string) {
     const rank = (name: string) => {
       if (name === normalizedQuery) return 0;
       if (name.startsWith(normalizedQuery)) return 1;
-      if (name.includes(` ${normalizedQuery} `)) return 2;
+      if (name.includes(` ${normalizedQuery}`)) return 2;
       return 3;
     };
 
