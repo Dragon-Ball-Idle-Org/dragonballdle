@@ -125,9 +125,24 @@ export function useCharacterCache(locale: string) {
       .equals(locale.toLowerCase())
       .toArray();
 
-    return all.filter((c: CachedCharacter) =>
-      normalize(c.name).includes(normalizedQuery),
-    );
+    const rank = (name: string) => {
+      if (name === normalizedQuery) return 0;
+      if (name.startsWith(normalizedQuery)) return 1;
+      if (name.includes(` ${normalizedQuery} `)) return 2;
+      return 3;
+    };
+
+    return all
+      .filter((c: CachedCharacter) =>
+        normalize(c.name).includes(normalizedQuery),
+      )
+      .sort((a: CachedCharacter, b: CachedCharacter) => {
+        const nameA = normalize(a.name);
+        const nameB = normalize(b.name);
+        const diff = rank(nameA) - rank(nameB);
+        if (diff !== 0) return diff;
+        return nameA.localeCompare(nameB);
+      });
   }
 
   return { status, findBySlug, findByName };
