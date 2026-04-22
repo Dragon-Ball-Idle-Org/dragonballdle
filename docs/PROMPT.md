@@ -179,9 +179,9 @@ Os botões do jogo utilizam padrões recorrentes:
 
 Seguimos uma estratégia de testes em três níveis, com organização visual rigorosa para facilitar a manutenção:
 
-1. **Testes Unitários**: Focam em lógica pura, utilitários e hooks isolados. Localizados em `**/__tests__/unit/*.test.{ts,tsx}`.
-2. **Testes de Integração**: Validam a interação entre componentes, contextos e hooks complexos (ex: fluxos de jogo). Localizados em `**/__tests__/integration/*.test.{ts,tsx}`.
-3. **Testes E2E (End-to-End)**: Validam fluxos completos do usuário no navegador (ex: Playwright/Cypress). Localizados na raiz em `/tests/e2e/*.spec.ts`.
+1. **Testes Unitários**: Focam em lógica pura, utilitários e hooks isolados. Localizados em `**/__tests__/unit/*.test.{ts,tsx}`. Rodar com `pnpm test:unit`.
+2. **Testes de Integração**: Validam a interação entre componentes, contextos e hooks complexos (ex: fluxos de jogo). Localizados em `**/__tests__/integration/*.test.{ts,tsx}`. Rodar com `pnpm test:integration`.
+3. **Testes E2E (End-to-End)**: Validam fluxos completos do usuário no navegador usando **Playwright**. Localizados na raiz em `/tests/e2e/*.spec.ts`. Rodar com `pnpm test:e2e`.
 
 **Regras de Ouro:**
 - **Colocation**: Sempre coloque a pasta `__tests__` o mais próximo possível do código testado.
