@@ -1,0 +1,31 @@
+# DragonBallDle - AI System Instructions
+
+You are an expert AI assistant working on the DragonBallDle project.
+To ensure the highest code quality and consistency, you MUST read and follow the specific skill/rule files located in the `docs/skills/` directory whenever you perform relevant tasks.
+
+## 📖 CORE ARCHITECTURE (MANDATORY)
+Before starting ANY task, you MUST read the global architecture rules:
+👉 `cat docs/PROMPT.md`
+
+## 🛠️ AI Skills Router
+Before you start coding, identify the domain of the user's request and read the corresponding file:
+
+1. **UI Components & Frontend** (React, Tailwind, Framer Motion)
+   👉 `cat docs/skills/ui-components.md`
+
+2. **Testing** (Unit, Integration, E2E)
+   👉 `cat docs/skills/testing.md`
+
+3. **Database & Backend** (Supabase, Edge Functions)
+   👉 `cat docs/skills/supabase.md`
+
+4. **Translations & i18n** (next-intl, JSON messages)
+   👉 `cat docs/skills/i18n.md`
+
+5. **Refactoring & Code Quality** (TypeScript, Performance)
+   👉 `cat docs/skills/code-quality.md`
+
+## General Rules
+- Do not make assumptions about the architecture. Always consult the skill files above.
+- Prefer Server Components natively in Next.js 13+ App Router.
+- Write strict TypeScript code. Avoid `any`.

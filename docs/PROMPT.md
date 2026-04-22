@@ -174,3 +174,13 @@ Os botões do jogo utilizam padrões recorrentes:
 - Antes de aplicar novos estilos, verifique se não existe uma variável no `@theme inline` dentro do `globals.css` que já satisfaça a necessidade estética.
 - Ao atualizar ou instanciar qualquer configuração global de CSS, tenha em mente a sintaxe v4 do TailwindCSS (`@import "tailwindcss";` / `@theme inline { ... }`).
 - Utilizar comentários no código se, e somente se, for extremamente necessário.
+
+## 6. Skills e Guias de Ação Rápida (Para IAs)
+
+Para instruções detalhadas de como executar tarefas específicas, você **DEVE** ler os arquivos correspondentes na pasta `docs/skills/` antes de escrever qualquer código:
+
+- **Criação de Componentes UI**: Leia `docs/skills/ui-components.md`
+- **Testes automatizados**: Leia `docs/skills/testing.md`
+- **Banco de Dados (Supabase)**: Leia `docs/skills/supabase.md`
+- **Internacionalização (i18n)**: Leia `docs/skills/i18n.md`
+- **Qualidade de Código e Refatoração**: Leia `docs/skills/code-quality.md`
