@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { useWinsRealtime } from "../useWinsRealtime";
+import { useWinsRealtime } from "../../useWinsRealtime";
 import * as winsService from "@/service/wins";
 
 vi.mock("@/service/wins", () => ({

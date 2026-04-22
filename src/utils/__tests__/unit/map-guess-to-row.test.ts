@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { mapGuessToRow } from "../map-guess-to-row";
+import { mapGuessToRow } from "../../map-guess-to-row";
 import { CharacterGuess, GuessStatus } from "@/types/guess";
 
 const mockCharacter = (overrides: Partial<CharacterGuess>): CharacterGuess => ({

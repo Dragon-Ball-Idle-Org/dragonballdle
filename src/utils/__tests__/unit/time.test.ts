@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { msUntilMidnightBrasilia } from "../time";
+import { msUntilMidnightBrasilia } from "../../time";
 
 describe("time utils", () => {
   beforeEach(() => {

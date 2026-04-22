@@ -14,7 +14,7 @@ type GameContextValue = {
   wonGame: () => void;
 };
 
-const GameContext = createContext<GameContextValue | null>(null);
+export const GameContext = createContext<GameContextValue | null>(null);
 
 export function GameProvider({
   children,

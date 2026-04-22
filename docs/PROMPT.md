@@ -175,7 +175,20 @@ Os botões do jogo utilizam padrões recorrentes:
 - Ao atualizar ou instanciar qualquer configuração global de CSS, tenha em mente a sintaxe v4 do TailwindCSS (`@import "tailwindcss";` / `@theme inline { ... }`).
 - Utilizar comentários no código se, e somente se, for extremamente necessário.
 
-## 6. Skills e Guias de Ação Rápida (Para IAs)
+## 7. Testes e Qualidade
+
+Seguimos uma estratégia de testes em três níveis, com organização visual rigorosa para facilitar a manutenção:
+
+1. **Testes Unitários**: Focam em lógica pura, utilitários e hooks isolados. Localizados em `**/__tests__/unit/*.test.{ts,tsx}`.
+2. **Testes de Integração**: Validam a interação entre componentes, contextos e hooks complexos (ex: fluxos de jogo). Localizados em `**/__tests__/integration/*.test.{ts,tsx}`.
+3. **Testes E2E (End-to-End)**: Validam fluxos completos do usuário no navegador (ex: Playwright/Cypress). Localizados na raiz em `/tests/e2e/*.spec.ts`.
+
+**Regras de Ouro:**
+- **Colocation**: Sempre coloque a pasta `__tests__` o mais próximo possível do código testado.
+- **Mocks**: Utilize o `vitest.setup.tsx` para mocks globais e `vi.mock()` para mocks específicos de cada teste.
+- **Acessibilidade**: Em testes de UI, priorize buscar elementos por Role ou Texto, refletindo a experiência do usuário real.
+
+## 8. Skills e Guias de Ação Rápida (Para IAs)
 
 Para instruções detalhadas de como executar tarefas específicas, você **DEVE** ler os arquivos correspondentes na pasta `docs/skills/` antes de escrever qualquer código:
 
@@ -184,3 +197,4 @@ Para instruções detalhadas de como executar tarefas específicas, você **DEVE
 - **Banco de Dados (Supabase)**: Leia `docs/skills/supabase.md`
 - **Internacionalização (i18n)**: Leia `docs/skills/i18n.md`
 - **Qualidade de Código e Refatoração**: Leia `docs/skills/code-quality.md`
+

@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom";
+import "fake-indexeddb/auto";
 import { vi } from "vitest";
 
 // Mock next-intl
@@ -49,6 +50,7 @@ vi.mock("@supabase/ssr", () => {
       eq: vi.fn().mockReturnThis(),
       single: vi.fn().mockReturnThis(),
       removeChannel: vi.fn(),
+      rpc: vi.fn().mockReturnThis(),
       channel: vi.fn(() => ({
         on: vi.fn().mockReturnThis(),
         subscribe: vi.fn(),
@@ -57,3 +59,11 @@ vi.mock("@supabase/ssr", () => {
     })),
   };
 });
+
+// Mock next/image
+vi.mock("next/image", () => ({
+  __esModule: true,
+  default: (props: any) => {
+    return <img {...props} />;
+  },
+}));

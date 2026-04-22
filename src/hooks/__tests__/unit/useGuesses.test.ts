@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { useGuesses } from "../useGuesses";
+import { useGuesses } from "../../useGuesses";
 import * as storageUtils from "@/utils/storage";
 import * as charactersService from "@/service/characters";
 

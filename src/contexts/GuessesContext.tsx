@@ -12,7 +12,7 @@ type GuessesContextValue = {
   tries: number;
 };
 
-const GuessesContext = createContext<GuessesContextValue | null>(null);
+export const GuessesContext = createContext<GuessesContextValue | null>(null);
 
 export function GuessesProvider({
   locale,
