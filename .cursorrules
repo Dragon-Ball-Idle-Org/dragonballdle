@@ -1,31 +1,13 @@
-# DragonBallDle - AI System Instructions
+# .cursorrules — Cursor-specific overrides
+# Universal rules are in AGENTS.md. Read it first, always.
 
-You are an expert AI assistant working on the DragonBallDle project.
-To ensure the highest code quality and consistency, you MUST read and follow the specific skill/rule files located in the `docs/skills/` directory whenever you perform relevant tasks.
+## Workflow
+Before starting ANY task:
+1. Read AGENTS.md for architecture and global rules
+2. Identify the task domain and read the matching skill in `.agents/skills/`
+3. State which skill you loaded before writing code
 
-## 📖 CORE ARCHITECTURE (MANDATORY)
-Before starting ANY task, you MUST read the global architecture rules:
-👉 `cat docs/PROMPT.md`
-
-## 🛠️ AI Skills Router
-Before you start coding, identify the domain of the user's request and read the corresponding file:
-
-1. **UI Components & Frontend** (React, Tailwind, Framer Motion)
-   👉 `cat docs/skills/ui-components.md`
-
-2. **Testing** (Unit, Integration, E2E)
-   👉 `cat docs/skills/testing.md`
-
-3. **Database & Backend** (Supabase, Edge Functions)
-   👉 `cat docs/skills/supabase.md`
-
-4. **Translations & i18n** (next-intl, JSON messages)
-   👉 `cat docs/skills/i18n.md`
-
-5. **Refactoring & Code Quality** (TypeScript, Performance)
-   👉 `cat docs/skills/code-quality.md`
-
-## General Rules
-- Do not make assumptions about the architecture. Always consult the skill files above.
-- Prefer Server Components natively in Next.js 13+ App Router.
-- Write strict TypeScript code. Avoid `any`.
+## Cursor-specific
+- Use Composer for multi-file tasks
+- When editing a file, always check if a related test file exists and update it
+- Diffs must be reviewed by the developer before applying to migrations or SQL files
