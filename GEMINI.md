@@ -6,6 +6,7 @@ Before planning or coding ANYTHING:
 1. Read `AGENTS.md` — global architecture and critical rules
 2. Identify the task domain and read the matching skill:
    - UI/React/Tailwind/Framer Motion → `.agents/skills/ui-components/SKILL.md`
+   - Animations/Framer Motion/Springs → `.agents/skills/animations/SKILL.md`
    - Supabase/DB/Edge Functions → `.agents/skills/supabase/SKILL.md`
    - Translations/next-intl → `.agents/skills/i18n/SKILL.md`
    - Tests/Vitest/Playwright → `.agents/skills/testing/SKILL.md`

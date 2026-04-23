@@ -38,6 +38,7 @@ Match the task domain and read the corresponding skill file:
 | Domain | Skill file |
 |---|---|
 | UI components, React, Tailwind, Framer Motion | `.agents/skills/ui-components/SKILL.md` |
+| Animations, Framer Motion, Spring Physics | `.agents/skills/animations/SKILL.md` |
 | Testing (unit, integration, E2E) | `.agents/skills/testing/SKILL.md` |
 | Supabase, Edge Functions, DB queries | `.agents/skills/supabase/SKILL.md` |
 | Translations, next-intl, JSON messages | `.agents/skills/i18n/SKILL.md` |
