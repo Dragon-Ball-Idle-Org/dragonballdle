@@ -1,18 +1,40 @@
-# GEMINI.md — Antigravity-specific overrides
-# Universal rules are in AGENTS.md. This file adds Antigravity-only behavior.
+# GEMINI.md — Antigravity Rules (Highest Priority)
+# This file is read automatically by Antigravity before every task.
 
-## Agent Behavior
-- Always read AGENTS.md before starting any task
-- Skills are in `.agents/skills/` — they load automatically by context match
-- Before coding, confirm which skill was loaded: state it in one line, then proceed
-- Produce Artifacts (task plan + implementation plan) for tasks spanning more than 2 files
-- Prefer parallel agents for independent subtasks (e.g., UI + tests simultaneously)
+## Mandatory First Steps
+Before planning or coding ANYTHING:
+1. Read `AGENTS.md` — global architecture and critical rules
+2. Identify the task domain and read the matching skill:
+   - UI/React/Tailwind/Framer Motion → `.agents/skills/ui-components/SKILL.md`
+   - Supabase/DB/Edge Functions → `.agents/skills/supabase/SKILL.md`
+   - Translations/next-intl → `.agents/skills/i18n/SKILL.md`
+   - Tests/Vitest/Playwright → `.agents/skills/testing/SKILL.md`
+   - Refactor/TypeScript/Performance → `.agents/skills/code-quality/SKILL.md`
+3. Start your plan with: "📖 Loaded: AGENTS.md + [skill name]"
 
-## Design Standards
-- Follow the Game UI identity: dark backgrounds, orange primary (`--color-orange-400`), Bangers for display text
-- Container max-width: 1140px with `padding-inline: 0.75rem`
-- Interactive elements: `border-2`, `rounded-2xl`, `transition-all hover:scale-110`
+## Project Identity
+- DragonBallDle — Next.js App Router, React 19, TypeScript strict, Tailwind v4, next-intl
+- Game UI aesthetic: dark backgrounds, orange primary (`--color-orange-400`), Bangers font for display
+- Container: max-width 1140px, padding-inline 0.75rem
 
-## Terminal Policy
-- Auto-execute: `pnpm`, `git status`, `git diff`, read-only filesystem commands
-- Always request review before: `git commit`, `git push`, database migrations, env changes
+## Non-Negotiable Rules
+- NEVER use `next/link` or `next/navigation` — always use `@/i18n/navigation`
+- NEVER hardcode text — always `useTranslations` or `getTranslations`
+- NEVER use `any` in TypeScript
+- Client translations: `getTranslationsBundle()` server-side → `<TranslationProvider>` in layout
+- No new `.css` files — Tailwind only
+- Never remove HTML `id` attributes
+
+## Agent Behavior (Plan Mode)
+- In the Plan phase: explicitly list which skill files you will read before coding
+- In the Execute phase: confirm skill was read before writing the first line of code
+- For tasks touching 2+ files: produce a task plan artifact before executing
+
+## Terminal Auto-Execute (safe)
+- `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm test:*`
+- `git status`, `git diff`, `git log`
+
+## Always Request Review
+- `git commit`, `git push`
+- Any Supabase migration or SQL file
+- Changes to `.env*` files
