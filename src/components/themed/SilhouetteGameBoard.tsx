@@ -169,7 +169,7 @@ export function SilhouetteGameBoard({
                   <ScrambleText
                     text={guess.name}
                     animate={!isFinished}
-                    duration={1000}
+                    duration={1100}
                     onScrambleEnd={() =>
                       handleScrambleEnd(guess.slug, isCorrect)
                     }
