@@ -64,14 +64,17 @@ export function useGuesses(locale: string, gameMode: GameMode = "classic") {
       return;
     }
 
-    Promise.all(slugs.map((slug) => getCharacterBySlug(slug, locale))).then(
-      (results) => {
+    Promise.all(slugs.map((slug) => getCharacterBySlug(slug, locale)))
+      .then((results) => {
         const valid = results.filter(Boolean) as CharacterGuess[];
         setGuesses(valid);
         saveCachedGuesses(valid, locale, gameMode);
         setHydrated(true);
-      },
-    );
+      })
+      .catch((err) => {
+        console.error("Error hydrating guesses:", err);
+        setHydrated(true);
+      });
   }, [locale, gameMode]);
 
   const addGuess = (character: CharacterGuess) => {
