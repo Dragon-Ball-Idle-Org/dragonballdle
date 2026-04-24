@@ -56,7 +56,7 @@ export function SilhouetteImageViewer({
     };
   }, [dailyCharacter.slug, activeZones]);
 
-  const [containerSize, setContainerSize] = useState({ w: 400, h: 400 });
+  const [containerSize, setContainerSize] = useState<{ w: number; h: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -82,6 +82,8 @@ export function SilhouetteImageViewer({
   const maxPanPercent = ((currentZoom - 1) / 2) * 100;
 
   const { adjX, adjY } = useMemo(() => {
+    if (!containerSize) return { adjX: randomDirection.x, adjY: randomDirection.y };
+    
     const Rc = containerSize.w / containerSize.h;
     const Ri = aspectRatio;
 
@@ -129,42 +131,40 @@ export function SilhouetteImageViewer({
           "bg-radar-green border-2 border-white",
         )}
       >
-        <motion.div
-          className="absolute inset-0 origin-center bg-scouter-texture"
-          initial={{
-            scale: isGameWon ? 1 : currentZoom,
-            x: isGameWon ? "0%" : `${currentX}%`,
-            y: isGameWon ? "0%" : `${currentY}%`,
-          }}
-          animate={{
-            scale: isGameWon ? 1 : currentZoom,
-            x: isGameWon ? "0%" : `${currentX}%`,
-            y: isGameWon ? "0%" : `${currentY}%`,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeInOut",
-          }}
-        >
-          <motion.img
-            src={imageUrlToShow}
-            alt={
-              isGameWon
-                ? tr.imageAltRevealed.replace("__NAME__", dailyCharacter.name)
-                : tr.imageAltDaily
-            }
-            className={cn(
-              "w-full h-full transition-all duration-500",
-              "object-contain p-2",
-            )}
-            style={{
-              filter: !isGameWon
-                ? "contrast(110%) brightness(100%)"
-                : "none",
-              willChange: "transform",
+        {containerSize && (
+          <motion.div
+            className="absolute inset-0 origin-center bg-scouter-texture"
+            initial={false}
+            animate={{
+              scale: isGameWon ? 1 : currentZoom,
+              x: isGameWon ? "0%" : `${currentX}%`,
+              y: isGameWon ? "0%" : `${currentY}%`,
             }}
-          />
-        </motion.div>
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+          >
+            <motion.img
+              src={imageUrlToShow}
+              alt={
+                isGameWon
+                  ? tr.imageAltRevealed.replace("__NAME__", dailyCharacter.name)
+                  : tr.imageAltDaily
+              }
+              className={cn(
+                "w-full h-full transition-all duration-500",
+                "object-contain p-2",
+              )}
+              style={{
+                filter: !isGameWon
+                  ? "contrast(110%) brightness(100%)"
+                  : "none",
+                willChange: "transform",
+              }}
+            />
+          </motion.div>
+        )}
 
         <div className="absolute top-4 right-4 bg-slate-950/85 px-3 py-1 rounded-full text-xs font-bold text-emerald-200 border border-emerald-400/60 shadow-[0_0_12px_rgba(16,185,129,0.35)]">
           {revealLabel}
