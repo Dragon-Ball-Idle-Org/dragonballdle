@@ -3,17 +3,17 @@ import { unstable_cache } from "next/cache";
 import type { SilhouetteZone } from "@/types/silhouette";
 
 const FALLBACK_ZONES: SilhouetteZone[] = [
-  { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1 },
-  { xMin: -0.55, xMax: -0.3, yMin: -0.2, yMax: 0.1 },
-  { xMin: 0.2, xMax: 0.4, yMin: -0.6, yMax: -0.3 },
-  { xMin: -0.4, xMax: -0.2, yMin: -0.6, yMax: -0.3 },
-  { xMin: -0.15, xMax: 0.15, yMin: -0.3, yMax: 0.1 },
+  { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1, aspectRatio: 1 },
+  { xMin: -0.55, xMax: -0.3, yMin: -0.2, yMax: 0.1, aspectRatio: 1 },
+  { xMin: 0.2, xMax: 0.4, yMin: -0.6, yMax: -0.3, aspectRatio: 1 },
+  { xMin: -0.4, xMax: -0.2, yMin: -0.6, yMax: -0.3, aspectRatio: 1 },
+  { xMin: -0.15, xMax: 0.15, yMin: -0.3, yMax: 0.1, aspectRatio: 1 },
 ];
 
 const GRID_COLS = 20;
 const GRID_ROWS = 24;
 const MIN_PIXEL_RATIO = 0.05;
-const HEAD_CUTOFF_ROW = 2;
+const HEAD_CUTOFF_ROW = 12; // Skip top 50% to avoid heads/hair
 
 async function analyzePixels(
   imageUrl: string,
@@ -76,6 +76,7 @@ async function analyzePixels(
             xMax: Math.min(0.7, panX + halfW),
             yMin: Math.max(-0.7, panY - halfH),
             yMax: Math.min(0.7, panY + halfH),
+            aspectRatio: width / height,
           });
         }
       }
@@ -93,7 +94,7 @@ const getCachedZones = unstable_cache(
     const zones = await analyzePixels(imageUrl);
     return zones ?? FALLBACK_ZONES;
   },
-  ["silhouette-zones-v4"],
+  ["silhouette-zones-v6"],
   { revalidate: 86400 * 7 },
 );
 

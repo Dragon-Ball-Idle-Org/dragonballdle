@@ -3,4 +3,5 @@ export type SilhouetteZone = {
   xMax: number;
   yMin: number;
   yMax: number;
+  aspectRatio?: number;
 };

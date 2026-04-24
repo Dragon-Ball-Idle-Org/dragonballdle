@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { cn } from "@/utils/cn";
 import { useGameContext } from "@/contexts/GameContext";
 import { useTranslations } from "@/contexts/TranslationContext";
@@ -18,11 +18,11 @@ const MAX_ZOOM = 12;
 const MIN_ZOOM = 1;
 
 const FALLBACK_ZONES: SilhouetteZone[] = [
-  { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1 },
-  { xMin: -0.55, xMax: -0.3, yMin: -0.2, yMax: 0.1 },
-  { xMin: 0.2, xMax: 0.4, yMin: -0.6, yMax: -0.3 },
-  { xMin: -0.4, xMax: -0.2, yMin: -0.6, yMax: -0.3 },
-  { xMin: -0.15, xMax: 0.15, yMin: -0.3, yMax: 0.1 },
+  { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1, aspectRatio: 1 },
+  { xMin: -0.55, xMax: -0.3, yMin: -0.2, yMax: 0.1, aspectRatio: 1 },
+  { xMin: 0.2, xMax: 0.4, yMin: -0.6, yMax: -0.3, aspectRatio: 1 },
+  { xMin: -0.4, xMax: -0.2, yMin: -0.6, yMax: -0.3, aspectRatio: 1 },
+  { xMin: -0.15, xMax: 0.15, yMin: -0.3, yMax: 0.1, aspectRatio: 1 },
 ];
 
 export function SilhouetteImageViewer({
@@ -35,7 +35,7 @@ export function SilhouetteImageViewer({
 
   const activeZones = zones && zones.length > 0 ? zones : FALLBACK_ZONES;
 
-  const { direction: randomDirection } = useMemo(() => {
+  const { direction: randomDirection, aspectRatio } = useMemo(() => {
     let seed = dailyCharacter.slug
       .split("")
       .reduce((a, b) => a + b.charCodeAt(0), 0);
@@ -52,18 +52,50 @@ export function SilhouetteImageViewer({
 
     return {
       direction: { x: dirX, y: dirY },
+      aspectRatio: zone.aspectRatio || 1,
     };
   }, [dailyCharacter.slug, activeZones]);
+
+  const [containerSize, setContainerSize] = useState({ w: 400, h: 400 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerSize({
+          w: containerRef.current.offsetWidth,
+          h: containerRef.current.offsetHeight,
+        });
+      }
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   const maxGuesses = 18;
   const currentZoom = Math.max(
     MIN_ZOOM,
-    Math.pow(MAX_ZOOM, Math.max(0, maxGuesses - guessCount) / maxGuesses)
+    Math.pow(MAX_ZOOM, Math.max(0, maxGuesses - guessCount) / maxGuesses),
   );
 
   const maxPanPercent = ((currentZoom - 1) / 2) * 100;
-  const currentX = randomDirection.x * maxPanPercent;
-  const currentY = randomDirection.y * maxPanPercent;
+
+  const { adjX, adjY } = useMemo(() => {
+    const Rc = containerSize.w / containerSize.h;
+    const Ri = aspectRatio;
+
+    if (Ri < Rc) {
+      // Pillarbox (tall image) - adjust X
+      return { adjX: randomDirection.x * (Ri / Rc), adjY: randomDirection.y };
+    } else {
+      // Letterbox (wide image) - adjust Y
+      return { adjX: randomDirection.x, adjY: randomDirection.y * (Rc / Ri) };
+    }
+  }, [aspectRatio, containerSize, randomDirection]);
+
+  const currentX = adjX * maxPanPercent;
+  const currentY = adjY * maxPanPercent;
 
   const silhouetteImage = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyCharacter.silhouette_path}`;
   const characterImage = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyCharacter.silhouette_colored_path}`;
@@ -91,6 +123,7 @@ export function SilhouetteImageViewer({
   return (
     <div className="w-full flex flex-col items-center gap-4 mb-6">
       <div
+        ref={containerRef}
         className={cn(
           "relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden",
           "bg-radar-green border-2 border-white",
@@ -120,7 +153,16 @@ export function SilhouetteImageViewer({
                 ? tr.imageAltRevealed.replace("__NAME__", dailyCharacter.name)
                 : tr.imageAltDaily
             }
-            className={cn("w-full h-full object-contain p-2")}
+            className={cn(
+              "w-full h-full transition-all duration-500",
+              "object-contain p-2",
+            )}
+            style={{
+              filter: !isGameWon
+                ? "contrast(110%) brightness(100%)"
+                : "none",
+              willChange: "transform",
+            }}
           />
         </motion.div>
 
