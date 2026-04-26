@@ -1,3 +1,4 @@
+import { todayBrasiliaKey } from "@/lib/daily";
 import { createClient } from "@/lib/supabase/client";
 import { GameMode } from "@/types/game-mode";
 
@@ -6,7 +7,7 @@ export async function recordGuess(
   guessCount: number,
 ): Promise<void> {
   const supabase = createClient();
-  const date = new Date().toISOString().split("T")[0]; // Simple YYYY-MM-DD
+  const date = todayBrasiliaKey();
 
   try {
     await supabase.functions.invoke("record-guess", {
@@ -21,7 +22,7 @@ export async function getGuessDistribution(
   gameMode: GameMode,
 ): Promise<Record<number, number>> {
   const supabase = createClient();
-  const date = new Date().toISOString().split("T")[0];
+  const date = todayBrasiliaKey();
 
   const { data, error } = await supabase
     .from("guess_distribution")

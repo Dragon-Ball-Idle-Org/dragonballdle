@@ -5,6 +5,7 @@ import { getWinsCount } from "@/service/wins";
 import { GameMode } from "@/types/game-mode";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
+import { todayBrasiliaKey } from "@/lib/daily";
 
 export function useWinsRealtime(gameMode: GameMode) {
   const [winsCount, setWinsCount] = useState(0);
@@ -21,7 +22,7 @@ export function useWinsRealtime(gameMode: GameMode) {
   };
 
   const initTodayWinsCountChangeListener = (supabase: SupabaseClient) => {
-    const today = new Date().toISOString().split("T")[0];
+    const today = todayBrasiliaKey();
 
     return supabase
       .channel(`wins-${gameMode}-${today}`)
@@ -66,7 +67,7 @@ export function useWinsRealtime(gameMode: GameMode) {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, []);
+  }, [gameMode]);
 
   return { winsCount, isLoading };
 }

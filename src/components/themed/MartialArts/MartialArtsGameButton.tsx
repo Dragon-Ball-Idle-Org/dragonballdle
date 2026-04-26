@@ -58,9 +58,9 @@ function WinsCounter({
   gameMode: GameMode;
   winsCountTemplate: string;
 }) {
-  const { winsCount } = useWinsRealtime(gameMode);
+  const { winsCount, isLoading } = useWinsRealtime(gameMode);
 
-  if (winsCount === 0) return null;
+  if (winsCount === 0 && !isLoading) return null;
 
   return (
     <motion.div
