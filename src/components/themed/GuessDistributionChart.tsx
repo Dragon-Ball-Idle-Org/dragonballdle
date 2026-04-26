@@ -17,10 +17,15 @@ export function GuessDistributionChart({
 }: GuessDistributionChartProps) {
   const t = useTranslations("statistics");
 
-  const maxInBucket = Math.max(...Object.values(distribution), 1);
-
   const displayBuckets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+  const processedDistribution = { ...distribution };
+  const plusTenCount = Object.entries(distribution).reduce((acc, [key, val]) => {
+    return Number(key) >= 10 ? acc + val : acc;
+  }, 0);
+  processedDistribution[10] = plusTenCount;
+
+  const maxInBucket = Math.max(...Object.values(processedDistribution), 1);
   const totalWins = Object.values(distribution).reduce((a, b) => a + b, 0);
 
   return (
@@ -34,14 +39,17 @@ export function GuessDistributionChart({
 
       <div className="flex flex-col gap-2">
         {displayBuckets.map((bucket) => {
-          const count = distribution[bucket] || 0;
-          const isCurrent = currentGuessCount === bucket;
+          const count = processedDistribution[bucket] || 0;
+          const isCurrent =
+            bucket === 10
+              ? (currentGuessCount ?? 0) >= 10
+              : currentGuessCount === bucket;
           const percentage = (count / maxInBucket) * 100;
 
           return (
             <div key={bucket} className="flex items-center gap-3 w-full group">
-              <span className="font-display text-white text-lg w-4 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
-                {bucket}
+              <span className="font-display text-white text-lg w-6 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
+                {bucket === 10 ? "10+" : bucket}
               </span>
 
               <div className="flex-1 h-8 bg-slate-800/50 rounded-md overflow-hidden relative border border-white/5">
