@@ -30,6 +30,7 @@
 6. Prefer Server Components. Add `"use client"` only when hooks or direct interactivity are needed
 7. No parallel `.css` files — Tailwind only
 8. Just write comments if extremely necessary, the code should be self-documenting.
+9. Environment Variables: NEVER set OS-level environment variables (e.g., `setx`, `$env:`). Always use `.env.local` or `.env`. If a variable is accidentally set in the terminal session, remove it using `Remove-Item Env:VARIABLE_NAME` (PowerShell) or `unset VARIABLE_NAME` (Bash).
 
 ## Testing Strategy
 
