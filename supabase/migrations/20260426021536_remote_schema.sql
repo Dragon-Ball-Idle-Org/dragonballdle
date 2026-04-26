@@ -1,0 +1,1 @@
+-- Migration file emptied due to syntax errors from remote roles cleanup
