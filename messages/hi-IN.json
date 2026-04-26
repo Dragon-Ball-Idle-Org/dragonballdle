@@ -174,5 +174,11 @@
       "title": "DragonBallDle — Silhouette",
       "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
     }
+  },
+  "statistics": {
+    "title": "अनुमान वितरण",
+    "guesses": "अनुमान",
+    "totalWins": "कुल जीत",
+    "noData": "अभी कोई डेटा उपलब्ध नहीं है"
   }
 }

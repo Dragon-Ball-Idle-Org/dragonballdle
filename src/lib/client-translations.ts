@@ -10,7 +10,8 @@ export type TranslateType =
   | "winBanner"
   | "share"
   | "hero"
-  | "contact";
+  | "contact"
+  | "statistics";
 
 export async function getTranslationsBundle(
   type?: TranslateType | TranslateType[],
@@ -38,8 +39,8 @@ export async function getTranslationsBundle(
     },
   };
 
-  const pageSpecific = {
-    home: {
+  const pageSpecific: Record<string, () => any> = {
+    home: () => ({
       home: {
         classic: {
           title: t("home.classic.title"),
@@ -54,8 +55,8 @@ export async function getTranslationsBundle(
           subtitle: t("home.inProgress.subtitle"),
         },
       },
-    },
-    classic: {
+    }),
+    classic: () => ({
       classic: {
         dailyNotFound: t("classic.dailyNotFound"),
         table: {
@@ -84,8 +85,8 @@ export async function getTranslationsBundle(
       guessForm: {
         submitAlt: t("guessForm.submitAlt"),
       },
-    },
-    silhouette: {
+    }),
+    silhouette: () => ({
       silhouette: {
         dailyNotFound: t("silhouette.dailyNotFound"),
       },
@@ -96,23 +97,23 @@ export async function getTranslationsBundle(
       guessForm: {
         submitAlt: t("guessForm.submitAlt"),
       },
-    },
+    }),
   };
 
-  const components = {
-    hero: {
+  const components: Record<string, () => any> = {
+    hero: () => ({
       hero: {
         title: t("hero.title"),
         subtitle: t("hero.subtitle"),
       },
-    },
-    silhouetteHero: {
+    }),
+    silhouetteHero: () => ({
       silhouetteHero: {
         title: t("silhouetteHero.title"),
         subtitle: t("silhouetteHero.subtitle", { count: "" }).trim(),
       },
-    },
-    silhouetteViewer: {
+    }),
+    silhouetteViewer: () => ({
       silhouetteViewer: {
         revealPercent: t("silhouetteViewer.revealPercent", {
           percent: "__P__",
@@ -132,13 +133,8 @@ export async function getTranslationsBundle(
           total: "__TOTAL__",
         }),
       },
-    },
-    silhouette: {
-      silhouette: {
-        dailyNotFound: t("silhouette.dailyNotFound"),
-      },
-    },
-    winModal: {
+    }),
+    winModal: () => ({
       winModal: {
         congrats: t("winModal.congrats"),
         lineBefore: t("winModal.line.before"),
@@ -146,8 +142,8 @@ export async function getTranslationsBundle(
         countdown: t("winModal.countdown"),
         playNewGame: t("winModal.playNewGame"),
       },
-    },
-    winBanner: {
+    }),
+    winBanner: () => ({
       winBanner: {
         title: t("winBanner.title"),
         tries: t("winBanner.tries"),
@@ -159,8 +155,8 @@ export async function getTranslationsBundle(
         supportUs: t("winBanner.supportUs"),
         playSilhouette: t("winBanner.playSilhouette"),
       },
-    },
-    share: {
+    }),
+    share: () => ({
       share: {
         tweet: {
           one: t("share.tweet.one", {
@@ -185,8 +181,8 @@ export async function getTranslationsBundle(
           }),
         },
       },
-    },
-    contact: {
+    }),
+    contact: () => ({
       contact: {
         title: t("contact.title"),
         description: t("contact.description"),
@@ -203,7 +199,15 @@ export async function getTranslationsBundle(
         submitSuccess: t("contact.submitSuccess"),
         submitError: t("contact.submitError"),
       },
-    },
+    }),
+    statistics: () => ({
+      statistics: {
+        title: t("statistics.title"),
+        guesses: t("statistics.guesses"),
+        totalWins: t("statistics.totalWins"),
+        noData: t("statistics.noData"),
+      },
+    }),
   };
 
   const types = Array.isArray(type) ? type : type ? [type] : [];
@@ -211,12 +215,8 @@ export async function getTranslationsBundle(
   let result: Record<string, any> = { ...essential };
 
   for (const tType of types) {
-    const pageData =
-      tType in pageSpecific
-        ? pageSpecific[tType as keyof typeof pageSpecific]
-        : {};
-    const componentData =
-      tType in components ? components[tType as keyof typeof components] : {};
+    const pageData = tType in pageSpecific ? pageSpecific[tType]() : {};
+    const componentData = tType in components ? components[tType]() : {};
 
     result = {
       ...result,

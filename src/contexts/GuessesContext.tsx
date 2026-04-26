@@ -7,7 +7,7 @@ import { CharacterGuess } from "@/types/guess";
 
 type GuessesContextValue = {
   guesses: CharacterGuess[];
-  addGuess: (character: CharacterGuess) => void;
+  addGuess: (character: CharacterGuess) => number;
   hydrated: boolean;
   tries: number;
 };

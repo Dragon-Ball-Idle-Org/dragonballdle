@@ -10,6 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { ShareDropdown } from "../../ui/ShareDropdown";
 import { ShineGradientButton } from "../../ui/ShineGradientButton";
+import { LeaderboardModal } from "../../shared/LeaderboardModal";
+import { GameMode } from "@/types/game-mode";
 
 type CapsuleCorpWinBannerProps = {
   todayCharacterSlug: string;
@@ -107,6 +109,13 @@ export function CapsuleCorpWinBanner({
               </Link>
             </div>
 
+            <div className="w-full mt-4 flex justify-center">
+              <LeaderboardModal
+                gameMode={shareVariant as GameMode}
+                currentGuessCount={tries}
+              />
+            </div>
+
             {playNextLabel && (
               <Link
                 href="/classic"
@@ -117,9 +126,9 @@ export function CapsuleCorpWinBanner({
                   "font-display text-2xl uppercase tracking-widest text-shadow-[1px_1px_2px_rgba(0,0,0,0.6)]",
                 )}
               >
-                <div className="absolute w-[150%] h-[1px] bg-green-500/20 rotate-45 pointer-events-none" />
-                <div className="absolute w-[150%] h-[1px] bg-green-500/20 -rotate-45 pointer-events-none" />
-                <div className="absolute inset-0 border-[1px] border-green-500/20 rounded-full scale-[2] pointer-events-none" />
+                <div className="absolute w-[150%] h-px bg-green-500/20 rotate-45 pointer-events-none" />
+                <div className="absolute w-[150%] h-px bg-green-500/20 -rotate-45 pointer-events-none" />
+                <div className="absolute inset-0 border border-green-500/20 rounded-full scale-[2] pointer-events-none" />
 
                 <div className="relative flex items-center justify-center w-6 h-6 shrink-0 mr-1">
                   <div className="absolute w-4 h-4 bg-green-400 rounded-full animate-ping" />

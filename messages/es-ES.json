@@ -174,5 +174,11 @@
     },
     "submitSuccess": "✓ ¡Correo devuelto con éxito!",
     "submitError": "✗ Error al enviar. Inténtalo de nuevo."
+  },
+  "statistics": {
+    "title": "Distribución de Intentos",
+    "guesses": "Intentos",
+    "totalWins": "Victorias Totales",
+    "noData": "Aún no hay datos disponibles"
   }
 }

@@ -11,6 +11,7 @@ import { useTranslations } from "@/contexts/TranslationContext";
 import { ShareDropdown } from "@/components/ui/ShareDropdown";
 import { ShineGradientButton } from "@/components/ui/ShineGradientButton";
 import { EyeIcon } from "@phosphor-icons/react";
+import { LeaderboardModal } from "@/components/shared/LeaderboardModal";
 
 type MartialArtsWinBannerProps = {
   todayCharacterSlug: string;
@@ -99,6 +100,14 @@ export function MartialArtsWinBanner({
                 <span className="leading-none">{translations.supportUs}</span>
               </Link>
             </div>
+
+            <div className="w-full mt-4 flex justify-center">
+              <LeaderboardModal
+                gameMode="classic"
+                currentGuessCount={tries}
+              />
+            </div>
+
             <Link
               href="/silhouette"
               className={cn(

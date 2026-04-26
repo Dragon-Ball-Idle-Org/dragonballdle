@@ -174,5 +174,11 @@
     },
     "submitSuccess": "✓ Email sent successfully!",
     "submitError": "✗ Error submitting. Try again."
+  },
+  "statistics": {
+    "title": "Guess Distribution",
+    "guesses": "Guesses",
+    "totalWins": "Total Wins",
+    "noData": "No data available yet"
   }
 }

@@ -174,5 +174,11 @@
       "title": "DragonBallDle — Silhouette",
       "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
     }
+  },
+  "statistics": {
+    "title": "Distribuzione dei Tentativi",
+    "guesses": "Tentativi",
+    "totalWins": "Vittorie Totali",
+    "noData": "Nessun dato ancora disponibile"
   }
 }

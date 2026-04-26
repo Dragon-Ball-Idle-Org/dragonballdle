@@ -26,7 +26,7 @@ type BottomNavBarProps = {
 const MobileThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boolean }) => {
   if (isWon) {
     return (
-      <div className="relative w-12 h-12 flex-shrink-0 rounded-full bg-gradient-to-br from-orange-300 via-orange-500 to-red-600 border border-orange-700 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.4),0_0_12px_rgba(249,115,22,0.8)] flex items-center justify-center overflow-hidden">
+      <div className="relative w-12 h-12 shrink-0 rounded-full bg-linear-to-br from-orange-300 via-orange-500 to-red-600 border border-orange-700 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.4),0_0_12px_rgba(249,115,22,0.8)] flex items-center justify-center overflow-hidden">
         <StarIcon weight="fill" className="text-red-700 w-6 h-6 z-10" />
         <div className="absolute top-1.5 left-2 w-3 h-2.5 bg-white/40 rounded-full blur-[1px]" />
       </div>
@@ -35,10 +35,10 @@ const MobileThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boo
 
   if (isActive) {
     return (
-      <div className="relative w-12 h-12 flex-shrink-0 rounded-full bg-zinc-900 border-2 border-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)] flex items-center justify-center overflow-hidden">
+      <div className="relative w-12 h-12 shrink-0 rounded-full bg-zinc-900 border-2 border-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 border border-green-500/30 rounded-full scale-150" />
-        <div className="absolute w-[150%] h-[1px] bg-green-500/30 rotate-45" />
-        <div className="absolute w-[150%] h-[1px] bg-green-500/30 -rotate-45" />
+        <div className="absolute w-[150%] h-px bg-green-500/30 rotate-45" />
+        <div className="absolute w-[150%] h-px bg-green-500/30 -rotate-45" />
         <div className="w-3 h-3 bg-green-400 rounded-full animate-ping" />
         <div className="absolute w-2.5 h-2.5 bg-green-400 rounded-full" />
       </div>
@@ -46,7 +46,7 @@ const MobileThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boo
   }
 
   return (
-    <div className="relative w-12 h-12 flex-shrink-0 rounded-full bg-gradient-to-br from-zinc-400 via-zinc-500 to-zinc-700 border border-zinc-800 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.5)] flex items-center justify-center">
+    <div className="relative w-12 h-12 shrink-0 rounded-full bg-linear-to-br from-zinc-400 via-zinc-500 to-zinc-700 border border-zinc-800 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.5)] flex items-center justify-center">
       <StarIcon weight="fill" className="text-zinc-800/40 w-6 h-6" />
     </div>
   );

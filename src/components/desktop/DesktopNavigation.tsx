@@ -14,7 +14,7 @@ interface DesktopNavigationProps {
 const ThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boolean }) => {
   if (isWon) {
     return (
-      <div className="relative w-8 h-8 flex-shrink-0 rounded-full bg-gradient-to-br from-orange-300 via-orange-500 to-red-600 border border-orange-700 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.4),0_0_12px_rgba(249,115,22,0.8)] flex items-center justify-center overflow-hidden">
+      <div className="relative w-8 h-8 shrink-0 rounded-full bg-linear-to-br from-orange-300 via-orange-500 to-red-600 border border-orange-700 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.4),0_0_12px_rgba(249,115,22,0.8)] flex items-center justify-center overflow-hidden">
         <StarIcon weight="fill" className="text-red-700 w-4 h-4 z-10" />
         <div className="absolute top-1 left-2 w-2 h-1 bg-white/70 rounded-full -rotate-45" />
       </div>
@@ -23,10 +23,10 @@ const ThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boolean }
 
   if (isActive) {
     return (
-      <div className="relative w-8 h-8 flex-shrink-0 rounded-full bg-zinc-900 border-2 border-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)] flex items-center justify-center overflow-hidden">
+      <div className="relative w-8 h-8 shrink-0 rounded-full bg-zinc-900 border-2 border-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 border border-green-500/30 rounded-full scale-150" />
-        <div className="absolute w-full h-[1px] bg-green-500/30" />
-        <div className="absolute h-full w-[1px] bg-green-500/30" />
+        <div className="absolute w-full h-px bg-green-500/30" />
+        <div className="absolute h-full w-px bg-green-500/30" />
         <div className="absolute w-2.5 h-2.5 bg-green-400 rounded-full animate-ping" />
         <div className="w-2.5 h-2.5 bg-green-400 rounded-full z-10" />
       </div>
@@ -34,7 +34,7 @@ const ThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boolean }
   }
 
   return (
-    <div className="relative w-8 h-8 flex-shrink-0 rounded-full bg-gradient-to-br from-zinc-400 via-zinc-500 to-zinc-700 border border-zinc-800 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.5)] flex items-center justify-center">
+    <div className="relative w-8 h-8 shrink-0 rounded-full bg-linear-to-br from-zinc-400 via-zinc-500 to-zinc-700 border border-zinc-800 shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.5)] flex items-center justify-center">
       <StarIcon weight="fill" className="text-zinc-800/40 w-4 h-4" />
       <div className="absolute top-1 left-2 w-2 h-1 bg-white/20 rounded-full -rotate-45" />
     </div>

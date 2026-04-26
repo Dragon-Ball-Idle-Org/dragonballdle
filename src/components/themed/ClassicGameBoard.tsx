@@ -10,6 +10,7 @@ import { useGameContext } from "@/contexts/GameContext";
 import { ClassicCharacter } from "@/types/guess";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { incrementWins } from "@/service/wins";
+import { recordGuess } from "@/service/leaderboard";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
 
@@ -42,7 +43,7 @@ export function ClassicGameBoard({
       (await findBySlug(target)) ?? (await getCharacterBySlug(target, locale));
     if (!character) return;
 
-    addGuess(character);
+    const tries = addGuess(character);
     setQuery("");
     setSelectedSlug(null);
 
@@ -50,7 +51,10 @@ export function ClassicGameBoard({
       // Wait guess animation ends to show win screen
       setTimeout(async () => {
         wonGame();
-        await incrementWins("classic");
+        await Promise.all([
+          incrementWins("classic"),
+          recordGuess("classic", tries),
+        ]);
       }, 2700);
     }
   };

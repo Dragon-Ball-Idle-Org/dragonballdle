@@ -174,5 +174,11 @@
       "title": "DragonBallDle — Silhouette",
       "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
     }
+  },
+  "statistics": {
+    "title": "Pamamahagi ng Hula",
+    "guesses": "Mga Hula",
+    "totalWins": "Kabuuang Panalo",
+    "noData": "Wala pang available na data"
   }
 }

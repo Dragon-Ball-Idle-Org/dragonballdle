@@ -174,5 +174,11 @@
       "title": "DragonBallDle — 실루엣",
       "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
     }
+  },
+  "statistics": {
+    "title": "추측 분포",
+    "guesses": "추측",
+    "totalWins": "총 승리",
+    "noData": "아직 데이터가 없습니다"
   }
 }

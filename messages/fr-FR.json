@@ -174,5 +174,11 @@
     },
     "submitSuccess": "✓ E-mail envoyé avec succès !",
     "submitError": "✗ Erreur lors de l'envoi. Veuillez réessayer."
+  },
+  "statistics": {
+    "title": "Distribution des Essais",
+    "guesses": "Essais",
+    "totalWins": "Total des Victoires",
+    "noData": "Aucune donnée disponible pour le moment"
   }
 }

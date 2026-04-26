@@ -78,6 +78,8 @@ export function useGuesses(locale: string, gameMode: GameMode = "classic") {
   }, [locale, gameMode]);
 
   const addGuess = (character: CharacterGuess) => {
+    let length = 0;
+
     setGuesses((prev) => {
       if (prev.some((g) => g.slug === character.slug)) return prev;
       const next = [character, ...prev];
@@ -88,8 +90,12 @@ export function useGuesses(locale: string, gameMode: GameMode = "classic") {
       const nextSlugs = Array.from(new Set([character.slug, ...slugs]));
       setWithExpiry(slugsStorageKey(gameMode), nextSlugs, ttl);
 
+      length = next.length;
+
       return next;
     });
+
+    return length;
   };
 
   return { guesses, addGuess, hydrated };

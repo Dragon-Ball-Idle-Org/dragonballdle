@@ -17,6 +17,7 @@ export async function SilhouetteProviders({
     "winModal",
     "winBanner",
     "share",
+    "statistics",
   ]);
 
   return (

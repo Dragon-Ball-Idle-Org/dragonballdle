@@ -16,6 +16,7 @@ import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
 import { cn } from "@/utils/cn";
 import { incrementWins } from "@/service/wins";
+import { recordGuess } from "@/service/leaderboard";
 import { ScrambleText } from "../ui/ScrambleText";
 
 export function SilhouetteGameBoard({
@@ -67,7 +68,10 @@ export function SilhouetteGameBoard({
     setFinishedScrambles((prev) => new Set(prev).add(slug));
     if (isCorrect && !isGameWon) {
       wonGame();
-      await incrementWins("silhouette");
+      await Promise.all([
+        incrementWins("silhouette"),
+        recordGuess("silhouette", guesses.length),
+      ]);
     }
   };
 

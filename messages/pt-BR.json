@@ -174,5 +174,11 @@
     },
     "submitSuccess": "✓ E-mail enviado com sucesso!",
     "submitError": "✗ Erro ao enviar. Tente novamente."
+  },
+  "statistics": {
+    "title": "Distribuição de Palpites",
+    "guesses": "Palpites",
+    "totalWins": "Total de Vitórias",
+    "noData": "Nenhum dado disponível ainda"
   }
 }

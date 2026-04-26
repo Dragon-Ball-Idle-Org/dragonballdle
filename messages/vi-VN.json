@@ -174,5 +174,11 @@
       "title": "DragonBallDle — Silhouette",
       "description": "Reveal today's mystery Dragon Ball character from a dark silhouette! A free daily mini-game for fans."
     }
+  },
+  "statistics": {
+    "title": "Phân phối dự đoán",
+    "guesses": "Dự đoán",
+    "totalWins": "Tổng số trận thắng",
+    "noData": "Chưa có dữ liệu"
   }
 }

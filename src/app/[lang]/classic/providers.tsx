@@ -16,6 +16,7 @@ export async function ClassicProviders({
     "winBanner",
     "hero",
     "share",
+    "statistics",
   ]);
 
   return (
