@@ -180,5 +180,44 @@
     "guesses": "Tahminler",
     "totalWins": "Toplam Galibiyet",
     "noData": "Henüz veri yok"
+  },
+  "changelog": {
+    "title": "Yenilikler",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Liderlik Tabloları ve Performans",
+        "items": [
+          "Günlük sıralamaları takip etmek için Küresel Liderlik Tabloları eklendi",
+          "Siluet Modu yakınlaştırma ve bölge analizi iyileştirildi",
+          "Yeni güncellemeler için bildirim rozeti eklendi",
+          "20+ dil için çeviriler geliştirildi"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "Ejder Radarı Güncellemesi",
+        "items": [
+          "Yeni Ejder Radarı FAB ile mobil navigasyon yeniden tasarlandı",
+          "Sürükleyici radar tarama animasyonları eklendi",
+          "Tamamlanan oyun modları için görsel göstergeler",
+          "Masaüstü ve mobil için tematik navigasyon düğümleri"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Yaşam Kalitesi",
+        "items": [
+          "Daha iyi sonuç paylaşımı için yeni Zafer Bannerları",
+          "Oyun durumu kalıcılığı ve yeniden yükleme mantığı iyileştirildi",
+          "İlk tahminlerde ses çalma sorunu düzeltildi",
+          "Karakter arama önbelleğe alma ve sıralama geliştirildi"
+        ]
+      }
+    ]
   }
 }

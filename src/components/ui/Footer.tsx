@@ -2,11 +2,13 @@ import { getTranslations } from "next-intl/server";
 import { LinkIcon, PhoneIcon } from "@phosphor-icons/react/ssr";
 import { IconLink } from "../ui/Link";
 import { SocialLinksModal } from "../shared/SocialLinksModal";
+import { ChangelogButton } from "../shared/ChangelogButton";
 
 export async function Footer() {
   const t = await getTranslations("footer");
   const tSocial = await getTranslations("socialLinksModal");
   const tCommon = await getTranslations("common");
+  const tChangelog = await getTranslations("changelog");
   const currentYear = new Date().getFullYear();
 
   const roles = {
@@ -41,6 +43,10 @@ export async function Footer() {
             i
           </div>
         </IconLink>
+        <ChangelogButton
+          title={tChangelog("title")}
+          latestVersion={tChangelog("latestVersion")}
+        />
         <IconLink
           href="https://buymeacoffee.com/dragonballdle"
           target="_blank"

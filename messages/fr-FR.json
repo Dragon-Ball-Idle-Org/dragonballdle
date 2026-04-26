@@ -180,5 +180,44 @@
     "guesses": "Essais",
     "totalWins": "Total des Victoires",
     "noData": "Aucune donnée disponible pour le moment"
+  },
+  "changelog": {
+    "title": "Quoi de neuf ?",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Classements & Performance",
+        "items": [
+          "Ajout de classements mondiaux pour suivre les rangs quotidiens",
+          "Amélioration du zoom et de l'analyse du mode Silhouette",
+          "Ajout d'un badge de notification pour les nouveautés",
+          "Traductions affinées pour plus de 20 langues"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "Mise à jour du Radar Dragon",
+        "items": [
+          "Navigation mobile repensée avec le nouveau FAB Radar Dragon",
+          "Ajout d'animations immersives de balayage radar",
+          "Indicateurs visuels pour les modes de jeu terminés",
+          "Nœuds de navigation thématiques pour bureau et mobile"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Qualité de vie",
+        "items": [
+          "Nouveaux bandeaux de victoire pour un meilleur partage",
+          "Amélioration de la persistance de l'état du jeu",
+          "Correction de la lecture audio sur les premiers essais",
+          "Amélioration de la mise en cache et du tri de la recherche"
+        ]
+      }
+    ]
   }
 }

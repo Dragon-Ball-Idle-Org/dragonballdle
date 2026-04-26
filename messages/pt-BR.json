@@ -180,5 +180,44 @@
     "guesses": "Palpites",
     "totalWins": "Total de Vitórias",
     "noData": "Nenhum dado disponível ainda"
+  },
+  "changelog": {
+    "title": "Novidades",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Rankings e Performance",
+        "items": [
+          "Adicionado Rankings Globais para acompanhar classificações diárias",
+          "Melhoria no zoom e análise de zona do Modo Silhueta",
+          "Adicionado selo de notificação para novas atualizações",
+          "Traduções refinadas para todos os 20+ idiomas"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "Atualização Dragon Radar",
+        "items": [
+          "Navegação móvel redesenhada com o novo FAB Dragon Radar",
+          "Adicionadas animações imersivas de varredura de radar",
+          "Indicadores visuais para modos de jogo concluídos",
+          "Nós de navegação temáticos para desktop e mobile"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Qualidade de Vida",
+        "items": [
+          "Novos Banners de Vitória para melhor compartilhamento de resultados",
+          "Melhoria na persistência do estado do jogo e lógica de recarregamento",
+          "Corrigida reprodução de áudio nos palpites iniciais",
+          "Cache e ordenação de busca de personagens aprimorados"
+        ]
+      }
+    ]
   }
 }

@@ -9,6 +9,7 @@ import { Providers } from "../providers";
 import { SplashScreen } from "@/components/ui/SplashScreen";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { BottomNavBar } from "@/components/mobile/BottomNavBar";
+import { ChangelogTrigger } from "@/components/shared/ChangelogTrigger";
 
 import "../globals.css";
 
@@ -87,6 +88,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   const tHome = await getTranslations("home");
   const tLegal = await getTranslations("legal");
   const tWinBanner = await getTranslations("winBanner");
+  const tChangelog = await getTranslations("changelog");
 
   const roles = {
     frontend: tCommon("roles.frontend"),
@@ -111,6 +113,11 @@ export default async function RootLayout({ children, params }: LayoutProps) {
           <h1 className="hidden">DragonBallDle</h1>
           {children}
           <Footer />
+          <ChangelogTrigger
+            latestVersion={tChangelog("latestVersion")}
+            title={tChangelog("title")}
+            versions={tChangelog.raw("versions")}
+          />
           <BottomNavBar
             socialLinksTitle={tSocial("title")}
             roles={roles}

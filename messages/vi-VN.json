@@ -180,5 +180,44 @@
     "guesses": "Dự đoán",
     "totalWins": "Tổng số trận thắng",
     "noData": "Chưa có dữ liệu"
+  },
+  "changelog": {
+    "title": "Có gì mới",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Bảng xếp hạng & Hiệu suất",
+        "items": [
+          "Đã thêm Bảng xếp hạng toàn cầu để theo dõi thứ hạng hàng ngày",
+          "Cải thiện phân tích thu phóng và vùng của Chế độ hình bóng",
+          "Đã thêm huy hiệu thông báo cho các bản cập nhật mới",
+          "Bản dịch tinh chỉnh cho tất cả hơn 20 ngôn ngữ"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "Bản cập nhật Radar rồng",
+        "items": [
+          "Thiết kế lại điều hướng di động với FAB Radar rồng mới",
+          "Đã thêm hoạt ảnh quét radar sống động",
+          "Chỉ báo trực quan cho các chế độ trò chơi đã hoàn thành",
+          "Các nút điều hướng theo chủ đề cho máy tính để bàn và di động"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Chất lượng cuộc sống",
+        "items": [
+          "Biểu ngữ chiến thắng mới để chia sẻ kết quả tốt hơn",
+          "Cải thiện tính duy trì trạng thái trò chơi và logic tải lại",
+          "Đã sửa lỗi phát lại âm thanh trong những lần đoán đầu tiên",
+          "Tăng cường bộ nhớ đệm và sắp xếp tìm kiếm nhân vật"
+        ]
+      }
+    ]
   }
 }

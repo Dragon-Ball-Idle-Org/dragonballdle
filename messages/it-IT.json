@@ -180,5 +180,44 @@
     "guesses": "Tentativi",
     "totalWins": "Vittorie Totali",
     "noData": "Nessun dato ancora disponibile"
+  },
+  "changelog": {
+    "title": "Novità",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Classifiche e Prestazioni",
+        "items": [
+          "Aggiunte classifiche globali per i ranking giornalieri",
+          "Migliorato lo zoom e l'analisi della modalità Silhouette",
+          "Aggiunto badge di notifica per nuovi aggiornamenti",
+          "Traduzioni rifinite per oltre 20 lingue"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "L'aggiornamento Dragon Radar",
+        "items": [
+          "Navigazione mobile ridisegnata con il nuovo FAB Dragon Radar",
+          "Aggiunte animazioni immersive di scansione radar",
+          "Indicatori visivi per le modalità di gioco completate",
+          "Nodi di navigazione tematici per desktop e mobile"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Qualità della vita",
+        "items": [
+          "Nuovi banner di vittoria per una migliore condivisione",
+          "Migliorata la persistenza dello stato del gioco",
+          "Corretta la riproduzione audio nei primi tentativi",
+          "Migliorata la cache e l'ordinamento della ricerca"
+        ]
+      }
+    ]
   }
 }

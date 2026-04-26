@@ -180,5 +180,44 @@
     "guesses": "Intentos",
     "totalWins": "Victorias Totales",
     "noData": "Aún no hay datos disponibles"
+  },
+  "changelog": {
+    "title": "Novedades",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Clasificaciones y Rendimiento",
+        "items": [
+          "Se agregaron clasificaciones globales para seguir los rankings diarios",
+          "Mejora del zoom y análisis de zonas en el Modo Silueta",
+          "Se agregó un distintivo de notificación para nuevas actualizaciones",
+          "Traducciones refinadas para los más de 20 idiomas"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "Actualización del Radar del Dragón",
+        "items": [
+          "Navegación móvil rediseñada con el nuevo FAB Radar del Dragón",
+          "Se agregaron animaciones inmersivas de barrido de radar",
+          "Indicadores visuais para modos de juego completados",
+          "Nodos de navegación temáticos para escritorio y móvil"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Calidad de Vida",
+        "items": [
+          "Nuevos banners de victoria para compartir mejor los resultados",
+          "Mejora de la persistencia del estado del juego",
+          "Se corrigió la reproducción de audio en los primeros intentos",
+          "Caché y ordenación de búsqueda de personajes mejorados"
+        ]
+      }
+    ]
   }
 }

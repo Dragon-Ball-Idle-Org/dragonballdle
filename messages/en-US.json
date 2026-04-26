@@ -180,5 +180,44 @@
     "guesses": "Guesses",
     "totalWins": "Total Wins",
     "noData": "No data available yet"
+  },
+  "changelog": {
+    "title": "What's New",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Leaderboards & Performance",
+        "items": [
+          "Added Global Leaderboards to track daily rankings",
+          "Improved Silhouette Mode zoom and zone analysis",
+          "Added notification badge for new updates",
+          "Refined translations for all 20+ languages"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "The Dragon Radar Update",
+        "items": [
+          "Redesigned mobile navigation with the new Dragon Radar FAB",
+          "Added immersive radar sweep animations",
+          "Visual indicators for completed game modes",
+          "Thematic navigation nodes for desktop and mobile"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Quality of Life",
+        "items": [
+          "New Win Banners for better result sharing",
+          "Improved game state persistence and reload logic",
+          "Fixed audio playback on initial guesses",
+          "Enhanced character search caching and sorting"
+        ]
+      }
+    ]
   }
 }

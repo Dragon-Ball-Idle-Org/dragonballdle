@@ -180,5 +180,44 @@
     "guesses": "Versuche",
     "totalWins": "Gesamtsiege",
     "noData": "Noch keine Daten verfügbar"
+  },
+  "changelog": {
+    "title": "Was gibt's Neues",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Bestenlisten & Leistung",
+        "items": [
+          "Globale Bestenlisten für tägliche Rankings hinzugefügt",
+          "Zoom und Zonenanalyse im Silhouetten-Modus verbessert",
+          "Benachrichtigungs-Badge für neue Updates hinzugefügt",
+          "Übersetzungen für alle 20+ Sprachen verfeinert"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "Das Dragon Radar Update",
+        "items": [
+          "Mobiles Navigationsdesign mit dem neuen Dragon Radar FAB",
+          "Immersive Radar-Sweep-Animationen hinzugefügt",
+          "Visuelle Indikatoren für abgeschlossene Spielmodi",
+          "Thematische Navigationsknoten für Desktop und Mobile"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Benutzerfreundlichkeit",
+        "items": [
+          "Neue Sieg-Banner für besseres Teilen der Ergebnisse",
+          "Verbesserte Speicherung des Spielzustands",
+          "Audiowiedergabe bei ersten Versuchen korrigiert",
+          "Caching und Sortierung der Charaktersuche verbessert"
+        ]
+      }
+    ]
   }
 }

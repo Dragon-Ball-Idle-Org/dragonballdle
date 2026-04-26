@@ -180,5 +180,44 @@
     "guesses": "Tebakan",
     "totalWins": "Total Kemenangan",
     "noData": "Belum ada data tersedia"
+  },
+  "changelog": {
+    "title": "Apa yang Baru",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Papan Peringkat & Performa",
+        "items": [
+          "Menambahkan Papan Peringkat Global untuk melacak peringkat harian",
+          "Peningkatan zoom dan analisis zona Mode Siluet",
+          "Menambahkan lencana notifikasi untuk pembaruan baru",
+          "Penyempurnaan terjemahan untuk semua 20+ bahasa"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "Pembaruan Radar Naga",
+        "items": [
+          "Desain ulang navigasi seluler dengan FAB Radar Naga baru",
+          "Menambahkan animasi sapuan radar yang imersif",
+          "Indikator visual untuk mode permainan yang diselesaikan",
+          "Node navigasi tematik untuk desktop dan seluler"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Kualitas Hidup",
+        "items": [
+          "Banner Kemenangan baru untuk berbagi hasil yang lebih baik",
+          "Peningkatan persistensi status game dan logika muat ulang",
+          "Memperbaiki pemutaran audio pada tebakan awal",
+          "Peningkatan caching dan pengurutan pencarian karakter"
+        ]
+      }
+    ]
   }
 }

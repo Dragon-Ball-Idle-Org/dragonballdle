@@ -180,5 +180,44 @@
     "guesses": "Mga Hula",
     "totalWins": "Kabuuang Panalo",
     "noData": "Wala pang available na data"
+  },
+  "changelog": {
+    "title": "Anong Bago",
+    "latestVersion": "1.1.0",
+    "versions": [
+      {
+        "id": "1.1.0",
+        "date": "2026-04-26",
+        "title": "Leaderboards at Performance",
+        "items": [
+          "Nagdagdag ng Global Leaderboards para i-track ang daily rankings",
+          "Pinabuting Silhouette Mode zoom at zone analysis",
+          "Nagdagdag ng notification badge para sa mga bagong update",
+          "Refined na mga translation para sa lahat ng 20+ na wika"
+        ]
+      },
+      {
+        "id": "1.0.0",
+        "date": "2026-04-19",
+        "title": "The Dragon Radar Update",
+        "items": [
+          "Ni-redesign ang mobile navigation gamit ang bagong Dragon Radar FAB",
+          "Nagdagdag ng immersive na radar sweep animations",
+          "Visual indicators para sa mga nakumpletong game mode",
+          "Thematic navigation nodes para sa desktop at mobile"
+        ]
+      },
+      {
+        "id": "0.9.0",
+        "date": "2026-04-12",
+        "title": "Quality of Life",
+        "items": [
+          "Mga bagong Win Banners para sa mas magandang pag-share ng resulta",
+          "Pinabuting game state persistence at reload logic",
+          "Inayos ang audio playback sa mga unang hula",
+          "Enhanced na character search caching at sorting"
+        ]
+      }
+    ]
   }
 }
