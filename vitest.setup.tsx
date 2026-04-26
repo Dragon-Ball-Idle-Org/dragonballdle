@@ -58,6 +58,9 @@ vi.mock("@supabase/ssr", () => {
       single: vi.fn().mockReturnThis(),
       removeChannel: vi.fn(),
       rpc: vi.fn().mockReturnThis(),
+      functions: {
+        invoke: vi.fn().mockResolvedValue({ data: {}, error: null }),
+      },
       channel: vi.fn(() => ({
         on: vi.fn().mockReturnThis(),
         subscribe: vi.fn(),
