@@ -14,6 +14,9 @@ globs: **/*.test.ts, **/*.test.tsx, **/*.spec.ts, tests/e2e/**/*.ts
 | Integration | `**/__tests__/integration/*.test.{ts,tsx}` | `pnpm test:integration` |
 | E2E         | `/tests/e2e/*.spec.ts`                     | `pnpm test:e2e`         |
 
+> **Agent Policy**: After writing or modifying E2E specs, the agent **does NOT need to run `pnpm test:e2e`**.
+> The user will run and validate E2E tests manually. Just write the spec and commit.
+
 ## Rules
 
 1. **Unit**: Test pure functions, utils, and hooks only — no React rendering unless necessary
