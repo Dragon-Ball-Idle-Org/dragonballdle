@@ -43,7 +43,7 @@ describe("ClassicGameBoard Integration", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    mockAddGuess = vi.fn();
+    mockAddGuess = vi.fn().mockReturnValue(1);
     mockWonGame = vi.fn();
 
     global.fetch = vi.fn().mockImplementation((url: string) => {

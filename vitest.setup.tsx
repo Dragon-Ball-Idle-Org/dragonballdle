@@ -10,6 +10,13 @@ vi.mock("next-intl", () => {
   };
 });
 
+// Fast-forward game win timeout
+const originalSetTimeout = global.setTimeout;
+(global as any).setTimeout = (cb: any, ms: number) => {
+  if (ms === 2700) return originalSetTimeout(cb, 0);
+  return originalSetTimeout(cb, ms);
+};
+
 // Mock next/navigation
 vi.mock("next/navigation", () => {
   return {
@@ -67,3 +74,4 @@ vi.mock("next/image", () => ({
     return <img {...props} />;
   },
 }));
+
