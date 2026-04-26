@@ -31,6 +31,7 @@
 7. No parallel `.css` files — Tailwind only
 8. Just write comments if extremely necessary, the code should be self-documenting.
 9. Environment Variables: NEVER set OS-level environment variables (e.g., `setx`, `$env:`). Always use `.env.local` or `.env`. If a variable is accidentally set in the terminal session, remove it using `Remove-Item Env:VARIABLE_NAME` (PowerShell) or `unset VARIABLE_NAME` (Bash).
+10. Dates & Timezones: NEVER use `new Date()` or manual `toISOString()` to calculate the "today" key for database queries or game logic. Always use `todayBrasiliaKey()` from `@/lib/daily` to ensure consistency with the Brasilia timezone (UTC-3).
 
 ## Testing Strategy
 
