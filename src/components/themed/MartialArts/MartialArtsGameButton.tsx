@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { GameMode } from "@/types/game-mode";
 import { useWinsRealtime } from "@/hooks/useWinsRealtime";
 import { StarIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 type MartialArtsGameButtonProps = {
   icon: ReactNode;
@@ -59,22 +61,78 @@ function WinsCounter({
   winsCountTemplate: string;
 }) {
   const { winsCount, isLoading } = useWinsRealtime(gameMode);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  useEffect(() => {
+    if (winsCount > 0 && !isLoading) {
+      setIsUpdating(true);
+      const timer = setTimeout(() => setIsUpdating(false), 600);
+      return () => clearTimeout(timer);
+    }
+  }, [winsCount, isLoading]);
 
   if (winsCount === 0 && !isLoading) return null;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 5 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="flex items-center gap-2 mt-2 px-3 py-1 bg-black/25 rounded-full border border-white/10 shadow-sm w-fit"
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="flex items-center gap-2 mt-2 px-3 py-1 bg-black/30 rounded-full border border-white/10 shadow-lg w-fit backdrop-blur-xs"
     >
-      <div className="flex items-center justify-center w-5 h-5 bg-[#ffcc00] rounded-full border-2 border-red-600 shrink-0 shadow-[0_0_8px_rgba(255,204,0,0.4)]">
-        <StarIcon className="w-3 h-3 text-red-600" weight="fill" />
+      <motion.div
+        animate={
+          isUpdating
+            ? {
+                scale: [1, 1.4, 1],
+                filter: ["brightness(1)", "brightness(1.8)", "brightness(1)"],
+                rotate: [0, 15, -15, 0],
+              }
+            : isLoading
+              ? {
+                  opacity: [0.4, 0.8, 0.4],
+                  scale: [0.9, 1, 0.9],
+                }
+              : { scale: 1 }
+        }
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="flex items-center justify-center w-5 h-5 bg-[#ffcc00] rounded-full border-2 border-red-600 shrink-0 relative shadow-[0_0_10px_rgba(255,204,0,0.3)]"
+      >
+        {!isLoading && <StarIcon className="w-3 h-3 text-red-600" weight="fill" />}
+        {isUpdating && (
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0.8 }}
+            animate={{ scale: 2.5, opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0 bg-yellow-400 rounded-full z-[-1]"
+          />
+        )}
+      </motion.div>
+
+      <div className="relative min-w-[80px]">
+        <AnimatePresence mode="wait">
+          {isLoading ? (
+            <motion.div
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex gap-1"
+            >
+              <div className="h-3 w-12 bg-white/10 rounded-full animate-pulse" />
+              <div className="h-3 w-8 bg-white/10 rounded-full animate-pulse" />
+            </motion.div>
+          ) : (
+            <motion.span
+              key={winsCount}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-white text-xs sm:text-sm font-bold tracking-wide drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] whitespace-nowrap block"
+            >
+              {winsCountTemplate.replace("[count]", winsCount.toString())}
+            </motion.span>
+          )}
+        </AnimatePresence>
       </div>
-      <span className="text-white text-xs sm:text-sm font-bold tracking-wide drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
-        {winsCountTemplate.replace("[count]", winsCount.toString())}
-      </span>
     </motion.div>
   );
 }
