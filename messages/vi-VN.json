@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "Hình bóng",
       "subtitle": "Khám phá nhân vật bí ẩn"
-    }
+    },
+    "winsCount": "{count} chiến thắng hôm nay"
   },
   "footer": {
     "subtitle": "Thử thách hàng ngày cho những người hâm mộ Dragon Ball đích thực",

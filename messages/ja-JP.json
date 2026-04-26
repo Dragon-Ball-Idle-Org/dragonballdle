@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "シルエット",
       "subtitle": "謎のキャラクターを明かそう"
-    }
+    },
+    "winsCount": "今日の勝利数 {count}"
   },
   "footer": {
     "subtitle": "真のドラゴンボールファンのための毎日の挑戦",

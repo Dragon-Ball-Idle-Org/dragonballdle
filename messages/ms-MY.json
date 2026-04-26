@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "Siluet",
       "subtitle": "Dedahkan watak misteri"
-    }
+    },
+    "winsCount": "{count} kemenangan hari ini"
   },
   "footer": {
     "subtitle": "Cabaran harian untuk peminat tegar Dragon Ball",

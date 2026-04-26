@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "剪影",
       "subtitle": "揭晓神秘角色"
-    }
+    },
+    "winsCount": "今日 {count} 胜"
   },
   "footer": {
     "subtitle": "龙珠真爱粉的每日挑战",

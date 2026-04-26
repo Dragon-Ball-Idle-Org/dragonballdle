@@ -13,14 +13,18 @@ export default async function Home() {
           icon={<p className="font-display text-9xl">?</p>}
           title={t("classic.title")}
           subtitle={t("classic.subtitle")}
+          winsCountTemplate={t("winsCount", { count: "[count]" })}
           href="/classic"
+          gameMode="classic"
         />
 
         <MartialArtsGameButton
           icon={<p className="font-display text-9xl">◐</p>}
           title={t("silhouette.title")}
           subtitle={t("silhouette.subtitle")}
+          winsCountTemplate={t("winsCount", { count: "[count]" })}
           href="/silhouette"
+          gameMode="silhouette"
         />
 
         {/* <MartialArtsGameButtonDisabled

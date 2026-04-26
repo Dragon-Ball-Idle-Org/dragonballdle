@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "Silweta",
       "subtitle": "Ibunyag ang mahiwagang karakter"
-    }
+    },
+    "winsCount": "{count} panalo ngayon"
   },
   "footer": {
     "subtitle": "Ang hamon araw-araw para sa tunay na tagahanga ng Dragon Ball",

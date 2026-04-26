@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "실루엣",
       "subtitle": "미스터리 캐릭터를 밝혀보세요"
-    }
+    },
+    "winsCount": "오늘 {count}승"
   },
   "footer": {
     "subtitle": "진정한 드래곤볼 팬을 위한 일일 도전",

@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "Sagoma",
       "subtitle": "Rivela il personaggio misterioso"
-    }
+    },
+    "winsCount": "{count} vittorie oggi"
   },
   "footer": {
     "subtitle": "La sfida quotidiana per i veri fan di Dragon Ball",

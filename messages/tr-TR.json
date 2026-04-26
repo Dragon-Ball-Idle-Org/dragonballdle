@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "Silüet",
       "subtitle": "Gizemli karakteri ortaya çıkar"
-    }
+    },
+    "winsCount": "Bugün {count} galibiyet"
   },
   "footer": {
     "subtitle": "Gerçek Dragon Ball hayranları için günlük zorluk",

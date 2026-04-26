@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "Silhouette",
       "subtitle": "Enthülle den mysteriösen Charakter"
-    }
+    },
+    "winsCount": "{count} Siege heute"
   },
   "footer": {
     "subtitle": "Die tägliche Herausforderung für wahre Dragon Ball Fans",

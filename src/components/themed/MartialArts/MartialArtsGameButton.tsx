@@ -5,12 +5,17 @@ import { cn } from "@/utils/cn";
 import { ReactNode } from "react";
 import { CountdownToMidnight } from "../../shared/CountdownToMidnight";
 import { motion } from "framer-motion";
+import { GameMode } from "@/types/game-mode";
+import { useWinsRealtime } from "@/hooks/useWinsRealtime";
+import { StarIcon } from "@phosphor-icons/react";
 
 type MartialArtsGameButtonProps = {
   icon: ReactNode;
   title: string;
   subtitle: string;
   href: string;
+  gameMode?: GameMode;
+  winsCountTemplate?: string;
 };
 
 export function MartialArtsGameButton({
@@ -18,6 +23,8 @@ export function MartialArtsGameButton({
   title,
   subtitle,
   href,
+  gameMode,
+  winsCountTemplate,
 }: MartialArtsGameButtonProps) {
   return (
     <Link
@@ -33,8 +40,42 @@ export function MartialArtsGameButton({
       <div className="flex flex-col items-start">
         <h3 className="text-3xl sm:text-5xl font-display">{title}</h3>
         <span className="text-sm sm:text-base">{subtitle}</span>
+        {gameMode && winsCountTemplate && (
+          <WinsCounter
+            gameMode={gameMode}
+            winsCountTemplate={winsCountTemplate}
+          />
+        )}
       </div>
     </Link>
+  );
+}
+
+function WinsCounter({
+  gameMode,
+  winsCountTemplate,
+}: {
+  gameMode: GameMode;
+  winsCountTemplate: string;
+}) {
+  const { winsCount } = useWinsRealtime(gameMode);
+
+  if (winsCount === 0) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 5 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="flex items-center gap-2 mt-2 px-3 py-1 bg-black/25 rounded-full border border-white/10 shadow-sm w-fit"
+    >
+      <div className="flex items-center justify-center w-5 h-5 bg-[#ffcc00] rounded-full border-2 border-red-600 shrink-0 shadow-[0_0_8px_rgba(255,204,0,0.4)]">
+        <StarIcon className="w-3 h-3 text-red-600" weight="fill" />
+      </div>
+      <span className="text-white text-xs sm:text-sm font-bold tracking-wide drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+        {winsCountTemplate.replace("[count]", winsCount.toString())}
+      </span>
+    </motion.div>
   );
 }
 

@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "เงาปริศนา",
       "subtitle": "เปิดเผยตัวละครปริศนา"
-    }
+    },
+    "winsCount": "ชนะ {count} ครั้งวันนี้"
   },
   "footer": {
     "subtitle": "ความท้าทายรายวันสำหรับแฟน Dragon Ball ตัวจริง",

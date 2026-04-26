@@ -15,7 +15,8 @@
     "silhouette": {
       "title": "Силуэт",
       "subtitle": "Раскройте таинственного персонажа"
-    }
+    },
+    "winsCount": "{count} побед сегодня"
   },
   "footer": {
     "subtitle": "Ежедневное испытание для истинных фанатов Dragon Ball",

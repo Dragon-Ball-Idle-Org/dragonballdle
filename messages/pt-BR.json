@@ -15,7 +15,8 @@
     "metadata": {
       "title": "DragonBallDle — Jogo de Adivinhação",
       "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
-    }
+    },
+    "winsCount": "{count} vitórias hoje"
   },
   "footer": {
     "subtitle": "O desafio diário para os verdadeiros fãs de Dragon Ball",
