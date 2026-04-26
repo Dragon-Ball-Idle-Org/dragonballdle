@@ -1,7 +1,9 @@
 # AGENTS.md — DragonBallDle Project Rules
+
 # Shared across: Antigravity, Cursor, Claude Code, Codex, Windsurf, Kiro
 
 ## Tech Stack
+
 - Framework: Next.js (App Router, React 19)
 - Language: TypeScript — strict mode, no `any`
 - Styling: Tailwind CSS v4 (`@import "tailwindcss"` / `@theme inline {}` in globals.css)
@@ -11,6 +13,7 @@
 - Utilities: `cn()` from `@/utils/cn` when className exceeds one line
 
 ## Folder Structure
+
 - `src/app/[lang]/` — all pages live here, no exceptions
 - `src/components/ui/` — dumb/reusable atoms (GameButton, SplashScreen…)
 - `src/components/themed/` — game-themed components (MartialArts*, CapsuleCorp*)
@@ -18,6 +21,7 @@
 - `src/contexts/` — React contexts, including TranslationContext
 
 ## Critical Rules (always enforce)
+
 1. Navigation: NEVER use `next/link` or `next/navigation` directly. Always use `@/i18n/navigation`
 2. i18n: NEVER hardcode text. Use `useTranslations` (client) or `getTranslations` (server async)
 3. Client translations: load via `getTranslationsBundle()` on server → pass to `<TranslationProvider>`
@@ -25,8 +29,10 @@
 5. Never remove HTML `id` attributes — they may be coupled to analytics or external scripts
 6. Prefer Server Components. Add `"use client"` only when hooks or direct interactivity are needed
 7. No parallel `.css` files — Tailwind only
+8. Just write comments if extremely necessary, the code should be self-documenting.
 
 ## Testing Strategy
+
 - Unit: `**/__tests__/unit/*.test.{ts,tsx}` → `pnpm test:unit`
 - Integration: `**/__tests__/integration/*.test.{ts,tsx}` → `pnpm test:integration`
 - E2E: `/tests/e2e/*.spec.ts` (Playwright) → `pnpm test:e2e`
@@ -34,6 +40,7 @@
 - Always prefer `getByRole` / `getByText` over `data-testid`
 
 ## Skill Router — read before coding
+
 Match the task domain and read the corresponding skill file:
 | Domain | Skill file |
 |---|---|
