@@ -75,3 +75,39 @@ vi.mock("next/image", () => ({
   },
 }));
 
+// Mock Audio
+global.Audio = vi.fn().mockImplementation(() => ({
+  play: vi.fn().mockResolvedValue(undefined),
+  pause: vi.fn(),
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn(),
+  load: vi.fn(),
+  currentTime: 0,
+  duration: 0,
+  playbackRate: 1,
+})) as any;
+
+if (typeof window !== "undefined") {
+  window.HTMLMediaElement.prototype.play = vi.fn().mockResolvedValue(undefined);
+  window.HTMLMediaElement.prototype.pause = vi.fn();
+  window.HTMLMediaElement.prototype.load = vi.fn();
+}
+
+// Disable framer-motion animations
+vi.mock("framer-motion", async (importOriginal) => {
+  const actual = (await importOriginal()) as any;
+  return {
+    ...actual,
+    motion: new Proxy(actual.motion, {
+      get: (_target, key: string) => {
+        if (key === "custom") return actual.motion.custom;
+        return (props: any) => {
+          const { layout, ...rest } = props;
+          return <div {...rest} data-framer-key={key} />;
+        };
+      },
+    }),
+    AnimatePresence: ({ children }: any) => children,
+  };
+});
+
