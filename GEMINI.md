@@ -31,9 +31,10 @@ Before planning or coding ANYTHING:
 - In the Execute phase: confirm skill was read before writing the first line of code
 - For tasks touching 2+ files: produce a task plan artifact before executing
 
-## Terminal Auto-Execute (safe)
-- `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm test:*`
-- `git status`, `git diff`, `git log`
+## Terminal & Process Management (CRITICAL)
+- **Auto-Execute**: `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm test:*`, `git status`, `git diff`, `git log`.
+- **Cleanup**: You MUST terminate all background processes (like `pnpm dev`) before finishing a task. Never leave them running.
+- **Port Conflicts**: If a port is blocked, use `command_status` to find the process and terminate it.
 
 ## Always Request Review
 - `git commit`, `git push`
