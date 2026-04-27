@@ -43,7 +43,6 @@ async function main() {
   console.log(`Found ${characters.length} characters`);
 
   const GAME_MODES = ["classic", "silhouette"];
-  const N = characters.length;
   const todayK = getDayIndexBrasilia();
   const tomorrowK = todayK + 1;
   const targetK = todayK + DAYS_AHEAD;
