@@ -47,7 +47,6 @@ vi.mock("@/contexts/TranslationContext", () => ({
 // Mock ScrambleText to avoid its internal logic/Audio
 vi.mock("@/components/ui/ScrambleText", () => ({
   ScrambleText: ({ text, onScrambleEnd, animate }: any) => {
-
     useEffect(() => {
       if (animate) {
         const timer = setTimeout(() => onScrambleEnd?.(), 10);
