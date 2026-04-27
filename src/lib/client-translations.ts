@@ -232,4 +232,26 @@ export type TranslationsBundle = Awaited<
   ReturnType<typeof getTranslationsBundle>
 >;
 
-export type TranslationNamespace = keyof TranslationsBundle;
+export type TranslationNamespace = {
+  [key: string]: string | TranslationNamespace;
+};
+
+/**
+ * Creates a translation function from a messages object.
+ * Supports nested keys (dot notation) and returns strings.
+ */
+export function createT(messages: TranslationNamespace) {
+  return (key: string): string => {
+    const keys = key.split(".");
+    let current: TranslationNamespace | string = messages;
+
+    for (const k of keys) {
+      if (typeof current === "string" || current[k] === undefined) {
+        return key;
+      }
+      current = current[k];
+    }
+
+    return typeof current === "string" ? current : key;
+  };
+}

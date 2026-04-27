@@ -51,5 +51,4 @@ Match the task domain and read the corresponding skill file:
 | Testing (unit, integration, E2E) | `.agents/skills/testing/SKILL.md` |
 | Supabase, Edge Functions, DB queries | `.agents/skills/supabase/SKILL.md` |
 | Translations, next-intl, JSON messages | `.agents/skills/i18n/SKILL.md` |
-| Refactoring, TypeScript, performance | `.agents/skills/code-quality/SKILL.md` |
-| Linting rules, ESLint, Code standard | `.agents/skills/lint/SKILL.md` |
+| Refactoring, Lint, TypeScript, performance | `.agents/skills/code-quality/SKILL.md` |

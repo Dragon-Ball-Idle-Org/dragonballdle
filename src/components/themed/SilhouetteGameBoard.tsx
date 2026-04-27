@@ -18,6 +18,7 @@ import { cn } from "@/utils/cn";
 import { incrementWins } from "@/service/wins";
 import { recordGuess } from "@/service/leaderboard";
 import { ScrambleText } from "../ui/ScrambleText";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 
 export function SilhouetteGameBoard({
   dailyCharacter,
@@ -75,7 +76,7 @@ export function SilhouetteGameBoard({
     }
   };
 
-  const translations = useTranslations("guessForm") as Record<string, string>;
+  const t = createT(useTranslations("guessForm") as TranslationNamespace);
 
   return (
     <div
@@ -119,7 +120,7 @@ export function SilhouetteGameBoard({
         >
           <img
             src="/assets/dragon-radar-icon.png"
-            alt={translations.submitAlt}
+            alt={t("submitAlt")}
             width={80}
             height={80}
             className="w-18 h-18"

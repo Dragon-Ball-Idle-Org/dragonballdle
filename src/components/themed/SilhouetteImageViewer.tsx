@@ -8,6 +8,8 @@ import { useTranslations } from "@/contexts/TranslationContext";
 import type { SilhouetteCharacter } from "@/types/guess";
 import type { SilhouetteZone } from "@/types/silhouette";
 
+import { TranslationNamespace, createT } from "@/lib/client-translations";
+
 type SilhouetteImageViewerProps = {
   dailyCharacter: SilhouetteCharacter;
   guessCount: number;
@@ -31,7 +33,7 @@ export function SilhouetteImageViewer({
   zones,
 }: SilhouetteImageViewerProps) {
   const { isGameWon } = useGameContext();
-  const tr = useTranslations("silhouetteViewer") as Record<string, string>;
+  const tr = createT(useTranslations("silhouetteViewer") as TranslationNamespace);
 
   const activeZones = zones && zones.length > 0 ? zones : FALLBACK_ZONES;
 
@@ -121,11 +123,11 @@ export function SilhouetteImageViewer({
     ),
   );
 
-  const revealLabel = tr.revealPercent.replace("__P__", String(revealPercent));
+  const revealLabel = tr("revealPercent").replace("__P__", String(revealPercent));
   const guessLabel =
     guessCount === 1
-      ? tr.guessCountOne
-      : tr.guessCountMany.replace("__C__", String(guessCount));
+      ? tr("guessCountOne")
+      : tr("guessCountMany").replace("__C__", String(guessCount));
 
   return (
     <div data-testid="silhouette-viewer" className="w-full flex flex-col items-center gap-4 mb-6">
@@ -154,8 +156,8 @@ export function SilhouetteImageViewer({
               src={imageUrlToShow}
               alt={
                 isGameWon
-                  ? tr.imageAltRevealed.replace("__NAME__", dailyCharacter.name)
-                  : tr.imageAltDaily
+                  ? tr("imageAltRevealed").replace("__NAME__", dailyCharacter.name)
+                  : tr("imageAltDaily")
               }
               className={cn(
                 "w-full h-full transition-all duration-500",
@@ -200,7 +202,7 @@ export function SilhouetteImageViewer({
           animate={{ opacity: 1, y: 0 }}
           className="text-sm font-bold text-emerald-300"
         >
-          ✓ {tr.characterRevealed}
+          ✓ {tr("characterRevealed")}
         </motion.p>
       )}
     </div>
