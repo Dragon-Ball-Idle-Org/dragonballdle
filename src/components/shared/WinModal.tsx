@@ -7,6 +7,7 @@ import { CountdownToMidnight } from "./CountdownToMidnight";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { useGameContext } from "@/contexts/GameContext";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/utils/cn";
 
@@ -21,7 +22,7 @@ export function WinModal({ characterName, characterImage, playNextLabel }: WinMo
   const [isMounted, setIsMounted] = useState(false);
   const { isGameWon } = useGameContext();
   const { tries } = useGuessesContext();
-  const t = useTranslations("winModal");
+  const t = createT(useTranslations("winModal") as TranslationNamespace);
   const pathname = usePathname();
 
   const isSilhouette = pathname.startsWith("/silhouette");
@@ -105,11 +106,11 @@ export function WinModal({ characterName, characterImage, playNextLabel }: WinMo
 
             <div className="flex flex-col items-center gap-5 mt-[-20%] text-center">
               <h2 className="font-display text-[clamp(1.5rem,4vw,2rem)] font-normal text-white drop-shadow-md">
-                {t.congrats}
+                {t("congrats")}
               </h2>
 
               <p className="font-base text-[clamp(0.875rem,2.3vw,1rem)] font-semibold text-white">
-                {t.lineBefore} <strong>{tries}</strong> {t.lineAfter}
+                {t("lineBefore")} <strong>{tries}</strong> {t("lineAfter")}
               </p>
 
               <div className="mb-1">
@@ -119,7 +120,7 @@ export function WinModal({ characterName, characterImage, playNextLabel }: WinMo
               </div>
 
               <div className="inline-flex items-center gap-2 rounded-md border-1.5 border-white/55 bg-black/12 px-3 py-1 font-ui text-[clamp(0.875rem,2.4vw,1rem)] font-black text-white shadow-[inset_0_2px_12px_rgba(0,0,0,0.18),0_4px_16px_rgba(0,0,0,0.15)] backdrop-blur-xs">
-                <span>⏳ {t.countdown}</span>
+                <span>⏳ {t("countdown")}</span>
                 <CountdownToMidnight />
               </div>
 
@@ -134,7 +135,7 @@ export function WinModal({ characterName, characterImage, playNextLabel }: WinMo
                 )}
               >
                 <NextIcon weight="fill" className="w-[1.2em] h-[1.2em]" />
-                <span className="truncate">{playNextLabel || t.playNewGame}</span>
+                <span className="truncate">{playNextLabel || t("playNewGame")}</span>
               </Link>
             </div>
 

@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import { Autocomplete } from "@base-ui/react";
 import { useState } from "react";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { SpinnerIcon } from "@phosphor-icons/react";
 import { ImageWithFallback } from "../../ui/ImageWithFallback";
 
@@ -33,7 +34,7 @@ export function MartialArtsAutocompleteField({
   isLoading = true,
 }: MartialArtsAutocompleteFieldProps) {
   const [value, setValue] = useState("");
-  const translations = useTranslations("common");
+  const t = createT(useTranslations("common") as TranslationNamespace);
 
   const handleChange = (value: string) => {
     setValue(value);
@@ -60,7 +61,7 @@ export function MartialArtsAutocompleteField({
             "focus-visible:outline-2 focus-visible:outline-primary-light focus-visible:outline-offset-2",
             className,
           )}
-          placeholder={translations.searchPlaceholder}
+          placeholder={t("searchPlaceholder")}
           value={value}
           onChange={(e) => handleChange(e.target.value)}
           disabled={disabled}
@@ -79,7 +80,7 @@ export function MartialArtsAutocompleteField({
               {isLoading ? (
                 <SpinnerIcon className="animate-spin w-10 h-10" />
               ) : (
-                translations.noResults
+                t("noResults")
               )}
             </Autocomplete.Empty>
             <Autocomplete.List>

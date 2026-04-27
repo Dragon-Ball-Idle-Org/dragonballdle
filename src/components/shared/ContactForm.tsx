@@ -1,12 +1,13 @@
 "use client";
 
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ContactForm() {
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL!;
-  const t = useTranslations("contact");
+  const t = createT(useTranslations("contact") as TranslationNamespace);
   const [activeTab, setActiveTab] = useState<"email" | "form">("email");
   const [formData, setFormData] = useState({
     name: "",
@@ -87,7 +88,7 @@ export function ContactForm() {
           )}
           <span className="flex items-center gap-2 relative z-10">
             📧
-            {t.directEmail}
+            {t("directEmail")}
           </span>
         </button>
 
@@ -109,7 +110,7 @@ export function ContactForm() {
           )}
           <span className="flex items-center gap-2 relative z-10">
             ✉️
-            {t.sendButton}
+            {t("sendButton")}
           </span>
         </button>
       </div>
@@ -134,7 +135,7 @@ export function ContactForm() {
                   </div>
 
                   <h3 className="font-display text-2xl sm:text-3xl text-white text-center mb-2">
-                    {t.directEmail}
+                    {t("directEmail")}
                   </h3>
 
                   <p className="font-ui text-zinc-400 text-xs sm:text-sm text-center mb-6">
@@ -158,12 +159,12 @@ export function ContactForm() {
                     {copied ? (
                       <>
                         <span>✓</span>
-                        <span>{t.copiedFeedback}</span>
+                        <span>{t("copiedFeedback")}</span>
                       </>
                     ) : (
                       <>
                         <span>📋</span>
-                        <span>{t.copyButton}</span>
+                        <span>{t("copyButton")}</span>
                       </>
                     )}
                   </button>
@@ -188,13 +189,13 @@ export function ContactForm() {
                   htmlFor="name"
                   className="font-ui font-semibold text-white text-xs sm:text-sm block mb-2"
                 >
-                  {t.nameLabel}
+                  {t("nameLabel")}
                 </label>
                 <input
                   id="name"
                   type="text"
                   name="name"
-                  placeholder={t.namePlaceholder}
+                  placeholder={t("namePlaceholder")}
                   value={formData.name}
                   onChange={handleInputChange}
                   required
@@ -207,13 +208,13 @@ export function ContactForm() {
                   htmlFor="email"
                   className="font-ui font-semibold text-white text-xs sm:text-sm block mb-2"
                 >
-                  {t.emailLabel}
+                  {t("emailLabel")}
                 </label>
                 <input
                   id="email"
                   type="email"
                   name="email"
-                  placeholder={t.emailPlaceholder}
+                  placeholder={t("emailPlaceholder")}
                   value={formData.email}
                   onChange={handleInputChange}
                   required
@@ -227,12 +228,12 @@ export function ContactForm() {
                 htmlFor="message"
                 className="font-ui font-semibold text-white text-xs sm:text-sm block mb-2"
               >
-                {t.messageLabel}
+                {t("messageLabel")}
               </label>
               <textarea
                 id="message"
                 name="message"
-                placeholder={t.messagePlaceholder}
+                placeholder={t("messagePlaceholder")}
                 value={formData.message}
                 onChange={handleInputChange}
                 required
@@ -247,7 +248,7 @@ export function ContactForm() {
               className="mx-auto max-w-96 w-full py-3 px-4 rounded-xl font-display font-semibold text-white bg-linear-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 border-2 border-orange-600 hover:border-orange-400 shadow-lg shadow-orange-600/50 hover:shadow-orange-600/75 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>✉️</span>
-              <span>{isSubmitting ? "..." : t.sendButton}</span>
+              <span>{isSubmitting ? "..." : t("sendButton")}</span>
             </button>
 
             <AnimatePresence>
@@ -259,7 +260,7 @@ export function ContactForm() {
                   className="p-3 bg-green-600/20 border border-green-600/50 rounded-lg text-center overflow-hidden"
                 >
                   <p className="text-green-400 font-ui text-sm">
-                    {t.submitSuccess}
+                    {t("submitSuccess")}
                   </p>
                 </motion.div>
               )}
@@ -271,7 +272,7 @@ export function ContactForm() {
                   className="p-3 bg-red-600/20 border border-red-600/50 rounded-lg text-center overflow-hidden"
                 >
                   <p className="text-red-400 font-ui text-sm">
-                    {t.submitError}
+                    {t("submitError")}
                   </p>
                 </motion.div>
               )}

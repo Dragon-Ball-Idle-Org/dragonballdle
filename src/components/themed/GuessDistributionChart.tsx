@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { cn } from "@/utils/cn";
 import { TrophyIcon } from "@phosphor-icons/react";
 
@@ -15,7 +16,7 @@ export function GuessDistributionChart({
   distribution,
   currentGuessCount,
 }: GuessDistributionChartProps) {
-  const t = useTranslations("statistics");
+  const t = createT(useTranslations("statistics") as TranslationNamespace);
 
   const displayBuckets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -33,7 +34,7 @@ export function GuessDistributionChart({
       <div className="flex items-center gap-2 mb-2">
         <TrophyIcon className="text-orange-400 w-6 h-6" weight="fill" />
         <h3 className="font-display text-2xl text-white tracking-wider uppercase">
-          {t.title}
+          {t("title")}
         </h3>
       </div>
 
@@ -80,7 +81,7 @@ export function GuessDistributionChart({
       </div>
 
       <div className="mt-4 pt-4 border-t border-white/10 flex justify-between items-center text-slate-400 text-xs uppercase tracking-widest font-medium">
-        <span>{t.totalWins}</span>
+        <span>{t("totalWins")}</span>
         <span className="text-white font-display text-lg">{totalWins}</span>
       </div>
     </div>

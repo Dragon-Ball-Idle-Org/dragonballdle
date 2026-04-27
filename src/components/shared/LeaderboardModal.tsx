@@ -7,6 +7,7 @@ import { getGuessDistribution } from "@/service/leaderboard";
 import { GameMode } from "@/types/game-mode";
 import { ChartBarIcon } from "@phosphor-icons/react";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { cn } from "@/utils/cn";
 
 interface LeaderboardModalProps {
@@ -25,7 +26,7 @@ export function LeaderboardModal({
   const [isOpen, setIsOpen] = useState(false);
   const [distribution, setDistribution] = useState<Record<number, number>>({});
   const [isLoading, setIsLoading] = useState(false);
-  const t = useTranslations("statistics");
+  const t = createT(useTranslations("statistics") as TranslationNamespace);
 
   useEffect(() => {
     if (isOpen) {
@@ -47,14 +48,14 @@ export function LeaderboardModal({
           )}
         >
           <ChartBarIcon size={24} weight="bold" />
-          <span>{t.title}</span>
+          <span>{t("title")}</span>
         </button>
       )}
 
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        title={t.title}
+        title={t("title")}
         size="lg"
       >
         <div className="p-2">

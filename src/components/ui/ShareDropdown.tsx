@@ -7,6 +7,7 @@ import {
   XLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useGuessesContext } from "@/contexts/GuessesContext";
 import { GuessStatus } from "@/types/guess";
@@ -28,8 +29,8 @@ export function ShareDropdown({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { guesses, tries } = useGuessesContext();
-  const translations = useTranslations("winBanner");
-  const shareTextTranslations = useTranslations("share");
+  const tBanner = createT(useTranslations("winBanner") as TranslationNamespace);
+  const tShare = createT(useTranslations("share") as TranslationNamespace);
 
   const shareText = useMemo(() => {
     if (variant === "silhouette") {
@@ -48,8 +49,8 @@ export function ShareDropdown({
         headers: [{ value: "hint" }],
         guesses: comparedGuesses,
         translations: {
-          "share.silhouette.one": shareTextTranslations.tweet.silhouetteOne,
-          "share.silhouette.other": shareTextTranslations.tweet.silhouetteOther,
+          "share.silhouette.one": tShare("tweet.silhouetteOne"),
+          "share.silhouette.other": tShare("tweet.silhouetteOther"),
         },
       });
     }
@@ -70,11 +71,11 @@ export function ShareDropdown({
       ],
       guesses: comparedGuesses,
       translations: {
-        "share.tweet.one": shareTextTranslations.tweet.one,
-        "share.tweet.other": shareTextTranslations.tweet.other,
+        "share.tweet.one": tShare("tweet.one"),
+        "share.tweet.other": tShare("tweet.other"),
       },
     });
-  }, [tries, guesses, todayCharacterSlug, shareTextTranslations, variant]);
+  }, [tries, guesses, todayCharacterSlug, tShare, variant]);
 
   const xShareUrl = useMemo(() => {
     return (
@@ -130,7 +131,7 @@ export function ShareDropdown({
           isCapsule ? "rgba(51, 133, 81, 0.45)" : "rgba(74, 222, 128, 0.4)"
         }
       >
-        <span>{translations.share}</span>
+        <span>{tBanner("share")}</span>
         <CaretDownIcon size={16} weight="bold" />
       </ShineGradientButton>
 
@@ -154,7 +155,7 @@ export function ShareDropdown({
             )}
           >
             <XLogoIcon size={18} weight="fill" />
-            <span>{translations.shareOnX}</span>
+            <span>{tBanner("shareOnX")}</span>
           </button>
           <button
             onClick={handleCopyText}
@@ -166,7 +167,7 @@ export function ShareDropdown({
             )}
           >
             <CopySimpleIcon size={18} weight="regular" />
-            <span>{translations.copyToClipboard}</span>
+            <span>{tBanner("copyToClipboard")}</span>
           </button>
         </div>
       )}
