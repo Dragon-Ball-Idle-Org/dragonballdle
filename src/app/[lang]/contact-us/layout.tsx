@@ -1,5 +1,4 @@
 import { Header } from "@/components/ui/Header";
-import { getTranslationsBundle } from "@/lib/client-translations";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";

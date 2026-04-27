@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
         hostname: "pub-7a42112fb83543e09f959229a0efd07f.r2.dev",
       },
     ],
+    unoptimized: true,
     qualities: [75, 85, 100],
   },
   trailingSlash: true,

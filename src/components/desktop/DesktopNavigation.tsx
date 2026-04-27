@@ -78,7 +78,7 @@ export function DesktopNavigation({ classicLabel, silhouetteLabel }: DesktopNavi
           return (
             <Link
               key={route.href}
-              href={route.href as any}
+              href={route.href as "/classic" | "/silhouette"}
               className={cn(
                 "relative min-w-[200px] px-6 py-2 flex items-center gap-3 rounded-full font-display tracking-widest text-2xl transition-all cursor-pointer group",
                 isActive

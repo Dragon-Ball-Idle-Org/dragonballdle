@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 
 interface UseImageFallbackProps {
   src: string;
@@ -12,12 +12,14 @@ export function useImageFallback({
   const [imageSrc, setImageSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [prevSrc, setPrevSrc] = useState(src);
 
-  useEffect(() => {
+  if (src !== prevSrc) {
+    setPrevSrc(src);
     setImageSrc(src);
     setIsLoading(true);
     setHasError(false);
-  }, [src]);
+  }
 
   const handleLoad = useCallback(() => {
     setIsLoading(false);

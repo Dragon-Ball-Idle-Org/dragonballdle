@@ -3,7 +3,6 @@
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 interface LanguageDropdownProps {

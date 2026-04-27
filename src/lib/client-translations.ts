@@ -39,7 +39,7 @@ export async function getTranslationsBundle(
     },
   };
 
-  const pageSpecific: Record<string, () => any> = {
+  const pageSpecific: Record<string, () => Record<string, unknown>> = {
     home: () => ({
       home: {
         classic: {
@@ -100,7 +100,7 @@ export async function getTranslationsBundle(
     }),
   };
 
-  const components: Record<string, () => any> = {
+  const components: Record<string, () => Record<string, unknown>> = {
     hero: () => ({
       hero: {
         title: t("hero.title"),
@@ -212,7 +212,7 @@ export async function getTranslationsBundle(
 
   const types = Array.isArray(type) ? type : type ? [type] : [];
 
-  let result: Record<string, any> = { ...essential };
+  let result: Record<string, unknown> = { ...essential };
 
   for (const tType of types) {
     const pageData = tType in pageSpecific ? pageSpecific[tType]() : {};
@@ -225,7 +225,7 @@ export async function getTranslationsBundle(
     };
   }
 
-  return result as any;
+  return result;
 }
 
 export type TranslationsBundle = Awaited<

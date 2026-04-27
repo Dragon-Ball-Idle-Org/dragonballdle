@@ -12,10 +12,10 @@ vi.mock("next-intl", () => {
 
 // Fast-forward game win timeout
 const originalSetTimeout = global.setTimeout;
-(global as any).setTimeout = (cb: any, ms: number) => {
+vi.stubGlobal("setTimeout", (cb: TimerHandler, ms?: number) => {
   if (ms === 2700) return originalSetTimeout(cb, 0);
   return originalSetTimeout(cb, ms);
-};
+});
 
 // Mock next/navigation
 vi.mock("next/navigation", () => {
@@ -73,8 +73,8 @@ vi.mock("@supabase/ssr", () => {
 // Mock next/image
 vi.mock("next/image", () => ({
   __esModule: true,
-  default: (props: any) => {
-    return <img {...props} />;
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+    return <img alt="" {...props} />;
   },
 }));
 
@@ -88,7 +88,7 @@ global.Audio = vi.fn().mockImplementation(() => ({
   currentTime: 0,
   duration: 0,
   playbackRate: 1,
-})) as any;
+})) as unknown as typeof Audio;
 
 if (typeof window !== "undefined") {
   window.HTMLMediaElement.prototype.play = vi.fn().mockResolvedValue(undefined);
@@ -98,19 +98,19 @@ if (typeof window !== "undefined") {
 
 // Disable framer-motion animations
 vi.mock("framer-motion", async (importOriginal) => {
-  const actual = (await importOriginal()) as any;
+  const actual = (await importOriginal()) as Record<string, unknown>;
   return {
     ...actual,
-    motion: new Proxy(actual.motion, {
+    motion: new Proxy(actual.motion as Record<string, unknown>, {
       get: (_target, key: string) => {
-        if (key === "custom") return actual.motion.custom;
-        return (props: any) => {
-          const { layout, ...rest } = props;
+        if (key === "custom") return (actual.motion as any).custom;
+        return (props: { children?: React.ReactNode }) => {
+          const { ...rest } = props;
           return <div {...rest} data-framer-key={key} />;
         };
       },
     }),
-    AnimatePresence: ({ children }: any) => children,
+    AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
   };
 });
 
