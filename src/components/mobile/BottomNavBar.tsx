@@ -19,6 +19,8 @@ type BottomNavBarProps = {
   changeLanguageButtonTitle: string;
   classicTitle: string;
   silhouetteTitle: string;
+  legalTitle: string;
+  supportUsTitle: string;
 };
 
 const MobileThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boolean }) => {
@@ -57,6 +59,8 @@ export function BottomNavBar({
   changeLanguageButtonTitle,
   classicTitle,
   silhouetteTitle,
+  legalTitle,
+  supportUsTitle,
 }: BottomNavBarProps) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isFabOpen, setIsFabOpen] = useState(false);
