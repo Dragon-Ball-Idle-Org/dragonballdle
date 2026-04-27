@@ -1,4 +1,4 @@
-import { getDailyCharacter } from "../src/service/daily";
+import { getDailyCharacter } from "@/features/game-engine/services/daily";
 import * as dotenv from "dotenv";
 
 dotenv.config({ path: ".env" });

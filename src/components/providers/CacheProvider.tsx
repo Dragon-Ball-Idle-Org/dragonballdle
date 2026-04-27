@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useCharacterCache } from "@/hooks/useCharacterCache";
+import { useCharacterCache } from "@/features/game-engine/hooks/useCharacterCache";
 
 export function CacheProvider({
   children,

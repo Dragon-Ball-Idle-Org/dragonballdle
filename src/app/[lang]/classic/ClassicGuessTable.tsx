@@ -1,14 +1,14 @@
 "use client";
 
 import { GuessesTable } from "@/components/shared/GuessesTable";
-import { useGuessesContext } from "@/contexts/GuessesContext";
+import { useGuessesContext } from "@/features/game-engine/contexts/GuessesContext";
 import { useTranslations } from "@/contexts/TranslationContext";
 import {
   ClassicCharacter,
   compareSaga,
   compareTransformation,
   compareValue,
-} from "@/types/guess";
+} from "@/features/game-engine/types/guess";
 import { TranslationNamespace, createT } from "@/lib/client-translations";
 import dynamic from "next/dynamic";
 

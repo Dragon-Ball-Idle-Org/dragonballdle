@@ -1,6 +1,6 @@
 "use client";
 
-import { GuessStatus } from "@/types/guess";
+import { GuessStatus } from "@/features/game-engine/types/guess";
 import { cn } from "@/utils/cn";
 import { ArrowFatDownIcon, ArrowFatUpIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";

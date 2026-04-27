@@ -1,12 +1,12 @@
 import { MainContainer } from "@/components/ui/MainContainer";
-import { CapsuleCorpHero } from "@/components/themed/CapsuleCorp/CapsuleCorpHero";
-import { CapsuleCorpYesterdayCharacter } from "@/components/themed/CapsuleCorp/CapsuleCorpYesterdayCharacter";
-import { CapsuleCorpWinBanner } from "@/components/themed/CapsuleCorp/CapsuleCorpWinBanner";
-import { SilhouetteGameBoard } from "@/components/themed/SilhouetteGameBoard";
+import { CapsuleCorpHero } from "@/features/silhouette/components/CapsuleCorp/CapsuleCorpHero";
+import { CapsuleCorpYesterdayCharacter } from "@/features/silhouette/components/CapsuleCorp/CapsuleCorpYesterdayCharacter";
+import { CapsuleCorpWinBanner } from "@/features/silhouette/components/CapsuleCorp/CapsuleCorpWinBanner";
+import { SilhouetteGameBoard } from "@/features/silhouette/components/SilhouetteGameBoard";
 import {
   getDailySilhouetteCharacter,
   getYesterdaySilhouetteCharacter,
-} from "@/service/daily";
+} from "@/features/game-engine/services/daily";
 import { getLocale, getTranslations } from "next-intl/server";
 import { WinModal } from "@/components/shared/WinModal";
 import { getSilhouetteZones } from "@/lib/silhouette-zones";

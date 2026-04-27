@@ -9,10 +9,10 @@ import {
 import { useTranslations } from "@/contexts/TranslationContext";
 import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useGuessesContext } from "@/contexts/GuessesContext";
-import { GuessStatus } from "@/types/guess";
-import { buildShareText } from "@/utils/build-share-text";
-import { mapGuessToRow } from "@/utils/map-guess-to-row";
+import { useGuessesContext } from "@/features/game-engine/contexts/GuessesContext";
+import { GuessStatus } from "@/features/game-engine/types/guess";
+import { buildShareText } from "@/features/game-engine/utils/build-share-text";
+import { mapGuessToRow } from "@/features/game-engine/utils/map-guess-to-row";
 import { ShineGradientButton } from "./ShineGradientButton";
 
 type ShareDropdownProps = {
