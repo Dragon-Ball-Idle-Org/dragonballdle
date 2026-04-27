@@ -1,8 +1,8 @@
 import { MainContainer } from "@/components/ui/MainContainer";
-import { MartialArtsHero } from "@/components/themed/MartialArts/MartialArtsHero";
-import { MartialArtsYesterdayCharacter } from "@/components/themed/MartialArts/MartialArtsYesterdayCharacter";
-import { MartialArtsWinBanner } from "@/components/themed/MartialArts/MartialArtsWinBanner";
-import { ClassicGameBoard } from "@/components/themed/ClassicGameBoard";
+import { MartialArtsHero } from "@/features/classic/components/MartialArts/MartialArtsHero";
+import { MartialArtsYesterdayCharacter } from "@/features/classic/components/MartialArts/MartialArtsYesterdayCharacter";
+import { MartialArtsWinBanner } from "@/features/classic/components/MartialArts/MartialArtsWinBanner";
+import { ClassicGameBoard } from "@/features/classic/components/ClassicGameBoard";
 import { cn } from "@/utils/cn";
 import GlassAccordion from "@/components/ui/GlassAccordion";
 import {
@@ -10,7 +10,7 @@ import {
   ArrowFatUpIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { ClassicGuessTableLoader } from "./ClassicGuessTable";
-import { getDailyCharacter, getYesterdayCharacter } from "@/service/daily";
+import { getDailyCharacter, getYesterdayCharacter } from "@/features/game-engine/services/daily";
 import { getLocale, getTranslations } from "next-intl/server";
 import { WinModal } from "@/components/shared/WinModal";
 

@@ -12,13 +12,19 @@
 - Animations: `framer-motion` — duration 0.2–0.3s, never overdone
 - Utilities: `cn()` from `@/utils/cn` when className exceeds one line
 
-## Folder Structure
+## Folder Structure (Feature-Sliced Design)
 
 - `src/app/[lang]/` — all pages live here, no exceptions
-- `src/components/ui/` — dumb/reusable atoms (GameButton, SplashScreen…)
-- `src/components/themed/` — game-themed components (MartialArts*, CapsuleCorp*)
+- `src/features/` — domain-driven logic and feature-specific components
+  - `game-engine/` — core logic, types, services, contexts, and hooks shared across game modes
+  - `classic/` — Classic mode specific components and adapters
+  - `silhouette/` — Silhouette mode specific components and adapters
+- `src/components/ui/` — shared atoms/dumb components (Header, Modal, Tooltip...)
+- `src/components/shared/` — shared game-related components (WinsBadge, GuessesTable...)
 - `src/i18n/` — next-intl config and navigation wrappers
-- `src/contexts/` — React contexts, including TranslationContext
+- `src/contexts/` — Global providers (TranslationContext)
+- `src/lib/` — infrastructure and configuration libraries (daily, supabase)
+- `src/utils/` — pure utility functions (cn, seed, storage)
 
 ## Critical Rules (always enforce)
 
@@ -29,7 +35,8 @@
 5. Never remove HTML `id` attributes — they may be coupled to analytics or external scripts
 6. Prefer Server Components. Add `"use client"` only when hooks or direct interactivity are needed
 7. No parallel `.css` files — Tailwind only
-8. Just write comments if extremely necessary, the code should be self-documenting.
+8. Architecture: Follow FSD layers. `features` should NOT import from other `features`. Use `game-engine` as the shared logic layer. UI components in `components/` should be agnostic to game logic whenever possible.
+9. Just write comments if extremely necessary, the code should be self-documenting.
 9. Environment Variables: NEVER set OS-level environment variables (e.g., `setx`, `$env:`). Always use `.env.local` or `.env`. If a variable is accidentally set in the terminal session, remove it using `Remove-Item Env:VARIABLE_NAME` (PowerShell) or `unset VARIABLE_NAME` (Bash).
 10. Dates & Timezones: NEVER use `new Date()` or manual `toISOString()` to calculate the "today" key for database queries or game logic. Always use `todayBrasiliaKey()` from `@/lib/daily` to ensure consistency with the Brasilia timezone (UTC-3).
 

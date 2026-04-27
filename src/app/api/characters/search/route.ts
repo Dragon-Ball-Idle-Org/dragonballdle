@@ -1,4 +1,4 @@
-import { searchCharacters } from "@/service/characters";
+import { searchCharacters } from "@/features/game-engine/services/characters";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
