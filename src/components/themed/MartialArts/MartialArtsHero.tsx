@@ -3,10 +3,11 @@
 import { cn } from "@/utils/cn";
 import { WinsBadge } from "@/components/shared/WinsBadge";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { useWinsRealtime } from "@/hooks/useWinsRealtime";
 
 export function MartialArtsHero() {
-  const translations = useTranslations("hero");
+  const t = createT(useTranslations("hero") as TranslationNamespace);
   const { winsCount, isLoading } = useWinsRealtime("classic");
 
   return (
@@ -19,7 +20,7 @@ export function MartialArtsHero() {
       )}
     >
       <h1 className="font-display text-hero-title text-shadow-hero-title">
-        {translations.title}
+        {t("title")}
       </h1>
       <span
         className={cn(
@@ -32,7 +33,7 @@ export function MartialArtsHero() {
           isLoading={isLoading}
           className="self-center"
         />
-        {translations.subtitle}
+        {t("subtitle")}
       </span>
     </div>
   );

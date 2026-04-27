@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import { Autocomplete } from "@base-ui/react";
 import { useState } from "react";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { SpinnerIcon } from "@phosphor-icons/react";
 import { ImageWithFallback } from "../../ui/ImageWithFallback";
 
@@ -33,7 +34,7 @@ export function CapsuleCorpAutocompleteField({
   isLoading = true,
 }: CapsuleCorpAutocompleteFieldProps) {
   const [value, setValue] = useState("");
-  const translations = useTranslations("common");
+  const t = createT(useTranslations("common") as TranslationNamespace);
 
   const handleChange = (value: string) => {
     setValue(value);
@@ -59,7 +60,7 @@ export function CapsuleCorpAutocompleteField({
           "focus-visible:outline-2 focus-visible:outline-radar-green/80 focus-visible:outline-offset-2 rounded-xl",
           className,
         )}
-        placeholder={translations.searchPlaceholder}
+        placeholder={t("searchPlaceholder")}
         value={value}
         onChange={(e) => handleChange(e.target.value)}
         disabled={disabled}
@@ -77,7 +78,7 @@ export function CapsuleCorpAutocompleteField({
               {isLoading ? (
                 <SpinnerIcon className="animate-spin w-10 h-10" weight="bold" />
               ) : (
-                translations.noResults
+                t("noResults")
               )}
             </Autocomplete.Empty>
             <Autocomplete.List>

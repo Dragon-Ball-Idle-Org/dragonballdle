@@ -19,6 +19,8 @@ type BottomNavBarProps = {
   changeLanguageButtonTitle: string;
   classicTitle: string;
   silhouetteTitle: string;
+  legalTitle: string;
+  supportUsTitle: string;
 };
 
 const MobileThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boolean }) => {
@@ -57,6 +59,8 @@ export function BottomNavBar({
   changeLanguageButtonTitle,
   classicTitle,
   silhouetteTitle,
+  legalTitle,
+  supportUsTitle,
 }: BottomNavBarProps) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isFabOpen, setIsFabOpen] = useState(false);
@@ -174,6 +178,8 @@ export function BottomNavBar({
           <li className="flex-1 flex justify-center">
             <Link
               href="/legal"
+              title={legalTitle}
+              aria-label={legalTitle}
               className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-transform hover:scale-110 active:scale-95 active:duration-75 outline-none"
             >
               <InfoIcon weight="fill" size={28} />
@@ -221,6 +227,8 @@ export function BottomNavBar({
               href="https://buymeacoffee.com/dragonballdle"
               target="_blank"
               rel="noopener"
+              title={supportUsTitle}
+              aria-label={supportUsTitle}
               className="flex items-center justify-center text-zinc-400 hover:text-orange-400 transition-transform hover:scale-110 active:scale-95 active:duration-75 outline-none"
             >
               <CoffeeIcon weight="fill" size={28} />

@@ -8,6 +8,7 @@ import { ReactNode } from "react";
 import { useGameContext } from "@/contexts/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/contexts/TranslationContext";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { ShareDropdown } from "../../ui/ShareDropdown";
 import { ShineGradientButton } from "../../ui/ShineGradientButton";
 import { LeaderboardModal } from "../../shared/LeaderboardModal";
@@ -30,7 +31,7 @@ export function CapsuleCorpWinBanner({
 }: CapsuleCorpWinBannerProps) {
   const { tries, hydrated } = useGuessesContext();
   const { isGameWon } = useGameContext();
-  const translations = useTranslations("winBanner");
+  const t = createT(useTranslations("winBanner") as TranslationNamespace);
 
   if (!hydrated) return null;
 
@@ -51,18 +52,18 @@ export function CapsuleCorpWinBanner({
             )}
           >
             <h3 className="text-center text-xl font-black m-0 mb-2 pb-2 border-b-2 border-amber-400/80">
-              {translations.title}
+              {t("title")}
             </h3>
 
-            <Row title={translations.tries} value={String(tries)} />
+            <Row title={t("tries")} value={String(tries)} />
             <Row
-              title={translations.nextCharacter}
+              title={t("nextCharacter")}
               value={<CountdownToMidnight className="font-ui font-black" />}
             />
 
             <div className="w-full flex flex-col items-center justify-center gap-3 pt-3 pb-2">
               <div className="flex flex-col items-center gap-2 text-center">
-                <span className="font-bold">{translations.todayCharacter}</span>
+                <span className="font-bold">{t("todayCharacter")}</span>
                 <ShineGradientButton
                   className={cn(
                     "py-2 px-3 shadow-[inset_0_1px_8px_#00000038,0_2px_8px_#10b98144]",
@@ -105,7 +106,7 @@ export function CapsuleCorpWinBanner({
                   height={28}
                   className="w-7 h-7"
                 />
-                <span className="leading-none">{translations.supportUs}</span>
+                <span className="leading-none">{t("supportUs")}</span>
               </Link>
             </div>
 
