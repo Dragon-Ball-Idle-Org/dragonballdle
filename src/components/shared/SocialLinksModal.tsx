@@ -10,7 +10,6 @@ import {
   XLogoIcon,
 } from "@phosphor-icons/react";
 import { CreatorRole, SOCIAL_LINKS_MAINTAINERS } from "@/shared/constants";
-import Image from "next/image";
 
 type SocialLinksModalProps = PropsWithChildren<{
   title: string;

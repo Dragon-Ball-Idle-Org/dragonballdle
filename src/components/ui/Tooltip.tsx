@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState, useRef, useEffect } from "react";
+import { ReactNode, useState, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, Target } from "framer-motion";
 import { cn } from "@/utils/cn";
@@ -42,20 +42,20 @@ export function Tooltip({
   const triggerRef = useRef<HTMLDivElement>(null);
   const clickedRef = useRef(false);
 
-  const calculateCoords = () => {
+  const calculateCoords = useCallback(() => {
     if (!triggerRef.current) return;
     const rect = triggerRef.current.getBoundingClientRect();
     const gap = 8;
 
-  const positions = {
-    top: { top: rect.top - gap, left: rect.left + rect.width / 2 },
-    bottom: { top: rect.bottom + gap, left: rect.left + rect.width / 2 },
-    left: { top: rect.top + rect.height / 2, left: rect.left - gap },
-    right: { top: rect.top + rect.height / 2, left: rect.right + gap },
-  };
+    const positions = {
+      top: { top: rect.top - gap, left: rect.left + rect.width / 2 },
+      bottom: { top: rect.bottom + gap, left: rect.left + rect.width / 2 },
+      left: { top: rect.top + rect.height / 2, left: rect.left - gap },
+      right: { top: rect.top + rect.height / 2, left: rect.right + gap },
+    };
 
     setCoords(positions[position]);
-  };
+  }, [position]);
 
   const show = () => {
     calculateCoords();
@@ -79,7 +79,7 @@ export function Tooltip({
       window.removeEventListener("scroll", calculateCoords, true);
       window.removeEventListener("resize", calculateCoords);
     };
-  }, [visible]);
+  }, [visible, calculateCoords]);
 
   const transform = {
     top: "translateX(-50%) translateY(-100%)",

@@ -31,7 +31,7 @@ export function SilhouetteImageViewer({
   zones,
 }: SilhouetteImageViewerProps) {
   const { isGameWon } = useGameContext();
-  const tr = useTranslations("silhouetteViewer");
+  const tr = useTranslations("silhouetteViewer") as Record<string, string>;
 
   const activeZones = zones && zones.length > 0 ? zones : FALLBACK_ZONES;
 

@@ -4,7 +4,6 @@ import { GuessStatus } from "@/types/guess";
 import { cn } from "@/utils/cn";
 import { ArrowFatDownIcon, ArrowFatUpIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { Tooltip } from "../ui/Tooltip";
 import { useAutoFontSize } from "@/hooks/useAutoFontSize";
 
