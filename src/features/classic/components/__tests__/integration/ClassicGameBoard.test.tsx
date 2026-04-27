@@ -90,6 +90,11 @@ describe("ClassicGameBoard Integration", () => {
     const submitBtn = screen.getByAltText("Submit Guess");
 
     // 1. INCORRECT GUESS (Vegeta)
+    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce({
+      slug: "vegeta",
+      name: "Vegeta",
+    } as any);
+
     await user.type(input, "veg");
     const vegSuggestion = await screen.findByText(
       "Vegeta",
@@ -98,11 +103,8 @@ describe("ClassicGameBoard Integration", () => {
     );
     await user.click(vegSuggestion);
 
-    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce({
-      slug: "vegeta",
-      name: "Vegeta",
-    } as any);
-
+    // With our changes, clicking the suggestion already triggers a submission.
+    // We still click the submit button to ensure it doesn't break anything (double submit check).
     await user.click(submitBtn);
 
     await waitFor(() => {
@@ -112,6 +114,10 @@ describe("ClassicGameBoard Integration", () => {
     });
 
     // 2. WINNING GUESS (Goku)
+    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce(
+      mockDailyCharacter,
+    );
+
     // Clear input first (the component should do this, but let's be sure)
     await user.clear(input);
     await user.type(input, "goku");
@@ -121,10 +127,6 @@ describe("ClassicGameBoard Integration", () => {
       { timeout: 5000 },
     );
     await user.click(gokuSuggestion);
-
-    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce(
-      mockDailyCharacter,
-    );
 
     await user.click(submitBtn);
 
