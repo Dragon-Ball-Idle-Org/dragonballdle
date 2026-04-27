@@ -40,7 +40,7 @@ export function SilhouetteGameBoard({
     if (hydrated && guesses.length > 0 && finishedScrambles.size === 0) {
       setFinishedScrambles(new Set(guesses.map((g) => g.slug)));
     }
-  }, [hydrated]);
+  }, [hydrated, guesses, finishedScrambles.size]);
 
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
   const { results, isLoading } = useCharacterSearch(
@@ -75,7 +75,7 @@ export function SilhouetteGameBoard({
     }
   };
 
-  const translations = useTranslations("guessForm");
+  const translations = useTranslations("guessForm") as Record<string, string>;
 
   return (
     <div
@@ -129,7 +129,7 @@ export function SilhouetteGameBoard({
 
       <div className="w-full flex flex-col items-center gap-2 mt-4">
         <AnimatePresence mode="popLayout">
-          {guesses.map((guess, idx) => {
+          {guesses.map((guess) => {
             const isCorrect = guess.slug === dailyCharacter.slug;
             const isFinished = finishedScrambles.has(guess.slug);
 
