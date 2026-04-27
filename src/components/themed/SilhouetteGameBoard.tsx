@@ -2,7 +2,7 @@
 
 import { SilhouetteImageViewer } from "./SilhouetteImageViewer";
 import { CapsuleCorpAutocompleteField } from "./CapsuleCorp/CapsuleCorpAutocompleteField";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCharacterSearch } from "@/hooks/useCharacterSearch";
 import { useLocale } from "next-intl";
@@ -36,12 +36,14 @@ export function SilhouetteGameBoard({
   const [finishedScrambles, setFinishedScrambles] = useState<Set<string>>(
     new Set(),
   );
+  const initializedRef = useRef(false);
 
   useEffect(() => {
-    if (hydrated && guesses.length > 0 && finishedScrambles.size === 0) {
+    if (hydrated && !initializedRef.current) {
       setFinishedScrambles(new Set(guesses.map((g) => g.slug)));
+      initializedRef.current = true;
     }
-  }, [hydrated, guesses, finishedScrambles.size]);
+  }, [hydrated, guesses]);
 
   const memoizedGuesses = useMemo(() => guesses.map((g) => g.slug), [guesses]);
   const { results, isLoading } = useCharacterSearch(
