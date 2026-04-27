@@ -1,6 +1,6 @@
 import { useImageFallback } from "@/hooks/useImageFallback";
 import { cn } from "@/utils/cn";
-import Image, { type ImageProps } from "next/image";
+import { type ImageProps } from "next/image";
 
 export function ImageWithFallback(props: ImageProps) {
   const { src, onLoad, onError, isLoading } = useImageFallback({
@@ -12,6 +12,7 @@ export function ImageWithFallback(props: ImageProps) {
     <img
       {...props}
       src={src}
+      alt={props.alt || ""}
       onLoad={onLoad}
       onError={onError}
       className={cn(isLoading && "animate-pulse", props.className)}

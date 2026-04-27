@@ -1,7 +1,7 @@
 "use client";
 
 import { CharacterSearchResult } from "@/types/character";
-import { useDeferredValue, useEffect, useState } from "react";
+import { useDeferredValue, useEffect, useState, useCallback } from "react";
 import { useCharacterCache } from "./useCharacterCache";
 
 export function useCharacterSearch(
@@ -14,45 +14,55 @@ export function useCharacterSearch(
   const deferred = useDeferredValue(query);
   const { findByName } = useCharacterCache(locale);
 
-  const handleSearch = async (controller: AbortController) => {
-    if (deferred.length < 1) {
-      if (results.length > 0) setResults([]);
-      return;
+  // Reset results during render if query is empty
+  const [prevDeferred, setPrevDeferred] = useState(deferred);
+  if (deferred !== prevDeferred) {
+    setPrevDeferred(deferred);
+    if (deferred.length < 1 && results.length > 0) {
+      setResults([]);
     }
+  }
 
-    const cached = await findByName(deferred);
+  const handleSearch = useCallback(
+    async (controller: AbortController) => {
+      if (deferred.length < 1) return;
 
-    if (cached.length > 0) {
-      setResults(
-        cached
+      const cached = await findByName(deferred);
+
+      if (cached.length > 0) {
+        const filtered = cached
           .filter((c) => !guesses.includes(c.slug))
           .map((c) => ({
             slug: c.slug,
             name: c.name,
             thumb_path: c.thumb_path,
-          })),
-      );
-      return;
-    }
+          }));
+        setResults(filtered);
+        return;
+      }
 
-    setIsLoading(true);
-    fetch(
-      `/api/characters/search?q=${encodeURIComponent(deferred)}&locale=${locale.toLowerCase()}`,
-      { signal: controller.signal },
-    )
-      .then((res) => res.json())
-      .then((data: CharacterSearchResult[]) =>
-        setResults(data.filter((r) => !guesses.includes(r.slug))),
+      setIsLoading(true);
+      fetch(
+        `/api/characters/search?q=${encodeURIComponent(deferred)}&locale=${locale.toLowerCase()}`,
+        { signal: controller.signal },
       )
-      .catch(() => {})
-      .finally(() => setIsLoading(false));
-  };
+        .then((res) => res.json())
+        .then((data: CharacterSearchResult[]) =>
+          setResults(data.filter((r) => !guesses.includes(r.slug))),
+        )
+        .catch(() => {})
+        .finally(() => setIsLoading(false));
+    },
+    [deferred, locale, guesses, findByName],
+  );
 
   useEffect(() => {
+    if (deferred.length < 1) return;
+
     const controller = new AbortController();
     handleSearch(controller);
     return () => controller.abort();
-  }, [deferred, locale, guesses]);
+  }, [deferred, handleSearch]);
 
   return { results, isLoading };
 }

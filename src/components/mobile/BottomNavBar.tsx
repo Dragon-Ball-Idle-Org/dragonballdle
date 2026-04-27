@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { InfoIcon, HouseIcon, ListIcon, StarIcon, LinkIcon, CoffeeIcon } from "@phosphor-icons/react";
+import { InfoIcon, HouseIcon, StarIcon, LinkIcon, CoffeeIcon } from "@phosphor-icons/react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
@@ -19,8 +19,6 @@ type BottomNavBarProps = {
   changeLanguageButtonTitle: string;
   classicTitle: string;
   silhouetteTitle: string;
-  legalTitle: string;
-  supportUsTitle: string;
 };
 
 const MobileThematicNode = ({ isWon, isActive }: { isWon: boolean; isActive: boolean }) => {
@@ -59,8 +57,6 @@ export function BottomNavBar({
   changeLanguageButtonTitle,
   classicTitle,
   silhouetteTitle,
-  legalTitle,
-  supportUsTitle,
 }: BottomNavBarProps) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isFabOpen, setIsFabOpen] = useState(false);

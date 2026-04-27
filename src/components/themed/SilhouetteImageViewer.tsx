@@ -36,19 +36,24 @@ export function SilhouetteImageViewer({
   const activeZones = zones && zones.length > 0 ? zones : FALLBACK_ZONES;
 
   const { direction: randomDirection, aspectRatio } = useMemo(() => {
-    let seed = dailyCharacter.slug
+    const initialSeed = dailyCharacter.slug
       .split("")
       .reduce((a, b) => a + b.charCodeAt(0), 0);
-    const rng = () => {
-      seed = (seed * 9301 + 49297) % 233280;
-      return seed / 233280;
-    };
 
-    const zoneIndex = Math.floor(rng() * activeZones.length);
+    // LCG: (seed * a + c) % m
+    const s1 = (initialSeed * 9301 + 49297) % 233280;
+    const s2 = (s1 * 9301 + 49297) % 233280;
+    const s3 = (s2 * 9301 + 49297) % 233280;
+
+    const rng1 = s1 / 233280;
+    const rng2 = s2 / 233280;
+    const rng3 = s3 / 233280;
+
+    const zoneIndex = Math.floor(rng1 * activeZones.length);
     const zone = activeZones[zoneIndex];
 
-    const dirX = zone.xMin + rng() * (zone.xMax - zone.xMin);
-    const dirY = zone.yMin + rng() * (zone.yMax - zone.yMin);
+    const dirX = zone.xMin + rng2 * (zone.xMax - zone.xMin);
+    const dirY = zone.yMin + rng3 * (zone.yMax - zone.yMin);
 
     return {
       direction: { x: dirX, y: dirY },

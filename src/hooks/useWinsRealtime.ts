@@ -11,55 +11,55 @@ export function useWinsRealtime(gameMode: GameMode) {
   const [winsCount, setWinsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getCurrentWinsCount = async () => {
-    try {
-      setIsLoading(true);
-      const count = await getWinsCount(gameMode);
-      setWinsCount(count);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const initTodayWinsCountChangeListener = (supabase: SupabaseClient) => {
-    const today = todayBrasiliaKey();
-
-    return supabase
-      .channel(`wins-${gameMode}-${today}`)
-      .on(
-        "postgres_changes",
-        {
-          event: "INSERT",
-          schema: "public",
-          table: "wins",
-          filter: `game_mode=eq.${gameMode}`,
-        },
-        (payload) => {
-          if (process.env.NODE_ENV === "development") {
-            console.log("Received new win row:", payload);
-          }
-          setWinsCount(payload.new.wins_count);
-        },
-      )
-      .on(
-        "postgres_changes",
-        {
-          event: "UPDATE",
-          schema: "public",
-          table: "wins",
-          filter: `game_mode=eq.${gameMode}`,
-        },
-        (payload) => {
-          if (process.env.NODE_ENV === "development") {
-            console.log("Received wins update:", payload);
-          }
-          setWinsCount(payload.new.wins_count);
-        },
-      )
-      .subscribe();
-  };
-
   useEffect(() => {
+    const getCurrentWinsCount = async () => {
+      try {
+        setIsLoading(true);
+        const count = await getWinsCount(gameMode);
+        setWinsCount(count);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    const initTodayWinsCountChangeListener = (supabase: SupabaseClient) => {
+      const today = todayBrasiliaKey();
+
+      return supabase
+        .channel(`wins-${gameMode}-${today}`)
+        .on(
+          "postgres_changes",
+          {
+            event: "INSERT",
+            schema: "public",
+            table: "wins",
+            filter: `game_mode=eq.${gameMode}`,
+          },
+          (payload) => {
+            if (process.env.NODE_ENV === "development") {
+              console.log("Received new win row:", payload);
+            }
+            setWinsCount(payload.new.wins_count);
+          },
+        )
+        .on(
+          "postgres_changes",
+          {
+            event: "UPDATE",
+            schema: "public",
+            table: "wins",
+            filter: `game_mode=eq.${gameMode}`,
+          },
+          (payload) => {
+            if (process.env.NODE_ENV === "development") {
+              console.log("Received wins update:", payload);
+            }
+            setWinsCount(payload.new.wins_count);
+          },
+        )
+        .subscribe();
+    };
+
     getCurrentWinsCount();
 
     const supabase = createClient();

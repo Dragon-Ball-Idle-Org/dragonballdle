@@ -26,9 +26,8 @@ function loadCachedGuesses(locale: string, gameMode: GameMode): CharacterGuess[]
   const raw = sessionStorage.getItem(getCacheKey(locale, gameMode));
   if (!raw) return [];
   try {
-    const item = JSON.parse(raw);
-    return item;
-  } catch (e) {
+    return JSON.parse(raw) as CharacterGuess[];
+  } catch {
     return [];
   }
 }
@@ -51,25 +50,28 @@ export function useGuesses(locale: string, gameMode: GameMode = "classic") {
 
   useEffect(() => {
     const slugs = loadSlugs(gameMode);
-    if (!slugs.length) {
-      setGuesses([]);
+    
+    const finalizeHydration = (data: CharacterGuess[]) => {
+      setGuesses(data);
       setHydrated(true);
+    };
+
+    if (!slugs.length) {
+      finalizeHydration([]);
       return;
     }
 
     const cached = loadCachedGuesses(locale, gameMode);
     if (cached.length === slugs.length) {
-      setGuesses(cached);
-      setHydrated(true);
+      finalizeHydration(cached);
       return;
     }
 
     Promise.all(slugs.map((slug) => getCharacterBySlug(slug, locale)))
       .then((results) => {
         const valid = results.filter(Boolean) as CharacterGuess[];
-        setGuesses(valid);
         saveCachedGuesses(valid, locale, gameMode);
-        setHydrated(true);
+        finalizeHydration(valid);
       })
       .catch((err) => {
         console.error("Error hydrating guesses:", err);

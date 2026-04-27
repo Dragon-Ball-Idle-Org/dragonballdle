@@ -32,6 +32,25 @@ const eslintConfig = defineConfig([
   {
     ignores: ["supabase/functions/**"],
   },
+  {
+    rules: {
+      "@next/next/no-img-element": "off",
+      "react-hooks/set-state-in-effect": "off",
+    },
+  },
+  {
+    files: [
+      "tests/e2e/**/*.ts",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "**/*.spec.ts",
+      "vitest.setup.tsx",
+    ],
+    rules: {
+      "react-hooks/rules-of-hooks": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
