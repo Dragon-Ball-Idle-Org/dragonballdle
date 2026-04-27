@@ -51,6 +51,7 @@ export function SilhouetteGameBoard({
   const { processGuess, handleWin } = useGameFlow({
     gameMode: "silhouette",
     dailyCharacterSlug: dailyCharacter.slug,
+    checkWinOnGuess: false,
   });
 
   const submitGuess = async (slug: string | null) => {
