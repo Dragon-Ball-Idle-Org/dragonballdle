@@ -20,7 +20,7 @@ const apiRules = {
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  ...apiRules,
+  apiRules,
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
