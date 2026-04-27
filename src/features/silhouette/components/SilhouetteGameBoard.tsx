@@ -54,15 +54,17 @@ export function SilhouetteGameBoard({
     checkWinOnGuess: false,
   });
 
-  const submitGuess = async (slug: string | null) => {
+  const submitGuess = async (slug?: string | null) => {
     hideMobileKeyboard();
 
-    const target = slug ?? selectedSlug;
+    const target = slug || selectedSlug;
     if (!target) return;
 
-    await processGuess(target);
+    // Clear state immediately to avoid race conditions and double submissions
     setQuery("");
     setSelectedSlug(null);
+
+    await processGuess(target);
   };
 
   const handleScrambleEnd = async (slug: string, isCorrect: boolean) => {
@@ -105,8 +107,10 @@ export function SilhouetteGameBoard({
               : undefined,
           }))}
           onChange={(value: string) => setQuery(value)}
-          onSelect={(slug: string) => setSelectedSlug(slug)}
-          submitOnSelect
+          onSelect={(slug: string) => {
+            setSelectedSlug(slug);
+            submitGuess(slug);
+          }}
           disabled={hydrated && isGameWon}
           isLoading={isLoading}
         />

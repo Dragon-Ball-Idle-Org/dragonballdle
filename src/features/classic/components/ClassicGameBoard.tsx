@@ -36,15 +36,17 @@ export function ClassicGameBoard({
     winDelay: 2700,
   });
 
-  const submitGuess = async (slug: string | null) => {
+  const submitGuess = async (slug?: string | null) => {
     hideMobileKeyboard();
 
-    const target = slug ?? selectedSlug;
+    const target = slug || selectedSlug;
     if (!target) return;
 
-    await processGuess(target);
+    // Clear state immediately to avoid race conditions and double submissions
     setQuery("");
     setSelectedSlug(null);
+
+    await processGuess(target);
   };
 
   const t = createT(useTranslations("guessForm") as TranslationNamespace);
@@ -67,8 +69,10 @@ export function ClassicGameBoard({
             : undefined,
         }))}
         onChange={(value) => setQuery(value)}
-        onSelect={(slug) => setSelectedSlug(slug)}
-        submitOnSelect
+        onSelect={(slug) => {
+          setSelectedSlug(slug);
+          submitGuess(slug);
+        }}
         disabled={hydrated && isGameWon}
         isLoading={isLoading}
       />
