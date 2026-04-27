@@ -52,3 +52,4 @@ Match the task domain and read the corresponding skill file:
 | Supabase, Edge Functions, DB queries | `.agents/skills/supabase/SKILL.md` |
 | Translations, next-intl, JSON messages | `.agents/skills/i18n/SKILL.md` |
 | Refactoring, TypeScript, performance | `.agents/skills/code-quality/SKILL.md` |
+| Linting rules, ESLint, Code standard | `.agents/skills/lint/SKILL.md` |
