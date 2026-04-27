@@ -123,7 +123,7 @@ export function SilhouetteImageViewer({
       : tr.guessCountMany.replace("__C__", String(guessCount));
 
   return (
-    <div className="w-full flex flex-col items-center gap-4 mb-6">
+    <div data-testid="silhouette-viewer" className="w-full flex flex-col items-center gap-4 mb-6">
       <div
         ref={containerRef}
         className={cn(

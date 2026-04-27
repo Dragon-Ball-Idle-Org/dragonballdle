@@ -142,6 +142,33 @@ async function applyMocks(page: Page) {
     },
   );
 
+  // Mock: Wins count
+  await page.route("**/rest/v1/wins*", async (route) => {
+    if (route.request().method() === "OPTIONS") return fulfillCors(route);
+    await route.fulfill({
+      status: 200,
+      json: { wins_count: 100 },
+    });
+  });
+
+  // Mock: Guess distribution
+  await page.route("**/rest/v1/guess_distribution*", async (route) => {
+    if (route.request().method() === "OPTIONS") return fulfillCors(route);
+    await route.fulfill({
+      status: 200,
+      json: [{ guess_count: 1, count: 10 }, { guess_count: 2, count: 20 }],
+    });
+  });
+
+  // Mock: Edge Functions
+  await page.route("**/functions/v1/*", async (route) => {
+    if (route.request().method() === "OPTIONS") return fulfillCors(route);
+    await route.fulfill({
+      status: 200,
+      json: { wins_count: 101, success: true },
+    });
+  });
+
   // Mock: Images — return a 1x1 transparent pixel to prevent asset-loading delays
   await page.route("**/*.{png,jpg,jpeg,svg,webp}", async (route) => {
     const url = route.request().url();
@@ -166,22 +193,23 @@ async function applyMocks(page: Page) {
 
 // ─── Shared Navigation ─────────────────────────────────────────────────────
 
-/** Clears IndexedDB and waits for splash screen to dismiss */
+/** Navigates to the URL and waits for the splash screen to fade out */
 async function preparePage(page: Page, url: string) {
   await page.goto(url);
   await page.waitForLoadState("domcontentloaded");
 
-  // Clear IndexedDB
-  await page.evaluate(async () => {
-    const dbs = await indexedDB.databases();
-    for (const db of dbs) {
-      if (db.name) indexedDB.deleteDatabase(db.name);
-    }
+  // Ensure a clean state for the test
+  await page.evaluate(() => {
+    localStorage.clear();
+    sessionStorage.clear();
   });
 
-  // Wait for the loading screen to disappear
+  // The splash screen stays in the DOM but becomes opacity-0 + pointer-events-none
   const loading = page.locator("#app-loading").first();
   await expect(loading).toHaveClass(/opacity-0/, { timeout: 30000 });
+
+  // Ensure main content is rendered
+  await page.locator("main").first().waitFor({ state: "visible", timeout: 15000 });
 }
 
 // ─── Custom Fixtures ────────────────────────────────────────────────────────
@@ -191,18 +219,26 @@ type Fixtures = {
   homePage: Page;
   /** A page with all mocks applied, landed on /classic */
   classicPage: Page;
+  /** A page with all mocks applied, landed on /silhouette */
+  silhouettePage: Page;
 };
 
 export const test = base.extend<Fixtures>({
   homePage: async ({ page }, use) => {
     await applyMocks(page);
-    await preparePage(page, "/");
+    await preparePage(page, "/en-US/");
     await use(page);
   },
 
   classicPage: async ({ page }, use) => {
     await applyMocks(page);
-    await preparePage(page, "/classic");
+    await preparePage(page, "/en-US/classic");
+    await use(page);
+  },
+
+  silhouettePage: async ({ page }, use) => {
+    await applyMocks(page);
+    await preparePage(page, "/en-US/silhouette");
     await use(page);
   },
 });

@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     qualities: [75, 85, 100],
   },
   trailingSlash: true,
+  allowedDevOrigins: ["127.0.0.1:3000", "localhost:3000"],
 };
 
 const withNextIntl = createNextIntlPlugin();
