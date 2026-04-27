@@ -15,12 +15,12 @@ describe("useWinsRealtime", () => {
   it("should initialize and fetch the current wins count", async () => {
     vi.mocked(winsService.getWinsCount).mockResolvedValue(42);
 
-    const { result, rerender } = renderHook(() => useWinsRealtime("classic"));
+    const { result } = renderHook(() => useWinsRealtime("classic"));
 
     // Initially loading
     expect(result.current.isLoading).toBe(true);
 
-    // Wait for the async effect to settle. Since we mock the promise, 
+    // Wait for the async effect to settle. Since we mock the promise,
     // we need to wait for a tick.
     await vi.waitFor(() => {
       expect(result.current.isLoading).toBe(false);

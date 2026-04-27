@@ -1,5 +1,5 @@
 /** @vitest-environment jsdom */
-import { render, screen, waitFor, act } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { useState, useEffect } from "react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
@@ -47,7 +47,7 @@ vi.mock("@/contexts/TranslationContext", () => ({
 // Mock ScrambleText to avoid its internal logic/Audio
 vi.mock("@/components/ui/ScrambleText", () => ({
   ScrambleText: ({ text, onScrambleEnd, animate }: any) => {
-     
+
     useEffect(() => {
       if (animate) {
         const timer = setTimeout(() => onScrambleEnd?.(), 10);
@@ -62,9 +62,9 @@ vi.mock("@/components/ui/ScrambleText", () => ({
 vi.mock("../../CapsuleCorp/CapsuleCorpAutocompleteField", () => ({
   CapsuleCorpAutocompleteField: ({ onChange, onSelect, suggestions }: any) => (
     <div>
-      <input 
-        placeholder="Search character..." 
-        onChange={(e) => onChange(e.target.value)} 
+      <input
+        placeholder="Search character..."
+        onChange={(e) => onChange(e.target.value)}
       />
       {suggestions.map((s: any) => (
         <button key={s.id} onClick={() => onSelect(s.id)}>{s.name}</button>
@@ -85,24 +85,6 @@ const mockDailyCharacter = {
   name: "Goku",
   thumb_path: "/goku.png",
 } as any;
-
-const mockTranslations = {
-  guessForm: {
-    submitAlt: "Submit Guess",
-  },
-  common: {
-    searchPlaceholder: "Search...",
-    noResults: "No results found",
-  },
-  silhouetteViewer: {
-    revealPercent: "Reveal: __P__%",
-    guessCountOne: "1 guess",
-    guessCountMany: "__C__ guesses",
-    imageAltDaily: "Daily character",
-    imageAltRevealed: "Revealed: __NAME__",
-    characterRevealed: "Character revealed!",
-  }
-};
 
 vi.mock("@/hooks/useCharacterSearch", () => ({
   useCharacterSearch: (query: string) => {
@@ -132,20 +114,20 @@ describe("SilhouetteGameBoard Integration", () => {
 
   it("should handle a full game flow: incorrect guess, then winning guess", async () => {
     const user = userEvent.setup();
-    
+
     // Use a stateful wrapper to handle guesses update correctly within the test
     const TestWrapper = () => {
       const [guesses, setGuesses] = useState<any[]>([]);
       return (
         <TranslationProvider translations={{} as any}>
           <GameContext.Provider value={{ isGameWon: false, wonGame: mockWonGame } as any}>
-            <GuessesContext.Provider value={{ 
-              guesses, 
-              addGuess: (g: any) => { 
-                setGuesses(prev => [...prev, g]); 
-                mockAddGuess(g); 
-              }, 
-              hydrated: true 
+            <GuessesContext.Provider value={{
+              guesses,
+              addGuess: (g: any) => {
+                setGuesses(prev => [...prev, g]);
+                mockAddGuess(g);
+              },
+              hydrated: true
             } as any}>
               <SilhouetteGameBoard dailyCharacter={mockDailyCharacter} />
             </GuessesContext.Provider>
@@ -203,10 +185,10 @@ describe("SilhouetteGameBoard Integration", () => {
     render(
       <TranslationProvider translations={{} as any}>
         <GameContext.Provider value={{ isGameWon: false, wonGame: mockWonGame } as any}>
-          <GuessesContext.Provider value={{ 
-            guesses: existingGuesses, 
-            addGuess: mockAddGuess, 
-            hydrated: true 
+          <GuessesContext.Provider value={{
+            guesses: existingGuesses,
+            addGuess: mockAddGuess,
+            hydrated: true
           } as any}>
             <SilhouetteGameBoard dailyCharacter={mockDailyCharacter} />
           </GuessesContext.Provider>
