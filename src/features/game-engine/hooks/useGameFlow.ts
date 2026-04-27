@@ -15,6 +15,7 @@ interface GameFlowOptions {
   dailyCharacterSlug: string;
   onWin?: (tries: number) => void;
   winDelay?: number;
+  checkWinOnGuess?: boolean;
 }
 
 export function useGameFlow({
@@ -22,6 +23,7 @@ export function useGameFlow({
   dailyCharacterSlug,
   onWin,
   winDelay = 0,
+  checkWinOnGuess = true,
 }: GameFlowOptions) {
   const locale = useLocale();
   const { addGuess } = useGuessesContext();
@@ -36,7 +38,7 @@ export function useGameFlow({
 
     const tries = addGuess(character);
 
-    if (character.slug === dailyCharacterSlug) {
+    if (checkWinOnGuess && character.slug === dailyCharacterSlug) {
       setTimeout(async () => {
         wonGame();
         onWin?.(tries);
