@@ -13,6 +13,7 @@ import { incrementWins } from "@/service/wins";
 import { recordGuess } from "@/service/leaderboard";
 import { useCharacterCache } from "@/hooks/useCharacterCache";
 import { hideKeyboard as hideMobileKeyboard } from "@/utils/mobile-behaviors";
+import { TranslationNamespace, createT } from "@/lib/client-translations";
 
 export function ClassicGameBoard({
   dailyCharacter,
@@ -59,7 +60,7 @@ export function ClassicGameBoard({
     }
   };
 
-  const translations = useTranslations("guessForm");
+  const t = createT(useTranslations("guessForm") as TranslationNamespace);
 
   return (
     <form
@@ -90,7 +91,7 @@ export function ClassicGameBoard({
       >
         <img
           src="/assets/dragon_ball_4_stars.svg"
-          alt={translations.submitAlt}
+          alt={t("submitAlt")}
           width={80}
           height={80}
           className="w-20 h-20"
