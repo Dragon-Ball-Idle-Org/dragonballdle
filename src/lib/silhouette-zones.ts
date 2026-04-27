@@ -104,6 +104,10 @@ export async function getSilhouetteZones(
   if (!silhouettePath) return FALLBACK_ZONES;
 
   const cdnBase = process.env.NEXT_PUBLIC_CDN_BASE_URL ?? "";
+  if (!cdnBase) {
+    console.error("[silhouette-zones] NEXT_PUBLIC_CDN_BASE_URL is not set in environment.");
+    return FALLBACK_ZONES;
+  }
   const imageUrl = `${cdnBase}${silhouettePath}`;
 
   try {
