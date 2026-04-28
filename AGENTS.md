@@ -59,3 +59,6 @@ Match the task domain and read the corresponding skill file:
 | Supabase, Edge Functions, DB queries | `.agents/skills/supabase/SKILL.md` |
 | Translations, next-intl, JSON messages | `.agents/skills/i18n/SKILL.md` |
 | Refactoring, Lint, TypeScript, performance | `.agents/skills/code-quality/SKILL.md` |
+| Security, RLS, Environment variables, Auth | `.agents/skills/security/SKILL.md` |
+| Performance, Bundle size, RSC optimization | `.agents/skills/performance/SKILL.md` |
+| Cost Optimization, Vercel free-tier, ISR | `.agents/skills/cost-optimization/SKILL.md` |
