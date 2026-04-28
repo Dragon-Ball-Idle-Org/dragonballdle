@@ -60,6 +60,7 @@ export function ClassicGameBoard({
       }}
     >
       <MartialArtsAutocompleteField
+      submitOnSelect
         className="w-full"
         suggestions={results.map((r) => ({
           id: r.slug,
