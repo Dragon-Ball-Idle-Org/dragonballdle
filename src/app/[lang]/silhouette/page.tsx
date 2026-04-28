@@ -13,6 +13,8 @@ import { CapsuleCorpWinBannerClient } from "@/features/silhouette/components/Cap
 
 export const revalidate = 3600;
 
+export const revalidate = 3600;
+
 export default async function SilhouettePage() {
   const locale = await getLocale();
   const [t, tHome, dailyChar, yesterdayChar] = await Promise.all([

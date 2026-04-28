@@ -15,6 +15,8 @@ const MotionImage = motion.create(Image);
 
 import { TranslationNamespace, createT } from "@/lib/client-translations";
 
+const MotionImage = motion.create(Image);
+
 type SilhouetteImageViewerProps = {
   dailyCharacter: SilhouetteCharacter;
   guessCount: number;

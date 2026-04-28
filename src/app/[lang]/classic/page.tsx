@@ -19,6 +19,8 @@ import { MartialArtsWinBannerClient } from "@/features/classic/components/Martia
 
 export const revalidate = 3600;
 
+export const revalidate = 3600;
+
 export default async function ClassicPage() {
   const locale = await getLocale();
   const [t, tHome, dailyChar, yesterdayChar] = await Promise.all([
