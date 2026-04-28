@@ -90,7 +90,7 @@ export function SilhouetteImageViewer({
 
   const { adjX, adjY } = useMemo(() => {
     if (!containerSize) return { adjX: randomDirection.x, adjY: randomDirection.y };
-    
+
     const Rc = containerSize.w / containerSize.h;
     const Ri = aspectRatio;
 
