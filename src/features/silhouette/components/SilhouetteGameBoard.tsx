@@ -98,6 +98,7 @@ export function SilhouetteGameBoard({
         }}
       >
         <CapsuleCorpAutocompleteField
+          submitOnSelect
           className="w-full"
           suggestions={results.map((r) => ({
             id: r.slug,
