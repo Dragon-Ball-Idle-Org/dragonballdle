@@ -1,4 +1,4 @@
-import { GameMode } from "@/types/game-mode";
+import { GameMode } from "@/features/game-engine/types/game-mode";
 import { deterministicCandidate } from "@/utils/seed";
 
 export const EPOCH_YMD = "2025-01-01";

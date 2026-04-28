@@ -1,0 +1,73 @@
+"use client";
+
+import { createClient } from "@/lib/supabase/client";
+import { getWinsCount } from "@/features/game-engine/services/wins";
+import { GameMode } from "@/features/game-engine/types/game-mode";
+import { SupabaseClient } from "@supabase/supabase-js";
+import { useEffect, useState } from "react";
+import { todayBrasiliaKey } from "@/lib/daily";
+
+export function useWinsRealtime(gameMode: GameMode) {
+  const [winsCount, setWinsCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getCurrentWinsCount = async () => {
+      try {
+        setIsLoading(true);
+        const count = await getWinsCount(gameMode);
+        setWinsCount(count);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    const initTodayWinsCountChangeListener = (supabase: SupabaseClient) => {
+      const today = todayBrasiliaKey();
+
+      return supabase
+        .channel(`wins-${gameMode}-${today}`)
+        .on(
+          "postgres_changes",
+          {
+            event: "INSERT",
+            schema: "public",
+            table: "wins",
+            filter: `game_mode=eq.${gameMode}`,
+          },
+          (payload) => {
+            if (process.env.NODE_ENV === "development") {
+              console.log("Received new win row:", payload);
+            }
+            setWinsCount(payload.new.wins_count);
+          },
+        )
+        .on(
+          "postgres_changes",
+          {
+            event: "UPDATE",
+            schema: "public",
+            table: "wins",
+            filter: `game_mode=eq.${gameMode}`,
+          },
+          (payload) => {
+            if (process.env.NODE_ENV === "development") {
+              console.log("Received wins update:", payload);
+            }
+            setWinsCount(payload.new.wins_count);
+          },
+        )
+        .subscribe();
+    };
+
+    getCurrentWinsCount();
+
+    const supabase = createClient();
+    const channel = initTodayWinsCountChangeListener(supabase);
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [gameMode]);
+
+  return { winsCount, isLoading };
+}

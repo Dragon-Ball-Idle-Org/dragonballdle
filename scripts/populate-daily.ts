@@ -5,7 +5,7 @@ import {
   ymdFromDayIndex,
 } from "../src/lib/daily";
 import * as dotenv from "dotenv";
-import { GameMode } from "@/types/game-mode";
+import { GameMode } from "@/features/game-engine/types/game-mode";
 
 dotenv.config({ path: ".env" });
 

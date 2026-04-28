@@ -1,6 +1,6 @@
 import sharp from "sharp";
 import { unstable_cache } from "next/cache";
-import type { SilhouetteZone } from "@/types/silhouette";
+import { SilhouetteZone } from "@/features/game-engine/types/silhouette";
 
 const FALLBACK_ZONES: SilhouetteZone[] = [
   { xMin: 0.3, xMax: 0.55, yMin: -0.2, yMax: 0.1, aspectRatio: 1 },

@@ -1,4 +1,4 @@
-import { MartialArtsGameButton } from "@/components/themed/MartialArts/MartialArtsGameButton";
+import { MartialArtsGameButton } from "@/features/classic/components/MartialArts/MartialArtsGameButton";
 import { Header } from "@/components/ui/Header";
 import { getTranslations } from "next-intl/server";
 

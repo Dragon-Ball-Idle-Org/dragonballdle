@@ -1,4 +1,4 @@
-import { GameMode } from "@/types/game-mode";
+import { GameMode } from "@/features/game-engine/types/game-mode";
 
 export const DAILY_SECRET = process.env.DAILY_SECRET!;
 

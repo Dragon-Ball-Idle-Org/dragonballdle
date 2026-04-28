@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { Modal } from "@/components/ui/Modal";
-import { GuessDistributionChart } from "../themed/GuessDistributionChart";
-import { getGuessDistribution } from "@/service/leaderboard";
-import { GameMode } from "@/types/game-mode";
+import { GuessDistributionChart } from "@/components/shared/GuessDistributionChart";
+import { getGuessDistribution } from "@/features/game-engine/services/leaderboard";
+import { GameMode } from "@/features/game-engine/types/game-mode";
 import { ChartBarIcon } from "@phosphor-icons/react";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { TranslationNamespace, createT } from "@/lib/client-translations";

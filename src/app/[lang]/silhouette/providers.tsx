@@ -1,5 +1,5 @@
-import { GameProvider } from "@/contexts/GameContext";
-import { GuessesProvider } from "@/contexts/GuessesContext";
+import { GameProvider } from "@/features/game-engine/contexts/GameContext";
+import { GuessesProvider } from "@/features/game-engine/contexts/GuessesContext";
 import { TranslationProvider } from "@/contexts/TranslationContext";
 import { getTranslationsBundle } from "@/lib/client-translations";
 
