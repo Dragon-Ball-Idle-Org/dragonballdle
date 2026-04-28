@@ -103,7 +103,8 @@
       "partial": "Partial — At least one value matches.",
       "incorrect": "Incorrect — This attribute is completely wrong.",
       "after": "After — The daily character’s debut saga is after your guess.",
-      "before": "Before — The daily character’s debut saga is before your guess."
+      "before": "Before — The daily character’s debut saga is before your guess.",
+      "movieMismatch": "Movie — The daily character is from a movie, but your guess is not."
     }
   },
   "yesterday": {

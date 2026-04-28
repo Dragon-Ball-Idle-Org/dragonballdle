@@ -103,7 +103,8 @@
       "partial": "Parcial: al menos un valor coincide.",
       "incorrect": "Incorrecto: este atributo está completamente mal.",
       "after": "Después: la saga de debut del personaje diario es posterior a tu suposición.",
-      "before": "Antes: la saga de debut del personaje diario es anterior a tu suposición."
+      "before": "Antes: la saga de debut del personaje diario es anterior a tu suposición.",
+      "movieMismatch": "Película — El personaje diario es de una película, pero tu suposición no lo es."
     }
   },
   "yesterday": {

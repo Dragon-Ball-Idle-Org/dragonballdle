@@ -4,6 +4,7 @@ export enum GuessStatus {
   WRONG,
   OLDEST,
   NEWEST,
+  MOVIE_MISMATCH,
 }
 
 export type YesterdayCharacter = {
@@ -82,6 +83,8 @@ export function compareSaga(
   daily: { slug: string; sort_order: number },
 ): GuessStatus {
   if (guessed.slug === daily.slug) return GuessStatus.CORRECT;
+  if (daily.slug === "movie" && guessed.slug !== "movie")
+    return GuessStatus.MOVIE_MISMATCH;
   if (guessed.sort_order < daily.sort_order) return GuessStatus.NEWEST;
   return GuessStatus.OLDEST;
 }

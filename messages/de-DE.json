@@ -103,7 +103,8 @@
       "partial": "Teilweise — Mindestens ein Wert stimmt überein.",
       "incorrect": "Falsch - Dieses Attribut ist völlig falsch.",
       "after": "Danach — Die Debüt-Saga der täglichen Figur ist nach Ihrer Vermutung.",
-      "before": "Davor — Die Debüt-Saga der täglichen Figur ist vor Ihrer Vermutung."
+      "before": "Davor — Die Debüt-Saga der täglichen Figur ist vor Ihrer Vermutung.",
+      "movieMismatch": "Film — Der tägliche Charakter stammt aus einem Film, aber dein Tipp nicht."
     }
   },
   "yesterday": {

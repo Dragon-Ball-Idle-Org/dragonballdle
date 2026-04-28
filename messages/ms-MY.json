@@ -103,7 +103,8 @@
       "partial": "Separa — Sekurang-kurangnya satu nilai sepadan.",
       "incorrect": "Salah - Atribut ini salah sama sekali.",
       "after": "Selepas — Saga debut watak harian adalah selepas tekaan anda.",
-      "before": "Sebelum — Saga debut watak harian adalah sebelum tekaan anda."
+      "before": "Sebelum — Saga debut watak harian adalah sebelum tekaan anda.",
+      "movieMismatch": "Filem — Watak harian adalah dari filem, tetapi tekaan anda tidak."
     }
   },
   "yesterday": {

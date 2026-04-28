@@ -103,7 +103,8 @@
       "partial": "Kısmi — En az bir değer eşleşiyor.",
       "incorrect": "Yanlış - Bu özellik tamamen yanlış.",
       "after": "Sonra — Günlük karakterin ilk çıkış destanı tahmininizden sonradır.",
-      "before": "Önce — Günlük karakterin ilk çıkış destanı tahmininizden öncedir."
+      "before": "Önce — Günlük karakterin ilk çıkış destanı tahmininizden öncedir.",
+      "movieMismatch": "Film — Günlük karakter bir filmden, ancak tahmininiz değil."
     }
   },
   "yesterday": {

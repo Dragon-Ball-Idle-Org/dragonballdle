@@ -103,7 +103,8 @@
       "partial": "Sebagian — Setidaknya satu nilai cocok.",
       "incorrect": "Salah - Atribut ini salah total.",
       "after": "Sesudah — Saga debut karakter harian muncul setelah tebakan Anda.",
-      "before": "Sebelum — Saga debut karakter harian muncul sebelum tebakan Anda."
+      "before": "Sebelum — Saga debut karakter harian muncul sebelum tebakan Anda.",
+      "movieMismatch": "Film — Karakter harian berasal dari film, tetapi tebakan Anda tidak."
     }
   },
   "yesterday": {

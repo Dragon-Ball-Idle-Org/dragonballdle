@@ -45,6 +45,7 @@ export function GuessesTable<T extends string>({
       cell.status === GuessStatus.WRONG && "bg-red-600",
       cell.status === GuessStatus.OLDEST && "bg-red-600",
       cell.status === GuessStatus.NEWEST && "bg-red-600",
+      cell.status === GuessStatus.MOVIE_MISMATCH && "bg-red-600",
       "text-center font-bold text-xs sm:text-sm text-shadow-[1px_1px_3px_#000000] p-1 whitespace-normal overflow-wrap-anywhere word-break-break-word",
     );
   };
@@ -130,6 +131,15 @@ function GuessCell({
           {cell.status === GuessStatus.NEWEST && (
             <span className="absolute inset-0 flex items-center justify-center text-black/80 pointer-events-none select-none">
               <ArrowFatUpIcon weight="fill" className="w-full h-full" />
+            </span>
+          )}
+          {cell.status === GuessStatus.MOVIE_MISMATCH && (
+            <span className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+              <img
+                src="/assets/tira_cinema.svg"
+                className="w-full h-full object-cover opacity-80"
+                alt=""
+              />
             </span>
           )}
           <span
