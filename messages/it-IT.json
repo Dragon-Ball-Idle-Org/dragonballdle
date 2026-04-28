@@ -103,7 +103,8 @@
       "partial": "Parziale - Almeno un valore corrisponde.",
       "incorrect": "Errato - Questo attributo è completamente sbagliato.",
       "after": "Dopo - La saga di debutto del personaggio del giorno è successiva alla tua ipotesi.",
-      "before": "Prima - La saga di debutto del personaggio del giorno è precedente alla tua ipotesi."
+      "before": "Prima - La saga di debutto del personaggio del giorno è precedente alla tua ipotesi.",
+      "movieMismatch": "Film — Il personaggio del giorno proviene da un film, ma il tuo suggerimento no."
     }
   },
   "yesterday": {

@@ -103,7 +103,8 @@
       "partial": "Bahagya — Kahit isa sa mga value ay tumutugma.",
       "incorrect": "Mali - Maling-mali ang katangiang ito.",
       "after": "Pagkatapos — Ang debut saga ng karakter ngayong araw ay pagkatapos ng iyong hula.",
-      "before": "Bago — Ang debut saga ng karakter ngayong araw ay bago ang iyong hula."
+      "before": "Bago — Ang debut saga ng karakter ngayong araw ay bago ang iyong hula.",
+      "movieMismatch": "Pelikula — Ang pang-araw-araw na karakter ay mula sa isang pelikula, ngunit ang iyong hula ay hindi."
     }
   },
   "yesterday": {

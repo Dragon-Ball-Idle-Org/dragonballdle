@@ -103,7 +103,8 @@
       "partial": "Một phần - Ít nhất một giá trị khớp.",
       "incorrect": "Sai - Thuộc tính này hoàn toàn sai.",
       "after": "Sau - Saga ra mắt của nhân vật trong ngày là sau dự đoán của bạn.",
-      "before": "Trước - Saga ra mắt của nhân vậtใน ngày là trước dự đoán của bạn."
+      "before": "Trước - Saga ra mắt của nhân vậtใน ngày là trước dự đoán của bạn.",
+      "movieMismatch": "Phim — Nhân vật hàng ngày đến từ một bộ phim, nhưng dự đoán của bạn thì không."
     }
   },
   "yesterday": {

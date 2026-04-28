@@ -10,7 +10,10 @@ import {
   ArrowFatUpIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { ClassicGuessTableLoader } from "./ClassicGuessTable";
-import { getDailyCharacter, getYesterdayCharacter } from "@/features/game-engine/services/daily";
+import {
+  getDailyCharacter,
+  getYesterdayCharacter,
+} from "@/features/game-engine/services/daily";
 import { getLocale, getTranslations } from "next-intl/server";
 import { WinModal } from "@/components/shared/WinModal";
 
@@ -85,6 +88,19 @@ export default async function ClassicPage() {
                   <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
                     <div className="w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600"></div>
                     <span>{t("guide.incorrect")}</span>
+                  </div>
+
+                  <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">
+                    <div className="relative w-5 h-5 min-w-5 inline-grid place-items-center shrink-0 rounded-sm border border-white shadow-[inset_0_0_3px_#00000073] bg-red-600">
+                      <span className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+                        <img
+                          src="/assets/tira_cinema.svg"
+                          className="w-full h-full object-cover"
+                          alt=""
+                        />
+                      </span>
+                    </div>
+                    <span>{t("guide.movieMismatch")}</span>
                   </div>
 
                   <div className="flex items-center gap-2 my-2 text-sm font-medium text-shadow-[0_2px_4px_rgba(0,0,0,.55),0_0_2px_rgba(0,0,0,.45)">

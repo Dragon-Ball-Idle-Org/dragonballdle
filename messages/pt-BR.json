@@ -103,7 +103,8 @@
       "partial": "Parcial — Pelo menos um valor corresponde.",
       "incorrect": "Incorreto - Este atributo está completamente errado.",
       "after": "Depois — A saga de estreia do personagem diário é depois do seu palpite.",
-      "before": "Antes — A saga de estreia do personagem diário é antes do seu palpite."
+      "before": "Antes — A saga de estreia do personagem diário é antes do seu palpite.",
+      "movieMismatch": "Filme — O personagem diário é de um filme, mas seu palpite não é."
     }
   },
   "yesterday": {

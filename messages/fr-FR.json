@@ -103,7 +103,8 @@
       "partial": "Partiel — Au moins une valeur correspond.",
       "incorrect": "Incorrect - Cet attribut est totalement faux.",
       "after": "Après — La saga de début du personnage du jour est après votre devinette.",
-      "before": "Avant — La saga de début du personnage du jour est avant votre devinette."
+      "before": "Avant — La saga de début du personnage du jour est avant votre devinette.",
+      "movieMismatch": "Film — Le personnage du jour est tiré d'un film, mais pas votre proposition."
     }
   },
   "yesterday": {
