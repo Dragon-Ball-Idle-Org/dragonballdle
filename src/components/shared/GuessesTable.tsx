@@ -6,6 +6,7 @@ import { ArrowFatDownIcon, ArrowFatUpIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Tooltip } from "../ui/Tooltip";
 import { useAutoFontSize } from "@/hooks/useAutoFontSize";
+import Image from "next/image";
 
 type GuessImageCell = {
   imgSrc: string;
@@ -118,7 +119,7 @@ function GuessCell({
     >
       {isImageCell(cell) && (
         <Tooltip content={cell.alt}>
-          <img src={cell.imgSrc} alt={cell.alt} width={85} height={85} />
+          <Image src={cell.imgSrc} alt={cell.alt} width={85} height={85} />
         </Tooltip>
       )}
       {isGuessCell(cell) && (
@@ -135,8 +136,10 @@ function GuessCell({
           )}
           {cell.status === GuessStatus.MOVIE_MISMATCH && (
             <span className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-              <img
+              <Image
                 src="/assets/tira_cinema.svg"
+                width={88}
+                height={88}
                 className="w-full h-full object-cover opacity-80"
                 alt=""
               />

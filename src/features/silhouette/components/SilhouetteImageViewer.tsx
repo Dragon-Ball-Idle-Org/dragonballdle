@@ -7,8 +7,11 @@ import { useGameContext } from "@/features/game-engine/contexts/GameContext";
 import { useTranslations } from "@/contexts/TranslationContext";
 import { SilhouetteCharacter } from "@/features/game-engine/types/guess";
 import type { SilhouetteZone } from "@/features/game-engine/types/silhouette";
+import Image from "next/image";
 
 import { TranslationNamespace, createT } from "@/lib/client-translations";
+
+const MotionImage = motion.create(Image);
 
 type SilhouetteImageViewerProps = {
   dailyCharacter: SilhouetteCharacter;
@@ -152,15 +155,17 @@ export function SilhouetteImageViewer({
               ease: "easeInOut",
             }}
           >
-            <motion.img
+            <MotionImage
               src={imageUrlToShow}
               alt={
                 isGameWon
                   ? tr("imageAltRevealed").replace("__NAME__", dailyCharacter.name)
                   : tr("imageAltDaily")
               }
+              fill
+              priority
               className={cn(
-                "w-full h-full transition-all duration-500",
+                "transition-all duration-500",
                 "object-contain p-2",
               )}
               style={{
