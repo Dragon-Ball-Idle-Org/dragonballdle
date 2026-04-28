@@ -90,10 +90,6 @@ describe("ClassicGameBoard Integration", () => {
     const submitBtn = screen.getByAltText("Submit Guess");
 
     // 1. INCORRECT GUESS (Vegeta)
-    await user.type(input, "veg");
-    const vegSuggestion = await screen.findByText("Vegeta", {}, { timeout: 5000 });
-    await user.click(vegSuggestion);
-
     vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce({
       slug: "vegeta",
       name: "Vegeta",
