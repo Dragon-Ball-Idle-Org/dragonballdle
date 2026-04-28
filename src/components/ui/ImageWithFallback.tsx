@@ -1,6 +1,6 @@
 import { useImageFallback } from "@/hooks/useImageFallback";
 import { cn } from "@/utils/cn";
-import { type ImageProps } from "next/image";
+import Image, { type ImageProps } from "next/image";
 
 export function ImageWithFallback(props: ImageProps) {
   const { src, onLoad, onError, isLoading } = useImageFallback({
@@ -9,7 +9,7 @@ export function ImageWithFallback(props: ImageProps) {
   });
 
   return (
-    <img
+    <Image
       {...props}
       src={src}
       alt={props.alt || ""}

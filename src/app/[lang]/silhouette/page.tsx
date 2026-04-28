@@ -11,6 +11,8 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { WinModal } from "@/components/shared/WinModal";
 import { getSilhouetteZones } from "@/lib/silhouette-zones";
 
+export const revalidate = 3600;
+
 export default async function SilhouettePage() {
   const locale = await getLocale();
   const [t, tHome, dailyChar, yesterdayChar] = await Promise.all([

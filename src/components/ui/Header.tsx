@@ -2,6 +2,7 @@ import { LanguageDropdown } from "../desktop/LanguageDropdown";
 import { BackButton } from "./BackButton";
 import { getTranslations } from "next-intl/server";
 import { DesktopNavigation } from "../desktop/DesktopNavigation";
+import Image from "next/image";
 
 const cdnURL = process.env.NEXT_PUBLIC_CDN_BASE_URL;
 
@@ -21,13 +22,14 @@ export async function Header({
           {!hideBackButton && <BackButton />}
         </div>
 
-        <img
+        <Image
           id="logo"
           className="logo"
           src={`${cdnURL}/logo.png`}
           width={640}
           height={100}
           alt="DragonBallDle logo"
+          priority
         />
 
         <div className="hidden md:block">

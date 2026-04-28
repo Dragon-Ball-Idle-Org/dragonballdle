@@ -11,6 +11,9 @@ Before planning or coding ANYTHING:
    - Translations/next-intl → `.agents/skills/i18n/SKILL.md`
    - Tests/Vitest/Playwright → `.agents/skills/testing/SKILL.md`
    - Refactor/TypeScript/Performance → `.agents/skills/code-quality/SKILL.md`
+   - Security/RLS/Auth → `.agents/skills/security/SKILL.md`
+   - Performance/Bundle/RSC → `.agents/skills/performance/SKILL.md`
+   - Cost-Optimization/Free-tier/ISR → `.agents/skills/cost-optimization/SKILL.md`
 3. Start your plan with: "📖 Loaded: AGENTS.md + [skill name]"
 
 ## Project Identity

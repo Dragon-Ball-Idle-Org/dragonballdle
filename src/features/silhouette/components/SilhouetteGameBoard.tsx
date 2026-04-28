@@ -16,6 +16,7 @@ import { cn } from "@/utils/cn";
 import { ScrambleText } from "@/components/ui/ScrambleText";
 import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { useGameFlow } from "@/features/game-engine/hooks/useGameFlow";
+import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 
 export function SilhouetteGameBoard({
   dailyCharacter,
@@ -154,9 +155,11 @@ export function SilhouetteGameBoard({
               >
                 <div className="w-12 h-12 relative shrink-0 bg-slate-800 rounded-lg overflow-hidden border border-white/20">
                   {guess.thumb_path ? (
-                    <img
+                    <ImageWithFallback
                       src={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${guess.thumb_path}`}
                       alt={guess.name}
+                      width={48}
+                      height={48}
                       className={cn(
                         "w-full h-full object-cover transition-all duration-700",
                         !isFinished

@@ -17,6 +17,8 @@ import {
 import { getLocale, getTranslations } from "next-intl/server";
 import { WinModal } from "@/components/shared/WinModal";
 
+export const revalidate = 3600;
+
 export default async function ClassicPage() {
   const locale = await getLocale();
   const [t, tHome, dailyChar, yesterdayChar] = await Promise.all([
