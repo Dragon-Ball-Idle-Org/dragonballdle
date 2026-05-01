@@ -94,6 +94,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
       <meta name="monetag" content="13acd56b30d330b2dcfd063cc92837d1" />
+      <script src="https://quge5.com/88/tag.min.js" data-zone="235310" async data-cfasync="false" />
       <body
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
         style={
