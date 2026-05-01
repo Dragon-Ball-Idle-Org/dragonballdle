@@ -11,7 +11,7 @@ import { useTranslations } from "@/contexts/TranslationContext";
 import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { ShareDropdown } from "@/components/ui/ShareDropdown";
 import { ShineGradientButton } from "@/components/ui/ShineGradientButton";
-import { LeaderboardModal } from "@/components/shared/LeaderboardModal";
+import { LeaderboardModalClient } from "@/components/shared/LeaderboardModalClient";
 import { GameMode } from "@/features/game-engine/types/game-mode";
 
 type CapsuleCorpWinBannerProps = {
@@ -111,7 +111,7 @@ export function CapsuleCorpWinBanner({
             </div>
 
             <div className="w-full mt-4 flex justify-center">
-              <LeaderboardModal
+              <LeaderboardModalClient
                 gameMode={shareVariant as GameMode}
                 currentGuessCount={tries}
               />

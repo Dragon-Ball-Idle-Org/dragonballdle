@@ -1,42 +1,33 @@
-export function msUntilMidnightBrasilia(): number {
+export function getSecondsUntilTomorrowSaoPaulo(): number {
   const now = new Date();
 
-  // Obter componentes da data/hora em Brasília (America/Sao_Paulo)
-  const formatter = new Intl.DateTimeFormat("en-US", {
+  // Create a formatter for the Sao Paulo time zone
+  const saoPauloFormatter = new Intl.DateTimeFormat("en-US", {
     timeZone: "America/Sao_Paulo",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
     hour12: false,
   });
 
-  const parts = formatter.formatToParts(now);
-  const values: Record<string, string> = {};
+  // Get the current time in Sao Paulo as parts
+  const nowParts = saoPauloFormatter.formatToParts(now);
+  const hour = parseInt(nowParts.find((p) => p.type === "hour")?.value ?? "0");
+  const minute = parseInt(
+    nowParts.find((p) => p.type === "minute")?.value ?? "0",
+  );
+  const second = parseInt(
+    nowParts.find((p) => p.type === "second")?.value ?? "0",
+  );
 
-  parts.forEach((part) => {
-    values[part.type] = part.value;
-  });
+  // Calculate the total seconds from the start of the day in Sao Paulo
+  const secondsFromMidnight = hour * 3600 + minute * 60 + second;
 
-  // Extrair componentes
-  const year = parseInt(values.year);
-  const month = parseInt(values.month) - 1; // Array de meses usa 0-11
-  const day = parseInt(values.day);
-  const hour = parseInt(values.hour);
-  const minute = parseInt(values.minute);
-  const second = parseInt(values.second);
+  // Total seconds in a day
+  const totalSecondsInADay = 24 * 3600;
 
-  // Calcular offset entre hora de Brasília e UTC
-  const brasiliaDateTime = new Date(year, month, day, hour, minute, second);
-  const offset = brasiliaDateTime.getTime() - now.getTime();
+  // Seconds remaining until the next midnight
+  const remainingSeconds = totalSecondsInADay - secondsFromMidnight;
 
-  // Próxima meia-noite em Brasília
-  const nextMidnightBrasilia = new Date(year, month, day + 1, 0, 0, 0, 0);
-
-  // Converter para UTC subtraindo o offset
-  const nextMidnightUTC = new Date(nextMidnightBrasilia.getTime() - offset);
-
-  return nextMidnightUTC.getTime() - now.getTime();
+  return remainingSeconds;
 }

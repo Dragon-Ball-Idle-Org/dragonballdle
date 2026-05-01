@@ -1,7 +1,6 @@
 import { MainContainer } from "@/components/ui/MainContainer";
 import { MartialArtsHero } from "@/features/classic/components/MartialArts/MartialArtsHero";
 import { MartialArtsYesterdayCharacter } from "@/features/classic/components/MartialArts/MartialArtsYesterdayCharacter";
-import { MartialArtsWinBanner } from "@/features/classic/components/MartialArts/MartialArtsWinBanner";
 import { ClassicGameBoard } from "@/features/classic/components/ClassicGameBoard";
 import { cn } from "@/utils/cn";
 import GlassAccordion from "@/components/ui/GlassAccordion";
@@ -15,7 +14,8 @@ import {
   getYesterdayCharacter,
 } from "@/features/game-engine/services/daily";
 import { getLocale, getTranslations } from "next-intl/server";
-import { WinModal } from "@/components/shared/WinModal";
+import { WinModalClient } from "@/components/shared/WinModalClient";
+import { MartialArtsWinBannerClient } from "@/features/classic/components/MartialArts/MartialArtsWinBannerClient";
 
 export const revalidate = 3600;
 
@@ -38,7 +38,7 @@ export default async function ClassicPage() {
 
   return (
     <>
-      <WinModal
+      <WinModalClient
         characterName={dailyChar.name}
         characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.image_path}`}
         playNextLabel={`${tHome("silhouette.title")}!`}
@@ -52,7 +52,7 @@ export default async function ClassicPage() {
             characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.thumb_path}`}
           />
         )}
-        <MartialArtsWinBanner
+        <MartialArtsWinBannerClient
           todayCharacterSlug={dailyChar.slug}
           todayCharacterName={dailyChar.name}
           todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
@@ -138,3 +138,4 @@ export default async function ClassicPage() {
     </>
   );
 }
+

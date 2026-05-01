@@ -1,15 +1,15 @@
 import { MainContainer } from "@/components/ui/MainContainer";
 import { CapsuleCorpHero } from "@/features/silhouette/components/CapsuleCorp/CapsuleCorpHero";
 import { CapsuleCorpYesterdayCharacter } from "@/features/silhouette/components/CapsuleCorp/CapsuleCorpYesterdayCharacter";
-import { CapsuleCorpWinBanner } from "@/features/silhouette/components/CapsuleCorp/CapsuleCorpWinBanner";
 import { SilhouetteGameBoard } from "@/features/silhouette/components/SilhouetteGameBoard";
 import {
   getDailySilhouetteCharacter,
   getYesterdaySilhouetteCharacter,
 } from "@/features/game-engine/services/daily";
 import { getLocale, getTranslations } from "next-intl/server";
-import { WinModal } from "@/components/shared/WinModal";
 import { getSilhouetteZones } from "@/lib/silhouette-zones";
+import { WinModalClient } from "@/components/shared/WinModalClient";
+import { CapsuleCorpWinBannerClient } from "@/features/silhouette/components/CapsuleCorp/CapsuleCorpWinBannerClient";
 
 export const revalidate = 3600;
 
@@ -34,7 +34,7 @@ export default async function SilhouettePage() {
 
   return (
     <>
-      <WinModal
+      <WinModalClient
         characterName={dailyChar.name}
         characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}
         playNextLabel={`${tHome("title")}!`}
@@ -48,7 +48,7 @@ export default async function SilhouettePage() {
             characterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${yesterdayChar.thumb_path}`}
           />
         )}
-        <CapsuleCorpWinBanner
+        <CapsuleCorpWinBannerClient
           todayCharacterSlug={dailyChar.slug}
           todayCharacterName={dailyChar.name}
           todayCharacterImage={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${dailyChar.thumb_path}`}

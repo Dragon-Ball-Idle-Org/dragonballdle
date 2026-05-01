@@ -12,7 +12,7 @@ import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { ShareDropdown } from "@/components/ui/ShareDropdown";
 import { ShineGradientButton } from "@/components/ui/ShineGradientButton";
 import { EyeIcon } from "@phosphor-icons/react";
-import { LeaderboardModal } from "@/components/shared/LeaderboardModal";
+import { LeaderboardModalClient } from "@/components/shared/LeaderboardModalClient";
 
 type MartialArtsWinBannerProps = {
   todayCharacterSlug: string;
@@ -103,7 +103,7 @@ export function MartialArtsWinBanner({
             </div>
 
             <div className="w-full mt-4 flex justify-center">
-              <LeaderboardModal
+              <LeaderboardModalClient
                 gameMode="classic"
                 currentGuessCount={tries}
               />
@@ -129,6 +129,7 @@ export function MartialArtsWinBanner({
     </AnimatePresence>
   );
 }
+
 
 function Row({ title, value }: { title: string; value: string | ReactNode }) {
   return (

@@ -2,7 +2,7 @@
 
 import type { GameMode } from "@/features/game-engine/types/game-mode";
 import { getWithExpiry, setWithExpiry } from "@/utils/storage";
-import { msUntilMidnightBrasilia } from "@/utils/time";
+import { getSecondsUntilTomorrowSaoPaulo } from "@/utils/time";
 import { createContext, useContext, ReactNode, useState } from "react";
 
 function gameWonStorageKey(gameMode: GameMode) {
@@ -32,7 +32,7 @@ export function GameProvider({
   const wonGame = () => {
     if (typeof window === "undefined") return;
     setIsGameWon(true);
-    setWithExpiry(gameWonStorageKey(gameMode), true, msUntilMidnightBrasilia());
+    setWithExpiry(gameWonStorageKey(gameMode), true, getSecondsUntilTomorrowSaoPaulo());
     window.dispatchEvent(new Event("game-won-changed"));
   };
 
