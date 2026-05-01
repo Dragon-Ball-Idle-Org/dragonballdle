@@ -2,7 +2,55 @@ import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
+// CSP Kinda hard to implement with next-intl using app router
+const ContentSecurityPolicy = `
+  default-src 'self' vercel.live;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.com/live;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https://cdn.dragonballdle.site https://pub-7a42112fb83543e09f959229a0efd07f.r2.dev vercel.live;
+  font-src 'self';
+  connect-src 'self' *.supabase.co wss://*.supabase.co *.sentry.io https://vercel.com/live;
+  frame-src 'self' https://vercel.com/live;
+  form-action 'self';
+  frame-ancestors 'none';
+  base-uri 'self';
+  object-src 'none';
+`
+  .replace(/\s{2,}/g, " ")
+  .trim();
+
+const securityHeaders = [
+  {
+    key: "Content-Security-Policy",
+    value: ContentSecurityPolicy,
+  },
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=31536000; includeSubDomains; preload",
+  },
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+  {
+    key: "X-Frame-Options",
+    value: "DENY",
+  },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+  },
+];
+
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

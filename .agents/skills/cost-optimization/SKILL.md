@@ -1,7 +1,7 @@
 ---
 name: cost-optimization
 description: Strategies to maintain free-tier hosting on Vercel/Supabase while using modern Next.js features.
-globs: "next.config.ts", "src/app/**/*.tsx", "src/lib/supabase.ts", "middleware.ts"
+globs: "next.config.ts", "src/app/**/*.tsx", "src/lib/supabase.ts", "proxy.ts"
 ---
 
 # Skill: Cost Optimization

@@ -55,6 +55,13 @@ interface ScrambleTextProps {
   duration?: number;
 }
 
+// A simple pseudo-random generator based on a seed.
+// It's not cryptographically secure, but it's good enough for a visual effect.
+function seededRandom(seed: number) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
 export function ScrambleText({
   text,
   className,
@@ -132,8 +139,11 @@ export function ScrambleText({
           return <span key={index}>{char}</span>;
         }
 
+        const seed = effectivePos + index;
         const randomSymbol =
-          SCOUTER_SYMBOLS[Math.floor(Math.random() * SCOUTER_SYMBOLS.length)];
+          SCOUTER_SYMBOLS[
+            Math.floor(seededRandom(seed) * SCOUTER_SYMBOLS.length)
+          ];
 
         return (
           <div
