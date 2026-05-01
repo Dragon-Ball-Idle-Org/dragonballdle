@@ -93,6 +93,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
     <html lang={lang}>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+      <meta name="monetag" content="13acd56b30d330b2dcfd063cc92837d1" />
       <body
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
         style={
