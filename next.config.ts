@@ -5,12 +5,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 // CSP Kinda hard to implement with next-intl using app router
 const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.com/live;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.com/live https://quge5.com https://www.googletagmanager.com https://static.cloudflareinsights.com;
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: https://cdn.dragonballdle.site https://pub-7a42112fb83543e09f959229a0efd07f.r2.dev vercel.live;
   font-src 'self';
   connect-src 'self' *.supabase.co wss://*.supabase.co *.sentry.io https://vercel.com/live;
   frame-src 'self' https://vercel.com/live;
+  worker-src 'self' blob:;
   form-action 'self';
   frame-ancestors 'none';
   base-uri 'self';
