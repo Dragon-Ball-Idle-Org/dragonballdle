@@ -1,7 +1,8 @@
-import { routing } from "@/i18n/routing";
 import { Header } from "@/components/ui/Header";
+import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 
 export async function generateMetadata({
   params,
@@ -14,29 +15,12 @@ export async function generateMetadata({
     namespace: "legal.metadata",
   });
 
-  return {
+  return buildPageMetadata({
+    locale: lang,
+    slug: "legal",
     title: t("title"),
     description: t("description"),
-    robots: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
-    alternates: {
-      canonical: `https://dragonballdle.site/${lang}/legal/`,
-      languages: {
-        "x-default": `https://dragonballdle.site/${routing.defaultLocale}/legal/`,
-        ...Object.fromEntries(
-          routing.locales.map((locale) => [
-            locale,
-            `https://dragonballdle.site/${locale}/legal/`,
-          ]),
-        ),
-      },
-    },
-  };
+  });
 }
 
 export async function generateStaticParams() {

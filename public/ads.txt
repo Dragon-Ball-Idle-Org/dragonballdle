@@ -1,1 +1,7 @@
+# ads.txt — Authorized Digital Sellers (IAB Tech Lab)
+# Site: https://dragonballdle.site/
+# Format: <SSP/exchange domain>, <publisher ID>, <DIRECT|RESELLER>, <cert authority ID>
+# DIRECT = relationship with Google directly; RESELLER = indirect via partner.
+# Certification IDs: https://iabtechlab.com/ads-txt/
+
 google.com, pub-9652117686251833, DIRECT, f08c47fec0942fa0

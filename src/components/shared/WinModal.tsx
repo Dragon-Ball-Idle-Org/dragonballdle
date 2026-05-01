@@ -11,7 +11,7 @@ import { TranslationNamespace, createT } from "@/lib/client-translations";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/utils/cn";
 
-type WinModalProps = {
+export type WinModalProps = {
   characterName: string;
   characterImage: string;
   playNextLabel?: string;

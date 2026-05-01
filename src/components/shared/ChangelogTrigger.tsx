@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChangelogModal } from "./ChangelogModal";
+import dynamic from "next/dynamic";
+
+const ChangelogModal = dynamic(
+  () => import("./ChangelogModal").then((mod) => mod.ChangelogModal),
+  { ssr: false },
+);
 
 type ChangelogVersion = {
   id: string;
@@ -40,6 +45,10 @@ export function ChangelogTrigger({
     localStorage.setItem("last-seen-version", latestVersion);
     window.dispatchEvent(new CustomEvent("changelog-seen"));
   };
+
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <ChangelogModal

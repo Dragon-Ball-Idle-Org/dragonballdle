@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { WebsiteJsonLd } from "@/components/seo/WebsiteJsonLd";
+import { SITE_URL } from "@/constants/site";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 import { Roboto, Bangers, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
@@ -41,27 +44,13 @@ export async function generateMetadata({
   const t = await getTranslations({ locale: lang, namespace: "home.metadata" });
 
   return {
-    title: t("title"),
-    description: t("description"),
-    robots: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
-    alternates: {
-      canonical: `https://dragonballdle.site/${lang}/`,
-      languages: {
-        "x-default": `https://dragonballdle.site/${routing.defaultLocale}/`,
-        ...Object.fromEntries(
-          routing.locales.map((locale) => [
-            locale,
-            `https://dragonballdle.site/${locale}/`,
-          ]),
-        ),
-      },
-    },
+    metadataBase: new URL(`${SITE_URL}/`),
+    ...buildPageMetadata({
+      locale: lang,
+      slug: "",
+      title: t("title"),
+      description: t("description"),
+    }),
   };
 }
 
@@ -85,6 +74,10 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 
   const tSocial = await getTranslations("socialLinksModal");
   const tCommon = await getTranslations("common");
+  const tHomeMetaForJsonLd = await getTranslations({
+    locale: lang,
+    namespace: "home.metadata",
+  });
   const tHome = await getTranslations("home");
   const tLegal = await getTranslations("legal");
   const tWinBanner = await getTranslations("winBanner");
@@ -100,6 +93,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
     <html lang={lang}>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+      <meta name="monetag" content="13acd56b30d330b2dcfd063cc92837d1" />
       <body
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
         style={
@@ -109,6 +103,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         }
       >
         <SplashScreen />
+        <WebsiteJsonLd description={tHomeMetaForJsonLd("description")} />
         <Providers locale={lang}>
           <h1 className="hidden">DragonBallDle</h1>
           {children}

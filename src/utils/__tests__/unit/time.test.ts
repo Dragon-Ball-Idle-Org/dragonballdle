@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { msUntilMidnightBrasilia } from "../../time";
+import { getMillisecondsUntilTomorrowSaoPaulo } from "../../time";
 
 describe("time utils", () => {
   beforeEach(() => {
@@ -16,7 +16,7 @@ describe("time utils", () => {
     const mockDate = new Date(Date.UTC(2026, 3, 21, 23, 0, 0));
     vi.setSystemTime(mockDate);
 
-    const ms = msUntilMidnightBrasilia();
+    const ms = getMillisecondsUntilTomorrowSaoPaulo();
 
     // 4 hours until midnight Brasilia (20:00 to 00:00)
     const expectedMs = 4 * 60 * 60 * 1000;
@@ -29,7 +29,7 @@ describe("time utils", () => {
     const mockDate = new Date(Date.UTC(2026, 3, 22, 2, 59, 59));
     vi.setSystemTime(mockDate);
 
-    const ms = msUntilMidnightBrasilia();
+    const ms = getMillisecondsUntilTomorrowSaoPaulo();
 
     // 1 second until midnight
     expect(ms).toBe(1000);
