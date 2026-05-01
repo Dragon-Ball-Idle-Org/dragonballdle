@@ -24,7 +24,7 @@ export async function Header({
 
         <Image
           id="logo"
-          className="w-full h-auto"
+          className="w-160 h-25"
           src={`${cdnURL}/logo.png`}
           width={640}
           height={100}
