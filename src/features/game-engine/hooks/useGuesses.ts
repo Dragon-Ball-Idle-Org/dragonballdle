@@ -4,7 +4,7 @@ import { getCharacterBySlug } from "@/features/game-engine/services/characters";
 import type { GameMode } from "@/features/game-engine/types/game-mode";
 import { CharacterGuess } from "@/features/game-engine/types/guess";
 import { getWithExpiry, setWithExpiry } from "@/utils/storage";
-import { getSecondsUntilTomorrowSaoPaulo } from "@/utils/time";
+import { getMillisecondsUntilTomorrowSaoPaulo } from "@/utils/time";
 import { useEffect, useState } from "react";
 
 function slugsStorageKey(gameMode: GameMode) {
@@ -87,7 +87,7 @@ export function useGuesses(locale: string, gameMode: GameMode = "classic") {
       const next = [character, ...prev];
       saveCachedGuesses(next, locale, gameMode);
 
-      const ttl = getSecondsUntilTomorrowSaoPaulo();
+      const ttl = getMillisecondsUntilTomorrowSaoPaulo();
       const slugs = loadSlugs(gameMode);
       const nextSlugs = Array.from(new Set([character.slug, ...slugs]));
       setWithExpiry(slugsStorageKey(gameMode), nextSlugs, ttl);

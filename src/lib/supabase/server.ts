@@ -1,5 +1,5 @@
 import { Database } from "@/types/database";
-import { getSecondsUntilTomorrowSaoPaulo } from "@/utils/time";
+import { getMillisecondsUntilTomorrowSaoPaulo } from "@/utils/time";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
@@ -13,7 +13,7 @@ export function createClient() {
         fetch: (url, options) => {
           return fetch(url, {
             ...options,
-            next: { revalidate: getSecondsUntilTomorrowSaoPaulo() },
+            next: { revalidate: getMillisecondsUntilTomorrowSaoPaulo() / 1000 },
           });
         },
       },

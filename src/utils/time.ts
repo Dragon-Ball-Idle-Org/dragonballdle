@@ -1,4 +1,4 @@
-export function getSecondsUntilTomorrowSaoPaulo(): number {
+export function getMillisecondsUntilTomorrowSaoPaulo(): number {
   const now = new Date();
 
   // Create a formatter for the Sao Paulo time zone
@@ -29,5 +29,5 @@ export function getSecondsUntilTomorrowSaoPaulo(): number {
   // Seconds remaining until the next midnight
   const remainingSeconds = totalSecondsInADay - secondsFromMidnight;
 
-  return remainingSeconds;
+  return remainingSeconds * 1000;
 }
