@@ -1,0 +1,30 @@
+# DragonBallDle
+
+> DragonBallDle is a daily guessing game for Dragon Ball fans, inspired by Wordle. Test your knowledge with different game modes like Classic and Silhouette. It is a non-commercial fan project.
+
+## About
+
+- Type: Web application (Next.js), multilingual UI
+- Locales: en-US (default), pt-BR, and 18+ other languages.
+- Status: Fan-made, non-commercial project
+
+## Entry points
+
+- [Home — English](https://dragonballdle.com/en-US)
+- [Home — Portuguese](https://dragonballdle.com/pt-BR)
+
+## Game Modes
+
+- [Classic Mode — EN](https://dragonballdle.com/en-US/classic)
+- [Classic Mode — PT](https://dragonballdle.com/pt-BR/classic)
+- [Silhouette Mode — EN](https://dragonballdle.com/en-US/silhouette)
+- [Silhouette Mode — PT](https://dragonballdle.com/pt-BR/silhouette)
+
+## Legal & trust
+
+DragonBallDle is a fan-made project for fans, strictly non-commercial. All visual assets, characters, and associated marks of Dragon Ball are the intellectual property of Akira Toriyama / Shueisha and Toei Animation. Licensed under the MIT License.
+
+## Machine-readable discovery
+
+- Sitemap: https://dragonballdle.com/sitemap.xml
+- Crawling rules: https://dragonballdle.com/robots.txt
