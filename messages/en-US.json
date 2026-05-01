@@ -13,8 +13,8 @@
       "subtitle": "A new game is coming..."
     },
     "metadata": {
-      "title": "DragonBallDle — Guessing Game",
-      "description": "Guess today's mystery Dragon Ball character! Test your Dragon Ball knowledge and challenge your friends in this free daily game."
+      "title": "DragonBallDle — Wordle Puzzle Quiz Game",
+      "description": "Guess today's mystery Dragon Ball quiz character! Test your Dragon Ball knowledge and challenge your friends in this free daily puzzle game."
     },
     "winsCount": "{count} wins today"
   },
@@ -51,8 +51,8 @@
     "description": "Guess today's Dragon Ball character. Fast, free daily challenge."
   },
   "metadata": {
-    "title": "DragonBallDle — Guessing Game",
-    "description": "Guess today's mystery Dragon Ball character! Test your Dragon Ball knowledge and challenge your friends in this free daily game."
+    "title": "DragonBallDle — Wordle Puzzle Quiz Game",
+    "description": "Guess today's mystery Dragon Ball quiz character! Test your Dragon Ball knowledge and challenge your friends in this free daily puzzle game."
   },
   "socialLinksModal": {
     "title": "Maintainers"

@@ -13,8 +13,8 @@
       "subtitle": "Um novo jogo está chegando..."
     },
     "metadata": {
-      "title": "DragonBallDle — Jogo de Adivinhação",
-      "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
+      "title": "DragonBallDle — Wordle Puzzle Quiz Game",
+      "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos neste jogo puzzle e desafie amigos neste quiz grátis diário."
     },
     "winsCount": "{count} vitórias hoje"
   },
@@ -51,11 +51,11 @@
     "description": "Adivinhe o personagem de Dragon Ball de hoje. Desafio diário rápido e gratuito."
   },
   "metadata": {
-    "title": "DragonBallDle — Jogo de Adivinhação",
-    "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos e desafie amigos neste jogo grátis diário."
+    "title": "DragonBallDle — Wordle Puzzle Quiz Game",
+    "description": "Adivinhe o personagem misterioso de Dragon Ball de hoje! Teste seus conhecimentos neste jogo puzzle e desafie amigos neste quiz grátis diário."
   },
   "socialLinksModal": {
-    "title": "Mantenedores"
+    "title": "Criadores"
   },
   "winModal": {
     "congrats": "Parabéns!",
