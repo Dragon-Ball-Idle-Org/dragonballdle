@@ -5,12 +5,12 @@ import createNextIntlPlugin from "next-intl/plugin";
 // CSP Kinda hard to implement with next-intl using app router
 const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel.com https://www.googletagmanager.com https://static.cloudflareinsights.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel.com https://www.googletagmanager.com https://static.cloudflareinsights.com https://aclib.com *.cdn-fileserver.com *.searchresultsworld.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' data: https://cdn.dragonballdle.site https://pub-7a42112fb83543e09f959229a0efd07f.r2.dev vercel.live https://www.google.com.br;
+  img-src 'self' data: https://cdn.dragonballdle.site https://pub-7a42112fb83543e09f959229a0efd07f.r2.dev vercel.live https://www.google.com.br https://*.google.com https://*.doubleclick.net https://www.googletagmanager.com *.cdn-fileserver.com *.searchresultsworld.com;
   font-src 'self';
-  connect-src 'self' *.supabase.co wss://*.supabase.co *.sentry.io *.vercel.com https://analytics.google.com https://www.google.com https://stats.g.doubleclick.net;
-  frame-src 'self' *.vercel.com;
+  connect-src 'self' *.supabase.co wss://*.supabase.co *.sentry.io *.vercel.com https://analytics.google.com https://www.google.com https://*.google.com.br https://stats.g.doubleclick.net https://*.doubleclick.net *.cdn-fileserver.com *.searchresultsworld.com;
+  frame-src 'self' *.vercel.com https://*.doubleclick.net https://googleads.g.doubleclick.net *.cdn-fileserver.com *.searchresultsworld.com;
   worker-src 'self' blob:;
   form-action 'self';
   frame-ancestors 'none';

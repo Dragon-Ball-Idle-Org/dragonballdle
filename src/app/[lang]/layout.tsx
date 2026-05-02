@@ -13,6 +13,8 @@ import { SplashScreen } from "@/components/ui/SplashScreen";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { BottomNavBar } from "@/components/mobile/BottomNavBar";
 import { ChangelogTrigger } from "@/components/shared/ChangelogTrigger";
+import RootClientLayout from "./layout.client";
+import AdBanner from "@/components/ads/AdBanner";
 
 import "../globals.css";
 
@@ -91,8 +93,10 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={lang} suppressHydrationWarning>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+      <head>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+      </head>
       <body
         className={`${roboto.variable} ${bangers.variable} ${inter.variable} antialiased`}
         style={
@@ -105,7 +109,16 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         <WebsiteJsonLd description={tHomeMetaForJsonLd("description")} />
         <Providers locale={lang}>
           <h1 className="hidden">DragonBallDle</h1>
-          {children}
+          <RootClientLayout>{children}</RootClientLayout>
+          <div className="w-full flex justify-center my-4">
+            <AdBanner
+              adScriptSrc="https://aclib.com/aclib.js"
+              containerId="ad-banner-footer"
+              zoneId="11261426"
+              width={728}
+              height={90}
+            />
+          </div>
           <Footer />
           <ChangelogTrigger
             latestVersion={tChangelog("latestVersion")}
