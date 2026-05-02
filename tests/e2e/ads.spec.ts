@@ -17,7 +17,7 @@ test.describe("Ad Banners", () => {
     await expect(leftAdBanner).toBeVisible();
     
     // Check the right sidebar banner
-    const rightAdBanner = page.getByTestId("adsterra-container-right");
+    const rightAdBanner = page.getByTestId("adcash-container-right");
     await expect(rightAdBanner).toBeVisible();
   });
 });

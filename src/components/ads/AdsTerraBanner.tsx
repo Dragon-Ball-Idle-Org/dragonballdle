@@ -25,7 +25,6 @@ interface AdsTerraBannerProps {
 }
 
 const AD_LIB_URL_BASE = 'https://www.highperformanceformat.com/';
-const SCRIPT_ID = 'adsterra-script-loader';
 
 export function AdsTerraBanner({
   adKey,
@@ -44,46 +43,43 @@ export function AdsTerraBanner({
       return;
     }
 
-    if (!adContainerRef.current) return;
-    console.log(`[AdsTerra] Banner component starting for key: ${adKey}`);
-
-    // Set the global atOptions object
-    window.atOptions = { key: adKey, format, height, width, params };
-    console.log(`[AdsTerra] window.atOptions set:`, window.atOptions);
-
-    let script = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
-
-    if (!script) {
-      console.log('[AdsTerra] Main library script not found. Creating and loading it.');
-      script = document.createElement('script');
-      script.id = SCRIPT_ID;
-      script.src = `${AD_LIB_URL_BASE}${adKey}/invoke.js`; // Construct URL
-      script.async = true;
-
-      script.onload = () => {
-        console.log('[AdsTerra] Main library script has loaded.');
-        // AdsTerra might render the ad automatically after this script runs
-        // There's no explicit function call like AdCash's runBanner
-      };
-      script.onerror = () => {
-        console.error('[AdsTerra] CRITICAL: Failed to load main ad library directly from CDN.');
-      };
-
-      document.head.appendChild(script);
-    } else {
-      console.log('[AdsTerra] Script already exists. Re-setting atOptions.');
-      // If script already exists, it might have already rendered,
-      // but re-setting atOptions might trigger it again or update.
-      // Ad networks vary; this might be sufficient.
+    if (!adContainerRef.current) {
+      console.error('[AdsTerra] Ad container ref is null.');
+      return;
     }
 
-    // Cleanup: not strictly necessary for ad scripts that inject content
-    // but good practice to clear the global variable if component unmounts
+    // Set the options object just before loading the script for this specific ad
+    window.atOptions = { key: adKey, format, height, width, params };
+    console.log(`[AdsTerra] Set window.atOptions for key ${adKey}:`, window.atOptions);
+
+    // Create a new script element for each ad instance to ensure
+    // it runs with the correct, just-set atOptions.
+    const script = document.createElement('script');
+    script.src = `${AD_LIB_URL_BASE}${adKey}/invoke.js`; // Construct URL
+    // script.async = true; // Removed to ensure synchronous loading for each instance
+
+    script.onload = () => {
+      console.log(`[AdsTerra] Script for key ${adKey} has loaded.`);
+      // AdsTerra might render the ad automatically after this script runs
+    };
+    script.onerror = () => {
+      console.error(`[AdsTerra] CRITICAL: Failed to load script for key ${adKey}.`);
+    };
+
+    // Clear the container and append the new script
+    adContainerRef.current.innerHTML = ''; // Clear previous content, important for re-renders
+    adContainerRef.current.appendChild(script);
+
+    // Cleanup: Remove the script element when the component unmounts
     return () => {
-      console.log('[AdsTerra] Cleaning up AdsTerra component.');
-      // It's generally not recommended to delete global script tags or variables
-      // from third-party scripts as they might be shared or crucial globally.
-      // For now, we'll just log.
+      console.log(`[AdsTerra] Cleaning up script for key ${adKey}.`);
+      if (adContainerRef.current && script.parentNode === adContainerRef.current) {
+        adContainerRef.current.removeChild(script);
+      }
+      // Also clear window.atOptions to avoid interference
+      if (window.atOptions && window.atOptions.key === adKey) {
+        delete window.atOptions;
+      }
     };
   }, [adKey, format, height, width, params]); // Re-run effect if key or options change
 

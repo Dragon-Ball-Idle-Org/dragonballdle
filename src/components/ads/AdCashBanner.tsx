@@ -13,6 +13,9 @@ declare global {
 
 interface AdCashBannerProps {
   zoneId: string;
+  width?: number; // Added for consistency
+  height?: number; // Added for consistency
+  testId?: string;
 }
 
 const AD_LIB_URL = 'https://acscdn.com/script/aclib.js';
@@ -21,7 +24,12 @@ const SCRIPT_ID = 'aclib';
 /**
  * Renders an AdCash banner ad with detailed debugging logs and polling.
  */
-export function AdCashBanner({ zoneId }: AdCashBannerProps) {
+export function AdCashBanner({ 
+  zoneId,
+  width, // Accept width
+  height, // Accept height
+  testId = "adcash-container",
+}: AdCashBannerProps) {
   const adContainerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -99,7 +107,7 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
       script = document.createElement("script");
       script.id = SCRIPT_ID;
       script.src = AD_LIB_URL;
-      script.async = true;
+      script.async = true; // Retained from previous working version
       script.setAttribute("data-loaded", "false");
 
       script.onload = () => {
@@ -116,7 +124,7 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
         script?.setAttribute("data-loaded", "error");
       };
 
-      document.head.appendChild(script);
+      adContainerRef.current.appendChild(script);
     } else {
       const status = script.getAttribute("data-loaded");
       console.log(`[AdCash] Script already exists with status: ${status}`);
@@ -143,8 +151,8 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
   return (
     <div
       ref={adContainerRef}
-      style={{ minHeight: "90px", border: "1px dashed orange" }}
-      data-testid="adcash-container"
+      style={{ minHeight: "90px", border: "1px dashed orange", width: width ? `${width}px` : 'auto', height: height ? `${height}px` : 'auto' }}
+      data-testid={testId}
     />
   );
 }
