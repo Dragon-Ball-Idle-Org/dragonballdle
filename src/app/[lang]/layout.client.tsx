@@ -1,6 +1,6 @@
 "use client";
 
-import AdBanner from "@/components/ads/AdBanner";
+import { AdCashBanner } from "@/components/ads/AdCashBanner";
 import { cn } from "@/utils/cn";
 
 export default function RootClientLayout({
@@ -16,12 +16,7 @@ export default function RootClientLayout({
           "border-r border-white/10",
         )}
       >
-        <AdBanner
-          containerId="ad-banner-left"
-          zoneId="11259050"
-          width={160}
-          height={600}
-        />
+        <AdCashBanner zoneId="11261446" />
       </aside>
       <div className="w-full max-w-285 px-3 flex flex-col flex-1">
         {children}
@@ -32,12 +27,7 @@ export default function RootClientLayout({
           "border-l border-white/10",
         )}
       >
-        <AdBanner
-          containerId="ad-banner-right"
-          zoneId="11261446"
-          width={160}
-          height={600}
-        />
+        <AdCashBanner zoneId="11261446" />
       </aside>
     </div>
   );
