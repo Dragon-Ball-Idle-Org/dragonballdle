@@ -14,7 +14,7 @@ function getAllowedHosts(): Set<string> {
   );
 }
 
-function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string): string | null {
+function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string): URL | null {
   let parsed: URL;
   try {
     parsed = base ? new URL(rawUrl, base) : new URL(rawUrl);
@@ -48,18 +48,18 @@ function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string)
   canonical.search = parsed.search;
   canonical.hash = parsed.hash;
 
-  return canonical.toString();
+  return canonical;
 }
 
 async function fetchWithValidatedRedirects(
-  initialUrl: string,
+  initialUrl: URL,
   allowedHosts: Set<string>,
   maxRedirects = 5,
 ): Promise<Response> {
   let currentUrl = initialUrl;
 
   for (let i = 0; i <= maxRedirects; i++) {
-    const validatedCurrentUrl = validateAdUrl(currentUrl, allowedHosts);
+    const validatedCurrentUrl = validateAdUrl(currentUrl.toString(), allowedHosts);
     if (!validatedCurrentUrl) {
       throw new Error('Current URL is not allowed');
     }
@@ -72,7 +72,7 @@ async function fetchWithValidatedRedirects(
         throw new Error('Redirect response missing Location header');
       }
 
-      const validatedRedirectUrl = validateAdUrl(location, allowedHosts, validatedCurrentUrl);
+      const validatedRedirectUrl = validateAdUrl(location, allowedHosts, validatedCurrentUrl.toString());
       if (!validatedRedirectUrl) {
         throw new Error('Redirect URL is not allowed');
       }
@@ -121,7 +121,7 @@ export async function GET(request: NextRequest) {
       const match = text.match(/window\.location\.replace\('([^']*)'\)/);
       if (match && match[1]) {
         const finalUrl = match[1];
-        const validatedFinalUrl = validateAdUrl(finalUrl, allowedHosts, validatedSrc);
+        const validatedFinalUrl = validateAdUrl(finalUrl, allowedHosts, validatedSrc.toString());
         if (!validatedFinalUrl) {
           return new NextResponse('Invalid redirect URL in ad content', { status: 400 });
         }
