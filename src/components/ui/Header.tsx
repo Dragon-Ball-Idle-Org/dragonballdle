@@ -30,7 +30,6 @@ export async function Header({
           alt="DragonBallDle logo"
           priority
         />
-
         <div className="hidden md:block">
           <LanguageDropdown />
         </div>
