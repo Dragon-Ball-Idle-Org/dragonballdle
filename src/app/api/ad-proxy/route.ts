@@ -1,5 +1,43 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+function getAllowedHosts(): Set<string> {
+  const configured = process.env.AD_PROXY_ALLOWED_HOSTS;
+  if (!configured) {
+    return new Set(['ads.example.com']);
+  }
+
+  return new Set(
+    configured
+      .split(',')
+      .map((h) => h.trim().toLowerCase())
+      .filter(Boolean),
+  );
+}
+
+function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string): string | null {
+  let parsed: URL;
+  try {
+    parsed = base ? new URL(rawUrl, base) : new URL(rawUrl);
+  } catch {
+    return null;
+  }
+
+  if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') {
+    return null;
+  }
+
+  if (parsed.username || parsed.password) {
+    return null;
+  }
+
+  const host = parsed.hostname.toLowerCase();
+  if (!allowedHosts.has(host)) {
+    return null;
+  }
+
+  return parsed.toString();
+}
+
 export async function GET(request: NextRequest) {
   // In non-production environments (dev, test), don't make real requests.
   // This prevents network errors in CI/local dev if the ad service is unreachable.
@@ -17,9 +55,15 @@ export async function GET(request: NextRequest) {
     return new NextResponse('Missing src parameter', { status: 400 });
   }
 
+  const allowedHosts = getAllowedHosts();
+  const validatedSrc = validateAdUrl(src, allowedHosts);
+  if (!validatedSrc) {
+    return new NextResponse('Invalid src parameter', { status: 400 });
+  }
+
   try {
     // First, try to get the initial content which might be a redirect script
-    const response = await fetch(src, { redirect: 'follow' });
+    const response = await fetch(validatedSrc, { redirect: 'follow' });
     const text = await response.text();
     let finalScriptContent = text;
 
@@ -28,8 +72,12 @@ export async function GET(request: NextRequest) {
       const match = text.match(/window\.location\.replace\('([^']*)'\)/);
       if (match && match[1]) {
         const finalUrl = match[1];
+        const validatedFinalUrl = validateAdUrl(finalUrl, allowedHosts, validatedSrc);
+        if (!validatedFinalUrl) {
+          return new NextResponse('Invalid redirect URL in ad content', { status: 400 });
+        }
         // Fetch the actual script from the redirect URL
-        const scriptResponse = await fetch(finalUrl, { redirect: 'follow' });
+        const scriptResponse = await fetch(validatedFinalUrl, { redirect: 'follow' });
         finalScriptContent = await scriptResponse.text();
       }
     }
