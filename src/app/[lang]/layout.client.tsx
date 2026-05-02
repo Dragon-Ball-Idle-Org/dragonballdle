@@ -34,7 +34,7 @@ export default function RootClientLayout({
         <AdCashBanner
           zoneId="11259050"
           width={160}
-          height={300}
+          height={600}
           testId="adcash-container-right"
         />
       </aside>

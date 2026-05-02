@@ -24,12 +24,12 @@ const SCRIPT_ID = 'aclib';
 /**
  * Renders an AdCash banner ad with detailed debugging logs and polling.
  */
+
 export function AdCashBanner({ 
   zoneId,
-  width, // Accept width
-  height, // Accept height
   testId = "adcash-container",
 }: AdCashBannerProps) {
+export function AdCashBanner({ zoneId }: AdCashBannerProps) {
   const adContainerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -107,7 +107,7 @@ export function AdCashBanner({
       script = document.createElement("script");
       script.id = SCRIPT_ID;
       script.src = AD_LIB_URL;
-      script.async = true; // Retained from previous working version
+      script.async = true;
       script.setAttribute("data-loaded", "false");
 
       script.onload = () => {
@@ -151,8 +151,8 @@ export function AdCashBanner({
   return (
     <div
       ref={adContainerRef}
-      style={{ minHeight: "90px", border: "1px dashed orange", width: width ? `${width}px` : 'auto', height: height ? `${height}px` : 'auto' }}
-      data-testid={testId}
+      style={{ minHeight: "90px", border: "1px dashed orange" }}
+      data-testid="adcash-container"
     />
   );
 }
