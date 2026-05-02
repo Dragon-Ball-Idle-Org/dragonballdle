@@ -1,6 +1,6 @@
 "use client";
 
-import { AdCashBanner } from "@/components/ads/AdCashBanner";
+import { AdsTerraBanner } from "@/components/ads/AdsTerraBanner";
 import { cn } from "@/utils/cn";
 
 export default function RootClientLayout({
@@ -16,7 +16,12 @@ export default function RootClientLayout({
           "border-r border-white/10",
         )}
       >
-        <AdCashBanner zoneId="11261446" />
+        <AdsTerraBanner
+          adKey="5fac8c4c89f7fa53f32520e88feda810"
+          width={160}
+          height={600}
+          testId="adsterra-container-left"
+        />
       </aside>
       <div className="w-full max-w-285 px-3 flex flex-col flex-1">
         {children}
@@ -27,7 +32,12 @@ export default function RootClientLayout({
           "border-l border-white/10",
         )}
       >
-        <AdCashBanner zoneId="11261446" />
+        <AdsTerraBanner
+          adKey="5fac8c4c89f7fa53f32520e88feda810"
+          width={160}
+          height={600}
+          testId="adsterra-container-right"
+        />
       </aside>
     </div>
   );
