@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 function getAllowedHosts(): Set<string> {
   const configured = process.env.AD_PROXY_ALLOWED_HOSTS;
   if (!configured) {
-    return new Set(['ads.example.com']);
+    return new Set(['google.com']);
   }
 
   return new Set(
@@ -22,8 +22,13 @@ function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string 
     return null;
   }
 
-  if (parsed.protocol !== 'https:') {
+  if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') {
     return null;
+  }
+
+  if (parsed.protocol === 'http:') {
+    // A log is generated to identify which providers still use HTTP.
+    console.warn(`Ad-proxy: Allowing insecure HTTP request to ${parsed.href}`);
   }
 
   if (parsed.username || parsed.password) {
@@ -36,7 +41,15 @@ function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string 
   }
 
   const host = parsed.hostname.toLowerCase();
-  if (!allowedHosts.has(host)) {
+  let hostAllowed = false;
+  for (const allowedHost of allowedHosts) {
+    // Check if the host matches the allowedHost exactly or is a subdomain of the allowedHost
+    if (host === allowedHost || host.endsWith(`.${allowedHost}`)) {
+      hostAllowed = true;
+      break;
+    }
+  }
+  if (!hostAllowed) {
     return null;
   }
 

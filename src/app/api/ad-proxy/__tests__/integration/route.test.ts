@@ -38,13 +38,21 @@ describe('API Route: ad-proxy', () => {
     expect(await response.text()).toBe('Invalid src parameter');
   });
 
-  it('should return 400 for non-HTTPS URLs', async () => {
+  it('should allow HTTP URLs but log a warning', async () => {
+    const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const adUrl = `http://${AD_ALLOWED_HOST}/ad.js`;
+    mockFetch.mockResolvedValue(new Response('ad content'));
+
     const request = new NextRequest(
-      `https://example.com/api/ad-proxy?src=${encodeURIComponent(`http://${AD_ALLOWED_HOST}/ad.js`)}`,
+      `https://example.com/api/ad-proxy?src=${encodeURIComponent(adUrl)}`,
     );
     const response = await GET(request);
-    expect(response.status).toBe(400);
-    expect(await response.text()).toBe('Invalid src parameter');
+
+    expect(response.status).toBe(200);
+    expect(await response.text()).toBe('ad content');
+    expect(consoleWarnSpy).toHaveBeenCalledWith(`Ad-proxy: Allowing insecure HTTP request to ${adUrl}`);
+
+    consoleWarnSpy.mockRestore();
   });
 
   it('should return 400 for disallowed hosts', async () => {
