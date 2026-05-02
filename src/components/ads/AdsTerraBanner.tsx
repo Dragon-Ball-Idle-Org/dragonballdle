@@ -21,6 +21,7 @@ interface AdsTerraBannerProps {
   height?: number;
   width?: number;
   params?: Record<string, unknown>;
+  testId?: string;
 }
 
 const AD_LIB_URL_BASE = 'https://www.highperformanceformat.com/';
@@ -32,6 +33,7 @@ export function AdsTerraBanner({
   height = 90,
   width = 728,
   params = {},
+  testId = 'adsterra-container',
 }: AdsTerraBannerProps) {
   const adContainerRef = useRef<HTMLDivElement>(null);
 
@@ -89,7 +91,7 @@ export function AdsTerraBanner({
     <div
       ref={adContainerRef}
       style={{ minHeight: `${height}px`, width: `${width}px`, border: '1px dashed blue' }}
-      data-testid="adsterra-container"
+      data-testid={testId}
     />
   );
 }

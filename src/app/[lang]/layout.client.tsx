@@ -20,6 +20,7 @@ export default function RootClientLayout({
           adKey="5fac8c4c89f7fa53f32520e88feda810"
           width={160}
           height={600}
+          testId="adsterra-container-left"
         />
       </aside>
       <div className="w-full max-w-285 px-3 flex flex-col flex-1">
@@ -35,6 +36,7 @@ export default function RootClientLayout({
           adKey="5fac8c4c89f7fa53f32520e88feda810"
           width={160}
           height={600}
+          testId="adsterra-container-right"
         />
       </aside>
     </div>
