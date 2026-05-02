@@ -112,7 +112,6 @@ export default async function RootLayout({ children, params }: LayoutProps) {
           <RootClientLayout>{children}</RootClientLayout>
           <div className="w-full flex justify-center my-4">
             <AdBanner
-              adScriptSrc="https://aclib.com/aclib.js"
               containerId="ad-banner-footer"
               zoneId="11261426"
               width={728}

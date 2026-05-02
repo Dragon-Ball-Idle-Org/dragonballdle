@@ -17,7 +17,6 @@ export default function RootClientLayout({
         )}
       >
         <AdBanner
-          adScriptSrc="https://aclib.com/aclib.js"
           containerId="ad-banner-left"
           zoneId="11259050"
           width={160}
@@ -34,7 +33,6 @@ export default function RootClientLayout({
         )}
       >
         <AdBanner
-          adScriptSrc="https://aclib.com/aclib.js"
           containerId="ad-banner-right"
           zoneId="11261446"
           width={160}

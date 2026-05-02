@@ -37,6 +37,7 @@ globs: **/*.test.ts, **/*.test.tsx, **/*.spec.ts, tests/e2e/**/*.ts
 
 ### E2E Tests (Playwright)
 - **Asset Mocking**: Intercept and fulfill PNGs/heavy assets with a 1x1 transparent pixel to reduce network I/O.
+- **Third-Party & Ad Mocking**: For components that load third-party scripts or render iframes (like ads), do not test the third-party service itself. Instead, use `page.route()` to intercept the request to the service (or your proxy that calls it). Fulfill the route with a predictable mock response (e.g., a simple HTML document). Use `frameLocator` to assert that your component correctly renders the mock content within the iframe. This validates your integration without network dependency.
 - **Direct Navigation**: Use direct `page.goto('/target')` instead of clicking through the Home page to save ~10-20s per test.
 - **State Hydration**: For persistence tests, use `waitForFunction` or wait for specific `data-hydrated="true"` attributes to ensure state is settled.
 - **Worker Count**: Use a moderate worker count (2-3) to balance speed and local machine resources.

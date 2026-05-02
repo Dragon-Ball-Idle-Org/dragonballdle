@@ -7,19 +7,18 @@ interface AdBannerProps {
   containerId: string;
   width: number;
   height: number;
-  adScriptSrc: string; // e.g., 'https://aclib.com/aclib.js'
 }
 
-const AdBanner: React.FC<AdBannerProps> = ({ zoneId, containerId, width, height, adScriptSrc }) => {
+const AdBanner: React.FC<AdBannerProps> = ({ zoneId, containerId, width, height }) => {
   const [adHtml, setAdHtml] = useState('');
 
   useEffect(() => {
     const fetchAdHtml = async () => {
       try {
+        const adScriptSrc = `https://aclib.com/aclib.js?zoneid=${zoneId}`;
         const response = await fetch(`/api/ad-proxy?src=${encodeURIComponent(adScriptSrc)}`);
         if (response.ok) {
           const html = await response.text();
-          // The proxy returns the full HTML content to be loaded
           setAdHtml(html);
         } else {
           console.error('Failed to fetch ad HTML from proxy.');
@@ -30,7 +29,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ zoneId, containerId, width, height,
     };
 
     fetchAdHtml();
-  }, [adScriptSrc]);
+  }, [zoneId]);
 
   return (
     <div className="flex flex-col items-center justify-center p-2 bg-gray-800/50 dark:bg-gray-900/50 rounded-lg">
