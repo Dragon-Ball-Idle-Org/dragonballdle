@@ -26,6 +26,12 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    // Do not run any ad logic in test environments
+    if (process.env.NODE_ENV === 'test') {
+      console.log('[AdCash] Test environment detected, skipping ad load.');
+      return;
+    }
+    
     if (!adContainerRef.current) return;
     console.log(`[AdCash] Banner component starting for zoneId: ${zoneId}`);
 

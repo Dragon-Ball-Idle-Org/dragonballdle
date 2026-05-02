@@ -36,6 +36,12 @@ export function AdsTerraBanner({
   const adContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Do not run any ad logic in test environments
+    if (process.env.NODE_ENV === 'test') {
+      console.log('[AdsTerra] Test environment detected, skipping ad load.');
+      return;
+    }
+
     if (!adContainerRef.current) return;
     console.log(`[AdsTerra] Banner component starting for key: ${adKey}`);
 
