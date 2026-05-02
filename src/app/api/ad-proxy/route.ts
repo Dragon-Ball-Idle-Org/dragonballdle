@@ -30,12 +30,25 @@ function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string)
     return null;
   }
 
+  // Only allow default web ports to reduce SSRF surface.
+  if (parsed.port && parsed.port !== '80' && parsed.port !== '443') {
+    return null;
+  }
+
   const host = parsed.hostname.toLowerCase();
   if (!allowedHosts.has(host)) {
     return null;
   }
 
-  return parsed.toString();
+  // Rebuild a canonical URL from validated components to avoid forwarding
+  // user-controlled URL text directly to fetch.
+  const canonical = new URL(`${parsed.protocol}//${host}`);
+  canonical.port = parsed.port;
+  canonical.pathname = parsed.pathname;
+  canonical.search = parsed.search;
+  canonical.hash = parsed.hash;
+
+  return canonical.toString();
 }
 
 async function fetchWithValidatedRedirects(
@@ -46,7 +59,12 @@ async function fetchWithValidatedRedirects(
   let currentUrl = initialUrl;
 
   for (let i = 0; i <= maxRedirects; i++) {
-    const response = await fetch(currentUrl, { redirect: 'manual' });
+    const validatedCurrentUrl = validateAdUrl(currentUrl, allowedHosts);
+    if (!validatedCurrentUrl) {
+      throw new Error('Current URL is not allowed');
+    }
+
+    const response = await fetch(validatedCurrentUrl, { redirect: 'manual' });
 
     if (response.status >= 300 && response.status < 400) {
       const location = response.headers.get('location');
@@ -54,7 +72,7 @@ async function fetchWithValidatedRedirects(
         throw new Error('Redirect response missing Location header');
       }
 
-      const validatedRedirectUrl = validateAdUrl(location, allowedHosts, currentUrl);
+      const validatedRedirectUrl = validateAdUrl(location, allowedHosts, validatedCurrentUrl);
       if (!validatedRedirectUrl) {
         throw new Error('Redirect URL is not allowed');
       }
