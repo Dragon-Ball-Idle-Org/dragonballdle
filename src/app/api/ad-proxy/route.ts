@@ -106,9 +106,9 @@ export async function GET(request: NextRequest) {
   // In non-production environments (dev, test), don't make real requests.
   // This prevents network errors in CI/local dev if the ad service is unreachable.
   if (process.env.NODE_ENV !== 'production') {
-    return new NextResponse('<html><body><!-- Ad mock for non-production --></body></html>', {
+    return new NextResponse('/* Ad mock for non-production */', {
       status: 200,
-      headers: { 'Content-Type': 'text/html' },
+      headers: { 'Content-Type': 'application/javascript' },
     });
   }
 
@@ -161,7 +161,7 @@ export async function GET(request: NextRequest) {
 
     return new NextResponse(finalScriptContent, {
       headers: {
-        'Content-Type': 'text/html',
+        'Content-Type': 'application/javascript',
         'Cache-Control': 's-maxage=3600, stale-while-revalidate',
         'X-Content-Type-Options': 'nosniff',
         'Permissions-Policy': 'microphone=(), camera=(), geolocation=(), payment=()',
@@ -169,10 +169,10 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error('Ad Proxy Error:', error);
-    // Gracefully degrade: return empty HTML so the iframe doesn't break the page
-    return new NextResponse('<html><body><!-- Ad failed to load --></body></html>', {
+    // Gracefully degrade: return empty but valid JS to prevent breaking the client
+    return new NextResponse('/* Ad failed to load */', {
       status: 200,
-      headers: { 'Content-Type': 'text/html' },
+      headers: { 'Content-Type': 'application/javascript' },
     });
   }
 }

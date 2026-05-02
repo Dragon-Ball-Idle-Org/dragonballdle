@@ -14,7 +14,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { BottomNavBar } from "@/components/mobile/BottomNavBar";
 import { ChangelogTrigger } from "@/components/shared/ChangelogTrigger";
 import RootClientLayout from "./layout.client";
-import AdBanner from "@/components/ads/AdBanner";
+import { AdCashBanner } from "@/components/ads/AdCashBanner";
 
 import "../globals.css";
 
@@ -111,12 +111,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
           <h1 className="hidden">DragonBallDle</h1>
           <RootClientLayout>{children}</RootClientLayout>
           <div className="w-full flex justify-center my-4">
-            <AdBanner
-              containerId="ad-banner-footer"
-              zoneId="11261426"
-              width={728}
-              height={90}
-            />
+            <AdCashBanner zoneId="11261446" />
           </div>
           <Footer />
           <ChangelogTrigger
