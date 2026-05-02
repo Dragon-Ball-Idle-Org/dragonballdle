@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 // Define the aclib interface on the window object for type safety
 declare global {
@@ -15,23 +15,26 @@ interface AdCashBannerProps {
   zoneId: string;
 }
 
-const AD_LIB_URL = 'https://acscdn.com/script/aclib.js';
-const SCRIPT_ID = 'aclib';
+const AD_LIB_URL = "https://acscdn.com/script/aclib.js";
+const SCRIPT_ID = "aclib";
 
 /**
  * Renders an AdCash banner ad with detailed debugging logs and polling.
  */
+
 export function AdCashBanner({ zoneId }: AdCashBannerProps) {
   const adContainerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Do not run any ad logic in test environments
-    if (process.env.NEXT_PUBLIC_PLAYWRIGHT === 'true') {
-      console.log('[AdCash] Playwright test environment detected, skipping ad load.');
+    if (process.env.NEXT_PUBLIC_PLAYWRIGHT === "true") {
+      console.log(
+        "[AdCash] Playwright test environment detected, skipping ad load.",
+      );
       return;
     }
-    
+
     if (!adContainerRef.current) return;
     console.log(`[AdCash] Banner component starting for zoneId: ${zoneId}`);
 
@@ -39,7 +42,7 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
 
     const executeAd = () => {
       console.log(
-        '[AdCash] Main script loaded. Starting to poll for window.aclib...',
+        "[AdCash] Main script loaded. Starting to poll for window.aclib...",
       );
       const maxRetries = 10;
       let retries = 0;
@@ -57,11 +60,13 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
           );
           try {
             if (!adContainerRef.current) {
-              console.error('[AdCash] Container ref was lost before script injection.');
+              console.error(
+                "[AdCash] Container ref was lost before script injection.",
+              );
               return;
             }
-            const runScript = document.createElement('script');
-            runScript.type = 'text/javascript';
+            const runScript = document.createElement("script");
+            runScript.type = "text/javascript";
             // This mimics the inline script from the documentation
             runScript.innerHTML = `
               try {
@@ -72,11 +77,13 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
               }
             `;
             // Clear container and append the new script to run it
-            adContainerRef.current.innerHTML = '';
+            adContainerRef.current.innerHTML = "";
             adContainerRef.current.appendChild(runScript);
-
           } catch (e) {
-            console.error("[AdCash] Failed to create or inject runBanner script.", e);
+            console.error(
+              "[AdCash] Failed to create or inject runBanner script.",
+              e,
+            );
           }
         } else if (retries >= maxRetries) {
           if (intervalRef.current) clearInterval(intervalRef.current);
@@ -116,7 +123,7 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
         script?.setAttribute("data-loaded", "error");
       };
 
-      document.head.appendChild(script);
+      adContainerRef.current.appendChild(script);
     } else {
       const status = script.getAttribute("data-loaded");
       console.log(`[AdCash] Script already exists with status: ${status}`);
