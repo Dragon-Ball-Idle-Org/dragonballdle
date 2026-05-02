@@ -27,8 +27,8 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
 
   useEffect(() => {
     // Do not run any ad logic in test environments
-    if (process.env.NODE_ENV === 'test') {
-      console.log('[AdCash] Test environment detected, skipping ad load.');
+    if (process.env.NEXT_PUBLIC_PLAYWRIGHT === 'true') {
+      console.log('[AdCash] Playwright test environment detected, skipping ad load.');
       return;
     }
     

@@ -37,8 +37,8 @@ export function AdsTerraBanner({
 
   useEffect(() => {
     // Do not run any ad logic in test environments
-    if (process.env.NODE_ENV === 'test') {
-      console.log('[AdsTerra] Test environment detected, skipping ad load.');
+    if (process.env.NEXT_PUBLIC_PLAYWRIGHT === 'true') {
+      console.log('[AdsTerra] Playwright test environment detected, skipping ad load.');
       return;
     }
 
