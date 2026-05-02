@@ -31,7 +31,7 @@ export default function RootClientLayout({
           "hidden xl:flex justify-center items-start w-40 shrink-0 pt-20",
         )}
       >
-        <AdCashBanner zoneId="11259050" />
+        <AdCashBanner zoneId="11259050" testId="adcash-container-right" />
       </aside>
     </div>
   );
