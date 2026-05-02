@@ -38,6 +38,37 @@ function validateAdUrl(rawUrl: string, allowedHosts: Set<string>, base?: string)
   return parsed.toString();
 }
 
+async function fetchWithValidatedRedirects(
+  initialUrl: string,
+  allowedHosts: Set<string>,
+  maxRedirects = 5,
+): Promise<Response> {
+  let currentUrl = initialUrl;
+
+  for (let i = 0; i <= maxRedirects; i++) {
+    const response = await fetch(currentUrl, { redirect: 'manual' });
+
+    if (response.status >= 300 && response.status < 400) {
+      const location = response.headers.get('location');
+      if (!location) {
+        throw new Error('Redirect response missing Location header');
+      }
+
+      const validatedRedirectUrl = validateAdUrl(location, allowedHosts, currentUrl);
+      if (!validatedRedirectUrl) {
+        throw new Error('Redirect URL is not allowed');
+      }
+
+      currentUrl = validatedRedirectUrl;
+      continue;
+    }
+
+    return response;
+  }
+
+  throw new Error('Too many redirects');
+}
+
 export async function GET(request: NextRequest) {
   // In non-production environments (dev, test), don't make real requests.
   // This prevents network errors in CI/local dev if the ad service is unreachable.
@@ -63,7 +94,7 @@ export async function GET(request: NextRequest) {
 
   try {
     // First, try to get the initial content which might be a redirect script
-    const response = await fetch(validatedSrc, { redirect: 'follow' });
+    const response = await fetchWithValidatedRedirects(validatedSrc, allowedHosts);
     const text = await response.text();
     let finalScriptContent = text;
 
@@ -77,7 +108,7 @@ export async function GET(request: NextRequest) {
           return new NextResponse('Invalid redirect URL in ad content', { status: 400 });
         }
         // Fetch the actual script from the redirect URL
-        const scriptResponse = await fetch(validatedFinalUrl, { redirect: 'follow' });
+        const scriptResponse = await fetchWithValidatedRedirects(validatedFinalUrl, allowedHosts);
         finalScriptContent = await scriptResponse.text();
       }
     }
