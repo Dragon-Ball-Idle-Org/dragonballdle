@@ -14,7 +14,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { BottomNavBar } from "@/components/mobile/BottomNavBar";
 import { ChangelogTrigger } from "@/components/shared/ChangelogTrigger";
 import RootClientLayout from "./layout.client";
-import { AdsTerraBanner } from "@/components/ads/AdsTerraBanner";
+import { ResponsiveAdsTerraBannerHorizontal } from "@/components/ads/ResponsiveAdsTerraBannerHorizontal";
 
 import "../globals.css";
 
@@ -111,10 +111,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
           <h1 className="hidden">DragonBallDle</h1>
           <RootClientLayout>{children}</RootClientLayout>
           <div className="w-full flex justify-center my-4">
-            <AdsTerraBanner
-              adKey="824bce06404cf683d53e7ac1dcc2a191"
-              testId="adsterra-container-footer"
-            />
+            <ResponsiveAdsTerraBannerHorizontal testId="adsterra-container-footer" />
           </div>
           <Footer />
           <ChangelogTrigger
