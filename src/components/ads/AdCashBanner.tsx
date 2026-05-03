@@ -13,6 +13,7 @@ declare global {
 
 interface AdCashBannerProps {
   zoneId: string;
+  testId?: string;
 }
 
 const AD_LIB_URL = "https://acscdn.com/script/aclib.js";
@@ -22,7 +23,7 @@ const SCRIPT_ID = "aclib";
  * Renders an AdCash banner ad with detailed debugging logs and polling.
  */
 
-export function AdCashBanner({ zoneId }: AdCashBannerProps) {
+export function AdCashBanner({ zoneId, testId = "adcash-container" }: AdCashBannerProps) {
   const adContainerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -151,7 +152,7 @@ export function AdCashBanner({ zoneId }: AdCashBannerProps) {
     <div
       ref={adContainerRef}
       style={{ minHeight: "90px", border: "1px dashed orange" }}
-      data-testid="adcash-container"
+      data-testid={testId}
     />
   );
 }
