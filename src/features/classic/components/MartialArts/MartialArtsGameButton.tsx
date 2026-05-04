@@ -36,6 +36,7 @@ export function MartialArtsGameButton({
         "background-dragon-texture",
         "cursor-pointer transition-all hover:scale-105 sm:hover:scale-110",
         "relative before:absolute before:content-[''] before:inset-0 before:border-24 before:border-transparent before:pointer-events-none before:[border-image:url('/assets/dragon-border.svg')_500_stretch] before:z-1",
+        "gpu-accelerated contain-layout"
       )}
     >
       <div className="px-2 sm:px-5">{icon}</div>
