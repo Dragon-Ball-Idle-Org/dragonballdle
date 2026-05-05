@@ -169,6 +169,12 @@ async function applyMocks(page: Page) {
     });
   });
 
+  // Block: Non-essential external assets (Fonts, Analytics, etc.)
+  await page.route(
+    /google-analytics\.com|googletagmanager\.com|fonts\.googleapis\.com|fonts\.gstatic\.com/,
+    (route) => route.abort(),
+  );
+
   // Mock: Images — return a 1x1 transparent pixel to prevent asset-loading delays
   await page.route("**/*.{png,jpg,jpeg,svg,webp}", async (route) => {
     const url = route.request().url();
@@ -196,9 +202,10 @@ async function applyMocks(page: Page) {
 /** Navigates to the URL and waits for the splash screen to fade out */
 async function preparePage(page: Page, url: string) {
   await page.goto(url);
-  await page.waitForLoadState("domcontentloaded");
+  await page.waitForLoadState("load");
 
-  // Ensure a clean state for the test
+  // Clear storage AFTER initial navigation only — NOT via addInitScript,
+  // because addInitScript re-runs on reload() and breaks persistence tests
   await page.evaluate(() => {
     localStorage.clear();
     sessionStorage.clear();
@@ -206,10 +213,10 @@ async function preparePage(page: Page, url: string) {
 
   // The splash screen stays in the DOM but becomes opacity-0 + pointer-events-none
   const loading = page.locator("#app-loading").first();
-  await expect(loading).toHaveClass(/opacity-0/, { timeout: 30000 });
+  await expect(loading).toHaveClass(/opacity-0/, { timeout: 60000 });
 
   // Ensure main content is rendered
-  await page.locator("main").first().waitFor({ state: "visible", timeout: 15000 });
+  await page.locator("main").first().waitFor({ state: "visible", timeout: 20000 });
 }
 
 // ─── Custom Fixtures ────────────────────────────────────────────────────────

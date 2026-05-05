@@ -67,6 +67,14 @@ globs: **/*.test.ts, **/*.test.tsx, **/*.spec.ts, tests/e2e/**/*.ts
 - **State Hydration**: For persistence tests, use `waitForFunction` or wait for specific `data-hydrated="true"` attributes to ensure state is settled.
 - **Worker Count**: Use a moderate worker count (2-3) to balance speed and local machine resources.
 - **Resilient Targeting**: Use `getByRole` and `getByText` with `exact: false` or regex to make tests less brittle to minor copy changes.
+- **Aggressive Asset Blocking**: Use `page.route` to abort non-essential domains (Google Analytics, Fonts) and mock heavy assets with 1x1 pixels.
+- **Fast Mode Triggers**: Use environment variables like `NEXT_PUBLIC_PLAYWRIGHT=true` to disable CSS transitions or reduce timeouts in the app when running in a test environment.
+- **Parallel Workers**: Balance worker count (e.g., 2-4) to maximize CPU usage without overloading the local dev server.
+- **Clean State via evaluate()**: Use `page.evaluate()` after the initial `goto()` to clear `localStorage`/`sessionStorage`. Do **NOT** use `page.addInitScript()` for this, because it re-runs on every navigation including `page.reload()`, which will wipe persisted data and break persistence tests.
+- **Reliable Hydration**: Use `page.waitForLoadState("load")` for pages with heavy hydration or complex initial state to ensure the app is ready for interactions.
+- **Direct State Injection**: When possible, use `page.evaluate` to set `localStorage` state instead of repeating UI steps to reach a specific game state.
+- **Avoid Sequential Typing**: Prefer `fill()` over `pressSequentially()` unless testing character-by-character UI feedback.
+- **Lightweight WebServer**: Use the direct dev command (e.g., `next dev`) in `playwright.config.ts` instead of wrapper scripts that include linting or type-checking (e.g., `pnpm dev`) to ensure faster startup and avoid timeouts.
 
 ## Template Examples (MAXIMUM PERFORMANCE)
 

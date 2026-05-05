@@ -9,7 +9,8 @@ export function SplashScreen() {
     const handleLoad = () => setLoaded(true);
 
     if (document.readyState === "complete") {
-      const timeoutId = setTimeout(handleLoad, 100);
+      const delay = process.env.NEXT_PUBLIC_PLAYWRIGHT === "true" ? 0 : 100;
+      const timeoutId = setTimeout(handleLoad, delay);
       return () => clearTimeout(timeoutId);
     }
 
@@ -20,7 +21,7 @@ export function SplashScreen() {
   return (
     <div
       id="app-loading"
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-primary transition-opacity duration-300 ease-out ${loaded ? "pointer-events-none opacity-0" : "opacity-100"} gpu-accelerated`}
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-primary transition-opacity ease-out ${loaded ? "pointer-events-none opacity-0" : "opacity-100"} gpu-accelerated ${process.env.NEXT_PUBLIC_PLAYWRIGHT === "true" ? "duration-0" : "duration-300"}`}
     >
       <div className="contain-layout">
         <img

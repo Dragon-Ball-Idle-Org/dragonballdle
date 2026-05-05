@@ -10,12 +10,12 @@ export default defineConfig({
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry once locally — 2 times on CI */
-  retries: process.env.CI ? 2 : 1,
-  /* 2 parallel workers locally for ~2x speedup without overloading the dev server */
-  workers: process.env.CI ? 1 : 2,
-  /* 120s timeout to accommodate slow hydration in Chromium/Mobile emulators */
-  timeout: 120_000,
+  /* Retry once locally — 1 times on CI */
+  retries: process.env.CI ? 1 : 0,
+  /* Increase parallel workers for faster execution */
+  workers: process.env.CI ? 2 : 4,
+  /* 90s timeout — reduced from 120s as we optimize hydration/assets */
+  timeout: 90_000,
   /* Reporter — don't auto-open browser after run */
   reporter: [["html", { open: "never" }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -65,16 +65,18 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "pnpm dev",
+    command: "next dev",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
     stdout: "ignore",
     stderr: "pipe",
     env: {
       NEXT_PUBLIC_CDN_BASE_URL: process.env.NEXT_PUBLIC_CDN_BASE_URL || "",
       NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY || "",
-      NEXT_PUBLIC_PLAYWRIGHT: 'true',
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY:
+        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY || "",
+      NEXT_PUBLIC_PLAYWRIGHT: "true",
     },
   },
 });
