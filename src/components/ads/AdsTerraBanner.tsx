@@ -73,8 +73,9 @@ export function AdsTerraBanner({
     // Cleanup: Remove the script element when the component unmounts
     return () => {
       console.log(`[AdsTerra] Cleaning up script for key ${adKey}.`);
-      if (adContainerRef.current && script.parentNode === adContainerRef.current) {
-        adContainerRef.current.removeChild(script);
+      const currentContainer = adContainerRef.current;
+      if (currentContainer && script.parentNode === currentContainer) {
+        currentContainer.removeChild(script);
       }
       // Also clear window.atOptions to avoid interference
       if (window.atOptions && window.atOptions.key === adKey) {

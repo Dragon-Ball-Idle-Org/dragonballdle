@@ -5,9 +5,8 @@ import { ClassicGameBoard } from "@/features/classic/components/ClassicGameBoard
 import { GuessesContext } from "@/features/game-engine/contexts/GuessesContext";
 import { GameContext } from "@/features/game-engine/contexts/GameContext";
 import { TranslationProvider } from "@/contexts/TranslationContext";
-import * as charactersService from "@/features/game-engine/services/characters";
 
-// Mocking external services
+// Performance: Use inline mocks to avoid hoisting issues
 vi.mock("@/features/game-engine/services/characters", () => ({
   getCharacterBySlug: vi.fn(),
 }));
@@ -50,26 +49,27 @@ describe("ClassicGameBoard Integration", () => {
     mockAddGuess = vi.fn().mockReturnValue(1);
     mockWonGame = vi.fn();
 
+    // Performance: Simplified fetch mock
     global.fetch = vi.fn().mockImplementation((url: string) => {
       const query = new URL(url, "http://localhost").searchParams
         .get("q")
         ?.toLowerCase();
-      const allResults = [
-        { slug: "vegeta", name: "Vegeta", thumb_path: "/vegeta.png" },
-        { slug: "goku", name: "Goku", thumb_path: "/goku.png" },
-      ];
-      const filtered = query
-        ? allResults.filter((r) => r.name.toLowerCase().includes(query))
+      const results = query
+        ? [
+            { slug: "vegeta", name: "Vegeta", thumb_path: "/vegeta.png" },
+            { slug: "goku", name: "Goku", thumb_path: "/goku.png" },
+          ].filter((r) => r.name.toLowerCase().includes(query))
         : [];
       return Promise.resolve({
         ok: true,
-        json: () => Promise.resolve(filtered),
+        json: () => Promise.resolve(results),
       });
     });
   });
 
   it("should handle a full game flow: search, incorrect guess, then winning guess", async () => {
-    const user = userEvent.setup();
+    // Performance: Faster userEvent setup
+    const user = userEvent.setup({ delay: null });
     render(
       <TranslationProvider translations={mockTranslations as any}>
         <GameContext.Provider
@@ -90,7 +90,9 @@ describe("ClassicGameBoard Integration", () => {
     const submitBtn = screen.getByAltText("Submit Guess");
 
     // 1. INCORRECT GUESS (Vegeta)
-    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce({
+    const { getCharacterBySlug } =
+      await import("@/features/game-engine/services/characters");
+    vi.mocked(getCharacterBySlug).mockResolvedValueOnce({
       slug: "vegeta",
       name: "Vegeta",
     } as any);
@@ -99,46 +101,47 @@ describe("ClassicGameBoard Integration", () => {
     const vegSuggestion = await screen.findByText(
       "Vegeta",
       {},
-      { timeout: 5000 },
+      { timeout: 1000 },
     );
     await user.click(vegSuggestion);
-
-    // With our changes, clicking the suggestion already triggers a submission.
-    // We still click the submit button to ensure it doesn't break anything (double submit check).
     await user.click(submitBtn);
 
-    await waitFor(() => {
-      expect(mockAddGuess).toHaveBeenCalledWith(
-        expect.objectContaining({ slug: "vegeta" }),
-      );
-    });
-
-    // 2. WINNING GUESS (Goku)
-    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce(
-      mockDailyCharacter,
+    await waitFor(
+      () => {
+        expect(mockAddGuess).toHaveBeenCalledWith(
+          expect.objectContaining({ slug: "vegeta" }),
+        );
+      },
+      { timeout: 1000 },
     );
 
-    // Clear input first (the component should do this, but let's be sure)
+    // 2. WINNING GUESS (Goku)
+    const { getCharacterBySlug: getCharacterBySlug2 } =
+      await import("@/features/game-engine/services/characters");
+    vi.mocked(getCharacterBySlug2).mockResolvedValueOnce(mockDailyCharacter);
+
     await user.clear(input);
     await user.type(input, "goku");
     const gokuSuggestion = await screen.findByText(
       "Goku",
       {},
-      { timeout: 5000 },
+      { timeout: 1000 },
     );
     await user.click(gokuSuggestion);
-
     await user.click(submitBtn);
 
-    await waitFor(() => {
-      expect(mockAddGuess).toHaveBeenCalledWith(
-        expect.objectContaining({ slug: "goku" }),
-      );
-    });
+    await waitFor(
+      () => {
+        expect(mockAddGuess).toHaveBeenCalledWith(
+          expect.objectContaining({ slug: "goku" }),
+        );
+      },
+      { timeout: 1000 },
+    );
 
     // 3. VERIFY WIN
     await waitFor(() => expect(mockWonGame).toHaveBeenCalled(), {
-      timeout: 5000,
+      timeout: 1000,
     });
-  }, 15000);
+  }, 8000); // Performance: Further reduced test timeout
 });

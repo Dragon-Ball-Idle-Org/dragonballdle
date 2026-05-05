@@ -40,7 +40,7 @@ describe("useGuesses", () => {
       } as any);
     });
 
-    expect(result.current.guesses.length).toBe(1);
+    expect(result.current.guesses).toHaveLength(1);
     expect(result.current.guesses[0].slug).toBe("goku");
     expect(storageUtils.setWithExpiry).toHaveBeenCalled();
   });
@@ -53,12 +53,9 @@ describe("useGuesses", () => {
 
     act(() => {
       result.current.addGuess(goku);
+      result.current.addGuess(goku); // Performance: Combine calls
     });
 
-    act(() => {
-      result.current.addGuess(goku);
-    });
-
-    expect(result.current.guesses.length).toBe(1);
+    expect(result.current.guesses).toHaveLength(1);
   });
 });

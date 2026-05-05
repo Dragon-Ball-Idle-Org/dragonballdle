@@ -2,84 +2,87 @@ import "@testing-library/jest-dom";
 import "fake-indexeddb/auto";
 import { vi } from "vitest";
 
-// Mock next-intl
-vi.mock("next-intl", () => {
-  return {
-    useTranslations: () => (key: string) => key,
-    useLocale: () => "en-US",
-  };
+// Performance: Cache expensive mocks
+const createMockRouter = () => ({
+  push: vi.fn(),
+  replace: vi.fn(),
+  prefetch: vi.fn(),
+  back: vi.fn(),
 });
 
-// Fast-forward game win timeout
+const createMockSupabaseClient = () => ({
+  from: vi.fn().mockReturnThis(),
+  select: vi.fn().mockReturnThis(),
+  insert: vi.fn().mockReturnThis(),
+  update: vi.fn().mockReturnThis(),
+  eq: vi.fn().mockReturnThis(),
+  single: vi.fn().mockReturnThis(),
+  removeChannel: vi.fn(),
+  rpc: vi.fn().mockReturnThis(),
+  functions: {
+    invoke: vi.fn().mockResolvedValue({ data: {}, error: null }),
+  },
+  channel: vi.fn(() => ({
+    on: vi.fn().mockReturnThis(),
+    subscribe: vi.fn(),
+    unsubscribe: vi.fn(),
+  })),
+});
+
+// Mock next-intl
+vi.mock("next-intl", () => ({
+  useTranslations: () => (key: string) => key,
+  useLocale: () => "en-US",
+}));
+
+// Performance: Aggressive timeout fast-forwarding
 const originalSetTimeout = global.setTimeout;
 vi.stubGlobal("setTimeout", (cb: TimerHandler, ms?: number) => {
-  if (ms === 2700) return originalSetTimeout(cb, 0);
+  // Fast-forward all common timeouts
+  if (ms === 2700 || ms === 100 || ms === 200 || ms === 300 || ms === 500)
+    return originalSetTimeout(cb, 0);
+  // Reduce other timeouts significantly
+  if (ms && ms > 1000) return originalSetTimeout(cb, 100);
   return originalSetTimeout(cb, ms);
 });
 
-// Mock next/navigation
-vi.mock("next/navigation", () => {
-  return {
-    useRouter: () => ({
-      push: vi.fn(),
-      replace: vi.fn(),
-      prefetch: vi.fn(),
-      back: vi.fn(),
-    }),
-    usePathname: () => "/",
-    useSearchParams: () => new URLSearchParams(),
-    notFound: vi.fn(),
-  };
+// Performance: Fast-forward setInterval too
+const originalSetInterval = global.setInterval;
+vi.stubGlobal("setInterval", (cb: TimerHandler, ms?: number) => {
+  if (ms && ms > 100) return originalSetInterval(cb, 10);
+  return originalSetInterval(cb, ms);
 });
+
+// Mock next/navigation
+vi.mock("next/navigation", () => ({
+  useRouter: createMockRouter,
+  usePathname: () => "/",
+  useSearchParams: () => new URLSearchParams(),
+  notFound: vi.fn(),
+}));
 
 // Mock next-intl navigation wrappers
-vi.mock("@/i18n/navigation", () => {
-  return {
-    useRouter: () => ({
-      push: vi.fn(),
-      replace: vi.fn(),
-      prefetch: vi.fn(),
-      back: vi.fn(),
-    }),
-    usePathname: () => "/",
-    Link: "a",
-  };
-});
+vi.mock("@/i18n/navigation", () => ({
+  useRouter: createMockRouter,
+  usePathname: () => "/",
+  Link: "a",
+}));
 
 // Mock Supabase
-vi.mock("@supabase/ssr", () => {
-  return {
-    createBrowserClient: vi.fn(() => ({
-      from: vi.fn().mockReturnThis(),
-      select: vi.fn().mockReturnThis(),
-      insert: vi.fn().mockReturnThis(),
-      update: vi.fn().mockReturnThis(),
-      eq: vi.fn().mockReturnThis(),
-      single: vi.fn().mockReturnThis(),
-      removeChannel: vi.fn(),
-      rpc: vi.fn().mockReturnThis(),
-      functions: {
-        invoke: vi.fn().mockResolvedValue({ data: {}, error: null }),
-      },
-      channel: vi.fn(() => ({
-        on: vi.fn().mockReturnThis(),
-        subscribe: vi.fn(),
-        unsubscribe: vi.fn(),
-      })),
-    })),
-  };
-});
+vi.mock("@supabase/ssr", () => ({
+  createBrowserClient: vi.fn(createMockSupabaseClient),
+}));
 
 // Mock next/image
 vi.mock("next/image", () => ({
   __esModule: true,
-  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-    return <img alt="" {...props} />;
-  },
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    <img alt="" {...props} />
+  ),
 }));
 
-// Mock Audio
-global.Audio = vi.fn().mockImplementation(() => ({
+// Performance: Simplified Audio mock
+const mockAudio = {
   play: vi.fn().mockResolvedValue(undefined),
   pause: vi.fn(),
   addEventListener: vi.fn(),
@@ -88,7 +91,9 @@ global.Audio = vi.fn().mockImplementation(() => ({
   currentTime: 0,
   duration: 0,
   playbackRate: 1,
-})) as unknown as typeof Audio;
+};
+
+global.Audio = vi.fn(() => mockAudio) as unknown as typeof Audio;
 
 if (typeof window !== "undefined") {
   window.HTMLMediaElement.prototype.play = vi.fn().mockResolvedValue(undefined);
@@ -96,21 +101,22 @@ if (typeof window !== "undefined") {
   window.HTMLMediaElement.prototype.load = vi.fn();
 }
 
-// Disable framer-motion animations
+// Performance: Optimized framer-motion mock
 vi.mock("framer-motion", async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>;
+  const motionDiv = (props: { children?: React.ReactNode }) => {
+    const { children, ...rest } = props;
+    return <div {...rest}>{children}</div>;
+  };
+
   return {
     ...actual,
-    motion: new Proxy(actual.motion as Record<string, unknown>, {
-      get: (_target, key: string) => {
-        if (key === "custom") return (actual.motion as any).custom;
-        return (props: { children?: React.ReactNode }) => {
-          const { ...rest } = props;
-          return <div {...rest} data-framer-key={key} />;
-        };
-      },
-    }),
+    motion: {
+      div: motionDiv,
+      span: motionDiv,
+      button: motionDiv,
+      // Add more as needed
+    },
     AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
   };
 });
-

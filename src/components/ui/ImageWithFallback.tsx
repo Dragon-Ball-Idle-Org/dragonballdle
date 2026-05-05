@@ -9,13 +9,23 @@ export function ImageWithFallback(props: ImageProps) {
   });
 
   return (
-    <Image
-      {...props}
-      src={src}
-      alt={props.alt || ""}
-      onLoad={onLoad}
-      onError={onError}
-      className={cn(isLoading && "animate-pulse", props.className)}
-    />
+    <div className="relative contain-paint">
+      <Image
+        {...props}
+        src={src}
+        alt={props.alt || ""}
+        onLoad={onLoad}
+        onError={onError}
+        className={cn(isLoading && "animate-pulse", props.className)}
+        sizes={props.sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+        style={{
+          ...props.style,
+          contain: 'layout'
+        }}
+      />
+      {isLoading && (
+        <div className="absolute inset-0 bg-gray-200/20 animate-pulse contain-layout" />
+      )}
+    </div>
   );
 }

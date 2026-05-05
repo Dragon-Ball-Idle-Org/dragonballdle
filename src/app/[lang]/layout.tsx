@@ -14,13 +14,16 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { BottomNavBar } from "@/components/mobile/BottomNavBar";
 import { ChangelogTrigger } from "@/components/shared/ChangelogTrigger";
 import RootClientLayout from "./layout.client";
-import { ResponsiveAdsTerraBannerHorizontal } from "@/components/ads/ResponsiveAdsTerraBannerHorizontal";
+import { EzoicScripts } from "@/components/ads/EzoicScripts";
+// import { ResponsiveAdsTerraBannerHorizontal } from "@/components/ads/ResponsiveAdsTerraBannerHorizontal";
 
 import "../globals.css";
 
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
   fallback: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
   adjustFontFallback: false,
 });
@@ -29,11 +32,14 @@ const bangers = Bangers({
   variable: "--font-bangers",
   weight: ["400"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
   fallback: ["system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
 });
 
@@ -94,6 +100,21 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
+        <EzoicScripts />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href={process.env.NEXT_PUBLIC_CDN_BASE_URL} />
+        <link rel="dns-prefetch" href="https://*.supabase.co" />
+        <link
+          rel="preload"
+          href="/assets/baba-icon.svg"
+          as="image"
+          type="image/svg+xml"
+        />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
       </head>
@@ -110,9 +131,9 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         <Providers locale={lang}>
           <h1 className="hidden">DragonBallDle</h1>
           <RootClientLayout>{children}</RootClientLayout>
-          <div className="w-full flex justify-center my-4">
+          {/* <div className="w-full flex justify-center my-4">
             <ResponsiveAdsTerraBannerHorizontal testId="adsterra-container-footer" />
-          </div>
+          </div> */}
           <Footer />
           <ChangelogTrigger
             latestVersion={tChangelog("latestVersion")}

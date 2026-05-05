@@ -36,6 +36,7 @@ export function MartialArtsGameButton({
         "background-dragon-texture",
         "cursor-pointer transition-all hover:scale-105 sm:hover:scale-110",
         "relative before:absolute before:content-[''] before:inset-0 before:border-24 before:border-transparent before:pointer-events-none before:[border-image:url('/assets/dragon-border.svg')_500_stretch] before:z-1",
+        "gpu-accelerated contain-layout"
       )}
     >
       <div className="px-2 sm:px-5">{icon}</div>
@@ -108,7 +109,7 @@ function WinsCounter({
         )}
       </motion.div>
 
-      <div className="relative min-w-[80px]">
+      <div className="relative min-w-20">
         <AnimatePresence mode="wait">
           {isLoading ? (
             <motion.div
@@ -183,7 +184,7 @@ export function MartialArtsGameButtonDisabled({
             backfaceVisibility: "hidden",
           }}
         >
-          <div className="flex justify-between w-full max-w-[210px] px-10 -mb-3.5 relative z-10 pointer-events-none">
+          <div className="flex justify-between w-full max-w-52.5 px-10 -mb-3.5 relative z-10 pointer-events-none">
             <MartialArtsChain />
             <MartialArtsChain />
           </div>
@@ -191,7 +192,7 @@ export function MartialArtsGameButtonDisabled({
           <div className="flex items-center justify-center w-full py-1 px-2">
             <div
               className={cn(
-                "relative bg-[#ffcc00] px-8 py-3 min-w-[250px] text-center",
+                "relative bg-[#ffcc00] px-8 py-3 min-w-62.5 text-center",
                 "border-[6px] border-red-light shadow-[0_12px_40px_rgba(0,0,0,0.6)]",
                 "rounded-sm",
                 "bg-radial-[circle_at_center,var(--tw-gradient-stops)] from-[#ffcc00] via-[#ffb900] to-[#ffa000]",
