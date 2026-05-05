@@ -1,51 +1,68 @@
 import { render, screen, act } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { SplashScreen, SplashScreenUI } from "../../SplashScreen";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { SplashScreen } from "../../SplashScreen";
 
 describe("SplashScreen", () => {
   beforeEach(() => {
     vi.useFakeTimers();
   });
 
-  afterEach(() => {
-    vi.useRealTimers();
-  });
-
   it("should render the loading image initially", () => {
-    render(<SplashScreenUI loaded={false} />);
-    
+    render(<SplashScreen />);
+
     const loadingImg = screen.getByAltText("Loading...");
     expect(loadingImg).toBeInTheDocument();
-    
-    // Ensure the container does not have opacity-0 when not loaded
+
+    // Ensure the container has opacity-100 initially (loaded state is false by default)
     const container = document.getElementById("app-loading");
     expect(container).toHaveClass("opacity-100");
     expect(container).not.toHaveClass("opacity-0");
   });
 
-  it("should fade out when loaded is true", () => {
-    render(<SplashScreenUI loaded={true} />);
-    
+  it("should fade out when page is loaded", () => {
+    // Mock document.readyState as "loading" initially
+    Object.defineProperty(document, "readyState", {
+      value: "loading",
+      configurable: true,
+    });
+
+    render(<SplashScreen />);
+
+    // Initially should be visible
     const container = document.getElementById("app-loading");
+    expect(container).toHaveClass("opacity-100");
+    expect(container).not.toHaveClass("opacity-0");
+
+    // Simulate page load event
+    act(() => {
+      window.dispatchEvent(new Event("load"));
+    });
+
+    // Should fade out after load
     expect(container).toHaveClass("opacity-0");
     expect(container).toHaveClass("pointer-events-none");
   });
 
-  it("SplashScreen stateful component handles load event", () => {
-    // Mock document.readyState
+  it("SplashScreen stateful component handles complete readyState", () => {
+    // Mock document.readyState as "complete"
     Object.defineProperty(document, "readyState", {
       value: "complete",
       configurable: true,
     });
 
     render(<SplashScreen />);
-    
-    // Fast forward the setTimeout(handleLoad, 0)
+
+    // Initially should be visible (timeout hasn't fired yet)
+    const container = document.getElementById("app-loading");
+    expect(container).toHaveClass("opacity-100");
+    expect(container).not.toHaveClass("opacity-0");
+
+    // Fast forward the setTimeout(handleLoad, 100)
     act(() => {
-      vi.runAllTimers();
+      vi.advanceTimersByTime(100);
     });
 
-    const container = document.getElementById("app-loading");
+    // Should fade out after timeout
     expect(container).toHaveClass("opacity-0");
   });
 });

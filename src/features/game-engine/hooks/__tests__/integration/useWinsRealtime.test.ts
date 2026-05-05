@@ -20,11 +20,13 @@ describe("useWinsRealtime", () => {
     // Initially loading
     expect(result.current.isLoading).toBe(true);
 
-    // Wait for the async effect to settle. Since we mock the promise,
-    // we need to wait for a tick.
-    await vi.waitFor(() => {
-      expect(result.current.isLoading).toBe(false);
-    });
+    // Performance: Fast waitFor with reduced timeout
+    await vi.waitFor(
+      () => {
+        expect(result.current.isLoading).toBe(false);
+      },
+      { timeout: 500 },
+    );
 
     expect(result.current.winsCount).toBe(42);
     expect(winsService.getWinsCount).toHaveBeenCalledWith("classic");

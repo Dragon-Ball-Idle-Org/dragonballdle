@@ -2,13 +2,13 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { useState, useEffect } from "react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import { SilhouetteGameBoard } from "@/features/silhouette/components/SilhouetteGameBoard";
 import { GuessesContext } from "@/features/game-engine/contexts/GuessesContext";
 import { GameContext } from "@/features/game-engine/contexts/GameContext";
 import { TranslationProvider } from "@/contexts/TranslationContext";
-import * as charactersService from "@/features/game-engine/services/characters";
 
+// Performance: Use inline mocks to avoid hoisting issues
 vi.mock("@/features/game-engine/services/characters", () => ({
   getCharacterBySlug: vi.fn(),
 }));
@@ -47,7 +47,6 @@ vi.mock("@/contexts/TranslationContext", () => ({
 // Mock ScrambleText to avoid its internal logic/Audio
 vi.mock("@/components/ui/ScrambleText", () => ({
   ScrambleText: ({ text, onScrambleEnd, animate }: any) => {
-
     useEffect(() => {
       if (animate) {
         const timer = setTimeout(() => onScrambleEnd?.(), 10);
@@ -55,23 +54,32 @@ vi.mock("@/components/ui/ScrambleText", () => ({
       }
     }, [animate, onScrambleEnd]);
     return <span>{text}</span>;
-  }
+  },
 }));
 
 // Mock the complex Autocomplete field
-vi.mock("@/features/silhouette/components/CapsuleCorp/CapsuleCorpAutocompleteField", () => ({
-  CapsuleCorpAutocompleteField: ({ onChange, onSelect, suggestions }: any) => (
-    <div>
-      <input
-        placeholder="Search character..."
-        onChange={(e) => onChange(e.target.value)}
-      />
-      {suggestions.map((s: any) => (
-        <button key={s.id} onClick={() => onSelect(s.id)}>{s.name}</button>
-      ))}
-    </div>
-  )
-}));
+vi.mock(
+  "@/features/silhouette/components/CapsuleCorp/CapsuleCorpAutocompleteField",
+  () => ({
+    CapsuleCorpAutocompleteField: ({
+      onChange,
+      onSelect,
+      suggestions,
+    }: any) => (
+      <div>
+        <input
+          placeholder="Search character..."
+          onChange={(e) => onChange(e.target.value)}
+        />
+        {suggestions.map((s: any) => (
+          <button key={s.id} onClick={() => onSelect(s.id)}>
+            {s.name}
+          </button>
+        ))}
+      </div>
+    ),
+  }),
+);
 
 // Mock the image viewer to verify guessCount
 vi.mock("@/features/silhouette/components/SilhouetteImageViewer", () => ({
@@ -89,13 +97,21 @@ const mockDailyCharacter = {
 vi.mock("@/features/game-engine/hooks/useCharacterSearch", () => ({
   useCharacterSearch: (query: string) => {
     if (query === "veg") {
-      return { results: [{ slug: "vegeta", name: "Vegeta", thumb_path: "/vegeta.png" }], isLoading: false };
+      return {
+        results: [
+          { slug: "vegeta", name: "Vegeta", thumb_path: "/vegeta.png" },
+        ],
+        isLoading: false,
+      };
     }
     if (query === "goku") {
-      return { results: [{ slug: "goku", name: "Goku", thumb_path: "/goku.png" }], isLoading: false };
+      return {
+        results: [{ slug: "goku", name: "Goku", thumb_path: "/goku.png" }],
+        isLoading: false,
+      };
     }
     return { results: [], isLoading: false };
-  }
+  },
 }));
 
 describe("SilhouetteGameBoard Integration", () => {
@@ -108,27 +124,30 @@ describe("SilhouetteGameBoard Integration", () => {
     mockWonGame = vi.fn();
   });
 
-  afterEach(() => {
-    vi.useRealTimers();
-  });
-
   it("should handle a full game flow: incorrect guess, then winning guess", async () => {
-    const user = userEvent.setup();
+    // Performance: Fast userEvent with no delays
+    const user = userEvent.setup({ delay: null });
 
     // Use a stateful wrapper to handle guesses update correctly within the test
     const TestWrapper = () => {
       const [guesses, setGuesses] = useState<any[]>([]);
       return (
         <TranslationProvider translations={{} as any}>
-          <GameContext.Provider value={{ isGameWon: false, wonGame: mockWonGame } as any}>
-            <GuessesContext.Provider value={{
-              guesses,
-              addGuess: (g: any) => {
-                setGuesses(prev => [...prev, g]);
-                mockAddGuess(g);
-              },
-              hydrated: true
-            } as any}>
+          <GameContext.Provider
+            value={{ isGameWon: false, wonGame: mockWonGame } as any}
+          >
+            <GuessesContext.Provider
+              value={
+                {
+                  guesses,
+                  addGuess: (g: any) => {
+                    setGuesses((prev) => [...prev, g]);
+                    mockAddGuess(g);
+                  },
+                  hydrated: true,
+                } as any
+              }
+            >
               <SilhouetteGameBoard dailyCharacter={mockDailyCharacter} />
             </GuessesContext.Provider>
           </GameContext.Provider>
@@ -144,7 +163,9 @@ describe("SilhouetteGameBoard Integration", () => {
     expect(screen.getByTestId("image-viewer")).toHaveTextContent("Guesses: 0");
 
     // 1. INCORRECT GUESS (Vegeta)
-    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce({
+    const { getCharacterBySlug } =
+      await import("@/features/game-engine/services/characters");
+    vi.mocked(getCharacterBySlug).mockResolvedValueOnce({
       slug: "vegeta",
       name: "Vegeta",
       thumb_path: "/vegeta.png",
@@ -154,46 +175,66 @@ describe("SilhouetteGameBoard Integration", () => {
     await user.click(await screen.findByText("Vegeta"));
     await user.click(submitBtn);
 
-    await waitFor(() => {
-      expect(screen.getByTestId("image-viewer")).toHaveTextContent("Guesses: 1");
-    });
+    await waitFor(
+      () => {
+        expect(screen.getByTestId("image-viewer")).toHaveTextContent(
+          "Guesses: 1",
+        );
+      },
+      { timeout: 1500 },
+    );
     expect(screen.getByText("Vegeta")).toBeInTheDocument();
 
     // 2. WINNING GUESS (Goku)
-    vi.mocked(charactersService.getCharacterBySlug).mockResolvedValueOnce(mockDailyCharacter);
-
+    const { getCharacterBySlug: getCharacterBySlug2 } =
+      await import("@/features/game-engine/services/characters");
+    vi.mocked(getCharacterBySlug2).mockResolvedValueOnce(mockDailyCharacter);
     await user.clear(input);
     await user.type(input, "goku");
-    await user.click(await screen.findByText("Goku"));
+    await user.click(await screen.findByText("Goku", {}, { timeout: 1500 }));
     await user.click(submitBtn);
 
-    await waitFor(() => {
-      expect(screen.getByTestId("image-viewer")).toHaveTextContent("Guesses: 2");
-    });
+    await waitFor(
+      () => {
+        expect(screen.getByTestId("image-viewer")).toHaveTextContent(
+          "Guesses: 2",
+        );
+      },
+      { timeout: 1500 },
+    );
 
     // Scramble animation is mocked to finish immediately in our ScrambleText mock
-    await waitFor(() => {
-      expect(mockWonGame).toHaveBeenCalled();
-    });
+    await waitFor(
+      () => {
+        expect(mockWonGame).toHaveBeenCalled();
+      },
+      { timeout: 1500 },
+    );
   });
 
   it("should initialize correctly from hydrated guesses", async () => {
     const existingGuesses = [
-      { slug: "vegeta", name: "Vegeta", thumb_path: "/vegeta.png" }
+      { slug: "vegeta", name: "Vegeta", thumb_path: "/vegeta.png" },
     ];
 
     render(
       <TranslationProvider translations={{} as any}>
-        <GameContext.Provider value={{ isGameWon: false, wonGame: mockWonGame } as any}>
-          <GuessesContext.Provider value={{
-            guesses: existingGuesses,
-            addGuess: mockAddGuess,
-            hydrated: true
-          } as any}>
+        <GameContext.Provider
+          value={{ isGameWon: false, wonGame: mockWonGame } as any}
+        >
+          <GuessesContext.Provider
+            value={
+              {
+                guesses: existingGuesses,
+                addGuess: mockAddGuess,
+                hydrated: true,
+              } as any
+            }
+          >
             <SilhouetteGameBoard dailyCharacter={mockDailyCharacter} />
           </GuessesContext.Provider>
         </GameContext.Provider>
-      </TranslationProvider>
+      </TranslationProvider>,
     );
 
     expect(screen.getByTestId("image-viewer")).toHaveTextContent("Guesses: 1");
