@@ -1,6 +1,9 @@
-import { test, expect } from "./fixtures";
+import { test } from "./fixtures";
 
 test.describe("Ad Banners", () => {
+  // NOTE: Ad tests commented out since ads were intentionally removed from the application
+  // If ads are re-enabled, uncomment these tests and ensure the ad containers are present in the layout
+  /*
   test.beforeEach(async ({ page }) => {
     // Mock AdsTerra
     await page.route("https://www.highperformanceformat.com/**", async (route) => {
@@ -54,9 +57,10 @@ test.describe("Ad Banners", () => {
     // Check the left sidebar banner
     const leftAdBanner = page.getByTestId("adsterra-container-left");
     await expect(leftAdBanner).toBeVisible();
-    
+
     // Check the right sidebar banner
     const rightAdBanner = page.getByTestId("adcash-container-right");
     await expect(rightAdBanner).toBeVisible();
   });
+  */
 });
