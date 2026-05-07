@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Novità",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Indicatore film e stabilità",
+        "items": [
+          "Aggiunti indicatori visivi per distinguere i personaggi dei film",
+          "Migliorata la stabilità del sito e le prestazioni di caricamento degli annunci",
+          "Risolti problemi con il conteggio delle vincite e il salvataggio dei progressi di gioco",
+          "Caricamento del gioco ottimizzato per connessioni più lente"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",

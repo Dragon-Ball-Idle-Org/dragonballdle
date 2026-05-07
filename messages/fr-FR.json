@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Quoi de neuf ?",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Indicateur de film et stabilité",
+        "items": [
+          "Ajout d'indicateurs visuels pour distinguer les personnages des films",
+          "Amélioration de la stabilité du site et des performances de chargement des publicités",
+          "Correction des problèmes liés au comptage des victoires et à la sauvegarde de la progression du jeu",
+          "Chargement du jeu optimisé pour les connexions plus lentes"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",

@@ -2,35 +2,40 @@ import { CORS_HEADERS } from "./cors.ts";
 import { verify } from "djwt";
 
 export function getApiKey(req: Request): string | null {
-  return req.headers.get("apiKey") || req.headers.get("x-api-key");
+  return req.headers.get("apiKey") || req.headers.get("x-api-key") || req.headers.get("apikey");
 }
 
 export async function isAuthorized(req: Request): Promise<boolean> {
   const apiKey = getApiKey(req);
-  const jwtSecret = Deno.env.get("SUPABASE_JWT_SECRET");
-
-  if (!apiKey || !jwtSecret) {
-    console.error("[auth] Missing API Key or JWT Secret");
+  
+  if (!apiKey) {
+    console.error("[auth] No API Key provided in headers");
     return false;
   }
 
-  try {
-    const encoder = new TextEncoder();
-    const keyData = encoder.encode(jwtSecret);
-    const cryptoKey = await crypto.subtle.importKey(
-      "raw",
-      keyData,
-      { name: "HMAC", hash: "SHA-256" },
-      false,
-      ["verify"],
-    );
+  // 1. Check SUPABASE_PUBLISHABLE_KEYS (Modern JSON format)
+  const publishableKeysRaw = Deno.env.get("SUPABASE_PUBLISHABLE_KEYS");
+  if (publishableKeysRaw) {
+    try {
+      const keys = JSON.parse(publishableKeysRaw);
+      // The keys object usually has 'default' or project-specific keys
+      const allowedKeys = Object.values(keys);
+      if (allowedKeys.includes(apiKey)) {
+        return true;
+      }
+    } catch (err) {
+      console.error("[auth] Error parsing SUPABASE_PUBLISHABLE_KEYS:", err.message);
+    }
+  }
 
-    await verify(apiKey, cryptoKey);
+  // 2. Fallback to SUPABASE_ANON_KEY (Legacy format)
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+  if (anonKey && apiKey === anonKey) {
     return true;
-  } catch (err) {
-    console.error("[auth] JWT validation failed:", err.message);
-    return false;
   }
+
+  console.error("[auth] Unauthorized: API Key does not match any allowed keys");
+  return false;
 }
 
 export function unauthorizedResponse() {

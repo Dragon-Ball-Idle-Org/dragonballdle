@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Apa yang Baru",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Indikator Film & Stabilitas",
+        "items": [
+          "Menambahkan indikator visual untuk membedakan karakter dari film",
+          "Meningkatkan stabilitas situs dan performa pemuatan iklan",
+          "Memperbaiki masalah penghitungan kemenangan dan penyimpanan progres game",
+          "Pemuatan game yang dioptimalkan untuk koneksi yang lebih lambat"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",

@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Apa yang Baru",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Penunjuk Filem & Kestabilan",
+        "items": [
+          "Menambah penunjuk visual untuk membezakan watak daripada filem",
+          "Meningkatkan kestabilan tapak dan prestasi pemuatan iklan",
+          "Memperbaiki isu dengan pengiraan kemenangan dan penyimpanan kemajuan permainan",
+          "Pemuatan permainan yang dioptimalkan untuk sambungan yang lebih perlahan"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",
