@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Was gibt's Neues",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Filmanzeige & Stabilität",
+        "items": [
+          "Visuelle Indikatoren zur Unterscheidung von Filmcharakteren hinzugefügt",
+          "Stabilität der Website und Leistung beim Laden von Werbung verbessert",
+          "Probleme bei der Gewinnzählung und beim Speichern des Spielfortschritts behoben",
+          "Optimiertes Laden des Spiels für langsamere Verbindungen"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",

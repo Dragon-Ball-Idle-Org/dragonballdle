@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Có gì mới",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Chỉ số Phim & Độ ổn định",
+        "items": [
+          "Thêm chỉ số hình ảnh để phân biệt các nhân vật từ phim",
+          "Cải thiện độ ổn định của trang web và hiệu suất tải quảng cáo",
+          "Khắc phục sự cố đếm chiến thắng và lưu tiến trình trò chơi",
+          "Tối ưu hóa tải trò chơi cho các kết nối chậm hơn"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",

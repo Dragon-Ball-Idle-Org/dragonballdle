@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Yenilikler",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Film Göstergesi ve Kararlılık",
+        "items": [
+          "Film karakterlerini ayırt etmek için görsel göstergeler eklendi",
+          "Site kararlılığı ve reklam yükleme performansı iyileştirildi",
+          "Galibiyet sayımı ve oyun ilerleme kaydı ile ilgili sorunlar giderildi",
+          "Yavaş bağlantılar için optimize edilmiş oyun yüklemesi"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",

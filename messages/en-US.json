@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "What's New",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Movie Indicator & Stability",
+        "items": [
+          "Added visual indicators to distinguish characters from movies",
+          "Improved site stability and ad loading performance",
+          "Fixed issues with win counting and game progress saving",
+          "Optimized game loading for slower connections"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",

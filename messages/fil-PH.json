@@ -185,8 +185,19 @@
   },
   "changelog": {
     "title": "Anong Bago",
-    "latestVersion": "1.1.0",
+    "latestVersion": "1.1.1",
     "versions": [
+      {
+        "id": "1.1.1",
+        "date": "2026-05-07",
+        "title": "Indicator ng Pelikula at Stability",
+        "items": [
+          "Nagdagdag ng mga visual indicator para makilala ang mga character mula sa mga pelikula",
+          "Pinabuting stability ng site at performance ng pag-load ng ad",
+          "Inayos ang mga isyu sa pagbibilang ng panalo at pag-save ng progress ng laro",
+          "Optimized na pag-load ng laro para sa mas mabagal na koneksyon"
+        ]
+      },
       {
         "id": "1.1.0",
         "date": "2026-04-26",
