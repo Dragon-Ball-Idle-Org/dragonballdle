@@ -1,10 +1,11 @@
 import { CORS_HEADERS } from "./cors.ts";
+import { verify } from "djwt";
 
 export function getApiKey(req: Request): string | null {
   return req.headers.get("apiKey") || req.headers.get("x-api-key") || req.headers.get("apikey");
 }
 
-export function isAuthorized(req: Request): boolean {
+export async function isAuthorized(req: Request): Promise<boolean> {
   const apiKey = getApiKey(req);
   
   if (!apiKey) {

@@ -12,7 +12,7 @@ Deno.serve(async (req) => {
     return methodNotAllowedResponse();
   }
 
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return unauthorizedResponse();
   }
 
