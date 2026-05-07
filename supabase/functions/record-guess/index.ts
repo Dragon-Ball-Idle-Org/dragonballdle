@@ -12,7 +12,7 @@ Deno.serve(async (req) => {
     return methodNotAllowedResponse();
   }
 
-  if (!(await isAuthorized(req))) {
+  if (!isAuthorized(req)) {
     return unauthorizedResponse();
   }
 
@@ -31,8 +31,18 @@ Deno.serve(async (req) => {
       return Response.json({ error: "invalid guess_count" }, { status: 400, headers: CORS_HEADERS });
     }
 
-    const secretKeys = Deno.env.get("SUPABASE_SECRET_KEYS")?.split(",") ?? [];
-    const secretKey = secretKeys[0] || Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    const secretKeysRaw = Deno.env.get("SUPABASE_SECRET_KEYS");
+    let secretKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+
+    if (secretKeysRaw) {
+      try {
+        const keys = JSON.parse(secretKeysRaw);
+        secretKey = Object.values(keys)[0] as string;
+      } catch {
+        // Fallback for comma-separated or single string
+        secretKey = secretKeysRaw.split(",")[0];
+      }
+    }
 
     if (!secretKey) {
       throw new Error("Missing secret key for database operations");
