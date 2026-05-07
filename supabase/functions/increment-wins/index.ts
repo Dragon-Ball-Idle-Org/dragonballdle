@@ -12,7 +12,7 @@ Deno.serve(async (req) => {
     return methodNotAllowedResponse();
   }
 
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return unauthorizedResponse();
   }
 
@@ -30,9 +30,16 @@ Deno.serve(async (req) => {
       );
     }
 
+    const secretKeys = Deno.env.get("SUPABASE_SECRET_KEYS")?.split(",") ?? [];
+    const secretKey = secretKeys[0] || Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+
+    if (!secretKey) {
+      throw new Error("Missing secret key for database operations");
+    }
+
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+      secretKey,
     );
 
     const { data, error } = await supabase.rpc("increment_wins", {
