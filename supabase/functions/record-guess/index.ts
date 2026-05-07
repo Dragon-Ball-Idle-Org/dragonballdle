@@ -1,32 +1,19 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
-const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers":
-    "Content-Type, Authorization, apikey, x-client-info",
-};
-
-const ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY");
-const VALID_GAME_MODES = ["classic", "silhouette"] as const;
-type GameMode = (typeof VALID_GAME_MODES)[number];
+import { createClient } from "@supabase/supabase-js";
+import { CORS_HEADERS } from "../_shared/cors.ts";
+import { isAuthorized, unauthorizedResponse, methodNotAllowedResponse } from "../_shared/auth.ts";
+import { VALID_GAME_MODES, GameMode } from "../_shared/types.ts";
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
-    return new Response(null, {
-      status: 204,
-      headers: CORS_HEADERS,
-    });
+    return new Response(null, { status: 204, headers: CORS_HEADERS });
   }
 
   if (req.method !== "POST") {
-    return Response.json({ error: "method not allowed" }, { status: 405, headers: CORS_HEADERS });
+    return methodNotAllowedResponse();
   }
 
-  const authHeader = req.headers.get("Authorization");
-  const token = authHeader?.replace("Bearer ", "");
-  if (token !== ANON_KEY) {
-    return Response.json({ error: "unauthorized" }, { status: 401, headers: CORS_HEADERS });
+  if (!isAuthorized(req)) {
+    return unauthorizedResponse();
   }
 
   try {
@@ -45,8 +32,8 @@ Deno.serve(async (req) => {
     }
 
     const supabase = createClient(
-      Deno.env.get("SUPABASE_URL"),
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
     const { data, error } = await supabase.rpc("record_guess", {

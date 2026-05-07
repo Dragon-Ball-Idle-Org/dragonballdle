@@ -1,0 +1,10 @@
+[functions.increment-wins]
+verify_jwt = false
+
+[functions.record-guess]
+verify_jwt = false
+
+[functions.populate-daily]
+verify_jwt = true
+# populate-daily needs a longer timeout as it checks assets and populates 90 days
+# timeout = 30 # (optional, default is 10s or 60s depending on plan)
