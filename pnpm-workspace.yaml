@@ -1,6 +1,5 @@
 packages:
-  - '.'
-
+  - "."
 allowBuilds:
   '@parcel/watcher': true
   '@sentry/cli': true
@@ -9,14 +8,3 @@ allowBuilds:
   sharp: true
   supabase: true
   unrs-resolver: true
-
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@sentry/cli'
-  - '@swc/core'
-  - esbuild
-  - supabase
