@@ -14,8 +14,6 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { BottomNavBar } from "@/components/mobile/BottomNavBar";
 import { ChangelogTrigger } from "@/components/shared/ChangelogTrigger";
 import RootClientLayout from "./layout.client";
-import { EzoicScripts } from "@/components/ads/EzoicScripts";
-// import { ResponsiveAdsTerraBannerHorizontal } from "@/components/ads/ResponsiveAdsTerraBannerHorizontal";
 
 import "../globals.css";
 
@@ -100,7 +98,6 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
-        <EzoicScripts />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -131,9 +128,6 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         <Providers locale={lang}>
           <h1 className="hidden">DragonBallDle</h1>
           <RootClientLayout>{children}</RootClientLayout>
-          {/* <div className="w-full flex justify-center my-4">
-            <ResponsiveAdsTerraBannerHorizontal testId="adsterra-container-footer" />
-          </div> */}
           <Footer />
           <ChangelogTrigger
             latestVersion={tChangelog("latestVersion")}
